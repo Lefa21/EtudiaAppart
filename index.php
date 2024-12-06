@@ -1,25 +1,25 @@
 <?php
-require_once 'connexion.php';
-require_once 'vue_generique.php';
+require_once "connexion.php";
+require_once "vue_generique.php";
 
 session_start();
 
 Connexion::initConnexion();
 
 // permet de récuperer le module choisi par l'utilisateur
-$module = $_GET['module'] ?? 'home';
+$module = $_GET["module"] ?? "home";
 
-$moduleClass = '';
-$moduleFile = '';
+$moduleClass = "";
+$moduleFile = "";
 
 switch ($module) {
-    case 'home':
-        $moduleFile = './modules/home/module_home.php';
-        $moduleClass = 'ModuleHome';
+    case "home":
+        $moduleFile = "./modules/home/module_home.php";
+        $moduleClass = "ModuleHome";
         break;
-    case 'connexion':
-        $moduleFile = './modules/connexion/module_connexion.php';
-        $moduleClass = 'ModConnexion';
+    case "connexion":
+        $moduleFile = "./modules/connexion/module_connexion.php";
+        $moduleClass = "ModConnexion";
         break;
 }
 
@@ -34,4 +34,6 @@ if (file_exists($moduleFile)) {
 
 $tampon = $moduleClass->displayContent();
 
-include_once 'template.php';
+include_once "template.php";
+
+include_once "template.php";
