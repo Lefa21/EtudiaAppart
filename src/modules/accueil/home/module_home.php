@@ -1,6 +1,6 @@
 <?php
 
-include_once 'controller_home.php';
+include_once "controller_home.php";
 
 class ModuleHome
 {
@@ -11,7 +11,7 @@ class ModuleHome
         $this->controller = new ControllerHome();
 
         switch ($this->controller->getAction()) {
-            case 'welcome':
+            case "welcome":
                 $this->controller->welcome();
         }
     }

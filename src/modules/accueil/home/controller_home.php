@@ -1,6 +1,6 @@
 <?php
 
-include_once 'vue_home.php';
+include_once "vue_home.php";
 
 class ControllerHome
 {
@@ -9,7 +9,7 @@ class ControllerHome
 
     public function __construct()
     {
-        $this->action = $_GET['action'] ?? "welcome";
+        $this->action = $_GET["action"] ?? "welcome";
         $this->vue = new VueHome();
     }
 
