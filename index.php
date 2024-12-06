@@ -7,9 +7,10 @@ session_start();
 Connexion::initConnexion();
 
 // permet de récuperer le module choisi par l'utilisateur
-$module = $_GET['module'] ?? 'home';
-$moduleClass = '';
-$moduleFile = '';
+$module = $_GET["module"] ?? "home";
+
+$moduleClass = "";
+$moduleFile = "";
 
 switch ($module) {
     case 'home':
