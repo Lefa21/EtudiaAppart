@@ -20,7 +20,7 @@
                 <li><a href="">A propos</a></li>
                 <li><a href="">Déposer une annonce</a></li>
                 <li><a href="">Connexion</a></li>
-                <li><a  class="right" href="#">Inscription</a></li>
+                <li><a class="right" href="#">Inscription</a></li>
             </ul>
         </nav>
     </header>
