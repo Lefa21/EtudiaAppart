@@ -1,7 +1,7 @@
 <?php
 
 
-include_once 'controller_connexion.php';
+require_once 'controller_connexion.php';
 
 class ModConnexion{
     private $controleur;
