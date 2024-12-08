@@ -3,7 +3,7 @@
 
 require_once 'modele_connexion.php';
 require_once 'vue_connexion.php';
-require_once 'connexion.php';
+require_once __DIR__  . '/../../connexion.php';
 
 class ContConnexion{
 
@@ -14,11 +14,11 @@ class ContConnexion{
     public function __construct(){
         $this->modele = new ModeleConnexion();
         $this->vue = new VueConnexion();
-        $this->action = isset($_GET['action'])? $_GET['action'] : 'connexion';
+        $this->action = isset($_GET['action'])? $_GET['action'] : 'formulaireConnexion';
     }
 
-    public function ajoutUtilisateur(){  
-        $this->modele->ajoutUtilisateur();
+    public function formulaireConnexion(){  
+        $this->vue->formulaireConnexion();
     }
     
 
@@ -29,12 +29,7 @@ class ContConnexion{
     public function deconnexionUtilisateur(){
         $this->modele->deconnexionUtilisateur();
     }
-
-    public function getVue(){
-        return $this->vue;
-    }
     
-
     public function getAction(){
         return $this->action;
     }

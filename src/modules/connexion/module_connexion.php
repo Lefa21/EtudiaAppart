@@ -8,12 +8,12 @@ class ModConnexion{
     public function __construct(){
         $this->controleur = new ContConnexion();
         switch($this->controleur->getAction()){
-            case 'inscription':
-                $this->controleur->ajoutUtilisateur();
+            case 'connexion':
+                $this->controleur->VerifConnexion();
                 break;
 
-            case 'connexion': 
-                $this->controleur->VerifConnexion();
+            case 'formulaireConnexion': 
+                $this->controleur->formulaireConnexion();
                 break;
             case 'deconnexion': 
                     $this->controleur->deconnexionUtilisateur();

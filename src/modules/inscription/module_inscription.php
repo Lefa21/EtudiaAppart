@@ -1,23 +1,20 @@
 <?php
 
 
-require_once 'controller_connexion.php';
+require_once 'controller_inscription.php';
 
 class ModInscription{
     private $controleur;
     public function __construct(){
         $this->controleur = new ContInscription();
         switch($this->controleur->getAction()){
-            case 'inscription':
-                $this->controleur->ajoutUtilisateur();
+            case 'formulaireInscription':
+                $this->controleur->formulaireInscription();
                 break;
 
-            case 'connexion': 
-                $this->controleur->VerifConnexion();
+            case 'inscription': 
+                $this->controleur->ajoutUtilisateur();
                 break;
-            case 'deconnexion': 
-                    $this->controleur->deconnexionUtilisateur();
-                break;    
         }
 
     } 

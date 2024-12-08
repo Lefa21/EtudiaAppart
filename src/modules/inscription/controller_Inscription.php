@@ -1,9 +1,10 @@
 <?php
 
 
-require_once 'modele_connexion.php';
-require_once 'vue_connexion.php';
-require_once 'connexion.php';
+require_once 'modele_inscription.php';
+require_once 'vue_inscription.php';
+require_once __DIR__  . '/../../connexion.php';
+
 
 class ContInscription{
 
@@ -12,13 +13,17 @@ class ContInscription{
     private $action;
 
     public function __construct(){
-        $this->modele = new ModeleConnexion();
-        $this->vue = new VueConnexion();
-        $this->action = isset($_GET['action'])? $_GET['action'] : 'inscription';
+        $this->modele = new ModeleInscription();
+        $this->vue = new VueInscription();
+        $this->action = isset($_GET['action'])? $_GET['action'] : 'formulaireInscription';
     }
 
-    public function ajoutUtilisateur(){  
+    public function ajoutUtilisateur(){
         $this->modele->ajoutUtilisateur();
+    }
+
+    public function formulaireInscription(){  
+        $this->vue->formulaireInscription();
     }
     
 
