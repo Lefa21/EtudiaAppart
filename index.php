@@ -21,6 +21,14 @@ switch ($module) {
         $moduleFile = './modules/connexion/module_connexion.php';
         $moduleClass = 'ModConnexion';
         break;
+    case 'annonce':
+        $moduleFile = './modules/annonce_student/module_annonce_student.php';
+        $moduleClass = 'ModuleAnnonceStudent';
+        break;
+    case 'account/records':
+        $moduleFile = './modules/account/records.php';
+        $moduleClass = 'ModuleRecords';
+        break;
 }
 
 if (file_exists($moduleFile)) {
