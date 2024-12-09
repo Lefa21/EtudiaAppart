@@ -1,6 +1,8 @@
 <?php
-require_once './src/connexion.php';
-require_once './src/vue_generique.php';
+require_once "./src/connexion.php";
+require_once "./src/vue_generique.php";
+
+ini_set('display_errors', 1);
 
 session_start();
 
@@ -13,9 +15,9 @@ $moduleClass = "";
 $moduleFile = "";
 
 switch ($module) {
-    case 'home':
-        $moduleFile = './src/modules/home/module_home.php';
-        $moduleClass = 'ModuleHome';
+    case "home":
+        $moduleFile = "./src/modules/home/module_home.php";
+        $moduleClass = "ModuleHome";
         break;
 
     case 'connexion':
@@ -23,9 +25,9 @@ switch ($module) {
         $moduleClass = 'ModConnexion';
         break;
 
-    case 'inscription':
-        $moduleFile = './src/modules/inscription/module_inscription.php';
-        $moduleClass = 'ModInscription';
+    case "inscription":
+        $moduleFile = "./src/modules/inscription/module_inscription.php";
+        $moduleClass = "ModInscription";
         break;
 
     case 'annonce':
@@ -50,4 +52,4 @@ if (file_exists($moduleFile)) {
 
 $tampon = $moduleClass->displayContent();
 
-include_once './src/template.php';
+include_once "./src/template.php";
