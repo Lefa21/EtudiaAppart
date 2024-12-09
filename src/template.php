@@ -25,7 +25,7 @@
             </ul>
         </nav>
     </header>
-
+    
     <main>
         <?php echo $tampon; ?>
     </main>
@@ -33,5 +33,6 @@
     <footer>
         <p>&copy; 2024 EtudiAppart. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
