@@ -168,3 +168,125 @@ form button {
 }
 
 
+/*-----------------------------------------------------------------------------------------------------*/
+/*----------------------------------------- ECOLES PARTENAIRES ----------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+
+
+
+.schools, .school_top_text{
+    margin-top: 100px;
+}
+
+/* styles.css */
+
+/* Conteneur principal */
+.image-slider {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Hauteur du conteneur principale à la hauteur de l'écran */
+    width: 100vw; /* Largeur complète de la page */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Défilement avec des arrêts fixes */
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; /* Transition fluide entre les sections */
+  }
+  
+  /* Chaque image-container */
+  .image-container {
+    position: relative;
+    width: 100vw; /* Largeur complète de la page */
+    height: 100vh; /* Hauteur complète de la page */
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+  }
+  
+  /* Image */
+  .image-container img {
+    width: 100%; /* L'image prend toute la largeur du conteneur */
+    height: 100%; /* L'image prend toute la hauteur du conteneur */
+    object-fit: cover; /* L'image remplit le conteneur sans déformation */
+  }
+  
+  /* Dégradé pour les images alternées */
+  
+  /* Première image (gauche à droite) */
+  .image-container:nth-child(odd) .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 90%); /* Dégradé à 90% */
+    z-index: 1; /* Assurer que le dégradé est au-dessus de l'image */
+  }
+  
+  /* Deuxième image (droite à gauche) */
+  .image-container:nth-child(even) .gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 90%); /* Dégradé à 90% */
+    z-index: 1; /* Assurer que le dégradé est au-dessus de l'image */
+  }
+  
+  /* Titre (positionné à gauche ou à droite selon l'orientation du dégradé) */
+/* Titre (positionné à gauche ou à droite selon l'orientation du dégradé) */
+.title {
+    position: absolute;
+    top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+    /* Si le dégradé est de gauche à droite (odd), titre à gauche */
+    left: 20px;
+    margin-right: 40px; /* Ajouter de la marge à droite pour les titres à gauche */
+    /* Si le dégradé est de droite à gauche (even), titre à droite */
+    right: 20px;
+  }
+  
+  /* Deuxième image (droite à gauche) : titre à droite */
+  .image-container:nth-child(even) .title {
+    left: auto; /* Désactive la position à gauche */
+    right: 20px; /* Positionne le titre à droite */
+  }
+  
+  
+  /* Deuxième image (droite à gauche) : titre à droite */
+  .image-container:nth-child(even) .title {
+    left: auto; /* Désactive la position à gauche */
+    right: 20px; /* Positionne le titre à droite */
+  }
+  
+  
+  /* Texte (positionné à gauche ou à droite selon l'orientation du dégradé) */
+  .text-overlay {
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    width: 400px; /* Largeur fixe du texte */
+    padding: 20px;
+    max-height: 100vh;
+    overflow-y: auto;  /* Ajoute une barre de défilement si nécessaire */
+    z-index: 10; /* Le texte doit être au-dessus du dégradé */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrer verticalement */
+  }
+  
+  /* Première image (gauche à droite) : texte à gauche */
+  .image-container:nth-child(odd) .text-overlay {
+    left: 20px; /* Démarre à l'extrémité gauche */
+  }
+  
+  /* Deuxième image (droite à gauche) : texte à droite */
+  .image-container:nth-child(even) .text-overlay {
+    right: 20px; /* Démarre à l'extrémité droite */
+  }
+  

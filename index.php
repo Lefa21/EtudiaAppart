@@ -25,6 +25,10 @@ switch ($module) {
         $moduleFile = './src/modules/inscription/module_inscription.php';
         $moduleClass = 'ModInscription';
         break;
+    case 'schools':
+        $moduleFile = './src/modules/schools/module_schools.php';
+        $moduleClass = 'ModuleSchools';
+        break;
 }
 
 if (file_exists($moduleFile)) {
