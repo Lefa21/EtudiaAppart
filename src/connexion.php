@@ -3,10 +3,10 @@
 class Connexion
 {
     protected static $bdd;
-    protected static $dbname = $_ENV["DBNAME"];
-    protected static $dbhost = $_ENV["DBHOST"];
-    protected static $dbuser = $_ENV["DBUSER"];
-    protected static $dbpasswd = $_ENV["DBPASSWORD"];
+    protected static $dbname = 'BVPJGNBH4f_etudiappar';
+    protected static $dbhost = 'herogu.garageisep.com';
+    protected static $dbuser = 'YhUz7DCG8d_etudiappar';
+    protected static $dbpasswd = 'IlSbC1L3sxvZkxVe';
 
     public function __construct()
     {

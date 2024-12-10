@@ -1,8 +1,6 @@
 <?php
-require_once "./src/connexion.php";
-require_once "./src/vue_generique.php";
-
-ini_set('display_errors', 1);
+require_once './src/connexion.php';
+require_once './src/vue_generique.php';
 
 session_start();
 
