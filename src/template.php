@@ -21,8 +21,8 @@
                 <ul>
                     <li><a id='aboutButton' href="">A propos</a></li>
                     <li><a href="">Déposer une annonce</a></li>
-                    <li><a id='loginButton' href="index.php?module=connexion&action=formulaireConnexion">Connexion</a></li>
-                    <li><a id='registerButton' href="index.php?module=inscription&action=formulaireInscription">Inscription</a></li>
+                    <li><a hidden id='loginButton' href="index.php?module=connexion&action=formulaireConnexion">Connexion</a></li>
+                    <li><a hidden id='registerButton' href="index.php?module=inscription&action=formulaireInscription">Inscription</a></li>
 
                     <li>
                         <div id="myAccount" onmouseenter="toggleMenu(true)" onmouseleave="toggleMenu(false)" onclick="toggleMenu(null)">
