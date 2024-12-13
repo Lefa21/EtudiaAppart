@@ -17,9 +17,9 @@ switch ($module) {
         $moduleClass = "ModuleHome";
         break;
 
-    case 'connexion':
-        $moduleFile = './src/modules/connexion/module_connexion.php';
-        $moduleClass = 'ModConnexion';
+    case "connexion":
+        $moduleFile = "./src/modules/connexion/module_connexion.php";
+        $moduleClass = "ModConnexion";
         break;
 
     case "inscription":
@@ -28,12 +28,12 @@ switch ($module) {
         break;
 
     case 'annonce':
-        $moduleFile = './modules/annonce_student/module_annonce_student.php';
+        $moduleFile = './src/modules/annonce_student/module_annonce_student.php';
         $moduleClass = 'ModuleAnnonceStudent';
         break;
 
     case 'account/records':
-        $moduleFile = './modules/account/records.php';
+        $moduleFile = './src/modules/account/records.php';
         $moduleClass = 'ModuleRecords';
         break;
 }

@@ -12,19 +12,34 @@
 </head>
 
 <body>
-    <header class="entete bg-color-navbar">
-        <nav class="navigation-bar">
-            <div class="container-logo">
-                <a href="index.php"><img src="./assets/logo.png" alt="Logo du site web"></a>
-                <a class="etudiappart-title" href="">EtudiAppart</a>
-            </div>
-            <ul>
-                <li><a href="">A propos</a></li>
-                <li><a href="">Déposer une annonce</a></li>
-                <li><a href="index.php?module=connexion&action=formulaireConnexion">Connexion</a></li>
-                <li><a class="right" href="index.php?module=inscription&action=formulaireInscription">Inscription</a></li>
-            </ul>
-        </nav>
+    <header id="headerAnchor">
+        <section class="banner">
+            <nav class="navigation-bar">
+                <div id="logoIcon">
+                    <a href="./"><img src="./assets/site_icon_banner.png" alt="site Logo image" id="logoImg" height="80" /><span id="logoText">EtudiAppart</span></a>
+                </div>
+                <ul>
+                    <li><a id='aboutButton' href="">A propos</a></li>
+                    <li><a href="">Déposer une annonce</a></li>
+                    <li><a id='loginButton' href="index.php?module=connexion&action=formulaireConnexion">Connexion</a></li>
+                    <li><a id='registerButton' href="index.php?module=inscription&action=formulaireInscription">Inscription</a></li>
+
+                    <li>
+                        <div id="myAccount" onmouseenter="toggleMenu(true)" onmouseleave="toggleMenu(false)" onclick="toggleMenu(null)">
+                            <span>☰ Mon compte</span>
+                            <div class="dropdown-menu">
+                                <a href="#">Profil</a>
+                                <a href="#">Mon dossier</a>
+                                <a href="#">Mes demandes</a>
+                                <a href="#">Messagerie</a>
+                                <a href="#">Paramètres</a>
+                                <a href="#">Déconnexion</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </section>
     </header>
 
     <main>
