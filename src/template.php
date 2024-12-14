@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EtudiAppart</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="./src/scripts/main.js"></script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/utilities.css">
 </head>
@@ -21,12 +22,12 @@
                 <ul>
                     <li><a id='aboutButton' href="">A propos</a></li>
                     <li><a href="">Déposer une annonce</a></li>
-                    <li><a hidden id='loginButton' href="index.php?module=connexion&action=formulaireConnexion">Connexion</a></li>
-                    <li><a hidden id='registerButton' href="index.php?module=inscription&action=formulaireInscription">Inscription</a></li>
+                    <li><a id='loginButton' href="index.php?module=connexion&action=formulaireConnexion">Connexion</a></li>
+                    <li><a id='registerButton' href="index.php?module=inscription&action=formulaireInscription">Inscription</a></li>
 
                     <li>
-                        <div id="myAccount" onmouseenter="toggleMenu(true)" onmouseleave="toggleMenu(false)" onclick="toggleMenu(null)">
-                            <span>☰ Mon compte</span>
+                        <div hidden id="myAccount" onmouseenter="toggleMenu(true)" onmouseleave="toggleMenu(false)" onclick="toggleMenu(null)">
+                            <span>Mon compte</span><img id="dropdown_menu_arrow" src="./assets/arrow-right.svg" height='13' alt="" />
                             <div class="dropdown-menu">
                                 <a href="#">Profil</a>
                                 <a href="#">Mon dossier</a>

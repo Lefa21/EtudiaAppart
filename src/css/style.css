@@ -87,7 +87,7 @@ header .banner {
     transform 0.3s ease; /* Animation sur 0.3s */
   visibility: hidden; /* Cache l'élément initialement */
   position: absolute;
-  right: 0;
+  right: 2rem;
   background-color: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -99,6 +99,7 @@ header .banner {
   padding: 10px 15px;
   text-decoration: none;
   color: #333;
+  margin-right: 0;
 }
 
 .dropdown-menu a:hover {
@@ -113,8 +114,23 @@ header .banner {
   visibility: visible; /* Rend le menu visible */
 }
 
-#myAccount.forceActive .dropdown-menu {
-  display: block;
+#dropdown_menu_arrow {
+  margin-left: 0.36rem;
+}
+
+#myAccount:hover #dropdown_menu_arrow,
+#myAccount.active #dropdown_menu_arrow {
+  transform: rotateZ(90deg);
+  animation: rotation 0.3s ease-in-out;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(90deg);
+  }
 }
 
 /*-----------------------------------------------------------------------------------------*/
