@@ -132,7 +132,7 @@ header .banner {
     transform: rotateZ(90deg);
   }
 }
-
+/*
 body main {
   position: relative;
   margin-top: 20%;
@@ -142,7 +142,7 @@ body main {
 body footer {
   position: relative;
   bottom: -30rem;
-}
+}*/
 
 /*-----------------------------------------------------------------------------------------*/
 /*----------------------------------------- INSCRIPTION ----------------------------------------*/
@@ -176,9 +176,9 @@ body footer {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 50%;
+  top: 100%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
 }
 
 .form-container input::placeholder {
