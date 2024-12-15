@@ -16,11 +16,19 @@ Pour plus d'informations sur la clé SSH, consultez ce lien : [génération d'un
 **⚠️ Nom de la branche = Nom de la Feature**
 
     git pull
-    git checkout -b {feature Name}
     git status
-    git add .
-    git commit -m "{message court & explicatif de l'update}"
-    git push origin {feature Name}
 
-Si erreur, voir Amine / Faël / Antoine
-(ou lire l'erreur et la résoudre tout seul)
+**Si premier pull :**
+Installer les dépendances: `npm i`
+& Créer le .env: `touch .env`
+& Demander les variables .env sur le groupe
+
+_Si modifications :_
+`git add .`
+
+_Ensuite :_
+`git commit -m "{update short message}"`
+`git push origin {feature/branch name}`
+
+_Si erreur, voir avec Faël lol_
+_(ou lire l'erreur et la résoudre tout seul)_

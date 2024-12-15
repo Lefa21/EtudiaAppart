@@ -1,170 +1,233 @@
 /*-----------------------------------------------------------------------------------------*/
-/*----------------------------------------- NAVBAR ----------------------------------------*/
+/*----------------------------------------- BANNER ----------------------------------------*/
 /*-----------------------------------------------------------------------------------------*/
 
-.entete a {
-    text-decoration: none;
-    color: #fff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.bg-color-navbar {
-    background-color: var(--primary-color);
+body {
+  position: relative;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #000;
+  line-height: 1.6;
 }
 
-.container-logo{
-    display: flex;
-    justify-content: space-between;
+header section {
+  text-align: left;
+  text-wrap: wrap;
+  justify-content: center;
+}
+
+header .banner {
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  color: #fff;
+  text-align: left;
+  padding: 1% 0 1% 0;
+}
+
+#logoIcon a {
+  position: inherit;
+  display: inherit;
+  text-decoration: inherit; /* Retire le soulignement */
+  align-items: inherit;
+  color: inherit; /* Garde la couleur du texte d'origine */
+}
+
+#logoIcon,
+#logoText {
+  margin-left: 1%;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  font-size: 1.4em;
+}
+
+#logoImg {
+  border: solid 2px white;
+  border-radius: 50%;
+  padding: 10px;
 }
 
 .navigation-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.938rem;
-    font-size: 0.688rem;
-    font-family: 'Krona One', sans-serif;
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-    height: 2.5rem;
-    background-color: var(--primary-color);
-    top: 0;
-}
-
-.navigation-bar .right {
-    margin-right: 0.938rem;
-}
-
-.navigation-bar .container-logo {
-    margin: 0.938rem;
-}
-
-.navigation-bar .container-logo {
-    margin: 0.938rem;
-}
-.navigation-bar .container-logo .etudiappart-title {
-    padding-top: 1.3rem;
-    padding-left: 0.8rem;
-    color: #fff;
-    font-size: 1.25rem;
-}
-
-.navigation-bar .container-logo img {
-    width: 60px;
-    height:60px;
+  display: flex;
+  align-items: center;
+  font-family: "Krona One", sans-serif;
+  width: 100%;
+  height: 4rem;
 }
 
 .navigation-bar ul {
-    display: flex;
-    list-style: none;
-    margin: 0.625rem;
-    padding: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
 }
 
-.navigation-bar ul li {
-    margin: 0 15px;
+.navigation-bar ul li a,
+.navigation-bar ul li #myAccount {
+  top: 25%;
+  margin-right: 3rem;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
-.navigation-bar .right a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
+.dropdown-menu {
+  display: block; /* Ne pas utiliser display: none, car cela empêche les transitions */
+  opacity: 0;
+  transform: translateY(
+    -10px
+  ); /* Déplacer légèrement vers le haut pour l'animation */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease; /* Animation sur 0.3s */
+  visibility: hidden; /* Cache l'élément initialement */
+  position: absolute;
+  right: 2rem;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  z-index: 1;
 }
 
-.navigation-bar ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
+.navigation-bar ul li .dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  margin-right: 0;
 }
+
+.dropdown-menu a:hover {
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+}
+
+#myAccount:hover .dropdown-menu,
+#myAccount.active .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0); /* Menu revient à sa position initiale */
+  visibility: visible; /* Rend le menu visible */
+}
+
+#dropdown_menu_arrow {
+  margin-left: 0.36rem;
+}
+
+#myAccount:hover #dropdown_menu_arrow,
+#myAccount.active #dropdown_menu_arrow {
+  transform: rotateZ(90deg);
+  animation: rotation 0.3s ease-in-out;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(90deg);
+  }
+}
+/*
+body main {
+  position: relative;
+  margin-top: 20%;
+  top: 2rem;
+}
+
+body footer {
+  position: relative;
+  bottom: -30rem;
+}*/
 
 /*-----------------------------------------------------------------------------------------*/
 /*----------------------------------------- INSCRIPTION ----------------------------------------*/
 /*-----------------------------------------------------------------------------------------*/
 
 .bg-color-form {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .title-form-container {
-    background-color: white;
-    border-radius: 5px;
-    padding: 1px;
-    text-align: center;
-    margin-bottom: 20px; 
+  background-color: white;
+  border-radius: 5px;
+  padding: 1px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .title-form-container h2 {
-    font-size: 24px; 
-    font-family: var(--police-text);
-    font-weight: bold;
-    color: var(--text-color-black); 
+  font-size: 24px;
+  font-family: var(--police-text);
+  font-weight: bold;
+  color: var(--text-color-black);
 }
 
-
 .form-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto; 
-    padding: 40px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: absolute; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .form-container input::placeholder {
-    color: var(--text-color-black);
+  color: var(--text-color-black);
 }
 
 form {
-    display: flex;
-    flex-direction: column; 
-    gap: 15px; 
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 form input {
-    padding: 10px;
-    font-size: 16px;
-    margin-top : 10px;
-    color : var(--text-color-black);
-    font-family: var(--police-text);
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    background: white;
-    transition: border-color 0.3s;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  color: var(--text-color-black);
+  font-family: var(--police-text);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background: white;
+  transition: border-color 0.3s;
 }
 
 form button {
-    margin-top: 20px;
-    padding: 19px 15px;
-    font-size: 25px;
-    color: #fff;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  margin-top: 20px;
+  padding: 19px 15px;
+  font-size: 25px;
+  color: #fff;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .form-container .login-link {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 14px;
-    color: #555; 
-    font-family: var(--police-text);
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  font-family: var(--police-text);
 }
 
 .form-container .login-link a {
-    color: black; 
-    font-family: var(--police-text);
+  color: black;
+  font-family: var(--police-text);
 }
 
 .form-container .login-link a:hover {
-    color: black;
+  color: black;
 }
-
-
