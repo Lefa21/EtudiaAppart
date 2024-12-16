@@ -12,22 +12,40 @@ class VueRecords extends VueGenerique
 ?>
         <link rel="stylesheet" href="./src/css/acc_records.css">
         <div class="blockPage">
-            <section class="side_navbar">
-                <div id="profile_info">
-                    <img src="./" alt="user pfp" id="user_pfp" height="64" />
-                    <span id="profile_name">Prénom Nom</span>
-                    <span id="profile_type">Profil étudiant</span>
+            <aside class="sidebar" role="complementary" aria-label="Navigation latérale">
+                <div class="profile-header">
+                    <img src="assets/photo_profil.png" alt="Photo de profil de Ben youssef Faël" class="profile-icon" width="49" height="49" />
+                    <div class="profile-info">
+                        <span class="profile-name">Ben youssef Faël</span>
+                        <span class="profile-type">Profil propriétaire</span>
+                    </div>
                 </div>
-                <nav>
-                    <ul>
-                        <li><a href="#">Profil</a></li>
-                        <li><a href="#">Mon dossier</a></li>
-                        <li><a href="#">Suivi des demandes</a></li>
-                        <li><a href="#">Messagerie</a></li>
-                        <li><a href="#">Favoris</a></li>
-                    </ul>
+
+                <nav class="nav-menu" role="navigation" aria-label="Menu principal">
+                    <a href="#profile" class="nav-item">
+                        <img src="assets/icon_profil.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
+                        <span>Profil</span>
+                    </a>
+                    <a href="#dossier" class="nav-item">
+                        <img src="assets/icon_documents_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
+                        <span>Mon dossier</span>
+                    </a>
+                    <a href="#requests" class="nav-item active" aria-current="page">
+                        <img src="assets/icon_follow_request.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
+                        <span>Suivi des demandes</span>
+                    </a>
+                    <a href="#messages" class="nav-item">
+                        <img src="assets/icon_messages_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
+                        <span>Messagerie</span>
+                    </a>
+                    <a href="#favorites" class="nav-item">
+                        <img src="assets/icon_wishlist.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
+                        <span>Mes favoris</span>
+                    </a>
                 </nav>
-            </section>
+
+                <button class="action-button primary" aria-label="Accéder aux paramètres">Paramètres</button>
+            </aside>
             <section class="records_section">
                 <div class="menu_container">
                     <div id="docs_general" class="menu_button" onclick="toggleMenu(this, null)">

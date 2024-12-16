@@ -123,3 +123,107 @@ header .banner {
   transform: rotateZ(90deg);
   animation: rotation 0.3s ease-in-out;
 }
+
+/*---------------------------------------------------------------------------------------------*/
+/*----------------------------------------- MON PROFIL ----------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+/* Conteneur principal */
+.container-profil {
+  display: flex;
+  margin: 20px;
+}
+
+/* Contenu principal */
+.content-profil {
+  flex-grow: 1;
+  margin-left: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 270px); /* S'assure que le contenu ne dépasse pas */
+}
+
+.title-profil {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #002b7f;
+}
+
+/* Organisation en lignes */
+.form-row-profil {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-group-profil {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.form-group-profil:last-child {
+  margin-right: 0;
+}
+
+.label-profil {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-profil {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button-profil {
+  margin-top: 10px;
+  width: 100%; /* Assure que les boutons aient la même taille */
+  padding: 10px;
+  background-color: #002b7f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-profil:hover {
+  background-color: #0056b3;
+}
+
+/* Bouton Sauvegarder */
+.save-button {
+  display: block;
+  margin: 20px auto 0;
+  width: 200px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.button-ajouter-ecole {
+  margin-top: 10px;
+  background-color: #002b7f;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button-ajouter-ecole:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,19 +1,19 @@
 .blockPage {
   color: black;
   font-family: var(--police-text);
+  display: flex; /* Organisation en colonnes avec flexbox */
+  flex-direction: row; /* Par défaut, les éléments enfants sont alignés horizontalement */
+  /*height: 100vh; /* Occuper toute la hauteur de l'écran */
 }
 
-.side_navbar {
-  position: fixed;
-  display: flex;
-  top: 20%;
-  flex-direction: column;
-  justify-content: space-between;
-}
+/*---------------------------------------------------------------------------------------------*/
+/*----------------------------------------- MENU DEROULANT ------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
 
-.side_navbar nav {
-  color: black;
-  text-decoration: none;
+.records_section {
+  flex: 1; /* Occupe tout l'espace restant */
+  padding: 2rem; /* Espacement autour du contenu */
+  overflow-y: auto; /* Ajoute un scroll vertical si le contenu dépasse la hauteur */
 }
 
 .menu_container {
@@ -28,7 +28,7 @@
   margin-top: 2rem;
   left: 50%;
   transform: translate(-50%);
-  width: 40%;
+  width: 80%;
   height: 4rem;
   border: solid 1px var(--text-color-grey);
   border-radius: 8px;
@@ -85,4 +85,14 @@
   border-radius: 0 0 4px 4px;
   right: auto;
   top: 100%;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+/*----------------------------------------- SIDEBAR NAV ---------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+.sidebar {
+  width: 25%; /* Largeur du aside */
+  max-width: 300px; /* Limiter la largeur si nécessaire */
+  box-shadow: none;
 }
