@@ -9,6 +9,7 @@ $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
                 <a href="./"><img src="./assets/site_icon_banner.png" alt="site Logo image" id="logoImg" height="80" /><span id="logoText">EtudiAppart</span></a>
             </div>
             <ul>
+            <li><a id='recherche_annonce' href="index.php?module=ad_search&action=recherche_annonce">Rechercher une annonce</a></li>
                 <li><a id='aboutButton' href="">A propos</a></li>
                 <li><a href="">Déposer une annonce</a></li>
                 <?php if (!$isUserLoggedIn): ?>
@@ -21,7 +22,7 @@ $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
                             <div class="dropdown-menu">
                                 <a href="#">Profil</a>
                                 <a href="#">Mon dossier</a>
-                                <a href="#">Mes demandes</a>
+                                <a href="index.php?module=owner_requests&action=follow-up_owner_requests">Mes demandes</a>
                                 <a href="#">Messagerie</a>
                                 <a href="#">Paramètres</a>
                                 <a href="index.php?module=connexion&action=deconnexion">Déconnexion</a>
