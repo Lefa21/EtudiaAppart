@@ -109,10 +109,10 @@ class VueOwnerRequests extends VueGenerique
         ?>
 
 <link rel="stylesheet" href="./src/css/owner_manage_application.css">
-    <div class="applications-container">
-    <?php
+<?php
             include "./src/menu_my_account.php";
         ?>
+    <div class="applications-container">
         <div class="applications-frame">
             <div class="applications-header">
                 <div class="header-top">
@@ -127,9 +127,9 @@ class VueOwnerRequests extends VueGenerique
                 <div class="filter-section-application">
                     <h2 class="filter-title">Trier par</h2>
                     <div class="filter-options" role="group" aria-label="Options de filtrage">
-                        <button class="filter-button-request">Date</button>
-                        <button class="filter-button-request">Logement</button>
-                        <button class="filter-button-request">Statut</button>
+                        <button class="filter-button-manage">Date</button>
+                        <button class="filter-button-manage">Logement</button>
+                        <button class="filter-button-manage">Statut</button>
                     </div>
                 </div>
 

@@ -3,18 +3,18 @@
     max-width: 480px;
     width: 100%;
     margin: 0 auto;
+    margin-top: -858px;
 }
 
 .applications-frame {
     display: flex;
     min-height: 844px;
-    width: 100%;
+    width: 160%;
     flex-direction: column;
     justify-content: space-between;
     background: var(--background-color-white);
     overflow: hidden;
 }
-
 .applications-header {
     display: flex;
     width: 100%;
@@ -200,13 +200,5 @@
 @media screen and (max-width: 480px) {
     .applications-container {
         width: 100%;
-    }
-}
-
-@media screen and (min-width: 481px) {
-    .applications-container {
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        margin: 16px auto;
     }
 }
