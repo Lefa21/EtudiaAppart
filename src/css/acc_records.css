@@ -1,0 +1,88 @@
+.blockPage {
+  color: black;
+  font-family: var(--police-text);
+}
+
+.side_navbar {
+  position: fixed;
+  display: flex;
+  top: 20%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.side_navbar nav {
+  color: black;
+  text-decoration: none;
+}
+
+.menu_container {
+  margin-bottom: 1rem; /* Par défaut */
+  transition: margin-bottom 0.3s ease;
+}
+
+.menu_button {
+  position: relative;
+  display: flex;
+  background-color: white;
+  margin-top: 2rem;
+  left: 50%;
+  transform: translate(-50%);
+  width: 40%;
+  height: 4rem;
+  border: solid 1px var(--text-color-grey);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu_button_text {
+  position: absolute;
+  transform: translate(0, 50%);
+  font-size: larger;
+  margin-left: 1rem;
+}
+
+.menu_button_arrow {
+  position: absolute;
+  height: 1rem;
+  top: 1.4rem;
+  right: 2rem;
+}
+
+.menu_container .dropdown-menu {
+  display: block; /* Ne pas utiliser display: none, car cela empêche les transitions */
+  opacity: 0;
+  visibility: hidden; /* Cache l'élément initialement */
+  height: 0;
+  overflow: hidden;
+  /* Déplacer légèrement vers le haut pour l'animation */
+  transform: translateY(-10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    height 0.3s ease; /* Anime la hauteur */
+}
+
+.menu_container.forceActive .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  height: auto; /* La hauteur sera calculée dynamiquement en JS */
+}
+
+.menu_container.forceActive .menu_button .menu_button_arrow {
+  transform: rotateZ(90deg);
+  animation: rotation 0.3s ease-in-out;
+}
+
+.document_section {
+  position: relative;
+  box-shadow: none;
+  background-color: white;
+  width: 100%;
+  height: 16rem;
+  border: solid 1px var(--text-color-grey);
+  border-radius: 0 0 4px 4px;
+  right: auto;
+  top: 100%;
+}
