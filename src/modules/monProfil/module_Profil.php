@@ -12,7 +12,7 @@ class ModuleProfil
 
         switch ($this->controller->getAction()) {
             case 'Profil':
-                $this->controller->Profil();
+                $this->controller->profil();
         }
     }
 

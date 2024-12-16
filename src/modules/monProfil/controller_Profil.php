@@ -20,11 +20,11 @@ class ControllerProfil
 
     public function profil()
     {
-        $this->vue->Profil();
+        $this->vue->profil(); // Génère le contenu de la vue
     }
 
     public function displayContent()
     {
-        return $this->vue->getAffichage();
+        return $this->vue->getAffichage(); // Retourne le contenu capturé
     }
 }

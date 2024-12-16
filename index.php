@@ -53,7 +53,7 @@ switch ($module) {
         $moduleClass = 'ModSearchAd';
         break;
 
-    case 'Profil':
+    case 'monProfil':
         $moduleFile = './src/modules/monProfil/module_Profil.php';
         $moduleClass = 'ModuleProfil';
         break;    

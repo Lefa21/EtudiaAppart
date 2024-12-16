@@ -8,6 +8,7 @@
     <title>EtudiAppart</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
     <script type="text/javascript" src="./src/scripts/main.js"></script>
+    <script type="text/javascript" src="./src/scripts/mon_profil.js"></script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/utilities.css">
     <link rel="stylesheet" href="./src/css/student_requests.css">
