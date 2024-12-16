@@ -18,7 +18,8 @@
         </div>
       </div>
       <nav class="nav-menu" aria-label="Main navigation">
-        <a href="#profile" class="nav-item active">
+      <a href="index.php?module=monProfil&action=Profil" 
+        class="nav-item <?= ($_GET["module"] == "monProfil" && $_GET["action"] == "Profil") ? 'active' : '' ?>">
           <img src="assets/icon_profil.svg" alt="" class="nav-item-icon">
           <span>Profil</span>
         </a>
@@ -26,7 +27,8 @@
           <img src="assets/icon_documents_profile.svg" alt="" class="nav-item-icon">
           <span>Mon dossier</span>
         </a>
-        <a href="#requests" class="nav-item">
+        <a href="index.php?module=owner_requests&action=follow-up_owner_requests"
+        class="nav-item <?= ($_GET["module"] == "owner_requests" && $_GET["action"] == "follow-up_owner_requests") ? 'active' : '' ?>">
           <img src="assets/icon_follow_request.svg" alt="" class="nav-item-icon">
           <span>Suivi des demandes</span>
         </a>
