@@ -28,13 +28,13 @@ function toggleMenu(html, action) {
     const contentHeight = dropdownMenu.scrollHeight + "px";
     dropdownMenu.style.height = contentHeight; // Appliquer la hauteur calculée
     dropdownMenu.style.opacity = 1;
-    dropdownMenu.style.transform = "translateY(0)";
+    dropdownMenu.style.transform = "translateY(-20px)";
     dropdownMenu.style.visibility = "visible";
   } else {
     // Réinitialiser la hauteur pour une transition fluide
     dropdownMenu.style.height = "0";
     dropdownMenu.style.opacity = 0;
-    dropdownMenu.style.transform = "translateY(-10px)";
+    dropdownMenu.style.transform = "translateY(-30px)";
     dropdownMenu.style.visibility = "hidden";
   }
 }

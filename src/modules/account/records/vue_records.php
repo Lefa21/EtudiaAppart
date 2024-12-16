@@ -51,19 +51,58 @@ class VueRecords extends VueGenerique
                     <div id="docs_general" class="menu_button" onclick="toggleMenu(this, null)">
                         <span class="menu_button_text">Mes documents</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
                     </div>
-                    <div class="dropdown-menu document_section"></div>
+                    <div class="dropdown-menu document_section">
+                        <section id="dropfile_cni" class="dropfile_section">
+                            <div class="dropfile_info">
+                                <span>Carte d'identité / Passeport</span><span class="more_info">&#9432;</span>
+                            </div>
+                            <div class="dropfile_file">
+                                <input type="file" id="cni-file" accept=".pdf" />
+                            </div>
+                        </section>
+                        <section id="dropfile-school_certificate" class="dropfile_section">
+                            <div class="dropfile_info">
+                                <span>Justificatif de scolarité</span><span class="more_info">&#9432;</span>
+                            </div>
+                            <div class="dropfile_file">
+                                <input type="file" id="school_certificate-file" accept=".pdf" />
+                            </div>
+                        </section>
+                        <section id="dropfile-scholarship_proof" class="dropfile_section">
+                            <div class="dropfile_info">
+                                <span>Attestation de bourse</span><span class="more_info">&#9432;</span>
+                            </div>
+                            <div class="dropfile_file">
+                                <input type="file" id="scholarship_proof-file" accept=".pdf" />
+                            </div>
+                        </section>
+                        <section id="dropfile-visa" class="dropfile_section">
+                            <div class="dropfile_info">
+                                <span>Visa / Titre de séjour</span><span class="more_info">&#9432;</span>
+                                <p style="font-size: small;">* Étudiants internationnaux seulement</p>
+                            </div>
+                            <div class="dropfile_file">
+                                <input type="file" id="visa-file" accept=".pdf" />
+                            </div>
+                        </section>
+                        <button id="save_docs-dropfile" class="action-button" type="submit">Enregistrer les modifications</button>
+                    </div>
                 </div>
                 <div class="menu_container">
                     <div id="docs_situation" class="menu_button" onclick="toggleMenu(this, null)">
                         <span class="menu_button_text">Ma situation financière</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
                     </div>
-                    <div class="dropdown-menu document_section"></div>
+                    <div class="dropdown-menu document_section">
+                        <button id="save_docs-eco_situation" class="action-button" type="submit">Enregistrer les modifications</button>
+                    </div>
                 </div>
                 <div class="menu_container">
                     <div id="docs_infos" class="menu_button" onclick="toggleMenu(this, null)">
                         <span class="menu_button_text">Informations complémentaires</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
                     </div>
-                    <div class="dropdown-menu document_section"></div>
+                    <div class="dropdown-menu document_section">
+                        <button id="save_docs-more_information" class="action-button" type="submit">Enregistrer les modifications</button>
+                    </div>
                 </div>
             </section>
         </div>
