@@ -18,7 +18,7 @@ footer {
 }
 
 .school-logo {
-    width: 346px;
+    width: 200px;
     aspect-ratio: 2.37;
     object-fit: contain;
 }
@@ -52,12 +52,12 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font: 500 32px Inter, sans-serif;
+    font: 500 16px Inter, sans-serif;
 }
 
 .footer-column h3 {
     margin: 0;
-    font-size: 32px;
+    font-size: 20px;
 }
 
 .footer-column a {
@@ -80,9 +80,13 @@ footer {
 }
 
 .social-icon {
-    width: 65px;
-    height: 65px;
+    width: 40px;
+    height: 40px;
     transition: transform 0.3s;
+}
+.footer-link-school{
+    padding-left: 2rem;
+    color: var(--primary-color);
 }
 
 .social-icons a:hover .social-icon,
@@ -94,7 +98,7 @@ footer {
     color: #fff;
     text-align: center;
     font: 300 12px Inter, sans-serif;
-    margin-top: 111px;
+    margin-top: 54px;
 }
 
 .footer-legal a {

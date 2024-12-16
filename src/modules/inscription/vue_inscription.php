@@ -12,6 +12,7 @@ class VueInscription extends VueGenerique
     public function formulaireInscription()
     {
 ?>
+<link rel="stylesheet" href="./src/css/inscription.css">
   <div class="registration-container">
     <main class="main-content-inscription">
       <div class="registration-wrapper-inscription">

@@ -1,10 +1,11 @@
 <footer class="footer">
+<link rel="stylesheet" href="./src/css/footer.css">
     <section class="partner-schools">
       <h2>Nos écoles partenaires</h2>
       <img src="assets/logo_ecole.png" alt="Partner School" class="school-logo" />
       <img src="assets/logo_ecole.png" alt="Partner School" class="school-logo" />
       <img src="assets/logo_ecole.png" alt="Partner School" class="school-logo" />
-      <a href="#more-schools">Voir plus d'écoles</a>
+      <a class="footer-link-school" href="#more-schools">Voir plus d'écoles</a>
     </section>
 
     <div class="footer-links">
