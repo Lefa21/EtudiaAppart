@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/utilities.css">
+    <script src="./src/js/schools.js"></script>
 </head>
 <body>
     <header class="entete bg-color-navbar">

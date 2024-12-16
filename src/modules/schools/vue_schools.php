@@ -19,7 +19,7 @@ class VueSchools extends VueGenerique
             <!-- Première image -->
             <div class="image-container">
             <h1 class="title">L'ISEP</h1>
-            <img src="isep.jpg" alt="Image 1">
+            <img src="./assets/isep.jpg" alt="Image 1">
             <div class="gradient-overlay">
                 <div class="text-overlay">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget tortor nec nulla venenatis cursus. 
@@ -31,7 +31,7 @@ class VueSchools extends VueGenerique
             <!-- Deuxième image -->
             <div class="image-container">
             <h1 class="title">La Sorbonne</h1>
-            <img src="sorbonne.jpg" alt="Image 2">
+            <img src="./assets/sorbonne.png" alt="Image 2">
             <div class="gradient-overlay">
                 <div class="text-overlay">
                 Vivamus nec mauris vitae lacus varius auctor. Phasellus vitae nisi nec enim interdum placerat. 
@@ -43,7 +43,7 @@ class VueSchools extends VueGenerique
             <!-- Troisième image -->
             <div class="image-container">
             <h1 class="title">L'ESILV</h1>
-            <img src="esilv.jpg" alt="Image 3">
+            <img src="./assets/esilv.png" alt="Image 3">
             <div class="gradient-overlay">
                 <div class="text-overlay">
                 Donec vitae nisi a ligula dictum volutpat a sit amet arcu. Sed tristique magna eu neque sagittis, 
