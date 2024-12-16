@@ -26,11 +26,6 @@ class ModeleConnexion extends Connexion
                     if (password_verify($password, $row['password'])) {
                         $_SESSION['identifiant_utilisateur'] = $email;
                         header('Location: index.php');
-<<<<<<< HEAD
-=======
-                        //              echo 'variable session : ' . $_SESSION['identifiant_utilisateur'] .'<br>';
-                        //              echo 'Connexion validée' . '</br>';
->>>>>>> 4b0096f (fix(auto margin dropdow menu))
                     } else {
                         echo 'Login ou mot de passe incorrect' . '<br>';
                     }
