@@ -12,43 +12,14 @@ class VueOwnerRequests extends VueGenerique
     public function followUpRequests()
     {
 ?>
+
+        <link rel="stylesheet" href="./src/css/owner_requests.css">
         <div class="page-wrapper">
         <main id="main-content" class="main-content-owner_request" role="main">
-            <aside class="sidebar" role="complementary" aria-label="Navigation latérale">
-                <div class="profile-header">
-                    <img src="assets/photo_profil.png" alt="Photo de profil de Ben youssef Faël" class="profile-icon" width="49" height="49" />
-                    <div class="profile-info">
-                        <span class="profile-name">Ben youssef Faël</span>
-                        <span class="profile-type">Profil propriétaire</span>
-                    </div>
-                </div>
 
-                <nav class="nav-menu" role="navigation" aria-label="Menu principal">
-                    <a href="#profile" class="nav-item">
-                        <img src="assets/icon_profil.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Profil</span>
-                    </a>
-                    <a href="#dossier" class="nav-item">
-                        <img src="assets/icon_documents_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Mon dossier</span>
-                    </a>
-                    <a href="#requests" class="nav-item active" aria-current="page">
-                        <img src="assets/icon_follow_request.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Suivi des demandes</span>
-                    </a>
-                    <a href="#messages" class="nav-item">
-                        <img src="assets/icon_messages_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Messagerie</span>
-                    </a>
-                    <a href="#favorites" class="nav-item">
-                        <img src="assets/icon_wishlist.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Mes favoris</span>
-                    </a>
-                </nav>
-
-                <button class="action-button primary" aria-label="Accéder aux paramètres">Paramètres</button>
-            </aside>
-
+        <?php
+            include "./src/menu_my_account.php";
+        ?>
             <section class="content-area" aria-label="Suivi des demandes">
                 <div class="filters" role="group" aria-label="Filtres de recherche">
                     <button class="filter-button-request" aria-expanded="false" aria-haspopup="listbox">
@@ -136,7 +107,12 @@ class VueOwnerRequests extends VueGenerique
 
     public function show_application(){
         ?>
+
+<link rel="stylesheet" href="./src/css/owner_manage_application.css">
     <div class="applications-container">
+    <?php
+            include "./src/menu_my_account.php";
+        ?>
         <div class="applications-frame">
             <div class="applications-header">
                 <div class="header-top">

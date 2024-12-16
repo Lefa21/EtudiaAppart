@@ -10,6 +10,7 @@ class VueHome extends VueGenerique
     public function welcome()
     {
 ?>
+<link rel="stylesheet" href="./src/css/home.css">
         <main class="student-life">
   <section class="student-life-banner">
     <div class="banner-header">

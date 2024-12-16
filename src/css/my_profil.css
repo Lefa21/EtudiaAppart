@@ -1,0 +1,241 @@
+.student-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--background-color-white);
+  padding-bottom: 49px;
+}
+
+.main-content-profile {
+  display: flex;
+  width: 80%;
+  max-width: 1432px;
+  margin: 16px 0 0 16px;
+}
+
+.user-info-profile {
+  display: flex;
+  align-items: start;
+  gap: 15px;
+  font-family: var(--police-text);
+}
+
+.profile-image-container-profile {
+  position: relative;
+  width: 49px;
+  height: 49px;
+}
+
+.user-avatar-profile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.image-upload-label-profile {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 24px;
+  height: 24px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+}
+
+.image-upload-input-profile {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.visually-hidden-profile {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.user-details-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name-profile {
+  font-size: 20px;
+  color: var( --text-color-black);
+  font-weight: 500;
+}
+
+.user-role-profile {
+  font-size: 17px;
+  color: var(--Primary, #041a8f);
+}
+
+.nav-menu-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.nav-item-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 15px;
+  border-radius: 24px;
+  font: 500 17px/1.5 var(--police-text);
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.profile-content-profile {
+  width: 80%;
+  padding: 20px;
+}
+
+.section-header-profile {
+  margin-bottom: 15px;
+}
+
+.section-title-profile {
+  color: rgba(0, 43, 127, 1);
+  font: 800 36px/1 var(--police-text);
+  letter-spacing: -1px;
+}
+
+.section-subtitle-profile {
+  color: var(--text-color-black);
+  font: 400 16px var(--police-text);
+  margin-top: 12px;
+}
+
+.form-section-profile {
+  border-radius: 6px;
+  border: 1px solid var(--gray-border);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.form-title-profile {
+  color: rgba(0, 43, 127, 1);
+  font: 600 32px/2 var(--police-text);
+  letter-spacing: -1px;
+}
+
+.form-row-profile {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.form-group-profile {
+  flex: 1;
+  min-width: 160px;
+}
+
+.form-label-profile {
+  color: var(--text-color-black);
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.password-input-wrapper-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle-profile {
+  position: absolute;
+  right: 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--password-toggle-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-input-profile {
+  width: 100%;
+  min-height: 56px;
+  border-radius: 8px;
+  border: 1px solid var(--secondary-color);
+  color: var(--password-toggle-color);
+  font: 400 16px var(--police-text);
+}
+
+.form-input-profile::placeholder {
+  padding-left: 1rem;
+}
+
+.form-link-profile {
+  color: var(--Primary, #041a8f);
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.save-button-profile {
+  width: 480px;
+  min-height: 48px;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: var(--White, #fff);
+  text-align: center;
+  font: 700 16px var(--police-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .main-content-profile {
+    flex-direction: column;
+  }
+  
+  .form-row-profile {
+    flex-direction: column;
+  }
+  
+  .save-button-profile {
+    width: 100%;
+  }
+}
+
+@media (forced-colors: active) {
+
+  .save-button-profile {
+    border: 2px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

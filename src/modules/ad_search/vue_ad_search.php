@@ -12,6 +12,7 @@ class VueSearchAd extends VueGenerique
     
     public function showSearchAd(){
         ?>
+        <link rel="stylesheet" href="./src/css/ad_search.css">
            <main class="main-content-ad_search" role="main">
   <img loading="lazy" src="img_map.png" class="background-image" alt="" />
   
