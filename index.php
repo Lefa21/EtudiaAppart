@@ -37,6 +37,21 @@ switch ($module) {
         $moduleFile = './src/modules/account/records.php';
         $moduleClass = 'ModuleRecords';
         break;
+
+    case 'owner_requests':
+        $moduleFile = './src/modules/owner_requests/module_owner_requests.php';
+        $moduleClass = 'ModOwnerRequests';
+        break;
+    
+    case 'student_requests':
+        $moduleFile = './src/modules/student_requests/module_student_requests.php';
+        $moduleClass = 'ModStudentRequests';
+        break;
+
+    case 'ad_search':
+        $moduleFile = './src/modules/ad_search/module_ad_search.php';
+        $moduleClass = 'ModSearchAd';
+        break;
 }
 
 if (file_exists($moduleFile)) {

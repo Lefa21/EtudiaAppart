@@ -14,6 +14,7 @@ body {
   background-color: #fff;
   color: #000;
   line-height: 1.6;
+  font-family: var(--police-text);
 }
 
 header section {
@@ -131,103 +132,4 @@ header .banner {
   100% {
     transform: rotateZ(90deg);
   }
-}
-/*
-body main {
-  position: relative;
-  margin-top: 20%;
-  top: 2rem;
-}
-
-body footer {
-  position: relative;
-  bottom: -30rem;
-}*/
-
-/*-----------------------------------------------------------------------------------------*/
-/*----------------------------------------- INSCRIPTION ----------------------------------------*/
-/*-----------------------------------------------------------------------------------------*/
-
-.bg-color-form {
-  background-color: var(--secondary-color);
-}
-
-.title-form-container {
-  background-color: white;
-  border-radius: 5px;
-  padding: 1px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.title-form-container h2 {
-  font-size: 24px;
-  font-family: var(--police-text);
-  font-weight: bold;
-  color: var(--text-color-black);
-}
-
-.form-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
-  border: 1px solid var(--secondary-color);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translate(-50%);
-}
-
-.form-container input::placeholder {
-  color: var(--text-color-black);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-form input {
-  padding: 10px;
-  font-size: 16px;
-  margin-top: 10px;
-  color: var(--text-color-black);
-  font-family: var(--police-text);
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
-  background: white;
-  transition: border-color 0.3s;
-}
-
-form button {
-  margin-top: 20px;
-  padding: 19px 15px;
-  font-size: 25px;
-  color: #fff;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.form-container .login-link {
-  margin-top: 10px;
-  text-align: center;
-  font-size: 14px;
-  color: #555;
-  font-family: var(--police-text);
-}
-
-.form-container .login-link a {
-  color: black;
-  font-family: var(--police-text);
-}
-
-.form-container .login-link a:hover {
-  color: black;
 }

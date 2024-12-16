@@ -10,6 +10,14 @@
     <script type="text/javascript" src="./src/scripts/main.js"></script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/utilities.css">
+    <link rel="stylesheet" href="./src/css/student_requests.css">
+    <link rel="stylesheet" href="./src/css/owner_requests.css">
+    <link rel="stylesheet" href="./src/css/owner_manage_application.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="./src/css/connexion.css">
+    <link rel="stylesheet" href="./src/css/inscription.css">
+    <link rel="stylesheet" href="./src/css/ad_search.css">
+    <link rel="stylesheet" href="./src/css/home.css">
 </head>
 
 <body>
@@ -22,9 +30,10 @@
         <?php echo $tampon; ?>
     </main>
 
-    <footer>
-        <p>&copy; 2024 EtudiAppart. All rights reserved.</p>
-    </footer>
+    <?php
+
+    include __DIR__ . '/footer.php';
+    ?>
 </body>
 
 </html>

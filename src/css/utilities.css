@@ -5,6 +5,9 @@
   --text-color-black: #000;
   --text-color-white: #f8f7f2;
   --text-color-grey: #c0c0c0;
+  --gray-border: #c0c0c0;
+  --black-border : #000;
   --notification-color: #ff3939;
   --police-text: "Inter", sans-serif;
+  --background-color-white : #fff;
 }
