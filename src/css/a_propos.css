@@ -1,0 +1,141 @@
+.presentation-section {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+.presentation-section h1 {
+    font-size: 2em;
+    color: #333;
+}
+.presentation-membre p {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 20px;
+}
+.actions-section {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+.container-a_propos {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+.team-a_propos {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+.values-a_propos {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+.step-a_propos {
+    text-align: left;
+}
+.team-member-a_propos {
+    image-orientation: center;
+}
+.step-a_propos p{
+    text-align: left;
+}
+.features-a_propos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.feature-item-a_propos {
+    width: 15%; /* Chaque élément prend 20% de la largeur */
+    box-sizing: border-box;
+}
+
+h3 .title-a_propos{
+    font-size: 1em;
+    font-weight: bold;
+}
+
+p .text-a_propos{
+    font-size: 1em;
+}
+
+.sous_titre {
+    text-align: left;
+}
+.team_fin {
+    text-align: left;
+}
+/*
+body {
+    margin-top: 40px;
+}
+    */
+
+
+/* Entête */
+.entete-a_propos {
+    
+    z-index: 2;
+    color: white;
+    font-size: 2rem;
+    
+    text-align: center;
+    
+    
+    padding: 10px 20px;
+    border-radius: 8px;
+
+    position: relative;
+    font-weight: 300;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(8px);
+    height: 50vh; /* La hauteur de l'entête occupe 50% de l'écran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: "assest/A.jpg";
+}
+
+.texte-entete-a_propos {
+    
+    position: absolute;
+    z-index: 2;
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.fond-entete-a_propos img {
+    
+    
+    background-image: url('A.jpg'); /* Image de fond */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Flou sur l'image */
+    
+
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+

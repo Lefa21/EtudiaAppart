@@ -57,6 +57,11 @@ switch ($module) {
         $moduleFile = './src/modules/monProfil/module_Profil.php';
         $moduleClass = 'ModuleProfil';
         break;    
+    
+        case 'a_propos':
+            $moduleFile = './src/modules/a_propos/module_a_propos.php';
+            $moduleClass = 'ModAPropos';
+            break;
 }
 
 if (file_exists($moduleFile)) {

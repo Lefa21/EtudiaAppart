@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./src/css/inscription.css">
     <link rel="stylesheet" href="./src/css/ad_search.css">
     <link rel="stylesheet" href="./src/css/home.css">
+    <link rel="stylesheet" href="./src/css/a_propos.css">
 </head>
 
 <body>

@@ -10,7 +10,7 @@ $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
             </div>
             <ul>
             <li><a id='recherche_annonce' href="index.php?module=ad_search&action=recherche_annonce">Rechercher une annonce</a></li>
-                <li><a id='aboutButton' href="">A propos</a></li>
+                <li><a id='aboutButton' href="index.php?module=a_propos&action=a_propos">A propos</a></li>
                 <li><a href="">Déposer une annonce</a></li>
                 <?php if (!$isUserLoggedIn): ?>
                     <li><a id='loginButton' href="index.php?module=connexion&action=formulaireConnexion">Connexion</a></li>
