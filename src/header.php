@@ -20,7 +20,7 @@ $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
                         <div id="myAccount" onmouseenter="toggleMenu(true)" onmouseleave="toggleMenu(false)" onclick="toggleMenu(null)">
                             <span>Mon compte</span><img id="dropdown_menu_arrow" src="./assets/arrow-right.svg" height='13' alt="" />
                             <div class="dropdown-menu">
-                                <a href="#">Profil</a>
+                                <a href="index.php?module=monProfil&action=Profil">Profil</a>
                                 <a href="#">Mon dossier</a>
                                 <a href="index.php?module=owner_requests&action=follow-up_owner_requests">Mes demandes</a>
                                 <a href="#">Messagerie</a>

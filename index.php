@@ -52,6 +52,11 @@ switch ($module) {
         $moduleFile = './src/modules/ad_search/module_ad_search.php';
         $moduleClass = 'ModSearchAd';
         break;
+
+    case 'monProfil':
+        $moduleFile = './src/modules/monProfil/module_Profil.php';
+        $moduleClass = 'ModuleProfil';
+        break;    
 }
 
 if (file_exists($moduleFile)) {
