@@ -26,15 +26,6 @@ class ContInscription{
         $this->vue->formulaireInscription();
     }
     
-
-    public function VerifConnexion(){
-        $this->modele->connexionUtilisateur();
-    }
-
-    public function deconnexionUtilisateur(){
-        $this->modele->deconnexionUtilisateur();
-    }
-
     public function getVue(){
         return $this->vue;
     }

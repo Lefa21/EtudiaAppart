@@ -1,0 +1,239 @@
+.main-content-ad_search {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+    position: relative;
+    min-height: 912px;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 80px 8px;
+  }
+  
+  .background-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .filter-container {
+    position: relative;
+    border-radius: 10px;
+    background: var(--Secondary, #ccd8ff);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    padding: 18px 14px;
+  }
+  
+  .search-bar {
+    border-radius: 10px;
+    background: var(--White, #fff);
+    display: flex;
+    gap: 20px;
+    color: var(--Primary, #041a8f);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 14px 17px;
+    font: 400 24px Inter, sans-serif;
+  }
+  
+  .search-text {
+    margin: auto 0;
+  }
+  
+  .search-icon {
+    aspect-ratio: 0.97;
+    object-fit: contain;
+    width: 38px;
+  }
+  
+  .filter-header {
+    display: flex;
+    gap: 20px;
+    color: var(--Primary, #041a8f);
+    text-align: center;
+    margin: 19px 0 0 18px;
+    font: 400 24px Inter, sans-serif;
+  }
+  
+  .filter-icon {
+    aspect-ratio: 1.88;
+    object-fit: contain;
+    width: 15px;
+    fill: var(--Light-Gray---Field-background, #eee);
+    stroke-width: 2px;
+    stroke: var(--Primary, #041a8f);
+    align-self: start;
+    margin-top: 14px;
+  }
+  
+  .housing-type-section {
+    border-radius: 10px;
+    background: var(--White, #fff);
+    display: flex;
+    margin-top: 19px;
+    width: 100%;
+    flex-direction: column;
+    align-items: start;
+    padding: 15px 80px 2px 19px;
+  }
+  
+  .section-header {
+    display: flex;
+    gap: 13px;
+    color: var(--Primary, #041a8f);
+    font: 400 24px Inter, sans-serif;
+  }
+  
+  .section-title {
+    flex-basis: auto;
+  }
+  
+  .section-icon {
+    aspect-ratio: 1.75;
+    object-fit: contain;
+    width: 14px;
+    fill: var(--Light-Gray---Field-background, #eee);
+    stroke-width: 2px;
+    stroke: var(--Primary, #041a8f);
+    margin: auto 0;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    width: 240px;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    margin: 8px 0 0 42px;
+  }
+  
+  .checkbox-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 12px;
+    justify-content: start;
+  }
+  
+  .checkbox {
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--sds-size-radius-100);
+    background: var(--Primary, #041a8f);
+    display: flex;
+    min-height: 16px;
+    gap: 10px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin: auto 0;
+  }
+  
+  .checkbox-icon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 16px;
+    align-self: stretch;
+    margin: auto 0;
+  }
+  
+  .checkbox-label {
+    color: var(--sds-color-text-default-default);
+    align-self: stretch;
+    flex: 1;
+    margin: auto 0;
+    font: var(--sds-typography-body-font-weight-regular) var(--sds-typography-body-size-medium) / 1.4 var(--sds-typography-body-font-family);
+  }
+  
+  .price-section {
+    border-radius: 10px;
+    background: var(--White, #fff);
+    display: flex;
+    margin-top: 19px;
+    width: 100%;
+    gap: 20px;
+    color: var(--Primary, #041a8f);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 13px 19px;
+    font: 400 24px Inter, sans-serif;
+  }
+  
+  .price-range {
+    display: flex;
+    gap: 35px;
+    text-align: center;
+  }
+  
+  .price-value {
+    border-radius: 10px;
+    background: var(--Secondary, #ccd8ff);
+    padding: 8px 23px;
+  }
+  
+  .navigation-arrows {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px 100px;
+    margin: auto 0;
+  }
+  
+  .arrow-icon {
+    aspect-ratio: 1.08;
+    object-fit: contain;
+    width: 51px;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  @media (max-width: 991px) {
+    .main-content-ad_search {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  
+    .filter-container {
+      max-width: 100%;
+    }
+  
+    .search-bar {
+      max-width: 100%;
+    }
+  
+    .filter-header {
+      margin-left: 10px;
+    }
+  
+    .housing-type-section {
+      padding-right: 20px;
+    }
+  
+    .checkbox-group {
+      margin-left: 10px;
+    }
+  
+    .price-section {
+      max-width: 100%;
+      margin-right: 2px;
+    }
+  
+    .arrow-icon:last-child {
+      margin-top: 40px;
+    }
+  }

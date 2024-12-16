@@ -28,8 +28,6 @@ class ModeleConnexion extends Connexion
                     if (password_verify($password, $row['password'])) {
                         $_SESSION['identifiant_utilisateur'] = $email;
                         header('Location: index.php');
-//              echo 'variable session : ' . $_SESSION['identifiant_utilisateur'] .'<br>';
-//              echo 'Connexion validée' . '</br>';
                     } else {
                         echo 'Login ou mot de passe incorrect' . '<br>';
                     }
@@ -46,6 +44,7 @@ class ModeleConnexion extends Connexion
         if (isset($_SESSION['identifiant_utilisateur'])) {
             echo 'Déconnexion réussie, identifiant :' . $_SESSION['identifiant_utilisateur'] . '<br>';
             unset($_SESSION['identifiant_utilisateur']);
+            header('Location: index.php');
         } else {
             echo "Vous n'êtes pas connecté\n" . '<br>';
         }
