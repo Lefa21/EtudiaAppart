@@ -25,6 +25,11 @@ switch ($module) {
         $moduleFile = './src/modules/inscription/module_inscription.php';
         $moduleClass = 'ModInscription';
         break;
+
+    case 'Profil':
+        $moduleFile = './src/modules/monProfil/module_Profil.php';
+        $moduleClass = 'ModuleProfil';
+        break;    
 }
 
 if (file_exists($moduleFile)) {

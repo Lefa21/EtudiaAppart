@@ -1,4 +1,4 @@
-<?php global $tampon ?>
+<?php global $tampon; ?>
 <!DOCTYPE html >
 <html lang="en">
 <head>
