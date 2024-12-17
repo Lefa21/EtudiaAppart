@@ -26,15 +26,17 @@ class VueHome extends VueGenerique
 
         <main class="student-life">
 
-  <section class="student-life-banner">
+            <section class="student-life-banner">
 
-    <div class="banner-header">
+                <div class="banner-header">
 
-      <img src="assets/banner_etudiant_home.svg" alt="" class="banner-icon" />
+                <img src="assets/banner_etudiant_home.svg" alt="" class="banner-icon" />
 
-      <h2 class="banner-title">VIE ETUDIANTE</h2>
+                <h2 class="banner-title">VIE ETUDIANTE</h2>
 
-    </div>
+                </div>
+
+                </section>
 
     
 
@@ -144,7 +146,7 @@ class VueHome extends VueGenerique
 
     </article>
 
-  </section>
+  
 
 </main>
 

@@ -1,3 +1,18 @@
+.student-life {
+
+    background: #fff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    min-height: 100vh;
+
+}
+
+
 .vie-etudiante {
     margin-top: 30px;
     display: flex;
@@ -10,11 +25,6 @@
 
 }
 
-
-
-html{
-    
-}
 
 .student-life-banner {
 
@@ -187,12 +197,11 @@ html{
 
 .property-grid {
     align-self: center;
-    margin-top: 73px;
+    margin-top: auto;
     width: 100%;
     max-width: 1826px;
     display: flex;
     gap: 50px;
-    padding: 0 20px;
 }
 
 .property-card {
