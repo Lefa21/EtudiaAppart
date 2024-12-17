@@ -1,13 +1,25 @@
 .vie-etudiante {
     margin-top: 30px;
     display: flex;
-    justify-content: flex-end;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    min-height: 100vh;
+
 }
 
 
-.v-e-btn{
-    height: 60px;
-    font-size: 35px;
+
+html{
+    
+}
+
+.student-life-banner {
+
+    align-self: end;
+
     display: flex;
     align-items: center;
     background-color: #041a8f;
