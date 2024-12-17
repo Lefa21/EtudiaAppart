@@ -1,23 +1,40 @@
-function toggleMenu(action) {
-  var myAccount = document.getElementById("myAccount");
-  var menuArrow = document.getElementById("dropdown_menu_arrow");
-  var dropMenu = document.querySelector(".dropdown-menu");
+function toggleMenu(html, action) {
+  const menuButton = document.getElementById(html.id);
+  const menuContainer = menuButton.closest(".menu_container");
+  let dropdownMenu;
+  if (html.id == "myAccount") {
+    dropdownMenu = html.querySelector(".dropdown-menu");
+  } else {
+    dropdownMenu = menuContainer.querySelector(".dropdown-menu");
+  }
+
+  dropdownMenu.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
 
   if (action === null) {
-    myAccount.classList.toggle("forceActive");
+    menuContainer.classList.toggle("forceActive");
   } else {
-    if (!myAccount.classList.contains("forceActive")) {
-      myAccount.classList.toggle("active", action);
+    if (!menuContainer.classList.contains("forceActive")) {
+      menuContainer.classList.toggle("active", action);
     }
   }
 
-  if (myAccount.classList.contains("active")) {
-    dropMenu.style.opacity = 1;
-    dropMenu.style.transform = "translateY(0)";
-    dropMenu.style.visibility = "visible";
+  if (
+    menuContainer.classList.contains("active") ||
+    menuContainer.classList.contains("forceActive")
+  ) {
+    // Calculer la hauteur réelle du contenu
+    const contentHeight = dropdownMenu.scrollHeight + "px";
+    dropdownMenu.style.height = contentHeight; // Appliquer la hauteur calculée
+    dropdownMenu.style.opacity = 1;
+    dropdownMenu.style.transform = "translateY(-20px)";
+    dropdownMenu.style.visibility = "visible";
   } else {
-    dropMenu.style.opacity = 0;
-    dropMenu.style.transform = "translateY(-10px)";
-    dropMenu.style.visibility = "hidden";
+    // Réinitialiser la hauteur pour une transition fluide
+    dropdownMenu.style.height = "0";
+    dropdownMenu.style.opacity = 0;
+    dropdownMenu.style.transform = "translateY(-30px)";
+    dropdownMenu.style.visibility = "hidden";
   }
 }

@@ -1,0 +1,58 @@
+.section {
+  background-color: #f8f7f2; /* Fond beige */
+  width: 80%;
+  margin: 2rem auto; /* Centre la section et ajoute une marge autour */
+  padding: 2rem; /* Espacement interne */
+  border-radius: 8px; /* Coins arrondis */
+}
+
+/* Section 1 - Image centrée */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Coins arrondis */
+}
+
+/* Section 2 - Texte à gauche, bouton à droite */
+.section-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.text-content {
+  flex: 3; /* Texte prend 3 parts de la section */
+}
+
+.button-container {
+  flex: 1; /* Le bouton occupe 1 part */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: var(--text-color-white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: var(--primary-color);
+}
+
+/* Section 3 - Texte large */
+.section-text p {
+  margin-bottom: 1rem; /* Espacement entre les paragraphes */
+  text-align: justify;
+}

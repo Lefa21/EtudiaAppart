@@ -4,9 +4,7 @@ require_once __DIR__  . '/../../connexion.php';
 
 class ModeleConnexion extends Connexion
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
 
     public function connexionUtilisateur()
@@ -49,9 +47,4 @@ class ModeleConnexion extends Connexion
             echo "Vous n'êtes pas connecté\n" . '<br>';
         }
     }
-
-
 }
-
-
-?>
