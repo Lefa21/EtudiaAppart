@@ -81,7 +81,7 @@ class VueHome extends VueGenerique
                 z-index: 1; /* Affiche par-dessus les autres éléments */
                 width: 740px; /* Largeur minimale du menu */
                 font-size: 40px;
-                
+                border:1px solid #041a8f;
             }
 
             .dropdown-content a {
