@@ -1,0 +1,285 @@
+:root {
+    --primary-color: #041A8F;
+    --secondary-color: #CCD8FF;
+    --text-color-blue: #041A8F;
+    --text-color-black: #000;
+    --text-color-white: #F8F7F2;
+    --text-color-grey: #C0C0C0;
+    --notification-color: #FF3939;
+}
+
+#bodycontainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 5vh;
+    flex-wrap: wrap;
+}
+
+body {
+    font-family: Inter, 'Arial Narrow Bold', sans-serif;
+    font-size: 1rem;
+}
+
+#nom_compte {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color-black);
+}
+
+#type_profil {
+    color: var(--text-color-blue);
+}
+
+#bouton_profil {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+#tekst_bouton_profil {
+    display: flex;
+    flex-direction: column;
+}
+
+#profil_pic {
+    align-self: center;
+    margin-right: 10px;
+}
+
+#selecteur_etape_creation {
+    display: flex;
+    flex-direction: column;
+}
+
+.etape_creation {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    height: auto;
+    width: auto;
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.text_selecteur {
+    text-align: left;
+}
+
+.etape_creation:hover {
+    border-radius: 30px;
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+#menu_creation_annonce {
+    margin: 40px;
+    width: 20%;
+}
+
+#form_annonce {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#text_titre_form {
+    display: flex;
+    flex-direction: column;
+}
+
+#titre_form {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+#ss_titre_form {
+    margin-bottom: 10px;
+}
+
+.champs_titre {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+.champs {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+}
+
+#titre_annonce {
+    width: 50rem;
+}
+
+#input_type{
+    width: 20rem;
+}
+
+#type{
+    display: flex;
+    flex-direction: row;
+}
+
+#meuble{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+#check_meuble{
+    margin: 18px;
+}
+
+#prix {
+    width: 19rem;
+}
+
+#superficie {
+    width: 19rem;
+}
+
+#input_nb {
+    width: 19rem;
+}
+
+#debut_fin {
+    width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.debut_fin {
+    width: 45%;
+}
+
+.suivant {
+    justify-items: center;
+    align-items: center;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#form_description {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+#champs_description {
+    width: 50rem;
+    height: 30rem;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#champs_description:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+#galerie{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo_img{
+    display: flex;
+    width: 20rem;
+    height: 20rem;
+    border: var(--secondary-color) 1px solid  ;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 10rem;
+    height: 10rem;
+}
+
+.photo{
+    display: none;
+}
+
+
+@media (max-width: 600px) {
+    #bodycontainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .debut_fin {
+        width: 100%;
+    }
+
+    #titre_form {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    #menu_creation_annonce {
+        display: none;
+    }
+    #form_annonce {
+        margin: 20px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .debut_fin {
+        width: 48%;
+    }
+
+    #titre_form {
+        font-size: 2.2rem;
+    }
+}
+
+@media (min-width: 901px) {
+    #bodycontainer {
+        margin: 50px auto;
+    }
+
+    .debut_fin {
+        width: 40%;
+    }
+}
+

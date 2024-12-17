@@ -56,7 +56,10 @@ switch ($module) {
     case 'monProfil':
         $moduleFile = './src/modules/monProfil/module_Profil.php';
         $moduleClass = 'ModuleProfil';
-        break;    
+        break;
+    case 'creation_annonce':
+        $moduleFile = './src/modules/creation_annonce/module_creation_annonce.php';
+        $moduleClass = 'ModCreationAnnonce';
 }
 
 if (file_exists($moduleFile)) {
