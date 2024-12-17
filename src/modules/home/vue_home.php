@@ -24,19 +24,20 @@ class VueHome extends VueGenerique
 
 <link rel="stylesheet" href="./src/css/home.css">
 
-        <main class="student-life">
+<main>
 
-            <section class="student-life-banner">
-
-                <div class="banner-header">
-
-                <img src="assets/banner_etudiant_home.svg" alt="" class="banner-icon" />
-
-                <h2 class="banner-title">VIE ETUDIANTE</h2>
-
-                </div>
-
-                </section>
+    <section class="vie-etudiante">
+        <div class="dropdown">
+            <button class="v-e-btn">
+                <img src="assets/banner_etudiant_home.svg" alt="" class="banner-icon" /> Vie Etudiante
+            </button>
+            <div class="dropdown-content">
+                <a href="#link1">Option 1</a>
+                <a href="#link2">Option 2</a>
+                <a href="#link3">Option 3</a>
+            </div>
+        </div>
+    </section>
 
     
 
