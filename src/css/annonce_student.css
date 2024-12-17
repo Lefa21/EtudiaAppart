@@ -30,6 +30,34 @@
   flex: 3; /* Texte prend 3 parts de la section */
 }
 
+.text-content .title {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.text-content .description {
+  font-size: 1rem;
+}
+.text-content .price {
+  margin: 0.6rem 0;
+  font-size: 2rem;
+}
+.text-content .date-pub {
+  font-size: 0.8rem;
+}
+.text-content .date-dispo {
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+}
+.text-content .category {
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+}
+.text-content .address {
+  margin-top: 0.4rem;
+  font-size: 1.2rem;
+}
+
 .button-container {
   flex: 1; /* Le bouton occupe 1 part */
   display: flex;

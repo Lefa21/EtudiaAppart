@@ -23,9 +23,13 @@ class VueAnnonceStudent extends VueGenerique
             </section>
             <section class="section section-content">
                 <div class="text-content">
-                    <p>Ligne de texte 1</p>
-                    <p>Ligne de texte 2</p>
-                    <p>Ligne de texte 3</p>
+                    <p class="title">Logement étudiant</p>
+                    <p class="description">1 pièce - 19m2</p>
+                    <p class="price">550€</p>
+                    <p class="date-pub">Publiée le 27/06/24 20h35</p>
+                    <p class="date-dispo">Libre du 03/08/2024 au 04/09/2027</p>
+                    <p class="category">Catégorie : Appartement entier</p>
+                    <p class="address">Localisation : 6 boulevard du Monde 75021 PARIS</p>
                 </div>
                 <div class="button-container">
                     <button class="action-button">Cliquez ici</button>
