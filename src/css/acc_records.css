@@ -94,7 +94,6 @@
   box-shadow: none;
   background-color: white;
   width: 80%;
-  height: 16rem;
   border: solid 1px var(--text-color-grey);
   border-radius: 0 0 4px 4px;
   right: auto;
@@ -116,6 +115,10 @@
   margin: 2rem 0 2rem 0;
 }
 
+/*---------------------------------------------------------------------------------------------*/
+/*---------------------------------------- DROPFILE SECTION -----------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
 .dropfile_section:first-child {
   margin-top: 3.6rem;
 }
@@ -131,7 +134,7 @@
   display: flex;
   width: 80%;
   height: 3rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-radius: 8px;
   background: var(--gray-border);
   box-shadow:
@@ -160,4 +163,61 @@
 .dropfile_file input {
   position: relative;
   left: 6%;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+/*---------------------------------------- FINANCIAL SECTION ----------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------*/
+/*-------------------------------------- INFORMATION SECTION ----------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+.info_section {
+  position: relative;
+  display: flex;
+  left: 50%;
+  transform: translate(-50%);
+  border: solid 1px var(--text-color-grey);
+  border-radius: 8px;
+  width: 80%;
+  min-height: 4rem;
+  height: fit-content;
+  margin-top: 1rem;
+  font-size: small;
+}
+
+.info_section:first-child {
+  margin-top: 3.6rem;
+}
+
+.info_section:last-child {
+  margin-bottom: 2rem;
+}
+
+.info_section_text {
+  color: var(--text-color-blue);
+  padding: 0.4rem 0 0 1rem;
+}
+
+.info_section_zone {
+  position: absolute;
+  display: flex;
+  left: 2rem;
+  top: 50%;
+  transform: translate(0, -20%);
+}
+
+.info_section_zone.relative {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  left: -2rem;
+  top: 2rem;
+  transform: none;
+  margin-bottom: 2rem;
+}
+
+.info_section_zone input[type="radio"] {
+  margin: 0 0.2rem 0 1rem;
 }
