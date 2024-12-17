@@ -18,9 +18,7 @@
     include __DIR__ . '/header.php';
     ?>
 
-    <main>
         <?php echo $tampon; ?>
-    </main>
 
     <?php
 
