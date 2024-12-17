@@ -115,6 +115,23 @@
   margin: 2rem 0 2rem 0;
 }
 
+.save_button {
+  width: 480px;
+  min-height: 48px;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: var(--White, #fff);
+  text-align: center;
+  font: 700 16px var(--police-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
 /*---------------------------------------------------------------------------------------------*/
 /*---------------------------------------- DROPFILE SECTION -----------------------------------*/
 /*---------------------------------------------------------------------------------------------*/

@@ -11,13 +11,15 @@ class VueRecords extends VueGenerique
     {
 ?>
         <link rel="stylesheet" href="./src/css/acc_records.css">
+        <link rel="stylesheet" href="./src/css/menu_my_account.css">
+
         <div class="blockPage">
             <aside class="sidebar" role="complementary" aria-label="Navigation latérale">
-                <div class="profile-header">
+                <div class="user-info">
                     <img src="assets/photo_profil.png" alt="Photo de profil de Ben youssef Faël" class="profile-icon" width="49" height="49" />
-                    <div class="profile-info">
-                        <span class="profile-name">Ben youssef Faël</span>
-                        <span class="profile-type">Profil propriétaire</span>
+                    <div class="user-details">
+                        <span class="user-name">Ben youssef Faël</span>
+                        <span class="user-role">Profil propriétaire</span>
                     </div>
                 </div>
 
@@ -44,7 +46,7 @@ class VueRecords extends VueGenerique
                     </a>
                 </nav>
 
-                <button class="action-button primary" aria-label="Accéder aux paramètres">Paramètres</button>
+                <button type="button" class="settings-button" aria-label="Accéder aux paramètres">Paramètres</button>
             </aside>
             <section class="records_section">
                 <div class="menu_container">
@@ -86,7 +88,7 @@ class VueRecords extends VueGenerique
                                 <input type="file" id="visa-file" accept=".pdf" />
                             </div>
                         </section>
-                        <button id="save_docs-dropfile" class="action-button" type="submit">Enregistrer les modifications</button>
+                        <button id="save_docs-dropfile" class="save_button" type="submit">Enregistrer les modifications</button>
                     </div>
                 </div>
                 <div class="menu_container">
@@ -94,7 +96,7 @@ class VueRecords extends VueGenerique
                         <span class="menu_button_text">Ma situation financière</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
                     </div>
                     <div class="dropdown-menu document_section">
-                        <button id="save_docs-eco_situation" class="action-button" type="submit">Enregistrer les modifications</button>
+                        <button id="save_docs-eco_situation" class="save_button" type="submit">Enregistrer les modifications</button>
                     </div>
                 </div>
                 <div class="menu_container">
@@ -140,7 +142,7 @@ class VueRecords extends VueGenerique
                                 </div>
                             </section>
                         </form>
-                        <button id="save_docs-more_information" class="action-button" type="submit">Enregistrer les modifications</button>
+                        <button id="save_docs-more_information" class="save_button" type="submit">Enregistrer les modifications</button>
                     </div>
                 </div>
             </section>
