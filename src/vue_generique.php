@@ -1,5 +1,6 @@
 <?php
 
+require_once 'vue_generique.php';
 class VueGenerique
 {
     public function __construct()
@@ -12,3 +13,4 @@ class VueGenerique
         return ob_get_clean();
     }
 }
+?>

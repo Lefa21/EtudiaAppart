@@ -1,10 +1,14 @@
 :root {
-    --primary-color: #041A8F;
-    --secondary-color: #CCD8FF;
-    --text-color-blue: #041A8F;
-    --text-color-black: #000;
-    --text-color-white: #F8F7F2;
-    --text-color-grey: #C0C0C0 ;
-    --notification-color: #FF3939;
-    --police-text : 'Inter', sans-serif;
+  --primary-color: #041a8f;
+  --secondary-color: #ccd8ff;
+  --text-color-blue: #041a8f;
+  --text-color-black: #000;
+  --text-color-white: #f8f7f2;
+  --text-color-grey: #c0c0c0;
+  --gray-border: #c0c0c0;
+  --black-border: #000;
+  --notification-color: #ff3939;
+  --police-text: "Inter", sans-serif;
+  --background-color-white: #fff;
+  --password-toggle-color: #636363;
 }
