@@ -75,6 +75,18 @@
   transition: background-color 0.3s ease;
 }
 
+.postuler {
+  margin: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 80%;
+}
+
+.signaler {
+  margin-right: 2rem;
+  height: auto;
+}
+
 .action-button:hover {
   background-color: var(--primary-color);
 }
