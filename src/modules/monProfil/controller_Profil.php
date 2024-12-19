@@ -52,10 +52,11 @@ public function handleAjaxRequest($emailIdentification)
                 }
                 echo json_encode(['success' => $updateSuccess]);
                 break;
-
+/*
                 default:
                     http_response_code(400);
                     echo json_encode(['error' => 'Action inconnue']);
+                    */
             }
 
             $updatedUserData = $this->modele->getUserData($emailIdentification);
@@ -65,8 +66,10 @@ public function handleAjaxRequest($emailIdentification)
             ]);
 
     } else {
+        /*
         http_response_code(400);
         echo json_encode(['error' => 'Requête invalide']);
+        */
     }
 }
 
