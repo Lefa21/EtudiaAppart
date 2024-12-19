@@ -32,6 +32,11 @@
           <img src="assets/icon_follow_request.svg" alt="" class="nav-item-icon">
           <span>Suivi des demandes</span>
         </a>
+        <a href="index.php?module=owner_requests&action=manage_application"
+        class="nav-item <?= ($_GET["module"] == "owner_requests" && $_GET["action"] == "manage_application") ? 'active' : '' ?>">
+          <img src="assets/gerer_demande.svg" alt="" class="nav-item-icon">
+          <span>Gerer Mes demandes</span>
+        </a>
         <a href="#messages" class="nav-item">
           <img src="assets/icon_messages_profile.svg" alt="" class="nav-item-icon">
           <span>Messagerie</span>

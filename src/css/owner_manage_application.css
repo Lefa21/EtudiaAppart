@@ -3,7 +3,6 @@
     max-width: 480px;
     width: 100%;
     margin: 0 auto;
-    margin-top: -858px;
 }
 
 .applications-frame {
@@ -14,6 +13,8 @@
     justify-content: space-between;
     background: var(--background-color-white);
     overflow: hidden;
+    margin-top: -33rem;
+    
 }
 .applications-header {
     display: flex;
@@ -27,6 +28,18 @@
     justify-content: space-between;
     padding: 16px;
 }
+
+.section-title-owner_application {
+    color: rgba(0, 43, 127, 1);
+    font: 800 36px/1 var(--police-text);
+    letter-spacing: -1px;
+  }
+
+  .section-header-owner_application {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
 
 .back-button {
     display: flex;
@@ -61,7 +74,7 @@
 
 .filter-title {
     font: 700 18px/1 Inter, sans-serif;
-    color: var(--text-color-black);
+    color: rgba(0, 43, 127, 1);
     margin-bottom: 8px;
 }
 

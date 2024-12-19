@@ -11,6 +11,16 @@ html {
     padding: 0;
 }
 
+.section-title-owner {
+    color: rgba(0, 43, 127, 1);
+    font: 800 36px/1 var(--police-text);
+    letter-spacing: -1px;
+  }
+
+  .section-header-owner {
+    margin-bottom: 3rem;
+  }
+
 /* Accessibility */
 .skip-link {
     position: absolute;
@@ -24,9 +34,8 @@ html {
 }
 
 .container-owner_request{
+    margin-top: 2rem;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     background: var(--background-color-white);
     padding-bottom: 49px;
 }
