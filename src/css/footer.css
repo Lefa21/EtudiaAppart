@@ -49,16 +49,15 @@ footer {
 
 .footer-column {
   display: flex;
-  flex-direction: column;
+  text-align: center;
+  flex-direction: row; /* Changer de column à row */
   gap: 10px;
-  font:
-    500 32px Inter,
-    sans-serif;
+  font: 400 24px Inter, sans-serif;
 }
 
 .footer-column h3 {
   margin: 0;
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .footer-column a {

@@ -49,7 +49,7 @@ class ModeleInscription extends Connexion
     
             // Exécution de la requête
             if ($sql->execute()) {
-                echo 'Inscription validée' . '</br>';
+                header('Location: index.php');
             } else {
                 echo 'Erreur lors de l\'inscription, veuillez réessayer plus tard.' . '</br>';
             }

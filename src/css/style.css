@@ -78,6 +78,7 @@ header .banner {
 }
 
 .dropdown-menu {
+  z-index: 1;
   display: block; /* Ne pas utiliser display: none, car cela empêche les transitions */
   opacity: 0;
   transform: translateY(
