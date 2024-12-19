@@ -183,8 +183,8 @@ class VueCreationAnnonce extends VueGenerique
           <input type="file" id="profile-image" class="image-upload-input" accept="image/*" aria-label="Upload new profile picture">
         </div>
         <div class="user-details">
-          <span class="user-name">Ben youssef Faël</span>
-          <span class="user-role">Profil étudiant</span>
+          <span class="user-name">Nouredine Tamani</span>
+          <span class="user-role">Profil propriétaire</span>
         </div>
       </div>
       <nav class="nav-menu" aria-label="Main navigation">
@@ -305,8 +305,8 @@ class VueCreationAnnonce extends VueGenerique
           <input type="file" id="profile-image" class="image-upload-input" accept="image/*" aria-label="Upload new profile picture">
         </div>
         <div class="user-details">
-          <span class="user-name">Ben youssef Faël</span>
-          <span class="user-role">Profil étudiant</span>
+          <span class="user-name">Nouredine Tamani</span>
+          <span class="user-role">Profil propriétaire</span>
         </div>
       </div>
       <nav class="nav-menu" aria-label="Main navigation">
@@ -372,8 +372,8 @@ class VueCreationAnnonce extends VueGenerique
           <input type="file" id="profile-image" class="image-upload-input" accept="image/*" aria-label="Upload new profile picture">
         </div>
         <div class="user-details">
-          <span class="user-name">Ben youssef Faël</span>
-          <span class="user-role">Profil étudiant</span>
+          <span class="user-name">Nouredine Tamani</span>
+          <span class="user-role">Profil propriétaire</span>
         </div>
       </div>
       <nav class="nav-menu" aria-label="Main navigation">
