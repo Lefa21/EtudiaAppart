@@ -7,47 +7,16 @@ class VueRecords extends VueGenerique
         parent::__construct();
     }
 
-    public function welcome()
+    public function monDossier()
     {
 ?>
         <link rel="stylesheet" href="./src/css/acc_records.css">
         <link rel="stylesheet" href="./src/css/menu_my_account.css">
 
         <div class="blockPage">
-            <aside class="sidebar" role="complementary" aria-label="Navigation latérale">
-                <div class="user-info">
-                    <img src="assets/photo_profil.png" alt="Photo de profil de Ben youssef Faël" class="profile-icon" width="49" height="49" />
-                    <div class="user-details">
-                        <span class="user-name">Ben youssef Faël</span>
-                        <span class="user-role">Profil propriétaire</span>
-                    </div>
-                </div>
-
-                <nav class="nav-menu" role="navigation" aria-label="Menu principal">
-                    <a href="index.php?module=monProfil" class="nav-item">
-                        <img src="assets/icon_profil.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Profil</span>
-                    </a>
-                    <a href="index.php?module=records" class="nav-item active">
-                        <img src="assets/icon_documents_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Mon dossier</span>
-                    </a>
-                    <a href="#requests" class="nav-item" aria-current="page">
-                        <img src="assets/icon_follow_request.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Suivi des demandes</span>
-                    </a>
-                    <a href="#messages" class="nav-item">
-                        <img src="assets/icon_messages_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Messagerie</span>
-                    </a>
-                    <a href="#favorites" class="nav-item">
-                        <img src="assets/icon_wishlist.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
-                        <span>Mes favoris</span>
-                    </a>
-                </nav>
-
-                <button type="button" class="settings-button" aria-label="Accéder aux paramètres">Paramètres</button>
-            </aside>
+        <?php
+            include "./src/menu_my_account.php";
+        ?>
             <section class="records_section">
                 <div class="menu_container">
                     <div id="docs_general" class="menu_button" onclick="toggleMenu(this, null)">

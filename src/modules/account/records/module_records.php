@@ -11,8 +11,8 @@ class ModuleRecords
         $this->controller = new ControllerRecords();
 
         switch ($this->controller->getAction()) {
-            case 'welcome':
-                $this->controller->welcome();
+            case 'monDossier':
+                $this->controller->monDossier();
         }
     }
 
