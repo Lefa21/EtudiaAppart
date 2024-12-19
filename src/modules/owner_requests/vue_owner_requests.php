@@ -13,10 +13,10 @@ class VueOwnerRequests extends VueGenerique
     {
 ?>
 
-        <link rel="stylesheet" href="./src/css/owner_requests.css">
-        <div class="page-wrapper">
-        <main id="main-content" class="main-content-owner_request" role="main">
-
+    <link rel="stylesheet" href="./src/css/owner_requests.css">
+   <div class="page-wrapper">
+    <main id="main-content" class="main-content-owner_request" role="main">
+     <div class="container-owner_request">
         <?php
             include "./src/menu_my_account.php";
         ?>
@@ -100,6 +100,7 @@ class VueOwnerRequests extends VueGenerique
                     </a>
                 </div>
             </section>
+    </div>
         </main>
     </div>
 <?php
