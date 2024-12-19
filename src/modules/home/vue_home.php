@@ -398,32 +398,32 @@ class VueHome extends VueGenerique
         <section class="property-grid">
         
                 <article class="property-card">
-                    <img src="assets/img_logement.png" alt="Property" class="property-image" />
+                    <img src="assets/logement_etudiant_1.jpg" alt="Property" class="property-image" />
                     <div class="property-info">
-                        <p>Titre : Titre</p>
-                        <p>Emplacment : Emplacement</p>
-                        <p>Durée : Durée</p>
-                        <p>Type de logement : Type de</p>
+                        <p>Titre : Studio proche de Odéon</p>
+                        <p>Emplacment : Métro Odéon</p>
+                        <p>Durée : 36 mois</p>
+                        <p>Type de logement : studio</p>
                     </div>
                 </article>
 
                 <article class="property-card">
-                    <img src="assets/img_logement.png" alt="Property" class="property-image" />
+                    <img src="assets/logement_etudiant_2.jpg" alt="Property" class="property-image" />
                     <div class="property-info">
-                        <p>Titre : Titre</p>
-                        <p>Emplacment : Emplacement</p>
-                        <p>Durée : Durée</p>
-                        <p>Type de logement : Type de</p>
+                        <p>Titre : studio spacieux</p>
+                        <p>Emplacment : Issy-Les-Moulineaux</p>
+                        <p>Durée : 12 mois renouvelable</p>
+                        <p>Type de logement : studio</p>
                     </div>
                 </article>
 
                 <article class="property-card">
-                    <img src="assets/img_logement.png" alt="Property" class="property-image" />
+                    <img src="assets/logement_etudiant_3.jpg" alt="Property" class="property-image" />
                     <div class="property-info">
-                        <p>Titre : Titre</p>
-                        <p>Emplacment : Emplacement</p>
-                        <p>Durée : Durée</p>
-                        <p>Type de logement : Type de</p>
+                        <p>Titre : Studio à côté de Saint-Michel</p>
+                        <p>Emplacment : métro Saint Michel</p>
+                        <p>Durée : 24 mois</p>
+                        <p>Type de logement : studio</p>
                     </div>
                 </article>
         </section>
