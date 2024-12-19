@@ -21,7 +21,7 @@ $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
                             <span>Mon compte</span><img id="dropdown_menu_arrow" src="./assets/arrow-right.svg" height='13' alt="" />
                             <div class="dropdown-menu">
                                 <a href="index.php?module=monProfil&action=Profil">Profil</a>
-                                <a href="index.php?module=records&action=documents">Mon dossier</a>
+                                <a href="index.php?module=records&action=monDossier">Mon dossier</a>
                                 <a href="index.php?module=owner_requests&action=follow-up_owner_requests">Mes demandes</a>
                                 <a href="#">Messagerie</a>
                                 <a href="#">Paramètres</a>
