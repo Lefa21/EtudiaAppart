@@ -13,6 +13,11 @@ class ModuleRecords
         switch ($this->controller->getAction()) {
             case 'monDossier':
                 $this->controller->monDossier();
+                break;
+
+            case 'saveFiles':
+                $this->controller->saveFiles();
+                break;
         }
     }
 
