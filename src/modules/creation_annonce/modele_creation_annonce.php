@@ -23,28 +23,24 @@ class ModeleCreationAnnonce extends Connexion
             $ville_form = $_POST['ville_form'];
             $cp_form = $_POST['cp_form'];
             $region_form = $_POST['region_form'];
-            $req = $this->connexion->prepare('INSERT INTO Ad (rent_price, lease_start, lease_end, ad_title) VALUES (:prix_form, :debut_form, :$fin_form, :titre_form)');
-            $req->execute(array(
-                'prix_form' => $prix_form,
-                'debut_form' => $debut_form,
-                'fin_form' => $fin_form,
-                'type_logement_form' => $type_logement_form,
-                'titre_form' => $titre_form
-            ));
-            $req = $this->connexion->prepare('INSERT INTO Habitation (nb_pieces_form, meuble, type_logement_form, superficie_form) VALUES (:nb_pieces_form, :meuble, :type_logement_form, :superficie_form)');
-            $req->execute(array(
-                'nb_pieces_form' => $nb_pieces_form,
-                'meuble' => $meuble,
-                'type_logement_form' => $type_logement_form,
-                'superficie_form' => $superficie_form
-            ));
-            $req = $this->connexion->prepare('INSERT INTO Address (loc_form, ville_form, cp_form, region_form) VALUES (:loc_form, :ville_form, :cp_form, :region_form)');
-            $req->execute(array(
-                'loc_form' => $loc_form,
-                'ville_form' => $ville_form,
-                'cp_form' => $cp_form,
-                'region_form' => $region_form
-            ));
+            $sql = Connexion::getBdd()->prepare('INSERT INTO Ad (rent_price, lease_start, lease_end, ad_title) VALUES (:prix_form, :debut_form, :$fin_form, :titre_form)');
+            $sql->bindParam(':prix_form', $prix_form);
+            $sql->bindParam(':debut_form', $debut_form);
+            $sql->bindParam(':fin_form', $fin_form);
+            $sql->bindParam(':titre_form', $titre_form);
+            $sql->execute();
+            $sql = Connexion::getBdd()->prepare('INSERT INTO Habitation (numbers_rooms, furnished, type_habitation, surface_area) VALUES (:nb_pieces_form, :meuble, :type_logement_form, :superficie_form)');
+            $sql->bindParam(':nb_pieces_form', $nb_pieces_form);
+            $sql->bindParam(':meuble', $meuble);
+            $sql->bindParam(':type_logement_form', $type_logement_form);
+            $sql->bindParam(':superficie_form', $superficie_form);
+            $sql->execute();
+            $sql = Connexion::getBdd()->prepare('INSERT INTO Address (address_line, city, zipcode, country) VALUES (:loc_form, :ville_form, :cp_form, :region_form)');
+            $sql->bindParam(':loc_form', $loc_form);
+            $sql->bindParam(':ville_form', $ville_form);
+            $sql->bindParam(':cp_form', $cp_form);
+            $sql->bindParam(':region_form', $region_form);
+            $sql->execute();
             header('Location: index.php?module=creation_annonce&action=photosCreationAnnonce');
         }
     }
