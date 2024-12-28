@@ -43,5 +43,11 @@ class ModeleCreationAnnonce extends Connexion
             $sql->execute();
             header('Location: index.php?module=creation_annonce&action=photosCreationAnnonce');
         }
+        if (isset($POST['form_description']))
+        {
+            $form_description = $_POST['form_description'];
+            $sql = Connexion::getBdd()->prepare('INSERT INTO Ad (description) VALUES (:form_description)');
+            $sql->bindParam(':form_description', $form_description);
+        }
     }
 }

@@ -93,75 +93,9 @@ class VueCreationAnnonce extends VueGenerique
     public function formulaireCreationAnnonce(){
         ?>
         <script type="text/javascript">
-            document.getElementById('suivant').addEventListener('click', function() {
-                const titre = document.querySelector('[name="titre_form"]').value;
-                const type = document.querySelector('[name="type_logement_form"]').value;
-                const prix = document.querySelector('[name="prix_form"]').value;
-                const superficie = document.querySelector('[name="superficie_form"]').value;
-                const nb_pieces = document.querySelector('[name="nb_pieces_form"]').value;
-                const debut = document.querySelector('[name="debut_form"]').value;
-                const fin = document.querySelector('[name="fin_form"]').value;
-                const adresse = document.querySelector('[name="adresse_form"]').value;
-                const ville = document.querySelector('[name="ville_form"]').value;
-                const cp = document.querySelector('[name="cp_form"]').value;
-                const region = document.querySelector('[name="region_form"]').value;
+          const form = document.getElementById('form_infos')
 
-                if (titre) {
-                    localStorage.setItem('titre_form', titre);
-                } else {
-                    alert('Veuillez remplir le champ Titre.');
-                }
-                if (type) {
-                    localStorage.setItem('type_logement_form', type);
-                } else {
-                    alert('Veuillez remplir le champ Type de logement.');
-                }
-                if (prix) {
-                    localStorage.setItem('prix_form', prix);
-                } else {
-                    alert('Veuillez remplir le champ Prix.');
-                }
-                if (superficie) {
-                    localStorage.setItem('superficie_form', superficie);
-                } else {
-                    alert('Veuillez remplir le champ Superficie.');
-                }
-                if (nb_pieces) {
-                    localStorage.setItem('nb_pieces_form', nb_pieces);
-                } else {
-                    alert('Veuillez remplir le champ Nombre de pièces.');
-                }
-                if (debut) {
-                    localStorage.setItem('debut_form', debut);
-                } else {
-                    alert('Veuillez remplir le champ Début.');
-                }
-                if (fin) {
-                    localStorage.setItem('fin_form', fin);
-                } else {
-                    alert('Veuillez remplir le champ Fin.');
-                }
-                if (adresse) {
-                    localStorage.setItem('adresse_form', adresse);
-                } else {
-                    alert('Veuillez remplir le champ Adresse.');
-                }
-                if (ville) {
-                    localStorage.setItem('ville_form', ville);
-                } else {
-                    alert('Veuillez remplir le champ Ville.');
-                }
-                if (cp) {
-                    localStorage.setItem('cp_form', cp);
-                } else {
-                    alert('Veuillez remplir le champ Code postal.');
-                }
-                if (region) {
-                    localStorage.setItem('region_form', region);
-                } else {
-                    alert('Veuillez remplir le champ Région.');
-                }
-            });
+
         </script>
           <link rel="stylesheet" type="text/css" href="./src/css/style_creation_annonce.css">
             <link rel="stylesheet" href="./src/css/menu_my_account.css">
@@ -222,7 +156,7 @@ class VueCreationAnnonce extends VueGenerique
                 <div class="champs_titre" id="type_logement">
                     Type de logement
                     <div id="type">
-                        <select class="champs" id="input_type" name="type_logement_form" aria-label="type_logement" required>
+                        <select class="champs" id="input_type" name="type_logement_form" aria-label="type_logement" required aria-required="true">
                             <option name="collocation">Collocation</option>
                             <option name="appart">Appartement</option>
                             <option name="chambre">Chambre</option>
@@ -238,39 +172,39 @@ class VueCreationAnnonce extends VueGenerique
                 </div>
                 <div class="champs_titre" >
                     Prix
-                    <input id="prix" type="number" class="champs" placeholder="Prix" name="prix_form" aria-label="prix" required>
+                    <input id="prix" type="number" class="champs" placeholder="Prix" name="prix_form" aria-label="prix" required aria-required="true">
                 </div>
                 <div class="champs_titre">
                     Superficie
-                    <input class="champs" id="superficie" type="number" placeholder="Superficie" name="superficie_form" aria-label="superficie" required>
+                    <input class="champs" id="superficie" type="number" placeholder="Superficie" name="superficie_form" aria-label="superficie" required aria-required="true">
                 </div>
                 <div class="champs_titre">
                     Nombre de pièces
-                    <input class="champs" id="input_nb" type="number" placeholder="Nombre de pièces" name="nb_pieces_form" aria-label="nb_pièces" required>
+                    <input class="champs" id="input_nb" type="number" placeholder="Nombre de pièces" name="nb_pieces_form" aria-label="nb_pièces" required aria-required="true">
                 </div>
                 <div class="champs_titre" id="duree">
                     Durée de disponibilité
                     <div id="debut_fin" >
-                        <input type="date" class="champs debut_fin" id="debut" placeholder="Début" name="debut_form" aria-label="debut" required>
-                        <input type="date" class="champs debut_fin" id="fin" placeholder="Fin" name="fin_form" aria-label="fin" required>
+                        <input type="date" class="champs debut_fin" id="debut" placeholder="Début" name="debut_form" aria-label="debut" required aria-required="true">
+                        <input type="date" class="champs debut_fin" id="fin" placeholder="Fin" name="fin_form" aria-label="fin" required aria-required="true">
                     </div>
                 </div>
                 <div  class="champs_titre" id="adresse">
                     Localisation
-                    <input class="champs" id="input_adresse" placeholder="adresse" name="adresse_form" aria-label="adresse" required>
+                    <input class="champs" id="input_adresse" placeholder="adresse" name="adresse_form" aria-label="adresse" required aria-required="true">
                 </div>
                 <div class="rest_loc">
                     <div class="champs_titre" id="city">
                         Ville
-                        <input class="champs" id="input_ville" placeholder="Ville" name="ville_form" aria-label="ville" required>
+                        <input class="champs" id="input_ville" placeholder="Ville" name="ville_form" aria-label="ville" required aria-required="true">
                     </div>
                     <div class="champs_titre" id="code_postal">
                         Code postal
-                        <input class="champs" id="input_cp" placeholder="Code postal" name="cp_form" aria-label="cp" required>
+                        <input class="champs" id="input_cp" placeholder="Code postal" name="cp_form" aria-label="cp" required aria-required="true">
                     </div>
                     <div class="champs_titre" id="region">
                         Région
-                        <input class="champs" id="input_region" placeholder="Region" name="region_form" aria-label="region" required>
+                        <input class="champs" id="input_region" placeholder="Region" name="region_form" aria-label="region" required aria-required="true">
                     </div>
                 </div>
 
@@ -333,7 +267,7 @@ class VueCreationAnnonce extends VueGenerique
                 <a id="titre_form">Photos</a>
                 <a id="ss_titre_form">Ajouter des photos</a>
             </span>
-            <input class="champs" type="file" name="input_photo1" aria-label="photo1">
+            <input class="champs" type="file" name="input_photo1" aria-label="photo1" required aria-required="true">
             <div id="galerie">
                 <div class="logo_img">
                     <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.2647 15.9377L12.5473 14.2346C11.758 13.4519 11.3633 13.0605 10.9089 12.9137C10.5092 12.7845 10.079 12.7845 9.67922 12.9137C9.22485 13.0605 8.83017 13.4519 8.04082 14.2346L4.04193 18.2622M14.2647 15.9377L14.606 15.5991C15.412 14.7999 15.8149 14.4003 16.2773 14.2545C16.6839 14.1262 17.1208 14.1312 17.5244 14.2688C17.9832 14.4253 18.3769 14.834 19.1642 15.6515L20 16.5001M14.2647 15.9377L18.22 19.9628M18.22 19.9628C17.8703 20 17.4213 20 16.8 20H7.2C6.07989 20 5.51984 20 5.09202 19.782C4.7157 19.5903 4.40973 19.2843 4.21799 18.908C4.12583 18.7271 4.07264 18.5226 4.04193 18.2622M18.22 19.9628C18.5007 19.9329 18.7175 19.8791 18.908 19.782C19.2843 19.5903 19.5903 19.2843 19.782 18.908C20 18.4802 20 17.9201 20 16.8V13M11 4H7.2C6.07989 4 5.51984 4 5.09202 4.21799C4.7157 4.40973 4.40973 4.71569 4.21799 5.09202C4 5.51984 4 6.0799 4 7.2V16.8C4 17.4466 4 17.9066 4.04193 18.2622M18 9V6M18 6V3M18 6H21M18 6H15" stroke="#041A8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -400,8 +334,8 @@ class VueCreationAnnonce extends VueGenerique
                     <a id="titre_form">Description de l'annonce</a>
                     <a id="ss_titre_form">Ecrivez la description de votre annonce</a>
                 </span>
-            <form>
-                <textarea id="champs_description" name="description" placeholder="Description" aria-label="description"></textarea>
+            <form method="POST" action="index.php?module=creation_annonce&action=ajoutInfos">
+                <textarea id="champs_description" name="description" placeholder="Description" aria-label="description" required aria-required="true"></textarea>
                 <button class="suivant" type="submit">Envoyer</button>
             </form>
         </div>
