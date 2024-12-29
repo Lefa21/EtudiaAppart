@@ -15,6 +15,7 @@ class ContCreationAnnonce{
     public function __construct()
     {
         $this->vue = new VueCreationAnnonce();
+        $this->modele = new ModeleCreationAnnonce();
         $this->action = isset($_GET['action'])? $_GET['action'] : 'formulaireCreationAnnonce';
     }
 
@@ -34,11 +35,19 @@ class ContCreationAnnonce{
     public function descriptionCreationAnnonce(){
         $this->vue->descriptionCreationAnnonce();
     }
-    /*
+
     public function ajoutInfos(){
-        $this->vue->ajoutInfos();
+        $this->modele->ajoutInfos();
     }
-        */
+
+    public function ajoutPhotos(){
+        $this->modele->ajoutPhotos();
+    }
+
+    public function ajoutDescription(){
+        $this->modele->ajoutDescription();
+    }
+
     public function getAction(){
         return $this->action;
     }
