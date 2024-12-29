@@ -202,8 +202,8 @@ class VueCreationAnnonce extends VueGenerique
                         <input class="champs" id="input_cp" placeholder="Code postal" name="cp_form" aria-label="cp" required aria-required="true">
                     </div>
                     <div class="champs_titre" id="region">
-                        Région
-                        <input class="champs" id="input_region" placeholder="Region" name="region_form" aria-label="region" required aria-required="true">
+                        Pays
+                        <input class="champs" id="input_region" placeholder="Pays" name="region_form" aria-label="region" required aria-required="true">
                     </div>
                 </div>
 
