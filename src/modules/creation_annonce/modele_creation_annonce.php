@@ -52,11 +52,10 @@ class ModeleCreationAnnonce extends Connexion
     }
 
     public function ajoutDescription(){
-        if (isset($POST['sub_description']) && isset($POST['form_description']))
-        {
-            $form_description = $_POST['form_description'];
-            $sql = Connexion::getBdd()->prepare('INSERT INTO Ad (description) VALUES (:form_description)');
-            $sql->bindParam(':form_description', $form_description);
+        if (isset($POST['description'])) {
+            $description = $_POST['description'];
+            $sql = Connexion::getBdd()->prepare('INSERT INTO Ad (description) VALUES (:description)');
+            $sql->bindParam(':description', $description);
         }
         else {
             echo 'Tous les champs doivent être remplis.' . '</br>';
