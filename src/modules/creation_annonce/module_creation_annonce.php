@@ -12,12 +12,20 @@ class ModCreationAnnonce{
             case 'formulaireCreationAnnonce':
                 $this->controleur->formulaireCreationAnnonce();
                 break;
-
+            case 'ajoutInfos':
+                $this->controleur->ajoutInfos();
+                break;
             case 'photosCreationAnnonce':
                 $this->controleur->photosCreationAnnonce();
                 break;
+            case 'ajoutPhoto':
+                $this->controleur->ajoutPhotos();
+                break;
             case 'descriptionCreationAnnonce':
                 $this->controleur->descriptionCreationAnnonce();
+                break;
+            case 'ajoutDescription':
+                $this->controleur->ajoutDescription();
                 break;
         }
 

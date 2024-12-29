@@ -9,7 +9,7 @@ class ModeleCreationAnnonce extends Connexion
     }
     public function ajoutInfos()
     {
-        if(isset($_POST['titre_form']) && isset($_POST['type_logement_form']) && isset($_POST['prix_form']) && isset($_POST['superficie_form']) && isset($_POST['nb_pieces_form']) && isset($_POST['debut_form']) && isset($_POST['fin_form']) && isset($_POST['loc_form']) && isset($_POST['ville_form']) && isset($_POST['cp_form']) && isset($_POST['region_form']))
+        if(isset($POST['sub_infos']) && isset($_POST['titre_form']) && isset($_POST['type_logement_form']) && isset($_POST['prix_form']) && isset($_POST['superficie_form']) && isset($_POST['nb_pieces_form']) && isset($_POST['debut_form']) && isset($_POST['fin_form']) && isset($_POST['loc_form']) && isset($_POST['ville_form']) && isset($_POST['cp_form']) && isset($_POST['region_form']))
         {
             $titre_form = $_POST['titre_form'];
             $type_logement_form = $_POST['type_logement_form'];
@@ -41,13 +41,25 @@ class ModeleCreationAnnonce extends Connexion
             $sql->bindParam(':cp_form', $cp_form);
             $sql->bindParam(':region_form', $region_form);
             $sql->execute();
-            header('Location: index.php?module=creation_annonce&action=photosCreationAnnonce');
+        }else {
+            echo 'Tous les champs doivent être remplis.' . '</br>';
         }
-        if (isset($POST['form_description']))
+
+    }
+    public function ajoutPhotos(){
+
+
+    }
+
+    public function ajoutDescription(){
+        if (isset($POST['sub_description']) && isset($POST['form_description']))
         {
             $form_description = $_POST['form_description'];
             $sql = Connexion::getBdd()->prepare('INSERT INTO Ad (description) VALUES (:form_description)');
             $sql->bindParam(':form_description', $form_description);
+        }
+        else {
+            echo 'Tous les champs doivent être remplis.' . '</br>';
         }
     }
 }
