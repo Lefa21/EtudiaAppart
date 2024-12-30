@@ -16,6 +16,7 @@
     flex-wrap: wrap;
 }
 
+
 .owner-depot_annonce {
     margin-top: 2rem;
     display: flex;
@@ -125,11 +126,14 @@ body {
 }
 
 .container-creation_annonce{
+    width: 50rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: var(--background-color-white);
     padding-bottom: 49px;
+    margin-left: 6rem;
+    border: #1c1b1f 1px solid;
 }
 
 .main-content-creation_annonce {
@@ -144,9 +148,6 @@ body {
     padding: 10px 0px;
 }
 
-.container-creation_annonce{
-    margin-left: 6rem;
-}
 
 .container-title_creation-annonce{
     margin-top: 2rem;
@@ -209,10 +210,12 @@ body {
 }
 
 .nav_save {
-    margin-top: 20px;
+    align-self: center;
+    width: 60%;
+    margin-top: 5rem;
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    border: #000e5c 1px solid;
 }
 
 .button{
@@ -223,19 +226,15 @@ body {
     font-size: 15px;
     background-color: var(--primary-color);
     color: var(--text-color-white);
+
+}
+
+
+.sub{
     margin-left: auto;
     margin-right: auto;
 }
 
-#prec1{
-    background-color: var(--text-color-white);
-    color: var(--text-color-white);
-}
-
-#suiv_3{
-    background-color: var(--text-color-white);
-    color: var(--text-color-white);
-}
 
 #form_description {
     display: flex;
