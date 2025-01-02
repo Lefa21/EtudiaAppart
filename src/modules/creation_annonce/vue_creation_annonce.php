@@ -207,7 +207,7 @@ class VueCreationAnnonce extends VueGenerique
                 </div>
         </form>
       <div class="nav_save">
-        <button name="sub_info" type="submit"  class="button sub">Sauvegarder</button>
+        <button name="sub_info" type="submit"  class="button sub1">Sauvegarder</button>
         <a class="button" href="index.php?module=creation_annonce&action=photosCreationAnnonce" aria-label="Next">Suivant</a>
       </div>
     </div>
@@ -259,7 +259,8 @@ class VueCreationAnnonce extends VueGenerique
         </a>
       </nav>
     </aside>
-        <form id="form_photos" class="container-creation_annonce">
+    <div class="container-creation_annonce">
+        <form id="form_photos">
             <span id="text_titre_form" class="container-title_creation-annonce">
                 <a id="titre_form">Photos</a>
                 <a id="ss_titre_form">Ajouter des photos</a>
@@ -275,6 +276,7 @@ class VueCreationAnnonce extends VueGenerique
       <a class="button" href="index.php?module=creation_annonce&action=formulaireCreationAnnonce" >Précédent</a>
       <button name="sub_photos" type="submit"  class="button sub">Sauvegarder</button>
       <a class="button" href="index.php?module=creation_annonce&action=descriptionCreationAnnonce" aria-label="Next">Suivant</a>
+    </div>
     </div>
   </div>
     </main>
@@ -330,7 +332,7 @@ class VueCreationAnnonce extends VueGenerique
                     <a id="titre_form">Description de l'annonce</a>
                     <a id="ss_titre_form">Ecrivez la description de votre annonce</a>
                 </span>
-            <form method="POST" action="index.php?module=creation_annonce&action=ajoutDescription">
+            <form id="form_description" method="POST" action="index.php?module=creation_annonce&action=ajoutDescription">
               <textarea id="champs_description" name="description" placeholder="Description" aria-label="description" required aria-required="true"></textarea>
             </form>
           <div class="nav_save">
@@ -338,6 +340,7 @@ class VueCreationAnnonce extends VueGenerique
             <button name="sub_description" type="submit"  class="button sub">Sauvegarder</button>
           </div>
         </div>
+  </div>
     </main>
         <?php
     }
