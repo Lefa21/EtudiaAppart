@@ -9,8 +9,7 @@ class ModeleCreationAnnonce extends Connexion
     }
     public function ajoutInfos()
     {
-        if (isset($POST['meuble']) && isset($_POST['titre_form']) && isset($_POST['type_logement_form']) && isset($_POST['prix_form']) && isset($_POST['superficie_form']) && isset($_POST['nb_pieces_form']) && isset($_POST['debut_form']) && isset($_POST['fin_form']) && isset($_POST['loc_form']) && isset($_POST['ville_form']) && isset($_POST['cp_form']) && isset($_POST['region_form']))
-        {
+        if(isset($_POST['meuble']) && isset($_POST['titre_form']) && isset($_POST['type_logement_form']) && isset($_POST['prix_form']) && isset($_POST['superficie_form']) && isset($_POST['nb_pieces_form']) && isset($_POST['debut_form']) && isset($_POST['fin_form']) && isset($_POST['loc_form']) && isset($_POST['ville_form']) && isset($_POST['cp_form']) && isset($_POST['region_form'])) {
             $titre_form = $_POST['titre_form'];
             $type_logement_form = $_POST['type_logement_form'];
             $prix_form = $_POST['prix_form'];
@@ -23,18 +22,21 @@ class ModeleCreationAnnonce extends Connexion
             $ville_form = $_POST['ville_form'];
             $cp_form = $_POST['cp_form'];
             $region_form = $_POST['region_form'];
-            $sql = Connexion::getBdd()->prepare('INSERT INTO Ad (rent_price, lease_start, lease_end, ad_title) VALUES (:prix_form, :debut_form, :$fin_form, :titre_form)');
+            Connexion::getBdd()->beginTransaction();
+            $sql = Connexion::getBdd()->prepare('INSERT INTO Ad (rent_price, lease_start, lease_end, ad_title) VALUES (:prix_form, :debut_form, :fin_form, :titre_form)');
             $sql->bindParam(':prix_form', $prix_form);
             $sql->bindParam(':debut_form', $debut_form);
             $sql->bindParam(':fin_form', $fin_form);
             $sql->bindParam(':titre_form', $titre_form);
             $sql->execute();
+            Connexion::getBdd()->beginTransaction();
             $sql = Connexion::getBdd()->prepare('INSERT INTO Habitation (numbers_rooms, furnished, type_habitation, surface_area) VALUES (:nb_pieces_form, :meuble, :type_logement_form, :superficie_form)');
             $sql->bindParam(':nb_pieces_form', $nb_pieces_form);
             $sql->bindParam(':meuble', $meuble);
             $sql->bindParam(':type_logement_form', $type_logement_form);
             $sql->bindParam(':superficie_form', $superficie_form);
             $sql->execute();
+            Connexion::getBdd()->beginTransaction();
             $sql = Connexion::getBdd()->prepare('INSERT INTO Address (address_line, city, zipcode, country) VALUES (:loc_form, :ville_form, :cp_form, :region_form)');
             $sql->bindParam(':loc_form', $loc_form);
             $sql->bindParam(':ville_form', $ville_form);
@@ -42,9 +44,10 @@ class ModeleCreationAnnonce extends Connexion
             $sql->bindParam(':region_form', $region_form);
             $sql->execute();
             header('Location: index.php?module=creation_annonce&action=ajout_infos');
-        }else {
+
+        }
+        else {
             echo '<script type="text/javascript">window.onload = function () { alert("Tous les champs doivent être remplis."); } </script>';
-            header('Location: index.php?module=creation_annonce&action=ajout_infos');
         }
 
     }
