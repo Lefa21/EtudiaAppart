@@ -26,7 +26,7 @@
     padding-bottom: 49px;
   }
 
-  .main-content-depot_annonce {
+.main-content-depot_annonce {
     display: flex;
     width: 80%;
     max-width: 1432px;
@@ -126,14 +126,13 @@ body {
 }
 
 .container-creation_annonce{
-    width: 50rem;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: var(--background-color-white);
     padding-bottom: 49px;
     margin-left: 6rem;
-    border: #1c1b1f 1px solid;
 }
 
 .main-content-creation_annonce {
@@ -157,6 +156,7 @@ body {
 }
 
 .champs {
+    width: auto;
     padding: 10px;
     margin-top: 5px;
     border-radius: 8px;
@@ -164,7 +164,7 @@ body {
 }
 
 #titre_annonce {
-    width: 50rem;
+    width: auto;
 }
 
 #input_type{
@@ -211,16 +211,15 @@ body {
 
 .nav_save {
     align-self: center;
-    width: 60%;
+    width: 34rem;
     margin-top: 5rem;
-    align-items: center;
     display: flex;
-    border: #000e5c 1px solid;
 }
 
 .button{
+    text-align: center;
     text-decoration: none;
-    width: fit-content;
+    width: 8rem;
     padding: 10px;
     border-radius: 8px;
     font-size: 15px;
@@ -229,10 +228,15 @@ body {
 
 }
 
+.sub1{
+    margin-left: 13rem;
+    margin-right: 5rem;
+}
+
 
 .sub{
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 
@@ -242,8 +246,10 @@ body {
     padding: 10px 0px;
 }
 
+
+
 #champs_description {
-    width: 50rem;
+    width: 38rem;
     height: 30rem;
     padding: 10px;
     font-size: 1rem;
@@ -254,11 +260,6 @@ body {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#champs_description:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
-}
 
 #galerie{
     display: grid;
@@ -284,9 +285,7 @@ body {
     height: 10rem;
 }
 
-.photo{
-    display: none;
-}
+
 
 
 @media (max-width: 600px) {
