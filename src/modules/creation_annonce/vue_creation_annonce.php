@@ -147,46 +147,46 @@ class VueCreationAnnonce extends VueGenerique
                 <a id="titre_form">Informations générales</a>
                 <a id="ss_titre_form">Modifier les informations générales de votre annonce</a>
             </span>
-                <div class="champs_titre" id="titre_annonce">
-                    Titre
-                    <input class="champs" id="titre" name="titre_form" placeholder="Titre" aria-label="titre_annonce" required>
-                </div>
-                <div class="champs_titre" id="type_logement">
-                    Type de logement
-                    <div id="type">
-                        <select class="champs" id="input_type" name="type_logement_form" aria-label="type_logement" required aria-required="true">
-                            <option name="collocation">Collocation</option>
-                            <option name="appart">Appartement</option>
-                            <option name="chambre">Chambre</option>
-                            <option name="maison">Maison</option>
-                            <option name="aide_personne">Logement contre aide à la personne</option>
-                            <option name="r_u">Résidence étudiante</option>
-                        </select>
-                        <div id="meuble">
-                            <input type="checkbox" id="check_meuble" name="meuble">
-                            <span>Meublé</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="champs_titre" >
-                    Prix
-                    <input id="prix" type="number" class="champs" placeholder="Prix" name="prix_form" aria-label="prix" required aria-required="true">
-                </div>
-                <div class="champs_titre">
-                    Superficie
-                    <input class="champs" id="superficie" type="number" placeholder="Superficie" name="superficie_form" aria-label="superficie" required aria-required="true">
-                </div>
-                <div class="champs_titre">
-                    Nombre de pièces
-                    <input class="champs" id="input_nb" type="number" placeholder="Nombre de pièces" name="nb_pieces_form" aria-label="nb_pièces" required aria-required="true">
-                </div>
-                <div class="champs_titre" id="duree">
-                    Durée de disponibilité
-                    <div id="debut_fin" >
-                        <input type="date" class="champs debut_fin" id="debut" placeholder="Début" name="debut_form" aria-label="debut" required aria-required="true">
-                        <input type="date" class="champs debut_fin" id="fin" placeholder="Fin" name="fin_form" aria-label="fin" required aria-required="true">
-                    </div>
-                </div>
+<!--                <div class="champs_titre" id="titre_annonce">-->
+<!--                    Titre-->
+<!--                    <input class="champs" id="titre" name="titre_form" placeholder="Titre" aria-label="titre_annonce" required>-->
+<!--                </div>-->
+<!--                <div class="champs_titre" id="type_logement">-->
+<!--                    Type de logement-->
+<!--                    <div id="type">-->
+<!--                        <select class="champs" id="input_type" name="type_logement_form" aria-label="type_logement" required aria-required="true">-->
+<!--                            <option name="collocation">Collocation</option>-->
+<!--                            <option name="appart">Appartement</option>-->
+<!--                            <option name="chambre">Chambre</option>-->
+<!--                            <option name="maison">Maison</option>-->
+<!--                            <option name="aide_personne">Logement contre aide à la personne</option>-->
+<!--                            <option name="r_u">Résidence étudiante</option>-->
+<!--                        </select>-->
+<!--                        <div id="meuble">-->
+<!--                            <input type="checkbox" id="check_meuble" name="meuble">-->
+<!--                            <span>Meublé</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="champs_titre" >-->
+<!--                    Prix-->
+<!--                    <input id="prix" type="number" class="champs" placeholder="Prix" name="prix_form" aria-label="prix" required aria-required="true">-->
+<!--                </div>-->
+<!--                <div class="champs_titre">-->
+<!--                    Superficie-->
+<!--                    <input class="champs" id="superficie" type="number" placeholder="Superficie" name="superficie_form" aria-label="superficie" required aria-required="true">-->
+<!--                </div>-->
+<!--                <div class="champs_titre">-->
+<!--                    Nombre de pièces-->
+<!--                    <input class="champs" id="input_nb" type="number" placeholder="Nombre de pièces" name="nb_pieces_form" aria-label="nb_pièces" required aria-required="true">-->
+<!--                </div>-->
+<!--                <div class="champs_titre" id="duree">-->
+<!--                    Durée de disponibilité-->
+<!--                    <div id="debut_fin" >-->
+<!--                        <input type="date" class="champs debut_fin" id="debut" placeholder="Début" name="debut_form" aria-label="debut" required aria-required="true">-->
+<!--                        <input type="date" class="champs debut_fin" id="fin" placeholder="Fin" name="fin_form" aria-label="fin" required aria-required="true">-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div  class="champs_titre" id="adresse">
                     Localisation
                     <input class="champs" id="input_adresse" placeholder="adresse" name="loc_form" aria-label="adresse" required aria-required="true">
