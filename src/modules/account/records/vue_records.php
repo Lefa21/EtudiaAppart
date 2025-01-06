@@ -7,7 +7,7 @@ class VueRecords extends VueGenerique
         parent::__construct();
     }
 
-    public function getAffichage()
+    public function monDossier()
     {
 ?>
         <link rel="stylesheet" href="./src/css/acc_records.css">
