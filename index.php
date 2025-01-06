@@ -44,7 +44,7 @@ switch ($module) {
         $moduleFile = './src/modules/owner_requests/module_owner_requests.php';
         $moduleClass = 'ModOwnerRequests';
         break;
-    
+
     case 'student_requests':
         $moduleFile = './src/modules/student_requests/module_student_requests.php';
         $moduleClass = 'ModStudentRequests';
@@ -59,6 +59,7 @@ switch ($module) {
         $moduleFile = './src/modules/monProfil/module_Profil.php';
         $moduleClass = 'ModuleProfil';
         break;
+
     case 'creation_annonce':
         $moduleFile = './src/modules/creation_annonce/module_creation_annonce.php';
         $moduleClass = 'ModCreationAnnonce';

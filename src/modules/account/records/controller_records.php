@@ -21,14 +21,19 @@ class ControllerRecords
         return $this->action;
     }
 
-    public function monDossier()
-    {
-        $this->vue->monDossier();
-    }
-
     public function saveFiles()
     {
         $this->modele->saveFiles();
+    }
+
+    public function saveEco()
+    {
+        $this->modele->saveEco();
+    }
+
+    public function saveInfo()
+    {
+        $this->modele->saveInfo();
     }
 
     public function displayContent()
