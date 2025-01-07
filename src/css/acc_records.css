@@ -132,6 +132,49 @@
   cursor: pointer;
 }
 
+/* Tooltip container */
+.tooltip {
+  position: absolute;
+  right: 54%;
+  cursor: default;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-size: 0.6rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  padding: 0.2rem;
+  border-radius: 6px;
+  min-height: 1rem;
+  min-width: 120px;
+  width: fit-content;
+
+  top: -10px;
+  left: 110%;
+
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent rgba(0, 0, 0, 0.6) transparent transparent;
+}
+
 /*---------------------------------------------------------------------------------------------*/
 /*---------------------------------------- DROPFILE SECTION -----------------------------------*/
 /*---------------------------------------------------------------------------------------------*/
@@ -165,16 +208,6 @@
   padding-left: 1rem;
   border-radius: 8px 0 0 8px;
   background: var(--secondary-color);
-}
-
-.more_info {
-  position: fixed;
-  right: 50%;
-  cursor: default;
-}
-
-.more_info:hover {
-  transform: rotate(180deg);
 }
 
 .dropfile_file input {

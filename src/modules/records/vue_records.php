@@ -56,7 +56,12 @@ class VueRecords extends VueGenerique
                         <form action="index.php?module=records&action=saveFiles" method="POST">
                             <section id="dropfile_cni" class="dropfile_section">
                                 <div class="dropfile_info">
-                                    <span>Carte d'identité / Passeport</span><span class="more_info">&#9432;</span>
+                                    <span>Carte d'identité / Passeport</span><span class="tooltip">&#9432;
+                                        <p class="tooltiptext">
+                                            Recto seulement<br />
+                                            Au format pdf
+                                        </p>
+                                    </span>
                                 </div>
                                 <div class="dropfile_file">
                                     <input type="file" id="cni-file" accept=".pdf" />
@@ -64,7 +69,12 @@ class VueRecords extends VueGenerique
                             </section>
                             <section id="dropfile-school_certificate" class="dropfile_section">
                                 <div class="dropfile_info">
-                                    <span>Justificatif de scolarité</span><span class="more_info">&#9432;</span>
+                                    <span>Justificatif de scolarité</span><span class="tooltip">&#9432;
+                                        <p class="tooltiptext">
+                                            Text line 1<br />
+                                            Text line 2
+                                        </p>
+                                    </span>
                                 </div>
                                 <div class="dropfile_file">
                                     <input type="file" id="school_certificate-file" accept=".pdf" />
@@ -72,8 +82,13 @@ class VueRecords extends VueGenerique
                             </section>
                             <section id="dropfile-scholarship_proof" class="dropfile_section">
                                 <div class="dropfile_info">
-                                    <span>Attestation de bourse</span><span class="more_info">&#9432;</span>
-                                    <p>* Étudiants boursiers seulement</p>
+                                    <span>Attestation de bourse</span><span class="tooltip">&#9432;
+                                        <p class="tooltiptext">
+                                            Text line 1<br />
+                                            Text line 2
+                                        </p>
+                                    </span>
+                                    <p style="font-size: smaller;">* Étudiants boursiers seulement</p>
                                 </div>
                                 <div class="dropfile_file">
                                     <input type="file" id="scholarship_proof-file" accept=".pdf" />
@@ -81,8 +96,13 @@ class VueRecords extends VueGenerique
                             </section>
                             <section id="dropfile-visa" class="dropfile_section">
                                 <div class="dropfile_info">
-                                    <span>Visa / Titre de séjour</span><span class="more_info">&#9432;</span>
-                                    <p>* Étudiants internationnaux seulement</p>
+                                    <span>Visa / Titre de séjour</span><span class="tooltip">&#9432;
+                                        <p class="tooltiptext">
+                                            Text line 1<br />
+                                            Text line 2
+                                        </p>
+                                    </span>
+                                    <p style="font-size: smaller;">* Étudiants internationnaux seulement</p>
                                 </div>
                                 <div class="dropfile_file">
                                     <input type="file" id="visa-file" accept=".pdf" />

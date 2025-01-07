@@ -1,6 +1,6 @@
 <?php
 
-include_once 'controller_records.php';
+require_once 'controller_records.php';
 
 class ModuleRecords
 {
@@ -13,6 +13,11 @@ class ModuleRecords
         switch ($this->controller->getAction()) {
             case 'monDossier':
                 $this->controller->monDossier();
+                break;
+
+            case 'saveFiles':
+                $this->controller->saveFiles();
+                break;
         }
     }
 
