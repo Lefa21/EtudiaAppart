@@ -29,25 +29,10 @@ class ContCreationAnnonce{
     public function formulaireCreationAnnonce(){
         $this->vue->formulaireCreationAnnonce();
     }
-
-    public function photosCreationAnnonce(){
-        $this->vue->photosCreationAnnonce();
-    }
-
-    public function descriptionCreationAnnonce(){
-        $this->vue->descriptionCreationAnnonce();
-    }
+    
 
     public function ajoutInfos(){
         $this->modele->ajoutInfos();
-    }
-
-    public function ajoutPhotos(){
-        $this->modele->ajoutPhotos();
-    }
-
-    public function ajoutDescription(){
-        $this->modele->ajoutDescription();
     }
 
     public function getAction(){

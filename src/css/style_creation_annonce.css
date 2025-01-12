@@ -216,6 +216,17 @@ body {
     display: flex;
 }
 
+.form-step {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+  
+  .form-step.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
 .button{
     text-align: center;
     text-decoration: none;
@@ -240,11 +251,20 @@ body {
 }
 
 
-#form_description {
+
+
+#container_description {
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
 }
+
+.wrapper_description{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
 
 
 

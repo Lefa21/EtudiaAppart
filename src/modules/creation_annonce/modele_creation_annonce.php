@@ -30,21 +30,52 @@ class ModeleCreationAnnonce extends Connexion
         $cp_form = $_POST['cp_form'];
         $region_form = $_POST['region_form'];
         $description = '';
+        $emailUser = $_SESSION['identifiant_utilisateur'];
 
+        
+        $sql1 = Connexion::getBdd()->prepare('SELECT id_user FROM User WHERE email = :email');
+        $sql1->bindParam(':email', $emailUser);
+        $sql1->execute();
+        $idUser =  $sql1->fetch(PDO::FETCH_ASSOC);
 
-        $sql3 = Connexion::getBdd()->prepare('INSERT INTO Address (address_line, city, zipcode, country) VALUES (:loc_form, :ville_form, :cp_form, :region_form)');
-        $sql3->bindParam(':loc_form', $loc_form);
-        $sql3->bindParam(':ville_form', $ville_form);
-        $sql3->bindParam(':cp_form', $cp_form);
-        $sql3->bindParam(':region_form', $region_form);
+        try {
+            $sqlCheck = Connexion::getBdd()->prepare('
+                SELECT id FROM Address 
+                WHERE address_line = :loc_form AND city = :ville_form AND zipcode = :cp_form AND country = :region_form
+            ');
+            $sqlCheck->bindParam(':loc_form', $loc_form);
+            $sqlCheck->bindParam(':ville_form', $ville_form);
+            $sqlCheck->bindParam(':cp_form', $cp_form);
+            $sqlCheck->bindParam(':region_form', $region_form);
+            $sqlCheck->execute();
+        
 
-        $addressId = 0;
-
-        if ($sql3->execute()) {
-            $addressId = Connexion::getBdd()->lastInsertId();
+            $existingAddress = $sqlCheck->fetch(PDO::FETCH_ASSOC);
+        
+            $addressId = 0;
+            if ($existingAddress) {
+                $addressId = $existingAddress['id_address'];
+            } else {
+                $sql3 = Connexion::getBdd()->prepare('
+                    INSERT INTO Address (address_line, city, zipcode, country) 
+                    VALUES (:loc_form, :ville_form, :cp_form, :region_form)
+                ');
+                $sql3->bindParam(':loc_form', $loc_form);
+                $sql3->bindParam(':ville_form', $ville_form);
+                $sql3->bindParam(':cp_form', $cp_form);
+                $sql3->bindParam(':region_form', $region_form);
+        
+                if ($sql3->execute()) {
+                    $addressId = Connexion::getBdd()->lastInsertId();
+                } else {
+                    echo "Erreur lors de l'insertion de l'adresse."; // page erreur 404
+                }
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
         }
-
-        $sql2 = Connexion::getBdd()->prepare('INSERT INTO Habitation (numbers_rooms, furnished, type_habitation, surface_area, id_address) VALUES (:nb_pieces_form, :meuble, :type_logement_form, :superficie_form,addressId)');
+        
+        $sql2 = Connexion::getBdd()->prepare('INSERT INTO Habitation (numbers_rooms, furnished, type_habitation, surface_area, id_address) VALUES (:nb_pieces_form, :meuble, :type_logement_form, :superficie_form, :addressId)');
         $sql2->bindParam(':nb_pieces_form', $nb_pieces_form);
         $sql2->bindParam(':meuble', $meuble);
         $sql2->bindParam(':type_logement_form', $type_logement_form);
@@ -55,19 +86,18 @@ class ModeleCreationAnnonce extends Connexion
         if ($sql2->execute()) {
             $HabitationId = Connexion::getBdd()->lastInsertId();
         }
-        $sql1 = Connexion::getBdd()->prepare('INSERT INTO Ad (date_publication, rent_price, description, lease_start, lease_end, ad_title,id_habitation) VALUES (NOW(), :prix_form, :description, :debut_form, :fin_form, :titre_form, :HabitationId)');
-        $sql1->bindParam(':prix_form', $prix_form);
-        $sql1->bindParam(':debut_form', $debut_form);
-        $sql1->bindParam(':fin_form', $fin_form);
-        $sql1->bindParam(':titre_form', $titre_form);
-        $sql1->bindParam(':description', $description);
-        $sql1->bindParam(':HabitationId', $HabitationId);
 
-        if ($sql1->execute() && $sql2->execute() && $sql3->execute()) {
-            header('index.php?module=creation_annonce&action=formulaireCreationAnnonce');
-        } else {
-            echo 'Erreur lors de l\'inscription, veuillez réessayer plus tard.' . '</br>';
-        }
+        $sql4 = Connexion::getBdd()->prepare('INSERT INTO Ad (date_publication, rent_price, description, lease_start, lease_end, ad_title,id_habitation, id_user) VALUES (NOW(), :prix_form, :description, :debut_form, :fin_form, :titre_form, :HabitationId, :UserId)');
+        $sql4->bindParam(':prix_form', $prix_form);
+        $sql4->bindParam(':debut_form', $debut_form);
+        $sql4->bindParam(':fin_form', $fin_form);
+        $sql4->bindParam(':titre_form', $titre_form);
+        $sql4->bindParam(':description', $description);
+        $sql4->bindParam(':HabitationId', $HabitationId);
+        $sql4->bindParam(':UserId', $idUser['id_user']);
+        $sql4->execute();
+
+        header('index.php?module=creation_annonce&action=formulaireCreationAnnonce');
     } else {
         echo '<script type="text/javascript">window.onload = function () { alert("Tous les champs doivent être remplis."); } </script>';
     }
