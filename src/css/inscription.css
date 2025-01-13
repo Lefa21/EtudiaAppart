@@ -41,7 +41,7 @@
     padding: 28px 70px;
   }
   
-  .form-input-inscription {
+  .form-input-inscription, .role {
     border-radius: 5px;
     border: 1px solid var(--Primary, #041a8f);
     background: #fff;
@@ -115,6 +115,11 @@
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+  }
+
+
+  .role{
+    width: 100%;
   }
   
   @media (max-width: 991px) {
