@@ -19,14 +19,14 @@ class ContMessagerie
 
     public function messagerie($user)
     {
-        $data = $this->modele->getConvs($user);
+        $data = $this->modele->getMessagerie($user);
         $this->vue->messagerie($data);
     }
 
     public function conversation($user)
     {
         $data = $this->modele->getConv($user);
-        $this->vue->conversation($user);
+        $this->vue->conversation($data);
     }
     public function envoyerMessage()
     {
