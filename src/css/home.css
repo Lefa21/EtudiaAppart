@@ -1,431 +1,260 @@
-.student-life {
-
-    background: #fff;
+main {
 
     display: flex;
 
     flex-direction: column;
 
-    overflow: hidden;
-
-    min-height: 100vh;
 
 }
 
-
-
-.student-life-banner {
-
-    align-self: end;
-
+.vie-etudiante {
+    margin-top: 30px;
+    margin-right: 20px;
     display: flex;
-
-    width: 100%;
-
-    max-width: 1584px;
-
-    flex-direction: column;
-
-    align-items: start;
-
-    font-family: Inter, sans-serif;
-
-    color: #000;
-
-    font-weight: 400;
-
-    margin: 59px 74px 0 0;
-
+    justify-content: flex-end;
 }
 
 
-
-.banner-header {
-
-    border-radius: 21px;
-
-    background: #041a8f;
-
-    align-self: end;
-
+.v-e-btn{
+    height: 100px;
+    font-size: 50px;
     display: flex;
-
-    width: 740px;
-
-    max-width: 100%;
-
-    gap: 40px 82px;
-
-    font-size: 44px;
-
-    color: #fff;
-
-    text-align: center;
-
-    flex-wrap: wrap;
-
-    padding: 1px 26px;
-
-}
-
-
-
-.banner-icon {
-
-    width: 92px;
-
-    height: 92px;
-
-}
-
-
-
-.banner-title {
-
-    flex-grow: 1;
-
-    width: 494px;
-
-    margin: auto 0;
-
-}
-
-
-
-.filter-section-home {
-
-    border-radius: 21px;
-
-    border: 1px solid #000;
-
-    background: #ccd8ff;
-
-    display: flex;
-
-    margin-top: 59px;
-
-    width: 1396px;
-
-    max-width: 100%;
-
     align-items: center;
+    background-color: #041a8f;
+    color: #fff;
+    border-radius: 15px;
+    width: 740px;
+    justify-content: space-around;
+    font-family: Inter, sans-serif;
+    margin-right: 0;
+    padding-right: 35px;
+}
 
-    gap: 20px;
+.v-e-btn img{
+    width: 70px;
+    margin-left: -25px;
+}
 
-    font-size: 35px;
+.v-e-btn:hover{
+    background-color: #000e5c;
+}
 
+.v-e-btn.no-border {
+    border-bottom-left-radius: 0; /* Supprime l'arrondi en bas à gauche */
+    border-bottom-right-radius: 0; /* Supprime l'arrondi en bas à droite */
+}
+
+
+.dropdown {
+    position: relative; /* Positionnement pour le menu déroulant */
+    display: inline-block; /* Limite la largeur de la div à son contenu */
+}
+
+.dropdown-content {
+    display: none; /* Masqué par défaut */
+    position: absolute; /* Absolu pour apparaître sous le bouton */
+    top: 100%; /* Positionne juste en dessous du bouton */
+    right: 0; /* Aligné à droite du conteneur parent */
+    background-color: #ccd8ff; /* Fond blanc */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+    border-radius: 0 0 8px 8px; /* Coins arrondis */
+    overflow: hidden; /* Empêche le débordement */
+    z-index: 1; /* Affiche par-dessus les autres éléments */
+    width: 740px; /* Largeur minimale du menu */
+    font-size: 40px;
+    border:1px solid #041a8f;
+}
+
+.dropdown-content a {
+    display: block; /* Chaque lien occupe toute une ligne */
+    padding: 10px 15px; /* Espacement interne */
+    color:rgb(0, 0, 0); /* Texte bleu */
+    text-decoration: none; /* Pas de soulignement */
+    font-family: Inter, sans-serif; /* Police identique au bouton */
+}
+
+.dropdown-content img {
+    width: 50px;
+    margin-right: 25px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Fond gris clair au survol */
+}
+
+.dropdown-content.show {
+    display: block; /* Affiche le menu déroulant */
+}
+
+
+
+.filter-group input{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 25px;
+    width: 250px;
     text-align: center;
+}
 
-    flex-wrap: wrap;
+.filter-group input::placeholder{
+    color: #000;
+}
 
-    justify-content: space-between;
-
-    padding: 22px 66px 22px 32px;
-
+input:focus {
+    outline: none; /* Supprime le contour par défaut */
+    border-bottom: 2px solid #041a8f;
 }
 
 
 
 .filter-group {
-
     display: flex;
-
     gap: 33px;
-
     align-items: center;
-
 }
-
-
 
 .filter-button-home {
-
     background: none;
-
     border: none;
-
     font-size: 35px;
-
     cursor: pointer;
-
     padding: 8px 16px;
-
     border-radius: 4px;
-
     transition: background-color 0.3s;
-
 }
-
-
 
 .filter-button-home:hover,
-
 .filter-button-home:focus {
-
     background-color: rgba(255, 255, 255, 0.2);
-
 }
-
-
 
 .filter-button-home:focus-visible {
-
     outline: 2px solid #041a8f;
-
     outline-offset: 2px;
-
 }
-
-
 
 .filter-icon {
-
     width: 77px;
-
     height: 77px;
-
 }
-
-
 
 .filter-divider {
-
     width: 1px;
-
     height: 106px;
-
     background: #000;
-
     border: 1px solid #000;
-
 }
-
-
 
 .search-button {
-
     width: 113px;
-
     height: 113px;
-
     background: none;
-
     border: none;
-
     cursor: pointer;
-
     padding: 0;
-
     transition: transform 0.3s;
-
 }
-
-
 
 .search-button:hover,
-
 .search-button:focus {
-
     transform: scale(1.1);
-
 }
-
-
 
 .search-button:focus-visible {
-
     outline: 2px solid #041a8f;
-
     outline-offset: 2px;
-
 }
-
-
 
 .section-subtitle {
-
     font-size: 75px;
-
     margin: 124px 0 0 140px;
-
 }
-
-
 
 .property-grid {
-
     align-self: center;
-
-    margin-top: 73px;
-
+    margin-top: auto;
     width: 100%;
-
     max-width: 1826px;
-
     display: flex;
-
-    gap: 20px;
-
-    padding: 0 20px;
-
+    gap: 50px;
 }
-
-
 
 .property-card {
-
     border-radius: 5px;
-
     border: 3px solid #000;
-
     padding: 16px 18px 27px;
-
     display: flex;
-
     flex-direction: column;
-
     transition: transform 0.3s;
-
     background: #fff;
-
     flex: 1;
-
 }
-
-
 
 .property-card:hover,
-
 .property-card:focus-within {
-
     transform: translateY(-5px);
-
 }
-
-
 
 .property-image {
-
     width: 100%;
-
     border-radius: 5px;
-
     aspect-ratio: 1.05;
-
     object-fit: cover;
-
 }
-
-
 
 .property-info {
-
     margin-top: 20px;
-
     font-size: 35px;
-
 }
-
-
 
 .property-info h3 {
-
     margin: 0 0 10px 0;
-
     font-size: 1em;
-
 }
-
-
 
 .property-info p {
-
     margin: 5px 0;
-
 }
-
-
 
 @media (max-width: 991px) {
-
     .student-life-banner {
-
         max-width: 100%;
-
         margin: 40px 10px 0 0;
-
     }
-
-
 
     .banner-header {
-
         padding: 0 20px;
-
     }
-
-
 
     .banner-title {
-
         max-width: 100%;
-
     }
-
-
 
     .filter-section-home {
-
         margin-top: 40px;
-
         padding: 20px;
-
     }
-
-
 
     .section-subtitle {
-
         max-width: 100%;
-
         margin: 40px 20px 0;
-
         font-size: 40px;
-
     }
-
-
 
     .property-grid {
-
         max-width: 100%;
-
         margin-top: 40px;
-
         flex-direction: column;
-
     }
-
-
 
     .property-card {
-
         width: 100%;
-
     }
-
 }
 
-
-
 @media (prefers-reduced-motion: reduce) {
-
     .property-card,
-
     .search-button {
-
         transition: none;
-
     }
-
 }

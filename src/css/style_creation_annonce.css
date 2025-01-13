@@ -16,6 +16,22 @@
     flex-wrap: wrap;
 }
 
+.owner-depot_annonce {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--background-color-white);
+    padding-bottom: 49px;
+  }
+
+  .main-content-depot_annonce {
+    display: flex;
+    width: 80%;
+    max-width: 1432px;
+  }
+  
+
 body {
     font-family: Inter, 'Arial Narrow Bold', sans-serif;
     font-size: 1rem;
@@ -108,10 +124,35 @@ body {
     margin-bottom: 10px;
 }
 
+.container-creation_annonce{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--background-color-white);
+    padding-bottom: 49px;
+}
+
+.main-content-creation_annonce {
+    display: flex;
+    width: 80%;
+    max-width: 1432px;
+}
+
 .champs_titre {
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
+}
+
+.container-creation_annonce{
+    margin-left: 6rem;
+}
+
+.container-title_creation-annonce{
+    margin-top: 2rem;
+    color: rgba(0, 43, 127, 1);
+    font: 800 21px / 1 var(--police-text);
+    letter-spacing: -1px;
 }
 
 .champs {

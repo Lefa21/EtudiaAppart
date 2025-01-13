@@ -9,11 +9,11 @@ class VueCreationAnnonce extends VueGenerique
         parent::__construct();
     }
 
+    /*
     public function etapesCreation()
     {
-        ?>
-            <link rel="stylesheet" type="text/css" href="./src/css/style_creation_annonce.css">
-        <div id="bodycontainer">
+        /*
+            <div id="bodycontainer">
         <div id="menu_creation_annonce">
             <div id="bouton_profil">
                 <div id="profil_pic">PP</div>
@@ -45,8 +45,51 @@ class VueCreationAnnonce extends VueGenerique
             </div>
         </div>
 
+        ?>
+    
+            <link rel="stylesheet" type="text/css" href="./src/css/style_creation_annonce.css">
+            <link rel="stylesheet" href="./src/css/menu_my_account.css">
+<aside class="sidebar">
+      <div class="user-info">
+        <div class="profile-image-container">
+          <img src="assets/photo_profil.png" alt="Profile photo" class="user-avatar">
+          <label for="profile-image" class="image-upload-label" aria-label="Change profile picture">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 2H14V6" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.66666 9.33333L14 2" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </label>
+          <input type="file" id="profile-image" class="image-upload-input" accept="image/*" aria-label="Upload new profile picture">
+        </div>
+        <div class="user-details">
+          <span class="user-name">Ben youssef Faël</span>
+          <span class="user-role">Profil étudiant</span>
+        </div>
+      </div>
+      <nav class="nav-menu" aria-label="Main navigation">
+      <a href="index.php?module=creation_annonce&action=formulaireCreationAnnonce" 
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "formulaireCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_profil.svg" alt="" class="nav-item-icon">
+          <span>Informations générales</span>
+        </a>
+        <a href="index.php?module=creation_annonce&action=photosCreationAnnonce" 
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "photosCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_documents_profile.svg" alt="" class="nav-item-icon">
+          <span>Photos</span>
+        </a>
+        <a href="index.php?module=creation_annonce&action=descriptionCreationAnnonce"
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "descriptionCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_follow_request.svg" alt="" class="nav-item-icon">
+          <span>Description</span>
+        </a>
+      </nav>
+      <button type="button" class="settings-button">Paramètres</button>
+    </aside>
+
         <?php
     }
+          */
     public function formulaireCreationAnnonce(){
         ?>
         <script type="text/javascript">
@@ -120,14 +163,58 @@ class VueCreationAnnonce extends VueGenerique
                 }
             });
         </script>
+          <link rel="stylesheet" type="text/css" href="./src/css/style_creation_annonce.css">
+            <link rel="stylesheet" href="./src/css/menu_my_account.css">
+
+<main class="owner-depot_annonce" role="main">
+  <div class="main-content-depot_annonce">
+
+    <aside class="sidebar">
+      <div class="user-info">
+        <div class="profile-image-container">
+          <img src="assets/photo_profil.png" alt="Profile photo" class="user-avatar">
+          <label for="profile-image" class="image-upload-label" aria-label="Change profile picture">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 2H14V6" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.66666 9.33333L14 2" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </label>
+          <input type="file" id="profile-image" class="image-upload-input" accept="image/*" aria-label="Upload new profile picture">
+        </div>
+        <div class="user-details">
+          <span class="user-name">Ben youssef Faël</span>
+          <span class="user-role">Profil étudiant</span>
+        </div>
+      </div>
+      <nav class="nav-menu" aria-label="Main navigation">
+      <a href="index.php?module=creation_annonce&action=formulaireCreationAnnonce" 
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "formulaireCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_profil.svg" alt="" class="nav-item-icon">
+          <span>Informations générales</span>
+        </a>
+        <a href="index.php?module=creation_annonce&action=photosCreationAnnonce" 
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "photosCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_documents_profile.svg" alt="" class="nav-item-icon">
+          <span>Photos</span>
+        </a>
+        <a href="index.php?module=creation_annonce&action=descriptionCreationAnnonce"
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "descriptionCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_follow_request.svg" alt="" class="nav-item-icon">
+          <span>Description</span>
+        </a>
+      </nav>
+      <button type="button" class="settings-button">Paramètres</button>
+    </aside>
+
+    <div id="ens_champs_titre" class="container-creation_annonce">
         <form id="form_infos" action="index.php?module=creation_annonce&action=ajoutInfos" method="POST">
             <link rel="stylesheet" type="text/css" href="../../css/style_creation_annonce.css">
-            <span id=text_titre_form>
+            
+            <span id="text_titre_form" class="container-title_creation-annonce">
                 <a id="titre_form">Informations générales</a>
                 <a id="ss_titre_form">Modifier les informations générales de votre annonce</a>
             </span>
-
-            <div id="ens_champs_titre">
                 <div class="champs_titre" id="titre_annonce">
                     Titre
                     <input class="champs" id="titre" name="titre_form" placeholder="Titre" aria-label="titre_annonce" required>
@@ -191,14 +278,58 @@ class VueCreationAnnonce extends VueGenerique
 
             </div>
         </form>
-        </div>
+    </div>
+    </main>
+     </div>
         <?php
     }
     public function photosCreationAnnonce(){
         ?>
-        <form id="form_photos">
-            <link rel="stylesheet" type="text/css" href="../../css/style_creation_annonce.css">
-            <span id=text_titre_form>
+                 <link rel="stylesheet" type="text/css" href="./src/css/style_creation_annonce.css">
+            <link rel="stylesheet" href="./src/css/menu_my_account.css">
+
+<main class="owner-depot_annonce" role="main">
+  <div class="main-content-depot_annonce">
+
+    <aside class="sidebar">
+      <div class="user-info">
+        <div class="profile-image-container">
+          <img src="assets/photo_profil.png" alt="Profile photo" class="user-avatar">
+          <label for="profile-image" class="image-upload-label" aria-label="Change profile picture">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 2H14V6" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.66666 9.33333L14 2" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </label>
+          <input type="file" id="profile-image" class="image-upload-input" accept="image/*" aria-label="Upload new profile picture">
+        </div>
+        <div class="user-details">
+          <span class="user-name">Ben youssef Faël</span>
+          <span class="user-role">Profil étudiant</span>
+        </div>
+      </div>
+      <nav class="nav-menu" aria-label="Main navigation">
+      <a href="index.php?module=creation_annonce&action=formulaireCreationAnnonce" 
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "formulaireCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_profil.svg" alt="" class="nav-item-icon">
+          <span>Informations générales</span>
+        </a>
+        <a href="index.php?module=creation_annonce&action=photosCreationAnnonce" 
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "photosCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_documents_profile.svg" alt="" class="nav-item-icon">
+          <span>Photos</span>
+        </a>
+        <a href="index.php?module=creation_annonce&action=descriptionCreationAnnonce"
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "descriptionCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_follow_request.svg" alt="" class="nav-item-icon">
+          <span>Description</span>
+        </a>
+      </nav>
+      <button type="button" class="settings-button">Paramètres</button>
+    </aside>
+        <form id="form_photos" class="container-creation_annonce">
+            <span id="text_titre_form" class="container-title_creation-annonce">
                 <a id="titre_form">Photos</a>
                 <a id="ss_titre_form">Ajouter des photos</a>
             </span>
@@ -213,15 +344,59 @@ class VueCreationAnnonce extends VueGenerique
             <a class="suivant" href="index.php?module=creation_annonce&action=descriptionCreationAnnonce" aria-label="save">Suivant</a>
             </div>
         </form>
+    </main>
+    </div>
         </div>
         <?php
     }
     public function descriptionCreationAnnonce(){
         ?>
 
-        <link rel="stylesheet" type="text/css" href="../../css/style_creation_annonce.css">
-        <div id="form_description">
-                <span id=text_titre_form>
+<link rel="stylesheet" type="text/css" href="./src/css/style_creation_annonce.css">
+            <link rel="stylesheet" href="./src/css/menu_my_account.css">
+
+<main class="owner-depot_annonce" role="main">
+  <div class="main-content-depot_annonce">
+
+    <aside class="sidebar">
+      <div class="user-info">
+        <div class="profile-image-container">
+          <img src="assets/photo_profil.png" alt="Profile photo" class="user-avatar">
+          <label for="profile-image" class="image-upload-label" aria-label="Change profile picture">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 8.66667V12.6667C12 13.0203 11.8595 13.3594 11.6095 13.6095C11.3594 13.8595 11.0203 14 10.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V5.33333C2 4.97971 2.14048 4.64057 2.39052 4.39052C2.64057 4.14048 2.97971 4 3.33333 4H7.33333" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 2H14V6" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.66666 9.33333L14 2" stroke="white" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </label>
+          <input type="file" id="profile-image" class="image-upload-input" accept="image/*" aria-label="Upload new profile picture">
+        </div>
+        <div class="user-details">
+          <span class="user-name">Ben youssef Faël</span>
+          <span class="user-role">Profil étudiant</span>
+        </div>
+      </div>
+      <nav class="nav-menu" aria-label="Main navigation">
+      <a href="index.php?module=creation_annonce&action=formulaireCreationAnnonce" 
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "formulaireCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_profil.svg" alt="" class="nav-item-icon">
+          <span>Informations générales</span>
+        </a>
+        <a href="index.php?module=creation_annonce&action=photosCreationAnnonce" 
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "photosCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_documents_profile.svg" alt="" class="nav-item-icon">
+          <span>Photos</span>
+        </a>
+        <a href="index.php?module=creation_annonce&action=descriptionCreationAnnonce"
+        class="nav-item <?= ($_GET["module"] == "creation_annonce" && $_GET["action"] == "descriptionCreationAnnonce") ? 'active' : '' ?>">
+          <img src="assets/icon_follow_request.svg" alt="" class="nav-item-icon">
+          <span>Description</span>
+        </a>
+      </nav>
+      <button type="button" class="settings-button">Paramètres</button>
+    </aside>
+        <div id="form_description" class="container-creation_annonce">
+                <span id="text_titre_form" class="container-title_creation-annonce">
                     <a id="titre_form">Description de l'annonce</a>
                     <a id="ss_titre_form">Ecrivez la description de votre annonce</a>
                 </span>
@@ -230,6 +405,8 @@ class VueCreationAnnonce extends VueGenerique
                 <button class="suivant" type="submit">Envoyer</button>
             </form>
         </div>
+    </main>
+    </div>
         </div>
         <?php
     }

@@ -3,36 +3,12 @@
     <section class="partner-schools">
       <h2>Nos écoles partenaires</h2>
       <img src="assets/logo_ecole.png" alt="Partner School" class="school-logo" />
-      <img src="assets/logo_ecole.png" alt="Partner School" class="school-logo" />
-      <img src="assets/logo_ecole.png" alt="Partner School" class="school-logo" />
+      <img src="assets/epita.jpg" alt="Partner School" class="school-logo" />
+      <img src="assets/cpe_lyon.png" alt="Partner School" class="school-logo" />
       <a class="footer-link-school" href="#more-schools">Voir plus d'écoles</a>
     </section>
 
-    <div class="footer-links">
-      <div class="footer-column">
-        <h3>Informations</h3>
-        <a href="#site-map">Plans du site</a>
-        <a href="#contact">Nous contacter</a>
-        <a href="#faq">FAQ</a>
-        <a href="#help">Aide</a>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Informations</h3>
-        <a href="#site-map">Plans du site</a>
-        <a href="#contact">Nous contacter</a>
-        <a href="#faq">FAQ</a>
-        <a href="#help">Aide</a>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Informations</h3>
-        <a href="#site-map">Plans du site</a>
-        <a href="#contact">Nous contacter</a>
-        <a href="#faq">FAQ</a>
-        <a href="#help">Aide</a>
-      </div>
-      
+    <div class="footer-links">  
       <div class="footer-column">
         <h3>Informations</h3>
         <a href="#site-map">Plans du site</a>

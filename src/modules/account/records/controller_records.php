@@ -9,7 +9,7 @@ class ControllerRecords
 
     public function __construct()
     {
-        $this->action = $_GET['action'] ?? "welcome";
+        $this->action = $_GET['action'] ?? "monDossier";
         $this->vue = new VueRecords();
     }
 
@@ -18,9 +18,9 @@ class ControllerRecords
         return $this->action;
     }
 
-    public function welcome()
+    public function monDossier()
     {
-        $this->vue->welcome();
+        $this->vue->monDossier();
     }
 
     public function displayContent()

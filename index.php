@@ -2,6 +2,8 @@
 require_once './src/connexion.php';
 require_once './src/vue_generique.php';
 
+
+
 session_start();
 
 Connexion::initConnexion();
