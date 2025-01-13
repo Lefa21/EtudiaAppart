@@ -288,12 +288,6 @@ body {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 40rem;
-    margin-left: 2rem;
-}
 
 #galerie{
     display: grid;
@@ -317,4 +311,184 @@ body {
 .logo{
     width: 10rem;
     height: 10rem;
+}
+.sidebar {
+    width: 29%;
+    background: var(--background-color-white, #fff);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--police-text), sans-serif;
+}
+
+.user-info {
+    display: flex;
+    align-items: start;
+    gap: 15px;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 49px;
+    height: 49px;
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.image-upload-label {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    background: var(--primary-color, #041a8f);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+}
+
+.image-upload-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 20px;
+    color: var(--text-color-black);
+    font-weight: 500;
+}
+
+.user-role {
+    font-size: 17px;
+    color: var(--primary-color, #041a8f);
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 15px;
+    border-radius: 24px;
+    font: 500 17px/1.5;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+    background: var(--Secondary-Light, #e6ecff);
+}
+
+.nav-item.active {
+    background: var(--Secondary, #ccd8ff);
+}
+
+.nav-item:focus {
+    outline: 2px solid var(--Primary, #041a8f);
+    outline-offset: 2px;
+}
+
+.nav-item-icon {
+    width: 30px;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
+
+.settings-button {
+    min-height: 50px;
+    border-radius: 24.795px;
+    background: var(--Primary, #041a8f);
+    color: var(--White, #fff);
+    text-align: center;
+    padding: 0 20px;
+    font: 700 17px/1.5;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 2rem;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition:
+            background-color 0.2s ease,
+            transform 0.1s ease;
+}
+
+.settings-button:hover {
+    background: var(--Primary-Dark, #031473);
+}
+
+.settings-button:active {
+    transform: translateY(1px);
+}
+
+.settings-button:focus {
+    outline: 2px solid var(--Primary, #041a8f);
+    outline-offset: 2px;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        width: 100%;
+        margin-top: 40px;
+        min-height: auto;
+    }
+
+    .nav-menu {
+        margin-bottom: 20px;
+    }
+}
+
+@media (forced-colors: active) {
+    .nav-item.active {
+        outline: 2px solid CanvasText;
+    }
+
+    .settings-button {
+        border: 2px solid CanvasText;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-item,
+    .settings-button {
+        transition: none;
+    }
 }
