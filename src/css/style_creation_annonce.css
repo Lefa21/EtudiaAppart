@@ -218,13 +218,13 @@ body {
 
 .form-step {
     opacity: 0;
-    visibility: hidden;
+    display: none;
     transition: opacity 0.5s ease, visibility 0.5s ease;
   }
   
   .form-step.active {
     opacity: 1;
-    visibility: visible;
+    display: block;
   }
   
 .button{

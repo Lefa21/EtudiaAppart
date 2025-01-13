@@ -17,6 +17,10 @@ class ContSearchAd{
         $this->action = isset($_GET['action'])? $_GET['action'] : 'recherche_annonce';
     }
 
+    public function getAdd(){
+        $this->modele->getAdd();
+    }
+
     public function showSearchAd(){  
         $this->vue->showSearchAd();
     }

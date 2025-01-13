@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const steps = document.querySelectorAll(".form-step");  // Sélectionne toutes les étapes du formulaire
-    const navigationButtons = document.querySelectorAll(".button[data-step]");  // Sélectionne les boutons Suivant/Précédent
-    const navItems = document.querySelectorAll('.nav-item');  // Sélectionne les liens du menu
+    const steps = document.querySelectorAll(".form-step"); // Sélectionne toutes les étapes du formulaire
+    const navigationButtons = document.querySelectorAll(".button[data-step]"); // Sélectionne les boutons Suivant/Précédent
+    const navItems = document.querySelectorAll('.nav-item'); // Sélectionne les liens du menu
 
-    let currentStepIndex = 0;  // Indice de l'étape active
+    let currentStepIndex = 0; // Indice de l'étape active
 
     // Fonction pour mettre à jour l'affichage des étapes et le menu de navigation
     function updateSteps() {
@@ -11,8 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
         steps.forEach((step, index) => {
             if (index === currentStepIndex) {
                 step.classList.add("active");
+                step.style.display = "block"; // Affiche uniquement l'étape active
             } else {
                 step.classList.remove("active");
+                step.style.display = "none"; // Cache complètement les étapes non actives
             }
         });
 
@@ -20,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navItems.forEach(item => {
             const stepName = item.getAttribute('data-step');
             if (stepName === steps[currentStepIndex].id.replace('container_', '')) {
-                item.classList.add('active');  // Lien correspondant à l'étape active devient "actif"
+                item.classList.add('active'); // Lien correspondant à l'étape active devient "actif"
             } else {
                 item.classList.remove('active');
             }
@@ -32,11 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener('click', (e) => {
             // Récupère le numéro de l'étape depuis l'attribut data-step de l'élément du menu cliqué
             const stepName = e.target.closest('.nav-item').getAttribute('data-step');
-            console.log("Étape cliquée:", stepName);
 
             // Met à jour l'indice de l'étape active
             currentStepIndex = Array.from(steps).findIndex(step => step.id === `container_${stepName}`);
-            updateSteps();  // Met à jour les étapes et le menu de navigation
+            updateSteps(); // Met à jour les étapes et le menu de navigation
         });
     });
 
@@ -44,15 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
     navigationButtons.forEach(button => {
         button.addEventListener("click", () => {
             const stepChange = parseInt(button.getAttribute("data-step"), 10);
-            currentStepIndex += stepChange;  // Change l'index de l'étape active
+            const newStepIndex = currentStepIndex + stepChange; // Calcule le nouvel index
 
             // Vérifie si l'index est valide
-            if (currentStepIndex >= 0 && currentStepIndex < steps.length) {
-                updateSteps();  // Met à jour les étapes et le menu de navigation
+            if (newStepIndex >= 0 && newStepIndex < steps.length) {
+                currentStepIndex = newStepIndex; // Met à jour l'indice de l'étape active
+                updateSteps(); // Met à jour les étapes et le menu de navigation
             }
         });
     });
 
     // Initialisation
-    updateSteps();  // Affiche la première étape et met à jour le menu au chargement
+    updateSteps(); // Affiche la première étape et met à jour le menu au chargement
 });

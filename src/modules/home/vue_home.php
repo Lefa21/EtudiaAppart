@@ -23,6 +23,15 @@ class VueHome extends VueGenerique
 ?>
 
 <link rel="stylesheet" href="./src/css/home.css">
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6OVk3KZS9TONu4GF8ALO2qFV1n588LPc&libraries=places"
+  async
+></script>
+
+<script type="text/javascript" src="./src/scripts/suggest_address.js"></script>
+
+
+
 
 <main>
     <style>
@@ -113,8 +122,9 @@ class VueHome extends VueGenerique
     border: 1px solid #000;
     background: #ccd8ff;
     display: flex;
+    margin-left: 6rem;
     flex-direction: row;
-    width: 75%;
+    width: 83%;
     align-items: center; /* Aligne verticalement les groupes */
     gap: 10px; /* Réduction de l'espace entre les groupes */
     text-align: center;
@@ -329,58 +339,45 @@ class VueHome extends VueGenerique
         </div>
     </section>
 
-    <div class="filter-section-home">
-      
-        <div class="filter-group mid">
-
+    <form action="index.php?module=ad_search&action=recherche_annonce" method="POST">
+        <div class="filter-section-home">
+            <div class="filter-group mid">
             <img src="assets/icon_euro.png" alt="" class="filter-icon" />
-            <input type="number" placeholder="Budget" min="0" max="1000000" step="1">
+            <input type="number" name="budget" placeholder="Budget" min="0" max="1000000" step="1">
+            </div>
 
-        </div>
-
-        <div class="filter-group">
-
-        <div class="filter-divider"></div>
-        <div class="filter-group calendar-group">
-            <img src="assets/calendrier.svg" alt="" class="filter-icon" />
-            <div class="inputs">
+            <div class="filter-group">
+            <div class="filter-divider"></div>
+            <div class="filter-group calendar-group">
+                <img src="assets/calendrier.svg" alt="" class="filter-icon" />
+                <div class="inputs">
                 <div class="start">
                     <label for="start-date">Date de début :</label>
-                <input type="date" id="start-date" name="start-date" placeholder="Date de début">
+                    <input type="date" id="start-date" name="start-date" placeholder="Date de début">
                 </div>
-                
                 <div class="end">
                     <label for="end-date">Date de fin :</label>
-                <input type="date" id="end-date" name="end-date" placeholder="Date de fin">
+                    <input type="date" id="end-date" name="end-date" placeholder="Date de fin">
                 </div>
-                
+                </div>
             </div>
-            
-        </div>
+            </div>
 
-
-        </div>
-
-        <div class="filter-group">
-
+            <div class="filter-group">
             <div class="filter-divider"></div>
             <img src="assets/pin.svg" alt="" class="filter-icon" />
-            <select name="location" id="location">
-                <option value="">Emplacement</option>
-                <option value="Paris">Paris</option>
-                <option value="Issy-les-Moulineaux">Issy-les-Moulineaux</option>
-                <option value="Sevran">Sevran</option>
-                <option value="Boulogne">Boulogne</option>
-            </select>
-            
+            <input type="text" id="location-input" placeholder="Entrez une localisation">
+            <input type="hidden" id="city" name="city">
+            <input type="hidden" id="address_line" name="address_line">
+            <input type="hidden" id="country" name="country">
+            </div>
 
-        </div>
-
-        <button class="search-button">
+            <button type="submit" name="submit" class="search-button">
             <img src="assets/icon_search_home.svg" alt="Search" />
-        </button>
+            </button>
+        </div>
+    </form>
 
-    </div>
 
 
     <div class="property-title">
