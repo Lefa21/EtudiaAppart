@@ -110,10 +110,7 @@ body {
     margin-right: auto;
 }
 
-#text_titre_form {
-    display: flex;
-    flex-direction: column;
-}
+
 
 #titre_form {
     font-size: 2.5rem;
@@ -125,15 +122,6 @@ body {
     margin-bottom: 10px;
 }
 
-/*.container-creation_annonce{*/
-/*    width: 50%;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    background: var(--background-color-white);*/
-/*    padding-bottom: 49px;*/
-/*    margin-left: 6rem;*/
-/*}*/
 
 .main-content-creation_annonce {
     display: flex;
@@ -149,6 +137,8 @@ body {
 
 
 .container-title_creation-annonce{
+    display: flex;
+    flex-direction: column;
     margin-top: 2rem;
     color: rgba(0, 43, 127, 1);
     font: 800 21px / 1 var(--police-text);
@@ -215,7 +205,6 @@ body {
     margin-top: 5rem;
     display: flex;
     justify-content: space-between;
-    border: lime 1px solid;
 }
 
 .form-step {
@@ -258,23 +247,11 @@ body {
     margin-right: 5rem;
 }
 
-
-
-
-/*#container_description {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    padding: 10px 0px;*/
-/*}*/
-
 .wrapper_description{
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
 }
-
-
-
 
 #champs_description {
     width: 38rem;
@@ -290,10 +267,9 @@ body {
 
 
 #galerie{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -408,22 +384,22 @@ body {
     gap: 15px;
     padding: 10px 15px;
     border-radius: 24px;
-    font: 500 17px/1.5;
+    font: 500 17px/1.5 sans-serif;
     text-decoration: none;
     color: inherit;
     transition: background-color 0.2s ease;
 }
 
 .nav-item:hover {
-    background: var(--Secondary-Light, #e6ecff);
+    background: var(--secondary-color, #e6ecff);
 }
 
 .nav-item.active {
-    background: var(--Secondary, #ccd8ff);
+    background: var(--secondary-color, #ccd8ff);
 }
 
 .nav-item:focus {
-    outline: 2px solid var(--Primary, #041a8f);
+    outline: 2px solid var(--primary-color, #041a8f);
     outline-offset: 2px;
 }
 
@@ -433,34 +409,9 @@ body {
     object-fit: contain;
 }
 
-.settings-button {
-    min-height: 50px;
-    border-radius: 24.795px;
-    background: var(--Primary, #041a8f);
-    color: var(--White, #fff);
-    text-align: center;
-    padding: 0 20px;
-    font: 700 17px/1.5;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    margin-top: 2rem;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    transition:
-            background-color 0.2s ease,
-            transform 0.1s ease;
-}
-
-.settings-button:hover {
-    background: var(--Primary-Dark, #031473);
-}
-
-.settings-button:active {
-    transform: translateY(1px);
-}
 
 .settings-button:focus {
-    outline: 2px solid var(--Primary, #041a8f);
+    outline: 2px solid var(--primary-color, #041a8f);
     outline-offset: 2px;
 }
 

@@ -75,10 +75,10 @@ class VueMessagerie extends VueGenerique
             <?php
             foreach ($data as $key => $conversation){
 
-//              if ($conversation['sender_id']=)
-//              {
-//                  print_r($conversation);
-//              }
+              if ($conversation['sender_id']=$id_sender)
+              {
+                  print_r($conversation);
+              }
             }
             ?>
         </div>
