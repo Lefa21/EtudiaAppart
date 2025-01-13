@@ -26,6 +26,7 @@ class ContCreationAnnonce{
         */
 
 
+
     public function formulaireCreationAnnonce(){
         $this->vue->formulaireCreationAnnonce();
     }
@@ -34,7 +35,6 @@ class ContCreationAnnonce{
     public function ajoutInfos(){
         $this->modele->ajoutInfos();
     }
-
     public function getAction(){
         return $this->action;
     }

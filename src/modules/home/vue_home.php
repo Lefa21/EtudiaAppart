@@ -383,10 +383,7 @@ class VueHome extends VueGenerique
     <div class="property-title">
         <h1>Les meilleurs logements du moment</h1>
     </div>
-
     
-    
-
     <section class="apparts">
         <button class="btn">
             <img src="assets/open.svg" class="arrow" alt="">

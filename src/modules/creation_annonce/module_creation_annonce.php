@@ -7,7 +7,10 @@ class ModCreationAnnonce{
     private $controleur;
     public function __construct(){
         $this->controleur = new ContCreationAnnonce();
+<<<<<<< HEAD
         
+=======
+>>>>>>> 8924398 (bonne version de dev si qqn a des problemes de versions)
         //$this->controleur->etapesCreation();
         switch($this->controleur->getAction()){
             case 'formulaireCreationAnnonce':
