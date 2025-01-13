@@ -57,7 +57,7 @@ class VueConnexion extends VueGenerique
                     />
                     </div>
 
-                    <a href="index.php?module=resetPassword&action=resetPassword" class="reset-pwd">Mot de passe oublié</a>
+                    <a href="index.php?module=resetPassword&action=formulaireResetPassword" class="reset-pwd">Mot de passe oublié</a>
                     
                     <button type="submit" name="submit" class="submit-btn-login">
                     Connexion
