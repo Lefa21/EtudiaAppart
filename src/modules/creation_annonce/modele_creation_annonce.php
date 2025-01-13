@@ -10,12 +10,11 @@ class ModeleCreationAnnonce extends Connexion
 
     public function ajoutInfos()
     {
-        if (isset($_POST['submit']) && isset($_POST['loc_form']) && isset($_POST['ville_form']) && isset($_POST['cp_form']) && isset($_POST['region_form'])  && isset($_POST['titre_form']) && isset($_POST['type_logement_form']) && isset($_POST['prix_form']) && isset($_POST['superficie_form']) && isset($_POST['nb_pieces_form']) && isset($_POST['debut_form']) && isset($_POST['fin_form'])) {
-            $meuble = false;
+        if (isset($_POST['submit']) && isset($_POST['loc_form']) && isset($_POST['ville_form']) && isset($_POST['region_form'])  && isset($_POST['titre_form']) && isset($_POST['type_logement_form']) && isset($_POST['prix_form']) && isset($_POST['superficie_form']) && isset($_POST['nb_pieces_form']) && isset($_POST['debut_form']) && isset($_POST['fin_form'])) {
             if(!isset($_POST['meuble'])){
-                $meuble = false;
+                $meuble = 0;
             }else{
-                $meuble = true;
+                $meuble = 1;
             }
 
             $titre_form = $_POST['titre_form'];
@@ -27,7 +26,6 @@ class ModeleCreationAnnonce extends Connexion
             $fin_form = $_POST['fin_form'];
             $loc_form = $_POST['loc_form'];
             $ville_form = $_POST['ville_form'];
-            $cp_form = $_POST['cp_form'];
             $region_form = $_POST['region_form'];
             $description =  $_POST['description'];
             $emailUser = $_SESSION['identifiant_utilisateur'];
@@ -40,15 +38,13 @@ class ModeleCreationAnnonce extends Connexion
 
             try {
                 $sqlCheck = Connexion::getBdd()->prepare('
-                SELECT id FROM Address 
-                WHERE address_line = :loc_form AND city = :ville_form AND zipcode = :cp_form AND country = :region_form
+                SELECT id_address, country, city, address_line FROM Address 
+                WHERE address_line = :loc_form AND city = :ville_form AND country = :region_form
             ');
                 $sqlCheck->bindParam(':loc_form', $loc_form);
                 $sqlCheck->bindParam(':ville_form', $ville_form);
-                $sqlCheck->bindParam(':cp_form', $cp_form);
                 $sqlCheck->bindParam(':region_form', $region_form);
                 $sqlCheck->execute();
-
 
                 $existingAddress = $sqlCheck->fetch(PDO::FETCH_ASSOC);
 
@@ -57,12 +53,11 @@ class ModeleCreationAnnonce extends Connexion
                     $addressId = $existingAddress['id_address'];
                 } else {
                     $sql3 = Connexion::getBdd()->prepare('
-                    INSERT INTO Address (address_line, city, zipcode, country) 
-                    VALUES (:loc_form, :ville_form, :cp_form, :region_form)
+                    INSERT INTO Address (address_line, city, country) 
+                    VALUES (:loc_form, :ville_form, :region_form)
                 ');
                     $sql3->bindParam(':loc_form', $loc_form);
                     $sql3->bindParam(':ville_form', $ville_form);
-                    $sql3->bindParam(':cp_form', $cp_form);
                     $sql3->bindParam(':region_form', $region_form);
 
                     if ($sql3->execute()) {
