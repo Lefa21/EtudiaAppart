@@ -19,33 +19,15 @@ class ContCreationAnnonce{
         $this->action = isset($_GET['action'])? $_GET['action'] : 'formulaireCreationAnnonce';
     }
 
-    public function etapesCreation(){
-        $this->vue->etapesCreation();
-    }
 
 
     public function formulaireCreationAnnonce(){
         $this->vue->formulaireCreationAnnonce();
     }
 
-    public function photosCreationAnnonce(){
-        $this->vue->photosCreationAnnonce();
-    }
-
-    public function descriptionCreationAnnonce(){
-        $this->vue->descriptionCreationAnnonce();
-    }
 
     public function ajoutInfos(){
         $this->modele->ajoutInfos();
-    }
-
-    public function ajoutPhotos(){
-        $this->modele->ajoutPhotos();
-    }
-
-    public function ajoutDescription(){
-        $this->modele->ajoutDescription();
     }
 
     public function getAction(){

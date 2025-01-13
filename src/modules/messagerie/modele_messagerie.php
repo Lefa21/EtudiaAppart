@@ -91,7 +91,7 @@ class ModeleMessagerie{
                 unset($stmt[$key]);
             }
         }
-        return array($stmt, $userid);
+        return $stmt;
     }
     public function __construct()
     {
