@@ -25,7 +25,7 @@ class VueMessagerie extends VueGenerique
             <?php
             foreach ($data as $key => $conversation) {
                 ?>
-              <a href="index.php?module=messagerie&action=conversation&id_reciever=<?=$conversation['sender_id']?>" class="discussion">
+              <a href="index.php?module=messagerie&action=conversation(<?=$conversation['sender_id']?>)" class="discussion">
                 <div class="text-content">
                   <div class="name">
                   <?= $conversation['first_name'] . ' ' . $conversation['last_name'] ?>
@@ -62,8 +62,7 @@ class VueMessagerie extends VueGenerique
         <?php
     }
 
-
-    public function conversation($data, $id_sender)
+    public function conversation($data)
     {
         ?>
       <link rel="stylesheet" href="./src/css/messagerie.css">
@@ -71,18 +70,6 @@ class VueMessagerie extends VueGenerique
           <?php
           include "./src/menu_my_account.php";
           ?>
-        <div class="main-content-conversation">
-            <?php
-            foreach ($data as $key => $conversation){
-
-              if ($conversation['sender_id']=$id_sender)
-              {
-                  print_r($conversation);
-              }
-            }
-            ?>
-        </div>
-      </main>
 
 <?php
     }
