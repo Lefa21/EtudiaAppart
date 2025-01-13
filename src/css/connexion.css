@@ -138,6 +138,12 @@
   border: 0;
 }
 
+.reset-pwd{
+  margin-left: 5px;
+  margin-top: 50px !important;
+  color: var(--Black);
+}
+
 @media (max-width: 991px) {
   .main-content-login {
     max-width: 100%;

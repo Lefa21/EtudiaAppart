@@ -12,7 +12,7 @@ class VueInscription extends VueGenerique
   public function formulaireInscription()
   {
 ?>
-    <link rel="stylesheet" href="./src/css/inscription.css">
+    <link rel="stylesheet" href="./src/css/inscription.css?v=2">
     <div class="registration-container">
       <main class="main-content-inscription">
         <div class="registration-wrapper-inscription">
@@ -49,20 +49,8 @@ class VueInscription extends VueGenerique
               required
               aria-required="true" />
 
-            <select name="role"
-              id="role"
-              class="role"
-              style="
-                border-radius: 5px;
-                border: 1px solid var(--Primary, #041a8f);
-                background: #fff;
-                padding: 20px 10px;
-                margin-top: 38px;
-                width: 100%;
-                font-size: 20px;
-                color: var(--Black, #000);
-              ">
-              <option value="">Rôle</option>
+            <select name="role" id="role" class="role">
+              <option value="">--- Sélectionner un rôle ---</option>
               <option value="etudiant">Etudiant</option>
               <option value="proprietaire">Propriétaire</option>
             </select>

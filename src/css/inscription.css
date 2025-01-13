@@ -52,7 +52,7 @@
     color: var(--Black, #000);
   }
   
-  .form-input-inscription:focus {
+  .form-input-inscription:focus, .role:focus {
     outline: none;
     border-color: #0323b9;
     box-shadow: 0 0 0 2px rgba(4, 26, 143, 0.2);
@@ -115,11 +115,6 @@
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
-  }
-
-
-  .role{
-    width: 100%;
   }
   
   @media (max-width: 991px) {
