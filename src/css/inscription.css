@@ -41,7 +41,7 @@
     padding: 28px 70px;
   }
   
-  .form-input-inscription {
+  .form-input-inscription, .role {
     border-radius: 5px;
     border: 1px solid var(--Primary, #041a8f);
     background: #fff;
@@ -52,7 +52,7 @@
     color: var(--Black, #000);
   }
   
-  .form-input-inscription:focus {
+  .form-input-inscription:focus, .role:focus {
     outline: none;
     border-color: #0323b9;
     box-shadow: 0 0 0 2px rgba(4, 26, 143, 0.2);
