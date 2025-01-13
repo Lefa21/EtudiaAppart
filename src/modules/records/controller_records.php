@@ -16,6 +16,22 @@ class ControllerRecords
         $this->vue = new VueRecords();
     }
 
+    function getUserId($email)
+    {
+        $query = "
+        SELECT 
+            u.id_user, u.email
+        FROM 
+            User u
+        WHERE 
+            u.email = :email
+    ";
+        $stmt = Connexion::getBdd()->prepare($query);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC)['id_user'];
+    }
+
     public function getAction()
     {
         return $this->action;
@@ -23,12 +39,16 @@ class ControllerRecords
 
     public function monDossier()
     {
-        $this->vue->monDossier();
+        $_SESSION['userId'] = $this->getUserId($_SESSION['identifiant_utilisateur']);
+        $userInfo = $this->modele->getUserData();
+        $documents = $this->modele->fetchUserDocuments();
+        $this->vue->monDossier($userInfo, $documents);
     }
 
-    public function saveFiles()
+    public function updateUserDocument()
     {
-        $this->modele->saveFiles();
+        $this->modele->updateUserDocument();
+        $this->monDossier();
     }
 
     public function displayContent()

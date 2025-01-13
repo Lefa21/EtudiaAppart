@@ -7,7 +7,7 @@ class VueRecords extends VueGenerique
         parent::__construct();
     }
 
-    public function monDossier()
+    public function monDossier($userInfo, $documents)
     {
 ?>
         <link rel="stylesheet" href="./src/css/acc_records.css">
@@ -16,25 +16,31 @@ class VueRecords extends VueGenerique
         <div class="blockPage">
             <aside class="sidebar" role="complementary" aria-label="Navigation latérale">
                 <div class="user-info">
-                    <img src="assets/photo_profil.png" alt="Photo de profil de Ben youssef Faël" class="profile-icon" width="49" height="49" />
+                    <img src="assets/photo_profil.png" alt="Photo de profil de l'utilisateur" class="profile-icon" width="49" height="49" />
                     <div class="user-details">
-                        <span class="user-name">Ben youssef Faël</span>
-                        <span class="user-role">Profil propriétaire</span>
+                        <span class="user-name"><?= $userInfo['first_name'] . ' ' . $userInfo['last_name'] ?></span>
+                        <span class="user-role"><?php if (isset($userInfo['profile_status'])) {
+                                                    echo $userInfo['profile_status'];
+                                                } ?></span>
                     </div>
                 </div>
 
                 <nav class="nav-menu" role="navigation" aria-label="Menu principal">
-                    <a href="index.php?module=monProfil" class="nav-item">
+                    <a href="index.php?module=monProfil&action=Profil" class="nav-item">
                         <img src="assets/icon_profil.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
                         <span>Profil</span>
                     </a>
-                    <a href="index.php?module=records" class="nav-item active">
+                    <a href="index.php?module=records&action=monDossier" class="nav-item active">
                         <img src="assets/icon_documents_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
                         <span>Mon dossier</span>
                     </a>
-                    <a href="#requests" class="nav-item" aria-current="page">
+                    <a href="index.php?module=owner_requests&action=follow-up_owner_requests" class="nav-item" aria-current="page">
                         <img src="assets/icon_follow_request.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
                         <span>Suivi des demandes</span>
+                    </a>
+                    <a href="index.php?module=owner_requests&action=manage_application" class="nav-item">
+                        <img src="assets/gerer_demande.svg" alt="" class="nav-item-icon">
+                        <span>Gerer Mes demandes</span>
                     </a>
                     <a href="#messages" class="nav-item">
                         <img src="assets/icon_messages_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
@@ -53,72 +59,43 @@ class VueRecords extends VueGenerique
                         <span class="menu_button_text">Mes documents</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
                     </div>
                     <div class="dropdown-menu document_section">
-                        <form action="index.php?module=records&action=saveFiles" method="POST">
-                            <section id="dropfile_cni" class="dropfile_section">
-                                <div class="dropfile_info">
-                                    <span>Carte d'identité / Passeport</span><span class="tooltip">&#9432;
+                        <form action="index.php?module=records&action=updateUserDocument" method="POST">
+                            <section id="url_records" class="url_section">
+                                <div class="url_info">
+                                    <span>Lien vers votre dossier numérique DossierFacile<br />
+                                        <a class="description" href="https://aide.dossierfacile.logement.gouv.fr/fr/article/comment-visualiser-et-partager-son-dossier-valide-1orckmm">Comment visualiser et partager son dossier ?</a></span>
+                                    <span class="tooltip">&#9432;
                                         <p class="tooltiptext">
-                                            Recto seulement<br />
-                                            Au format pdf
+                                            Exemple de lien: https://www.VotreNom.dossierfacile.fr
                                         </p>
                                     </span>
                                 </div>
-                                <div class="dropfile_file">
-                                    <input type="file" id="cni-file" accept=".pdf" />
+                                <div class="url_input">
+                                    <?php
+                                    if (isset($_SESSION['userId']) && isset($documents)) {
+                                    ?>
+                                        <input type="text" name="url_dossierFacile"
+                                            value="<?php
+                                                    foreach ($documents as $item) {
+                                                        if ($item['file_name'] === 'url_dossierFacile') {
+                                                            echo htmlspecialchars($item['description']);
+                                                            break;
+                                                        }
+                                                    }
+                                                    ?>"
+                                            placeholder="Insérez l'URL" />
+                                        <a href="index.php?module=records&action=deleteFile" class="btn-delete">&#10006;</a>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <input type="text" name="url_dossierFacile" placeholder="Insérez l'URL" />
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </section>
-                            <section id="dropfile-school_certificate" class="dropfile_section">
-                                <div class="dropfile_info">
-                                    <span>Justificatif de scolarité</span><span class="tooltip">&#9432;
-                                        <p class="tooltiptext">
-                                            Text line 1<br />
-                                            Text line 2
-                                        </p>
-                                    </span>
-                                </div>
-                                <div class="dropfile_file">
-                                    <input type="file" id="school_certificate-file" accept=".pdf" />
-                                </div>
-                            </section>
-                            <section id="dropfile-scholarship_proof" class="dropfile_section">
-                                <div class="dropfile_info">
-                                    <span>Attestation de bourse</span><span class="tooltip">&#9432;
-                                        <p class="tooltiptext">
-                                            Text line 1<br />
-                                            Text line 2
-                                        </p>
-                                    </span>
-                                    <p style="font-size: smaller;">* Étudiants boursiers seulement</p>
-                                </div>
-                                <div class="dropfile_file">
-                                    <input type="file" id="scholarship_proof-file" accept=".pdf" />
-                                </div>
-                            </section>
-                            <section id="dropfile-visa" class="dropfile_section">
-                                <div class="dropfile_info">
-                                    <span>Visa / Titre de séjour</span><span class="tooltip">&#9432;
-                                        <p class="tooltiptext">
-                                            Text line 1<br />
-                                            Text line 2
-                                        </p>
-                                    </span>
-                                    <p style="font-size: smaller;">* Étudiants internationnaux seulement</p>
-                                </div>
-                                <div class="dropfile_file">
-                                    <input type="file" id="visa-file" accept=".pdf" />
-                                </div>
-                            </section>
-                            <button id="save_docs-dropfile" class="save_button" type="submit">Sauvegarder</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="menu_container">
-                    <div id="docs_situation" class="menu_button" onclick="toggleMenu(this, null)">
-                        <span class="menu_button_text">Ma situation financière</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
-                    </div>
-                    <div class="dropdown-menu document_section">
-                        <form action="index.php?module=records&action=saveEco" method="POST">
-                            <button id="save_docs-eco_situation" class="save_button" type="submit">Sauvegarder</button>
+
+                            <button id="save_urls" class="save_button" type="submit">Sauvegarder</button>
                         </form>
                     </div>
                 </div>
@@ -127,7 +104,7 @@ class VueRecords extends VueGenerique
                         <span class="menu_button_text">Informations complémentaires</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
                     </div>
                     <div class="dropdown-menu document_section">
-                        <form action="index.php?module=records&action=saveInfo" method="POST">
+                        <form action="index.php?module=records&action=updateUserDocument" method="POST">
                             <section class="info_section">
                                 <span class="info_section_text">Êtes-vous étudiant boursier ?</span>
                                 <div class="info_section_zone">
@@ -155,7 +132,7 @@ class VueRecords extends VueGenerique
                             <section class="info_section">
                                 <span class="info_section_text">Nationnalité</span>
                                 <div class="info_section_zone">
-                                    <input type="text" id="nationality" name="nationality" placeholder="Nationality" size="16" />
+                                    <input type="text" id="nationality" name="nationality" placeholder="Nationality" />
                                 </div>
                             </section>
                             <section class="info_section">

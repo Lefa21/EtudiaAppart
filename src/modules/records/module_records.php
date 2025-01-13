@@ -14,9 +14,8 @@ class ModuleRecords
             case 'monDossier':
                 $this->controller->monDossier();
                 break;
-
-            case 'saveFiles':
-                $this->controller->saveFiles();
+            case 'updateUserDocument':
+                $this->controller->updateUserDocument();
                 break;
         }
     }

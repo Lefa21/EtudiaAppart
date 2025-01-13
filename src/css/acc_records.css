@@ -1,10 +1,14 @@
 .blockPage {
   color: black;
   font-family: var(--police-text);
-  display: flex; /* Organisation en colonnes avec flexbox */
-  flex-direction: row; /* Par défaut, les éléments enfants sont alignés horizontalement */
-  /*height: 100vh; /* Occuper toute la hauteur de l'écran */
+  display: flex;
+  flex-direction: row;
+  /*height: 100vh; */
 }
+
+/*.blockPage a {
+  text-decoration: none;
+}*/
 
 /*---------------------------------------------------------------------------------------------*/
 /*----------------------------------------- MENU DEROULANT ------------------------------------*/
@@ -80,6 +84,7 @@
 /*---------------------------------------------------------------------------------------------*/
 
 .sidebar {
+  position: relative;
   width: 25%; /* Largeur du aside */
   max-width: 300px; /* Limiter la largeur si nécessaire */
   box-shadow: none;
@@ -176,25 +181,18 @@
 }
 
 /*---------------------------------------------------------------------------------------------*/
-/*---------------------------------------- DROPFILE SECTION -----------------------------------*/
+/*---------------------------------------- PASTE URL SECTION ----------------------------------*/
 /*---------------------------------------------------------------------------------------------*/
 
-.dropfile_section:first-child {
-  margin-top: 3.6rem;
-}
-
-.dropfile_section:last-child {
-  margin-bottom: 2rem;
-}
-
-.dropfile_section {
+.url_section {
   position: relative;
   left: 50%;
   transform: translate(-50%);
   display: flex;
   width: 80%;
-  height: 3rem;
-  margin-top: 1rem;
+  min-height: 5rem;
+  height: 5rem;
+  margin: 4rem 0 3rem 0;
   border-radius: 8px;
   background: var(--gray-border);
   box-shadow:
@@ -202,22 +200,32 @@
     0px 1px 3px 0px rgba(0, 0, 0, 0.3);
 }
 
-.dropfile_info {
+.url_info {
   font-size: smaller;
-  width: 50%;
-  padding-left: 1rem;
+  width: 100%;
+  padding: 1rem 0 0 1rem;
   border-radius: 8px 0 0 8px;
   background: var(--secondary-color);
 }
 
-.dropfile_file input {
-  position: relative;
-  left: 6%;
+.url_info .description {
+  font-size: smaller;
 }
 
-/*---------------------------------------------------------------------------------------------*/
-/*---------------------------------------- FINANCIAL SECTION ----------------------------------*/
-/*---------------------------------------------------------------------------------------------*/
+.url_input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 100%;
+}
+
+.url_input input {
+  flex-grow: 1;
+  margin: 1rem;
+}
 
 /*---------------------------------------------------------------------------------------------*/
 /*-------------------------------------- INFORMATION SECTION ----------------------------------*/
