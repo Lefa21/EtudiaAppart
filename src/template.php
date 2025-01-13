@@ -10,6 +10,18 @@
     <script type="text/javascript" src="./src/scripts/main.js"></script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/utilities.css">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="./src/css/student_requests.css">
+    <link rel="stylesheet" href="./src/css/owner_requests.css">
+    <link rel="stylesheet" href="./src/css/owner_manage_application.css">
+    <link rel="stylesheet" href="./src/css/footer.css">
+    <link rel="stylesheet" href="./src/css/connexion.css">
+    <link rel="stylesheet" href="./src/css/inscription.css">
+    <link rel="stylesheet" href="./src/css/ad_search.css">
+    <link rel="stylesheet" href="./src/css/home.css">
+    <link rel="stylesheet" href="./src/css/a_propos.css">
+>>>>>>> 6e6a05c (FIX merge conflicts from dev)
 </head>
 
 <body>
