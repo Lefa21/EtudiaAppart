@@ -14,13 +14,13 @@ class VueCreationAnnonce extends VueGenerique
         ?>
 
         <link rel="stylesheet" href="./src/css/style_creation_annonce.css">
-        <link rel="stylesheet" href="./src/css/menu_my_account.css">
+
         <script type="text/javascript" src="./src/scripts/navigation_create_ad.js"></script>
 
         <main class="owner-depot_annonce" role="main">
             <div class="main-content-depot_annonce">
 
-                <aside class="sidebar">
+                <aside id="sidebar" class="sidebar">
                     <div class="user-info">
                         <div class="profile-image-container">
                             <img src="assets/photo_profil.png" alt="Profile photo" class="user-avatar">
