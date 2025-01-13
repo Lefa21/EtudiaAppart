@@ -25,7 +25,7 @@ $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
                                 <a href="index.php?module=monProfil&action=Profil">Profil</a>
                                 <a href="index.php?module=records&action=monDossier">Mon dossier</a>
                                 <a href="index.php?module=owner_requests&action=follow-up_owner_requests">Mes demandes</a>
-                                <a href="#">Messagerie</a>
+                                <a href="index.php?module=messagerie&action=messagerie">Messagerie</a>
                                 <a href="#">Paramètres</a>
                                 <a href="index.php?module=connexion&action=deconnexion">Déconnexion</a>
                             </div>
