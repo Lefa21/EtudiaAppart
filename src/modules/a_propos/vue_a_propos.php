@@ -111,7 +111,9 @@ class VueAPropos extends VueGenerique
 
     <div class="team-member">
 
-      <div class="avatar"></div>
+      <div class="avatar">
+      <img src="assets\angeline emoji.png" alt="Profile photo" class="avatar">
+      </div>
 
       <h3>Angeline Chapuis</h3>
 
@@ -121,7 +123,9 @@ class VueAPropos extends VueGenerique
 
     <div class="team-member">
 
-      <div class="avatar"></div>
+      <div class="avatar">
+      <img src="assets\amine emoji.png" alt="Profile photo" class="avatar">
+      </div>
 
       <h3>Amine Akhrib</h3>
 
@@ -131,7 +135,9 @@ class VueAPropos extends VueGenerique
 
     <div class="team-member">
 
-      <div class="avatar"></div>
+      <div class="avatar">
+      <img src="assets\janna emoji.png" alt="Profile photo" class="avatar">
+      </div>
 
       <h3>Janna Djemai</h3>
 
@@ -141,7 +147,9 @@ class VueAPropos extends VueGenerique
 
     <div class="team-member">
 
-      <div class="avatar"></div>
+      <div class="avatar">
+      <img src="assets\tristan emoji.png" alt="Profile photo" class="avatar">
+      </div>
 
       <h3>Tristan Passedat</h3>
 
@@ -151,7 +159,9 @@ class VueAPropos extends VueGenerique
 
     <div class="team-member">
 
-      <div class="avatar"></div>
+      <div class="avatar">
+      <img src="assets\antoine emoji.png" alt="Profile photo" class="avatar">
+      </div>
 
       <h3>Antoine Bonhomme</h3>
 
