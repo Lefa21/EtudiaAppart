@@ -9,14 +9,14 @@ class ContMessagerie
     private $modele;
     private $vue;
     private $action;
-    private $user;
+    private $id_sender;
 
     public function __construct()
     {
         $this->vue = new VueMessagerie();
         $this->modele = new ModeleMessagerie();
         $this->action = isset($_GET['action']) ? $_GET['action'] : 'messagerie';
-
+        $this->id_sender = isset($_GET['id_sender']) ? $_GET['id_sender'] : null;
     }
 
     public function messagerie($user)

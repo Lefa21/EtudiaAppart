@@ -14,13 +14,13 @@ class VueCreationAnnonce extends VueGenerique
         ?>
 
         <link rel="stylesheet" href="./src/css/style_creation_annonce.css">
-
+        <link rel="stylesheet" href="./src/css/menu_my_account.css">
         <script type="text/javascript" src="./src/scripts/navigation_create_ad.js"></script>
 
         <main class="owner-depot_annonce" role="main">
             <div class="main-content-depot_annonce">
 
-                <aside id="sidebar" class="sidebar">
+                <aside class="sidebar">
                     <div class="user-info">
                         <div class="profile-image-container">
                             <img src="assets/photo_profil.png" alt="Profile photo" class="user-avatar">
@@ -55,9 +55,9 @@ class VueCreationAnnonce extends VueGenerique
                 </aside>
 
                 <div class="container-creation_annonce">
-                    <form id="form_infos" action="index.php?module=creation_annonce&action=ajoutInfos" method="POST" enctype="multipart/form-data">
+                    <form id="form_infos" action="index.php?module=creation_annonce&action=ajoutInfos" method="POST">
 
-                        <div id="container_information" class="form-step active" >
+                        <div class="form-step active" id="container_information">
               <span id="text_titre_form" class="container-title_creation-annonce">
                 <a id="titre_form">Informations générales</a>
                 <a id="ss_titre_form">Modifier les informations générales de votre annonce</a>
@@ -111,20 +111,18 @@ class VueCreationAnnonce extends VueGenerique
                             </div>
 
                             <div class="rest_loc">
-                              <div class="champs_titre" id="zipcode">
-                                Code postal
-                                <input class="champs" id="input_zipcode" placeholder="Code postal" name="zipcode_form" aria-label="zipcode" required aria-required="true">
-                              </div>
-                              <div class="champs_titre" id="city">
+                                <div class="champs_titre" id="city">
                                     Ville
                                     <input class="champs" id="input_ville" placeholder="Ville" name="ville_form" aria-label="ville" required aria-required="true">
+                                </div>
+                                <div class="champs_titre" id="code_postal">
+                                    Code postal
+                                    <input class="champs" id="input_cp" placeholder="Code postal" name="cp_form" aria-label="cp" required aria-required="true">
                                 </div>
                                 <div class="champs_titre" id="region">
                                     Pays
                                     <input class="champs" id="input_region" placeholder="Pays" name="region_form" aria-label="region" required aria-required="true">
                                 </div>
-                              <input type="hidden" id="longitude" name="longitude">
-                              <input type="hidden" id="latitude" name="latitude">
                             </div>
 
                             <div class="nav_save" id="nav_save1">
@@ -132,17 +130,19 @@ class VueCreationAnnonce extends VueGenerique
                             </div>
                         </div>
 
+
                         <div id="container_photos" class="form-step">
               <span id="text_titre_form" class="container-title_creation-annonce">
                 <a id="titre_form">Photos</a>
                 <a id="ss_titre_form">Ajouter des photos</a>
               </span>
+                            <input class="champs" type="file" name="input_photo1" aria-label="photo1" required aria-required="true">
                             <div id="galerie">
-                              <input class="champs" type="file" name="input_photo1" accept="image/*" aria-label="photo1" required aria-required="true">
-                              <input class="champs" type="file" name="input_photo2" accept="image/*" aria-label="photo2">
-                              <input class="champs" type="file" name="input_photo3" accept="image/*" aria-label="photo3">
-                              <input class="champs" type="file" name="input_photo4" accept="image/*" aria-label="photo4">
-                              <input class="champs" type="file" name="input_photo5" accept="image/*" aria-label="photo5">
+                                <div class="logo_img">
+                                    <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.2647 15.9377L12.5473 14.2346C11.758 13.4519 11.3633 13.0605 10.9089 12.9137C10.5092 12.7845 10.079 12.7845 9.67922 12.9137C9.22485 13.0605 8.83017 13.4519 8.04082 14.2346L4.04193 18.2622M14.2647 15.9377L14.606 15.5991C15.412 14.7999 15.8149 14.4003 16.2773 14.2545C16.6839 14.1262 17.1208 14.1312 17.5244 14.2688C17.9832 14.4253 18.3769 14.834 19.1642 15.6515L20 16.5001M14.2647 15.9377L18.22 19.9628M18.22 19.9628C17.8703 20 17.4213 20 16.8 20H7.2C6.07989 20 5.51984 20 5.09202 19.782C4.7157 19.5903 4.40973 19.2843 4.21799 18.908C4.12583 18.7271 4.07264 18.5226 4.04193 18.2622M18.22 19.9628C18.5007 19.9329 18.7175 19.8791 18.908 19.782C19.2843 19.5903 19.5903 19.2843 19.782 18.908C20 18.4802 20 17.9201 20 16.8V13M11 4H7.2C6.07989 4 5.51984 4 5.09202 4.21799C4.7157 4.40973 4.40973 4.71569 4.21799 5.09202C4 5.51984 4 6.0799 4 7.2V16.8C4 17.4466 4 17.9066 4.04193 18.2622M18 9V6M18 6V3M18 6H21M18 6H15" stroke="#041A8F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
                             </div>
                             <div class="nav_save">
                                 <button id="previous-to_photos" class="button sub1" data-step="-1">Précédent</button>
@@ -159,7 +159,7 @@ class VueCreationAnnonce extends VueGenerique
                                 <textarea id="champs_description" name="description" placeholder="Description" aria-label="description" required aria-required="true"></textarea>
                                 <div class="nav_save">
                                     <button id="previous-to_description" class="button sub1" data-step="-1">Précédent</button>
-                                    <button type="submit" name="submit_button" class="button">
+                                    <button type="submit" name="submit" class="button">
                                         Envoyer
                                     </button>
                                 </div>
