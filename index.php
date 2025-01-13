@@ -62,6 +62,12 @@ switch ($module) {
     case 'creation_annonce':
         $moduleFile = './src/modules/creation_annonce/module_creation_annonce.php';
         $moduleClass = 'ModCreationAnnonce';
+        break;
+    case 'resetPassword':
+        $moduleFile = './src/modules/reset_password/module_reset_password.php';
+        $moduleClass = 'ModResetPassword';
+        break;
+    
 }
 
 if (file_exists($moduleFile)) {
