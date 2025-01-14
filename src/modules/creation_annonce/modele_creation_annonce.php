@@ -19,39 +19,22 @@ class ModeleCreationAnnonce extends Connexion
             $titre_form = $_POST['titre_form'];
             $type_logement_form = $_POST['type_logement_form'];
             $prix_form = $_POST['prix_form'];
-            $meuble = $_POST['meuble'];
             $superficie_form = $_POST['superficie_form'];
             $nb_pieces_form = $_POST['nb_pieces_form'];
             $debut_form = $_POST['debut_form'];
             $fin_form = $_POST['fin_form'];
             $loc_form = $_POST['loc_form'];
             $ville_form = $_POST['ville_form'];
-            $cp_form = $_POST['cp_form'];
+            $zipcode = $_POST['zipcode_form'];
             $region_form = $_POST['region_form'];
             $imageName1 = $_FILES['input_photo1']['name'];
             $imageTmpName1 = $_FILES['input_photo1']['tmp_name'];
             $imageSize1 = $_FILES['input_photo1']['size'];
             $imageType1 = $_FILES['input_photo1']['type'];
             $description =  $_POST['description'];
-            $imageName2 = $_FILES['input_photo2']['name'];
-            $imageTmpName2 = $_FILES['input_photo2']['tmp_name'];
-            $imageSize2 = $_FILES['input_photo2']['size'];
-            $imageType2 = $_FILES['input_photo2']['type'];
-            $imageName3 = $_FILES['input_photo3']['name'];
-            $imageTmpName3 = $_FILES['input_photo3']['tmp_name'];
-            $imageSize3 = $_FILES['input_photo3']['size'];
-            $imageType3 = $_FILES['input_photo3']['type'];
-            $imageName4 = $_FILES['input_photo4']['name'];
-            $imageTmpName4 = $_FILES['input_photo4']['tmp_name'];
-            $imageSize4 = $_FILES['input_photo4']['size'];
-            $imageType4 = $_FILES['input_photo4']['type'];
-            $imageName5 = $_FILES['input_photo5']['name'];
-            $imageTmpName5 = $_FILES['input_photo5']['tmp_name'];
-            $imageSize5 = $_FILES['input_photo5']['size'];
-            $imageType5 = $_FILES['input_photo5']['type'];
             $emailUser = $_SESSION['identifiant_utilisateur'];
             $latitude = isset($_POST['latitude']) ? round((float)$_POST['latitude'], 6) : null;
-            $longitude = //isset($_POST['longitude']) ? round((float)$_POST['longitude'], 6) : null;
+//            $longitude = isset($_POST['longitude']) ? round((float)$_POST['longitude'], 6) : null;
 
 
             $sql1 = Connexion::getBdd()->prepare('SELECT id_user FROM User WHERE email = :email');
@@ -77,17 +60,17 @@ class ModeleCreationAnnonce extends Connexion
                     echo '<script>alert("Cette annonce existe déjà.")</script>';
                     header('index.php?module=creation_annonce&action=formulaireCreationAnnonce');
                 }
-                else{
+                else {//, longitude
                     $sql3 = Connexion::getBdd()->prepare('
-                    INSERT INTO Address (address_line, city, country, zipCode, latitude, longitude) 
-                    VALUES (:loc_form, :ville_form, :region_form, :zipcode, :latitude, :longitude)
+                    INSERT INTO Address (address_line, city, country, zipCode, latitude) 
+                    VALUES (:loc_form, :ville_form, :region_form, :zipcode, :latitude)
                     ');
                     $sql3->bindParam(':loc_form', $loc_form);
                     $sql3->bindParam(':ville_form', $ville_form);
                     $sql3->bindParam(':region_form', $region_form);
                     $sql3->bindParam(':zipcode', $zipcode);
                     $sql3->bindParam(':latitude', $latitude);
-                    $sql3->bindParam(':longitude', $longitude);
+//                    $sql3->bindParam(':longitude', $longitude);
 
                     if ($sql3->execute()) {
                         $addressId = Connexion::getBdd()->lastInsertId();
@@ -157,25 +140,30 @@ class ModeleCreationAnnonce extends Connexion
                     $sql5->bindParam(':id_ad', $id_ad['id_ad']);
 
                     for ($i = 2; $i <= 5; $i++) {
-                        $imageTmpName = 'imageTmpName' . $i;
-                        $imageName = 'imageName' . $i;
-                        $imageSize = 'imageSize' . $i;
-                        $imageType = 'imageType' . $i;
+                        if (isset($_FILES['input_photo' . $i])) {
+                            try {
+                                $imageTmpName = $_FILES['input_photo' . $i]['tmp_name'];
+                                $imageName = $_FILES['input_photo' . $i]['name'];
+                                $imageSize = $_FILES['input_photo' . $i]['size'];
+                                $imageType = $_FILES['input_photo' . $i]['type'];
 
-                        if ($imageSize > 5000000) { // Limite à 5 Mo
-                            echo '<script>alert("La taille de l\'image '.$i.' est trop grande.")</script>';
+                                if ($imageSize > 5000000) { // Limite à 5 Mo
+                                    echo '<script>alert("La taille de l\'image ' . $i . ' est trop grande.")</script>';
 
-                        }
-                        if (!in_array($imageType, $allowedTypes)) {
-                            echo '<script>alert("Le type de fichier de l\'image '.$i.' n\'est pas autorisé. Veuillez mettre une image au format .jpeg, .png ou .gif")</script>';
-                        }
+                                }
+                                if (!in_array($imageType, $allowedTypes)) {
+                                    echo '<script>alert("Le type de fichier de l\'image ' . $i . ' n\'est pas autorisé. Veuillez mettre une image au format .jpeg, .png ou .gif")</script>';
+                                }
+                                $imageData = file_get_contents($imageTmpName);
 
-                        $imageData = file_get_contents($imageTmpName);
-                        $sql6 = Connexion::getBdd()->prepare("INSERT INTO Images (ImageName, ImageData, id_ad) VALUES (:name, :data, :id_ad)");
-                        $sql6->bindParam(':name', $imageName);
-                        $sql6->bindParam(':data', $imageData, PDO::PARAM_LOB);
-                        $sql6->bindParam(':id_ad', $id_ad['id_ad']);
-                        $sql6->execute();
+                                $sql6 = Connexion::getBdd()->prepare("INSERT INTO Images (ImageName, ImageData, id_ad) VALUES (:name, :data, :id_ad)");
+                                $sql6->bindParam(':name', $imageName);
+                                $sql6->bindParam(':data', $imageData, PDO::PARAM_LOB);
+                                $sql6->bindParam(':id_ad', $id_ad['id_ad']);
+                                $sql6->execute();
+                            }   catch (Exception $e) {
+                                break;
+                            }
                         }
                     }
 
@@ -185,6 +173,7 @@ class ModeleCreationAnnonce extends Connexion
                     } else {
                         echo '<script>alert("Erreur lors de la création de l\'annonce.")</script>';
                     }
+                }
                 }catch (PDOException $e) {
                 echo "Erreur : " . $e->getMessage();
             }
