@@ -7,7 +7,6 @@ class ModeleCreationAnnonce extends Connexion
     public function __construct()
     {
     }
-
     public function ajoutInfos()
     {
         if (isset($_POST['submit_button'], $_POST['zipcode_form'], $_POST['loc_form'], $_POST['ville_form'], $_POST['region_form'], $_POST['titre_form'], $_POST['type_logement_form'], $_POST['prix_form'], $_POST['superficie_form'], $_POST['nb_pieces_form'], $_POST['debut_form'], $_POST['fin_form'], $_POST['description'], $_FILES['input_photo1'])) {
@@ -20,13 +19,14 @@ class ModeleCreationAnnonce extends Connexion
             $titre_form = $_POST['titre_form'];
             $type_logement_form = $_POST['type_logement_form'];
             $prix_form = $_POST['prix_form'];
+            $meuble = $_POST['meuble'];
             $superficie_form = $_POST['superficie_form'];
             $nb_pieces_form = $_POST['nb_pieces_form'];
             $debut_form = $_POST['debut_form'];
             $fin_form = $_POST['fin_form'];
             $loc_form = $_POST['loc_form'];
-            $zipcode = $_POST['zipcode_form'];
             $ville_form = $_POST['ville_form'];
+            $cp_form = $_POST['cp_form'];
             $region_form = $_POST['region_form'];
             $imageName1 = $_FILES['input_photo1']['name'];
             $imageTmpName1 = $_FILES['input_photo1']['tmp_name'];
