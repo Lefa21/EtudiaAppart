@@ -85,8 +85,9 @@ border-radius: 21px;
 border: 1px solid #000;
 background: #ccd8ff;
 display: flex;
+margin-left: 6rem;
 flex-direction: row;
-width: 75%;
+width: 83%;
 align-items: center; /* Aligne verticalement les groupes */
 gap: 10px; /* Réduction de l'espace entre les groupes */
 text-align: center;
@@ -140,6 +141,29 @@ height: 60px;
 }
 
 
+.search-button {
+width: 113px;
+height: 113px;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+transition: transform 0.3s;
+}
+
+.search-button:hover,
+.search-button:focus {
+transform: scale(1.1);
+}
+
+.search-button:focus-visible {
+outline: 2px solid #041a8f;
+outline-offset: 2px;
+}
+
+.filter-group input::placeholder{
+color: #000;
+}
 
 input:focus {
     outline: none; /* Supprime le contour par défaut */
@@ -176,6 +200,8 @@ margin-left:5px;
 display: flex;
 align-items: center;
 }
+
+
 
 .property-grid {
 align-self: center;

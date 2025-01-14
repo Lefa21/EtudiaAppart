@@ -8,20 +8,12 @@
     <title>EtudiAppart</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
     <script type="text/javascript" src="./src/scripts/main.js"></script>
+    <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6OVk3KZS9TONu4GF8ALO2qFV1n588LPc&libraries=places"
+  async
+></script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/utilities.css">
-<<<<<<< HEAD
-=======
-    <link rel="stylesheet" href="./src/css/student_requests.css">
-    <link rel="stylesheet" href="./src/css/owner_requests.css">
-    <link rel="stylesheet" href="./src/css/owner_manage_application.css">
-    <link rel="stylesheet" href="./src/css/footer.css">
-    <link rel="stylesheet" href="./src/css/connexion.css">
-    <link rel="stylesheet" href="./src/css/inscription.css">
-    <link rel="stylesheet" href="./src/css/ad_search.css">
-    <link rel="stylesheet" href="./src/css/home.css">
-    <link rel="stylesheet" href="./src/css/a_propos.css">
->>>>>>> 6e6a05c (FIX merge conflicts from dev)
 </head>
 
 <body>

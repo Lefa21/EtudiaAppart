@@ -9,14 +9,8 @@ $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
                 <a href="./"><img src="./assets/site_icon_banner.png" alt="site Logo image" id="logoImg" height="80" /><span id="logoText">EtudiAppart</span></a>
             </div>
             <ul>
-<<<<<<< HEAD
                 <li><a id='recherche_annonce' href="index.php?module=ad_search&action=recherche_annonce">Rechercher une annonce</a></li>
                 <li><a href="index.php?module=creation_annonce&action=formulaireCreationAnnonce">Déposer une annonce</a></li>
-=======
-            <li><a id='recherche_annonce' href="index.php?module=ad_search&action=recherche_annonce">Rechercher une annonce</a></li>
-                <li><a id='aboutButton' href="index.php?module=a_propos&action=a_propos">A propos</a></li>
-                <li><a href="">Déposer une annonce</a></li>
->>>>>>> 6e6a05c (FIX merge conflicts from dev)
                 <?php if (!$isUserLoggedIn): ?>
                     <li><a id='loginButton' href="index.php?module=connexion&action=formulaireConnexion">Connexion</a></li>
                     <li><a id='registerButton' href="index.php?module=inscription&action=formulaireInscription">Inscription</a></li>
