@@ -37,7 +37,8 @@
           <img src="assets/gerer_demande.svg" alt="" class="nav-item-icon">
           <span>Gerer Mes demandes</span>
         </a>
-        <a href="#messages" class="nav-item">
+        <a href="index.php?module=messagerie&action=messagerie"
+          class="nav-item <?= ($_GET["module"] == "messagerie" && $_GET["action"] == "messagerie") ? 'active' : '' ?>">
           <img src="assets/icon_messages_profile.svg" alt="" class="nav-item-icon">
           <span>Messagerie</span>
         </a>
