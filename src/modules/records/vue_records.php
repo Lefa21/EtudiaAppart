@@ -135,15 +135,18 @@ class VueRecords extends VueGenerique
                                 </div>
                             </section>
                             <section class="info_section">
-                                <span class="info_section_text">Nationnalité</span>
+                                <span class="info_section_text">Nationalité</span>
                                 <div class="info_section_zone">
-                                    <input type="text" id="nationality" name="nationality" placeholder="Nationality" />
+                                    <?php
+                                    require_once __DIR__ . '/nationalities.php';
+                                    echo nationalities();
+                                    ?>
                                 </div>
                             </section>
                             <section class="info_section">
                                 <span class="info_section_text">Présentation</span>
-                                <div class="info_section_zone relative">
-                                    <textarea name="presentation" rows="5" cols="30"></textarea>
+                                <div class="info_section_zone">
+                                    <textarea id="presentation"></textarea>
                                 </div>
                             </section>
                         </form>

@@ -33,3 +33,24 @@ var toggleVisibility = (html) => {
   if (html.hidden.valueOf()) html.hidden = false;
   else html.hidden = true;
 };
+
+/*
+const presentationDiv = document.getElementById("presentation");
+const writtenText = document.getElementById("writtenText");
+console.log(presentationDiv);
+
+presentationDiv.addEventListener("keydown", function (event) {
+  let key;
+  key = event.key; // The actual key pressed
+  console.log(key);
+  if (key == " ") key = "&nbsp;";
+  if (key == "Enter") key = "\n";
+  if (key == "Tabulation") key = "\t";
+  if (key == "Backspace") {
+    key = "";
+    let newText = writtenText.innerText;
+    newText.split("").pop();
+    writtenText.innerText = newText;
+  } else writtenText.innerText += key;
+});
+*/
