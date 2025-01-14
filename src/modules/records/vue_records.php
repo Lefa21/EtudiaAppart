@@ -21,7 +21,7 @@ class VueRecords extends VueGenerique
                     <div class="user-details">
                         <span class="user-name"><?= $userInfo['first_name'] . ' ' . $userInfo['last_name'] ?></span>
                         <span class="user-role"><?php if (isset($userInfo['profile_status'])) {
-                                                    echo $userInfo['profile_status'];
+                                                    echo "Profil " . $userInfo['profile_status'];
                                                 } ?></span>
                     </div>
                 </div>

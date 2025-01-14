@@ -94,6 +94,78 @@ class ModeleRecords extends Connexion
         }
     }
 
+    public function NEWupdateUserDocument()
+    {
+        // Ensure the request is POST and the user is logged in
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_SESSION['userId'])) {
+            header('Content-Type: application/json');
+            echo json_encode(['success' => false, 'message' => 'Invalid request or user not logged in.']);
+            exit;
+        }
+
+        $userId = $_SESSION['userId'];
+        $pdo = Connexion::getBdd();
+        $documents = ["url_dossierFacile"];
+        $input = json_decode(file_get_contents('php://input'), true); // Parse JSON input
+
+        foreach ($documents as $docName) {
+            if (!empty($input[$docName])) {
+                $docValue = $input[$docName];
+
+                if ($docName == 'url_dossierFacile') {
+                    $urlPattern = "/^https:\/\/www\.[a-zA-Z_-]+\.dossierfacile\.fr$/";
+
+                    if (!preg_match($urlPattern, $docValue)) {
+                        header('Content-Type: application/json');
+                        echo json_encode([
+                            'success' => false,
+                            'message' => 'Invalid URL. The URL must match the format: https://www.{user-last_name}.dossierfacile.fr',
+                        ]);
+                        exit;
+                    }
+                }
+
+                try {
+                    // Check if the document already exists
+                    $stmt = $pdo->prepare("SELECT id_document FROM Document WHERE id_user = ? AND file_name = ?");
+                    $stmt->execute([$userId, $docName]);
+                    $existingDoc = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if ($existingDoc) {
+                        // Update existing document
+                        $stmt = $pdo->prepare("UPDATE Document SET upload_date = NOW(), description = ? WHERE id_document = ?");
+                        $stmt->execute([$docValue, $existingDoc['id_document']]);
+                    } else {
+                        // Insert new document
+                        $stmt = $pdo->prepare("INSERT INTO Document (id_user, file_name, upload_date, description) VALUES (?, ?, NOW(), ?)");
+                        $stmt->execute([$userId, $docName, $docValue]);
+                    }
+
+                    // Respond with success
+                    header('Content-Type: application/json');
+                    echo json_encode([
+                        'success' => true,
+                        'message' => 'Document updated successfully.',
+                        'redirect' => '?module=records&action=monDossier', // Include redirect URL
+                    ]);
+                    exit;
+                } catch (PDOException $e) {
+                    header('Content-Type: application/json');
+                    echo json_encode([
+                        'success' => false,
+                        'message' => 'An error occurred while updating the document: ' . $e->getMessage(),
+                    ]);
+                    exit;
+                }
+            } else {
+                header('Content-Type: application/json');
+                echo json_encode(['success' => false, 'message' => "No URL provided for $docName."]);
+                exit;
+            }
+        }
+    }
+
+
     public function deleteFile()
     {
         // Ensure the user is logged in
