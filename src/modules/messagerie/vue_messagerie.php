@@ -7,32 +7,84 @@ class VueMessagerie extends VueGenerique
         parent::__construct();
     }
 
-    public function messagerie()
+    public function messagerie($data)
     {
         ?>
-        <link rel="stylesheet" href="./src/css/messagerie.css">
+      <link rel="stylesheet" href="./src/css/messagerie.css">
+      <main class="student-profile" role="main">
+          <?php
+          include "./src/menu_my_account.php";
+          ?>
         <div class="main-content-profile">
-            <?php
-            include "./src/menu_my_account.php";
-            ?>
-          <h2>Discussions</h2>
+
+          <h2 id="title">Discussions</h2>
           <div class="search-bar">
             <input type="text" placeholder="Search">
           </div>
-          <div class="discussions">
-              <?php foreach ($discussions as $discussion): ?>
-                <div class="discussion-item">
-                  <img src="<?= $discussion['profile_image'] ?>" alt="Avatar">
-                  <div class="discussion-info">
-                    <h3><?= htmlspecialchars($discussion['name']) ?></h3>
-                    <p><?= htmlspecialchars($discussion['last_message']) ?></p>
+          <div id="discussions">
+            <?php
+            foreach ($data as $key => $conversation) {
+                ?>
+              <a href="index.php?module=messagerie&action=conversation&id_reciever=<?=$conversation['sender_id']?>" class="discussion">
+                <div class="text-content">
+                  <div class="name">
+                  <?= $conversation['first_name'] . ' ' . $conversation['last_name'] ?>
                   </div>
-                  <span class="time"><?= htmlspecialchars($discussion['time_ago']) ?></span>
+                  <div class="time">
+                      <?php
+                      $diff = (new DateTime())->diff(new DateTime($conversation['sent_at']));
+                      if ($diff->d > 1) {
+                          echo $diff->d . ' days ago';
+                      } elseif ($diff->h >= 1) {
+                          echo $diff->h . ' hours ago';
+                      } else {
+                          echo $diff->i . ' minutes ago';
+                      }
+                      ?>
+                  </div>
                 </div>
-              <?php endforeach; ?>
+                  <div class="last-message">
+                      <?php
+                      if (strlen($conversation['content']) < 15) {
+                          echo $conversation['content'];
+                      } else {
+                          echo substr($conversation['content'], 0, 15) . '...';
+                      }
+                      ?>
+                  </div>
+                <?php
+            }
+        ?>
+              </a>
           </div>
         </div>
+      </main>
         <?php
+    }
+
+
+    public function conversation($data, $id_sender)
+    {
+        ?>
+      <link rel="stylesheet" href="./src/css/messagerie.css">
+      <main class="student-profile" role="main">
+          <?php
+          include "./src/menu_my_account.php";
+          ?>
+        <div class="main-content-conversation">
+            <?php
+            foreach ($data as $key => $conversation){
+
+              if ($conversation['sender_id']=$id_sender)
+              {
+                  print_r($conversation);
+              }
+            }
+            ?>
+        </div>
+      </main>
+
+<?php
     }
 }
 ?>

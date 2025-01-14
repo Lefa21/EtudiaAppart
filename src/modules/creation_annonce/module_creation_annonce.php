@@ -6,13 +6,13 @@ require_once 'controleur_creation_annonce.php';
 class ModCreationAnnonce{
     private $controleur;
     public function __construct(){
-        $this->controleur = new ContCreationAnnonce();  
-        //$this->controleur->etapesCreation();
+        $this->controleur = new ContCreationAnnonce();
+
         switch($this->controleur->getAction()){
             case 'formulaireCreationAnnonce':
                 if(!isset($_SESSION['identifiant_utilisateur'])){
-                    header('Location:index.php?module=connexion&action=formulaireConnexion');
-                    exit(); 
+                    header('Location: index.php?module=connexion&action=formulaireConnexion');
+                    exit();
                 }else{
                     $this->controleur->formulaireCreationAnnonce();
                 }

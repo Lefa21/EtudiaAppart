@@ -1,0 +1,64 @@
+:root {
+    --primary-color: #041A8F;
+    --secondary-color: #CCD8FF;
+    --text-color-blue: #041A8F;
+    --text-color-black: #000;
+    --text-color-white: #F8F7F2;
+    --text-color-grey: #C0C0C0;
+    --notification-color: #FF3939;
+}
+
+.student-profile{
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    background: var(--background-color-white);
+    padding-bottom: 49px;
+}
+
+.main-content-profile{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 16px 0 0 16px;
+}
+
+#title {
+    color: var(--text-color-blue);
+    font: 800 36px/1 var(--police-text);
+    letter-spacing: -1px;
+}
+
+.search-bar{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#discussions{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.discussion{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 20px;
+    border: #1c1b1f 1px solid;
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.text-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name{
+    font: 500 19px/1.5 var(--police-text);
+    color: var(--text-color-blue);
+}
+
