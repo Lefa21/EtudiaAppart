@@ -11,6 +11,18 @@ class ModResetPassword{
             case 'formulaireResetPassword': 
                 $this->controleur->formulaireResetPassword();
                 break;
+            case 'formulaireNouveauPassword': 
+                $this->controleur->formulaireNouveauPassword();
+                break;
+            case 'sendPasswordReset': 
+                $this->controleur->sendPasswordReset();
+                break;
+            case 'resetPassword': 
+                $this->controleur->resetPassword();
+                break;
+            case 'verifierEtModifierMotDePasse': 
+                $this->controleur->verifierEtModifierMotDePasse();
+                break;
         }
 
     } 

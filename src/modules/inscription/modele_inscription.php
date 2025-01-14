@@ -13,12 +13,12 @@ class ModeleInscription extends Connexion
     {
 
         // Vérifier si le formulaire est soumis et que tous les champs sont présents
-        if (isset($_POST['submit']) && isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['role']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
+        if (isset($_POST['submit']) && isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['profile_status']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
             
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $email = $_POST['email'];
-            $role = $_POST['role'];
+            $profile_status = $_POST['profile_status'];
             $password = $_POST['password'];
             $confirmPassword = $_POST['confirm_password'];
 
@@ -29,7 +29,7 @@ class ModeleInscription extends Connexion
             }
             
             // Vérification que le role est bien choisi
-            if (empty($role)) {
+            if (empty($profile_status)) {
                 echo 'Veuillez sélectionner un rôle valide.' . '</br>';
                 return; // Arrêter ici si le role n'est pas choisi
             }
@@ -49,11 +49,11 @@ class ModeleInscription extends Connexion
             $hashMotDePasse = password_hash($password, PASSWORD_DEFAULT);
     
             // Préparation de la requête pour insérer l'utilisateur
-            $sql = Connexion::getBdd()->prepare('INSERT INTO User (first_name, last_name, email, role, password) VALUES (:first_name, :last_name, :email, :role, :password)');
+            $sql = Connexion::getBdd()->prepare('INSERT INTO User (first_name, last_name, email, profile_status, password) VALUES (:first_name, :last_name, :email, :profile_status, :password)');
             $sql->bindParam(':first_name', $first_name);
             $sql->bindParam(':last_name', $last_name);
             $sql->bindParam(':email', $email);
-            $sql->bindParam(':role', $role);
+            $sql->bindParam(':profile_status', $profile_status);
             $sql->bindParam(':password', $hashMotDePasse);
     
             // Exécution de la requête
