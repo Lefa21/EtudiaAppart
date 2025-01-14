@@ -208,14 +208,15 @@
   background: var(--secondary-color);
 }
 
-.url_info .description {
-  font-size: smaller;
+.description {
+  font-size: 0.8rem;
 }
 
 .url_input {
   position: relative;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
 
@@ -225,6 +226,10 @@
 .url_input input {
   flex-grow: 1;
   margin: 1rem;
+}
+
+#wrong_url {
+  color: red;
 }
 
 /*---------------------------------------------------------------------------------------------*/

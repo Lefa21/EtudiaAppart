@@ -48,7 +48,11 @@ class ControllerRecords
     public function updateUserDocument()
     {
         $this->modele->updateUserDocument();
-        $this->monDossier();
+    }
+
+    public function deleteFile()
+    {
+        $this->modele->deleteFile();
     }
 
     public function displayContent()

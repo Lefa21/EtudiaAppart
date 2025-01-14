@@ -17,6 +17,9 @@ class ModuleRecords
             case 'updateUserDocument':
                 $this->controller->updateUserDocument();
                 break;
+            case 'deleteFile':
+                $this->controller->deleteFile();
+                break;
         }
     }
 

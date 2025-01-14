@@ -61,6 +61,17 @@ class ModeleRecords extends Connexion
                 if (!empty($_POST[$docName])) {
                     $docValue = $_POST[$docName];
 
+                    if ($docName == 'url_dossierFacile') {
+                        $urlPattern = "/^https:\/\/www\.[a-zA-Z_-]+\.dossierfacile\.fr$/";
+
+                        if (preg_match($urlPattern, $docValue)) {
+                            // Proceed with updating the URL
+                        } else {
+                            $this->handleError("Invalid URL. The URL must match the format: https://www.{user-last_name}.dossierfacile.fr");
+                            return;
+                        }
+                    }
+
                     // Check if the document already exists
                     $stmt = $pdo->prepare("SELECT id_document FROM Document WHERE id_user = ? AND file_name = ?");
                     $stmt->execute([$userId, $docName]);
@@ -77,8 +88,48 @@ class ModeleRecords extends Connexion
                     }
                 } else {
                     $this->handleError("No URL provided for $docName.");
+                    return;
                 }
             }
+        }
+    }
+
+    public function deleteFile()
+    {
+        // Ensure the user is logged in
+        if (!isset($_SESSION['userId'])) {
+            echo json_encode(['success' => false, 'message' => 'User not logged in.']);
+            return;
+        }
+
+        // Parse JSON input
+        $input = json_decode(file_get_contents('php://input'), true);
+        if (!isset($input['docName'])) {
+            echo json_encode(['success' => false, 'message' => 'No document name specified.']);
+            return;
+        }
+
+        $userId = $_SESSION['userId']; // Retrieve the user's ID from the session
+        $docName = $input['docName'];  // Get the document name from the input
+        $pdo = Connexion::getBdd();    // Get the database connection
+
+        try {
+            // Check if the document exists and belongs to the current user
+            $stmt = $pdo->prepare("SELECT id_document FROM Document WHERE file_name = ? AND id_user = ?");
+            $stmt->execute([$docName, $userId]);
+            $document = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($document) {
+                // Delete the document from the database
+                $deleteStmt = $pdo->prepare("DELETE FROM Document WHERE file_name = ? AND id_user = ?");
+                $deleteStmt->execute([$docName, $userId]);
+
+                echo json_encode(['success' => true, 'message' => 'The document has been successfully deleted.']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'The specified document does not exist or does not belong to the user.']);
+            }
+        } catch (PDOException $e) {
+            echo json_encode(['success' => false, 'message' => 'An error occurred while deleting the document: ' . $e->getMessage()]);
         }
     }
 }

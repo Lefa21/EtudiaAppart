@@ -12,6 +12,7 @@ class VueRecords extends VueGenerique
 ?>
         <link rel="stylesheet" href="./src/css/acc_records.css">
         <link rel="stylesheet" href="./src/css/menu_my_account.css">
+        <script type="text/javascript" src="./src/scripts/records.js"></script>
 
         <div class="blockPage">
             <aside class="sidebar" role="complementary" aria-label="Navigation latérale">
@@ -40,7 +41,7 @@ class VueRecords extends VueGenerique
                     </a>
                     <a href="index.php?module=owner_requests&action=manage_application" class="nav-item">
                         <img src="assets/gerer_demande.svg" alt="" class="nav-item-icon">
-                        <span>Gerer Mes demandes</span>
+                        <span>Gérer mes demandes</span>
                     </a>
                     <a href="#messages" class="nav-item">
                         <img src="assets/icon_messages_profile.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
@@ -50,7 +51,7 @@ class VueRecords extends VueGenerique
                         <img src="assets/icon_wishlist.svg" alt="" class="nav-icon" width="30" height="30" aria-hidden="true" />
                         <span>Mes favoris</span>
                     </a>
-                    <button type="button" class="settings-button" aria-label="Accéder aux paramètres">Paramètres</button>
+                    <button type="button" class="settings-button" aria-label="Accéder aux paramètres" onclick="window.location.replace('index.php?module=monProfil&action=Profil')">Paramètres</button>
                 </nav>
             </aside>
             <section class="records_section">
@@ -71,6 +72,7 @@ class VueRecords extends VueGenerique
                                     </span>
                                 </div>
                                 <div class="url_input">
+                                    <p id="wrong_url" hidden class="description">Le lien doit avoir la forme: https://www.VotreNom.dossierfacile.fr</p>
                                     <?php
                                     if (isset($_SESSION['userId']) && isset($documents)) {
                                     ?>
@@ -84,7 +86,10 @@ class VueRecords extends VueGenerique
                                                     }
                                                     ?>"
                                             placeholder="Insérez l'URL" />
-                                        <a href="index.php?module=records&action=deleteFile" class="btn-delete">&#10006;</a>
+                                        <button type="button" class="btn-delete" data-docname="url_dossierFacile"
+                                            onclick="deleteFile(this)">
+                                            &#10006;
+                                        </button>
                                     <?php
                                     } else {
                                     ?>
