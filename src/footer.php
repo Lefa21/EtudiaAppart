@@ -14,6 +14,7 @@
         <a href="index.php?module=a_propos&action=a_propos">A propos</a>
         <a href="#site-map">Plans du site</a>
         <a href="#contact">Nous contacter</a>
+        <a href="index.php?module=a_propos&action=a_propos">A propos</a>
         <a href="#faq">FAQ</a>
         <a href="#help">Aide</a>
       </div>

@@ -9,7 +9,7 @@ class ModSearchAd{
         $this->controleur = new ContSearchAd();
         switch($this->controleur->getAction()){
             case 'recherche_annonce':
-                $this->controleur->showSearchAd();
+                $this->controleur->getAdd();
                 break; 
         }
 
