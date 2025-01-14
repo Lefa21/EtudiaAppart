@@ -11,6 +11,7 @@
     <div class="footer-links">  
       <div class="footer-column">
         <h3>Informations</h3>
+        <a href="index.php?module=a_propos&action=a_propos">A propos</a>
         <a href="#site-map">Plans du site</a>
         <a href="#contact">Nous contacter</a>
         <a href="index.php?module=a_propos&action=a_propos">A propos</a>

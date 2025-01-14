@@ -13,7 +13,8 @@ class VueAPropos extends VueGenerique
     
     public function APropos(){
         ?>
-²
+        <link rel="stylesheet" href="./src/css/a_propos.css">
+
         <div class="header">
 
 
