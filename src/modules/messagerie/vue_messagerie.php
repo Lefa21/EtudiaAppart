@@ -25,7 +25,7 @@ class VueMessagerie extends VueGenerique
             <?php
             foreach ($data as $key => $conversation) {
                 ?>
-              <a href="index.php?module=messagerie&action=conversation&id_sender=<?=$conversation['sender_id']?>" class="discussion">
+              <a href="index.php?module=messagerie&action=conversation&id_reciever=<?=$conversation['sender_id']?>" class="discussion">
                 <div class="text-content">
                   <div class="name">
                   <?= $conversation['first_name'] . ' ' . $conversation['last_name'] ?>
