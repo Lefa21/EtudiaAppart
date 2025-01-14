@@ -49,7 +49,7 @@ class VueInscription extends VueGenerique
               required
               aria-required="true" />
 
-            <select name="role" id="role" class="role">
+            <select name="profile_status" id="profile_status" class="role">
               <option value="">--- Sélectionner un rôle ---</option>
               <option value="etudiant">Etudiant</option>
               <option value="proprietaire">Propriétaire</option>
