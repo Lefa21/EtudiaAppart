@@ -18,11 +18,8 @@ class ContSearchAd{
     }
 
     public function getAdd(){
-        $this->modele->getAdd();
-    }
-
-    public function showSearchAd(){  
-        $this->vue->showSearchAd();
+      $adData = $this->modele->getAdd();
+      $this->vue->showSearchAd($adData);
     }
     
     public function getAction(){

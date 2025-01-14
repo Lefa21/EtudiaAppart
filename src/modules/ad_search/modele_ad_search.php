@@ -94,8 +94,6 @@ $stmt->execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Afficher les résultats pour le débogage
-var_dump("resultat : ", $results);
-die();
 
     
         if ($results) {
