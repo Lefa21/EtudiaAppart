@@ -139,10 +139,10 @@ class VueCreationAnnonce extends VueGenerique
               </span>
                             <div id="galerie">
                               <input class="champs" type="file" name="input_photo1" accept="image/*" aria-label="photo1" required aria-required="true">
-                              <input class="champs" type="file" name="input_photo2" accept="image/*" aria-label="photo2">
-                              <input class="champs" type="file" name="input_photo3" accept="image/*" aria-label="photo3">
-                              <input class="champs" type="file" name="input_photo4" accept="image/*" aria-label="photo4">
-                              <input class="champs" type="file" name="input_photo5" accept="image/*" aria-label="photo5">
+<!--                              <input class="champs" type="file" name="input_photo2" accept="image/*" aria-label="photo2">-->
+<!--                              <input class="champs" type="file" name="input_photo3" accept="image/*" aria-label="photo3">-->
+<!--                              <input class="champs" type="file" name="input_photo4" accept="image/*" aria-label="photo4">-->
+<!--                              <input class="champs" type="file" name="input_photo5" accept="image/*" aria-label="photo5">-->
                             </div>
                             <div class="nav_save">
                                 <button id="previous-to_photos" class="button sub1" data-step="-1">Précédent</button>
