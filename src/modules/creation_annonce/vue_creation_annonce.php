@@ -55,7 +55,7 @@ class VueCreationAnnonce extends VueGenerique
                 </aside>
 
                 <div class="container-creation_annonce">
-                    <form id="form_infos" action="index.php?module=creation_annonce&action=ajoutInfos" method="POST">
+                    <form id="form_infos" action="index.php?module=creation_annonce&action=ajoutInfos" method="POST" enctype="multipart/form-data">
 
                         <div id="container_information" class="form-step active" >
               <span id="text_titre_form" class="container-title_creation-annonce">
@@ -111,7 +111,11 @@ class VueCreationAnnonce extends VueGenerique
                             </div>
 
                             <div class="rest_loc">
-                                <div class="champs_titre" id="city">
+                              <div class="champs_titre" id="zipcode">
+                                Code postal
+                                <input class="champs" id="input_zipcode" placeholder="Code postal" name="zipcode_form" aria-label="zipcode" required aria-required="true">
+                              </div>
+                              <div class="champs_titre" id="city">
                                     Ville
                                     <input class="champs" id="input_ville" placeholder="Ville" name="ville_form" aria-label="ville" required aria-required="true">
                                 </div>
@@ -119,6 +123,8 @@ class VueCreationAnnonce extends VueGenerique
                                     Pays
                                     <input class="champs" id="input_region" placeholder="Pays" name="region_form" aria-label="region" required aria-required="true">
                                 </div>
+                              <input type="hidden" id="longitude" name="longitude">
+                              <input type="hidden" id="latitude" name="latitude">
                             </div>
 
                             <div class="nav_save" id="nav_save1">
@@ -132,11 +138,11 @@ class VueCreationAnnonce extends VueGenerique
                 <a id="ss_titre_form">Ajouter des photos</a>
               </span>
                             <div id="galerie">
-                              <input class="champs" type="file" name="input_photo1" aria-label="photo1" required aria-required="true">
-                              <input class="champs" type="file" name="input_photo2" aria-label="photo2">
-                              <input class="champs" type="file" name="input_photo3" aria-label="photo3">
-                              <input class="champs" type="file" name="input_photo4" aria-label="photo4">
-                              <input class="champs" type="file" name="input_photo5" aria-label="photo5">
+                              <input class="champs" type="file" name="input_photo1" accept="image/*" aria-label="photo1" required aria-required="true">
+                              <input class="champs" type="file" name="input_photo2" accept="image/*" aria-label="photo2">
+                              <input class="champs" type="file" name="input_photo3" accept="image/*" aria-label="photo3">
+                              <input class="champs" type="file" name="input_photo4" accept="image/*" aria-label="photo4">
+                              <input class="champs" type="file" name="input_photo5" accept="image/*" aria-label="photo5">
                             </div>
                             <div class="nav_save">
                                 <button id="previous-to_photos" class="button sub1" data-step="-1">Précédent</button>
@@ -153,7 +159,7 @@ class VueCreationAnnonce extends VueGenerique
                                 <textarea id="champs_description" name="description" placeholder="Description" aria-label="description" required aria-required="true"></textarea>
                                 <div class="nav_save">
                                     <button id="previous-to_description" class="button sub1" data-step="-1">Précédent</button>
-                                    <button type="submit" name="submit" class="button">
+                                    <button type="submit" name="submit_button" class="button">
                                         Envoyer
                                     </button>
                                 </div>
