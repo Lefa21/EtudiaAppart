@@ -15,6 +15,14 @@ class ModInscription{
             case 'inscription': 
                 $this->controleur->ajoutUtilisateur();
                 break;
+
+            case 'signUpSuccess': 
+                    $this->controleur->signUpSuccess();
+                    break;    
+
+            case 'confirmEmail': 
+                $this->controleur->confirmEmail();
+                break;
         }
 
     } 

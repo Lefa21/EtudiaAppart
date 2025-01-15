@@ -89,6 +89,35 @@ class VueInscription extends VueGenerique
         </div>
       </main>
     </div>
+  <?php
+  }
+
+  public function signUpSuccess()
+  {
+  ?>
+    <link rel="stylesheet" href="./src/css/connexion.css">
+    <div class="login-container">
+      <div class="login-container">
+        <main class="main-content-login">
+          <div class="login-wrapper">
+              <h1 class="form-title-login">Inscription réussie !</h1>
+
+              <h4
+                style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      text-align: center;
+                      margin-top: 10px;
+                      margin-bottom: -20px;">
+                Confirmez votre adresse email en cliquant sur le lien qui vous a été envoyé sur l'adresse renseignée
+              </h4>
+
+            
+          </div>
+        </main>
+      </div>
+    </div>
 <?php
   }
 }
