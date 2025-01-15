@@ -14,6 +14,9 @@ class ModMessagerie{
             case 'conversation':
                 $this->controller->conversation($user);
                 break;
+            case 'envoyerMessage':
+                $this->controller->envoyerMessage($user);
+                break;
         }
     }
 

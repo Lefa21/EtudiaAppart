@@ -67,6 +67,14 @@ switch ($module) {
         $moduleFile = './src/modules/messagerie/module_messagerie.php';
         $moduleClass = 'ModMessagerie';
         break;
+    case 'cgu':
+        $moduleFile = './src/modules/CGU_mentions_legales/module_cgu.php';
+        $moduleClass = 'ModCGU';
+        break;
+    case 'contact':
+        $moduleFile = './src/modules/contact/module_contact.php';
+        $moduleClass = 'ModContact';
+        break;
 }
 
 if (file_exists($moduleFile)) {

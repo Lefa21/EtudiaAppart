@@ -13,7 +13,7 @@
         <h3>Informations</h3>
         <a href="index.php?module=a_propos&action=a_propos">A propos</a>
         <a href="#site-map">Plans du site</a>
-        <a href="#contact">Nous contacter</a>
+        <a href="index.php?module=contact&action=contact">Nous contacter</a>
         <a href="index.php?module=a_propos&action=a_propos">A propos</a>
         <a href="#faq">FAQ</a>
         <a href="#help">Aide</a>
@@ -38,5 +38,5 @@
       </div>
     </div>
 
-    <p class="footer-legal">CGU et Mentions Légales - contacts</p>
+    <a href="index.php?module=cgu&action=cgu" class="footer-legal">CGU et Mentions Légales - contacts</a>
   </footer>
