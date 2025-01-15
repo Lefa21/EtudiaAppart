@@ -1,15 +1,26 @@
 <?php
 
+<<<<<<< HEAD
 require_once 'modele_reset_password.php';
 require_once 'vue_reset_password.php';
 require_once __DIR__ . '/../../connexion.php';
 
 class ContResetPassword
 {
+=======
+
+require_once 'modele_reset_password.php';
+require_once 'vue_reset_password.php';
+require_once __DIR__  . '/../../connexion.php';
+
+class ContResetPassword{
+
+>>>>>>> db6607e (création du module reset_password OK)
     private $modele;
     private $vue;
     private $action;
 
+<<<<<<< HEAD
     public function __construct()
     {
         $this->modele = new ModeleResetPassword();
@@ -46,6 +57,19 @@ class ContResetPassword
 
     public function getAction()
     {
+=======
+    public function __construct(){
+        $this->modele = new ModeleResetPassword();
+        $this->vue = new VueResetPassword();
+        $this->action = isset($_GET['action'])? $_GET['action'] : 'formulaireResetPassword';
+    }
+
+    public function formulaireResetPassword(){  
+        $this->vue->formulaireResetPassword();
+    }
+    
+    public function getAction(){
+>>>>>>> db6607e (création du module reset_password OK)
         return $this->action;
     }
 
@@ -53,4 +77,11 @@ class ContResetPassword
     {
         return $this->vue->getAffichage();
     }
+<<<<<<< HEAD
 }
+=======
+
+}
+
+?>
+>>>>>>> db6607e (création du module reset_password OK)
