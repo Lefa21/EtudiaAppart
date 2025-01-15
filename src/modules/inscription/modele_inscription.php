@@ -89,8 +89,7 @@ class ModeleInscription extends Connexion
     
             // Hachage du mot de passe avant l'insertion
             $hashMotDePasse = password_hash($password, PASSWORD_DEFAULT);
-
-
+            
             // token email d'activation
             $activation_token = bin2hex(openssl_random_pseudo_bytes(16, $strong));
             $activation_token_hashed = hash("sha256", $activation_token);
@@ -98,7 +97,6 @@ class ModeleInscription extends Connexion
     
             // Préparation de la requête pour insérer l'utilisateur
             $sql = Connexion::getBdd()->prepare('INSERT INTO User (first_name, last_name, email, profile_status, password, account_activation_hash, activation_token_expires_at) VALUES (:first_name, :last_name, :email, :profile_status, :password, :account_activation_hash, :activation_token_expires_at)');
-
             $sql->bindParam(':first_name', $first_name);
             $sql->bindParam(':last_name', $last_name);
             $sql->bindParam(':email', $email);
@@ -106,7 +104,6 @@ class ModeleInscription extends Connexion
             $sql->bindParam(':password', $hashMotDePasse);
             $sql->bindParam(':account_activation_hash', $activation_token_hashed);
             $sql->bindParam(':activation_token_expires_at', $activation_token_expires_at);
-
 
     
             // Exécution de la requête
@@ -189,6 +186,7 @@ class ModeleInscription extends Connexion
         echo "Erreur : " . $e->getMessage() . "<br>";
     }
 }
+
 
 }
 
