@@ -105,8 +105,8 @@ class ModeleInscription extends Connexion
             $sql->bindParam(':profile_status', $profile_status);
             $sql->bindParam(':password', $hashMotDePasse);
             $sql->bindParam(':account_activation_hash', $activation_token_hashed);
-
             $sql->bindParam(':activation_token_expires_at', $activation_token_expires_at);
+
 
     
             // Exécution de la requête
@@ -121,7 +121,6 @@ class ModeleInscription extends Connexion
                     Activer le compte</a></p>
                     <p>Ce lien expirera dans 10 minutes.</p>
                     <p>Cordialement,<br>Staff EtudiAppart</p>
-
                 ";
 
                 // Envoyer l'email
@@ -190,8 +189,6 @@ class ModeleInscription extends Connexion
         echo "Erreur : " . $e->getMessage() . "<br>";
     }
 }
-
-
 
 }
 

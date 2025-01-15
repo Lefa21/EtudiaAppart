@@ -34,6 +34,7 @@ class ContInscription{
     }
 
 
+
     public function formulaireInscription(){  
         $this->vue->formulaireInscription();
     }
