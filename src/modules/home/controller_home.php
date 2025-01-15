@@ -23,6 +23,21 @@ class ControllerHome
         $this->vue->welcome();
     }
 
+    public function bonsPlans()
+    {
+        $this->vue->bonsPlans();
+    }
+
+    public function events()
+    {
+        $this->vue->events();
+    }
+    
+    public function restauration()
+    {
+        $this->vue->restauration();
+    }
+
     public function displayContent()
     {
         return $this->vue->getAffichage();
