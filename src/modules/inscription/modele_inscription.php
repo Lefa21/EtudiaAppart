@@ -96,11 +96,7 @@ class ModeleInscription extends Connexion
             $activation_token_expires_at = date("Y-m-d H:i:s", time() + 60 * 10);
     
             // Préparation de la requête pour insérer l'utilisateur
-<<<<<<< HEAD
             $sql = Connexion::getBdd()->prepare('INSERT INTO User (first_name, last_name, email, profile_status, password, account_activation_hash, activation_token_expires_at) VALUES (:first_name, :last_name, :email, :profile_status, :password, :account_activation_hash, :activation_token_expires_at)');
-=======
-            $sql = Connexion::getBdd()->prepare('INSERT INTO User (first_name, last_name, email, profile_status, password) VALUES (:first_name, :last_name, :email, :profile_status, :password)');
->>>>>>> 0004227 (modifier mot de passe fonctionnel, manque un peu de css)
             $sql->bindParam(':first_name', $first_name);
             $sql->bindParam(':last_name', $last_name);
             $sql->bindParam(':email', $email);

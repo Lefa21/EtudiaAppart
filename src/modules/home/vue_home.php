@@ -20,12 +20,10 @@ class VueHome extends VueGenerique
     {
         $_SESSION['home_page'] = 1;
 ?>
-
-
-        <link rel="stylesheet" href="./src/css/home.css">
         <script type="text/javascript" src="./src/scripts/search_address_home.js"></script>
         <link rel="stylesheet" href="./src/css/home.css">
         <main>
+
             <section class="vie-etudiante">
                 <div class="dropdown">
                     <button class="v-e-btn">
@@ -222,7 +220,10 @@ class VueHome extends VueGenerique
                 text-decoration: none;
                 padding: 10px;
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> eba06bc (vie etudiante OK)
             .bons-plans-list {
                 margin-top: 20px;
                 padding: 15px;
@@ -328,6 +329,7 @@ class VueHome extends VueGenerique
 
     public function events()
     {
+<<<<<<< HEAD
     ?>
         <link rel="stylesheet" href="./src/css/home.css">
         <main>
@@ -394,6 +396,73 @@ class VueHome extends VueGenerique
                         </div>
             </section>
         </main>
+=======
+?>
+    <link rel="stylesheet" href="./src/css/home.css">
+    <main>
+        <style>
+            .main {
+                margin: 20px 10px;
+            }
+
+            .btn-home {
+                border: #000 solid 2px;
+                color: var(--text-color-white);
+                background-color: var(--primary-color);
+                border-radius: 3px;
+                text-decoration: none;
+                padding: 10px;
+            }
+            .events-section {
+                margin-top: 20px;
+                padding: 15px;
+                border: 1px solid var(--gray-border);
+                border-radius: 8px;
+                background-color: var(--secondary-color);
+                color: var(--text-color-black);
+                font-family: var(--police-text);
+                text-align: center;
+            }
+
+            .events-section h3 {
+                color: var(--text-color-blue);
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
+
+            .events-section img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 5px;
+                margin-bottom: 15px;
+            }
+
+            .events-section a {
+                display: inline-block;
+                margin-top: 10px;
+                padding: 10px 15px;
+                color: var(--text-color-white);
+                background-color: var(--primary-color);
+                border-radius: 3px;
+                text-decoration: none;
+                font-size: 1em;
+            }
+
+            .events-section a:hover {
+                background-color: #000e5c;
+            }
+        </style>
+        <section class="main">
+            <a class="btn-home" href="./"><- Accueil</a>
+            <div class="events-section">
+                <h3>Découvrez les événements à ne pas manquer !</h3>
+                <img src="https://via.placeholder.com/600x300" alt="Événement" />
+                <p>Participez aux meilleurs événements étudiants de l'année et élargissez votre réseau !</p>
+                <a href="https://www.eventbrite.com" target="_blank">Voir les événements</a>
+            </div>
+        </section>
+    </main>
+>>>>>>> eba06bc (vie etudiante OK)
 <?php
     }
 }
