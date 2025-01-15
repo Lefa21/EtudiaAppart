@@ -23,6 +23,9 @@ class ModInscription{
             case 'confirmEmail': 
                 $this->controleur->confirmEmail();
                 break;
+            case 'registerSuccessful': 
+                $this->controleur->registerSuccessful();
+                break;
         }
 
     } 
