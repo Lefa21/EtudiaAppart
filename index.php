@@ -67,14 +67,11 @@ switch ($module) {
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
         break;
-<<<<<<< HEAD
     case 'messagerie':
         $moduleFile = './src/modules/messagerie/module_messagerie.php';
         $moduleClass = 'ModMessagerie';
         break;
-=======
-    
->>>>>>> db6607e (création du module reset_password OK)
+
 }
 
 if (file_exists($moduleFile)) {
