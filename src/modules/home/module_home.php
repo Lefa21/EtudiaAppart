@@ -13,6 +13,16 @@ class ModuleHome
         switch ($this->controller->getAction()) {
             case 'welcome':
                 $this->controller->welcome();
+                break;
+            case 'bonsPlans':
+                $this->controller->bonsPlans();
+                break;
+            case 'restauration':
+                $this->controller->restauration();
+                break;
+            case 'events':
+                $this->controller->events();
+                break;
         }
     }
 
