@@ -9,6 +9,7 @@ class VueResetPassword extends VueGenerique
         parent::__construct();
     }
 
+<<<<<<< HEAD
 
     public function formulaireResetPassword()
     {
@@ -111,5 +112,16 @@ class VueResetPassword extends VueGenerique
 <?php
 }
 
+=======
+    private $action ="index.php?module=resetPassw&action=connexion";
+
+    public function formulaireResetPassword(){
+    ?>
+        <div class="login-container">
+            <p>yo</p>
+        </div>
+    <?php
+    }
+>>>>>>> db6607e (création du module reset_password OK)
 }
 ?>
