@@ -8,113 +8,137 @@ class ModeleSearchAd extends Connexion
     {
     }
 
-    public function getAdd()
+    public function getAd()
     {
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-
-            // Récupérer les données
-            $budget = isset($_POST['budget']) ? (int)$_POST['budget'] : null;
-            $start_date = isset($_POST['start_date']) ? $_POST['start_date'] : null;
-            $end_date = isset($_POST['end_date']) ? $_POST['end_date'] : null;
-            $city = isset($_POST['city']) ? trim($_POST['city']) : null;
-            $address_line = isset($_POST['address_line']) ? trim($_POST['address_line']) : null;
-            $latitude = isset($_POST['latitude']) ? round((float)$_POST['latitude'], 6) : null;
-            $longitude = isset($_POST['longitude']) ? round((float)$_POST['longitude'], 6) : null;
-            $postal_code = isset($_POST['postal_code']) ? trim($_POST['postal_code']) : null;
-            
-            // Vérifier si tous les champs sont vides
-            if (empty($budget) && empty($start_date) && empty($end_date) && empty($city) && empty($address_line) && empty($latitude) && empty($longitude)) {
-                // Redirection vers la page d'accueil
-                header("Location: /index.php");
-                exit();
-            }
-
-            // Construire la requête SQL
-           
-        /*   
-        $query = "
-        SELECT 
-            Ad.*,
-            Habitation.*,
-            Address.*,
-            (
-                6371 * ACOS(
-                    COS(RADIANS(:latitude)) * COS(RADIANS(Address.latitude)) *
-                    COS(RADIANS(Address.longitude) - RADIANS(:longitude)) +
-                    SIN(RADIANS(:latitude)) * SIN(RADIANS(Address.latitude))
-                )
-            ) AS distance
-        FROM Ad
-        INNER JOIN Habitation ON Ad.id_habitation = Habitation.id_habitation
-        INNER JOIN Address ON Habitation.id_address = Address.id_address
-        WHERE (:budget IS NULL OR Ad.rent_price <= :budget)
-          AND (:start_date IS NULL OR Ad.lease_start >= :start_date)
-          AND (:end_date IS NULL OR Ad.lease_end <= :end_date)
-          AND (
-              :latitude IS NULL OR :longitude IS NULL OR
-              (
-                  6371 * ACOS(
-                      COS(RADIANS(:latitude)) * COS(RADIANS(Address.latitude)) *
-                      COS(RADIANS(Address.longitude) - RADIANS(:longitude)) +
-                      SIN(RADIANS(:latitude)) * SIN(RADIANS(Address.latitude))
-                  )
-              ) <= 10
-          )
-        ORDER BY distance ASC
-    ";
-    */
-
-    $query = "
-    SELECT 
-        Ad.*,
-        Habitation.*,
-        Address.* 
-    FROM Ad
-    INNER JOIN Habitation ON Ad.id_habitation = Habitation.id_habitation
-    INNER JOIN Address ON Habitation.id_address = Address.id_address
-    WHERE (:budget IS NULL OR Ad.rent_price <= :budget)
-      AND (:start_date IS NULL OR Ad.lease_start >= :start_date)
-      AND (:end_date IS NULL OR Ad.lease_end <= :end_date)
-      AND (:postal_code IS NULL OR Address.zipCode = :postal_code)";
-  
-// Préparation de la requête
-$stmt = Connexion::getBdd()->prepare($query);
-
-// Lier les paramètres
-$stmt->bindParam(':budget', $budget);
-$stmt->bindParam(':start_date', $start_date);
-$stmt->bindParam(':end_date', $end_date);
-$stmt->bindParam(':postal_code', $postal_code);
-
-// Exécuter la requête
-$stmt->execute();
-
-// Récupérer les résultats
-$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Afficher les résultats pour le débogage
-
-    
-        if ($results) {
-            /*
-            foreach ($results as $ad) {
-                
-                echo "<div class='ad'>";
-                echo "<h2>" . htmlspecialchars($ad['ad_title']) . "</h2>";
-                echo "<p>Prix : " . htmlspecialchars($ad['rent_price']) . " €</p>";
-                echo "<p>Surface : " . htmlspecialchars($ad['surface_area']) . " m²</p>";
-                echo "<p>Adresse : " . htmlspecialchars($ad['address_line']) . ", " . htmlspecialchars($ad['city']) . "</p>";
-                echo "<p>Description : " . htmlspecialchars($ad['description']) . "</p>";
-                echo "</div>";
-            }
-                */
-                return $results;
-            
+        if ($_SESSION['home_page'] == 1) {
+            $previousSearch = [];
         } else {
-            echo "<p>Aucune annonce trouvée pour vos critères.</p>"; // afficher message en bas de la barre de recherche
+            $previousSearch = isset($_SESSION['search']) ? $_SESSION['search'] : [];
         }
-        
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+       
+            $_SESSION['search'] = array_merge($previousSearch, $_POST);
+            $currentSearch = $_SESSION['search'];
+    
+          
+            $start_date = isset($currentSearch['start_date']) && !empty($currentSearch['start_date']) ? $currentSearch['start_date'] : null;
+            $end_date = isset($currentSearch['end_date']) && !empty($currentSearch['end_date']) ? $currentSearch['end_date'] : null;
+            $city = isset($currentSearch['city']) && !empty($currentSearch['city']) ? trim(strtolower($currentSearch['city'])) : null;
+            $country = isset($currentSearch['country']) && !empty($currentSearch['country']) ? trim(strtolower($currentSearch['country'])) : null;
+            $surfaceMin = isset($currentSearch['surface_min']) && $currentSearch['surface_min'] !== '' ? (float)$currentSearch['surface_min'] : null;
+            $surfaceMax = isset($currentSearch['surface_max']) && $currentSearch['surface_max'] !== '' ? (float)$currentSearch['surface_max'] : null;
+            $rooms = isset($currentSearch['rooms']) && $currentSearch['rooms'] !== '' ? (int)$currentSearch['rooms'] : null;
+            $budget = isset($currentSearch['budget']) && $currentSearch['budget'] !== '' ? (float)$currentSearch['budget'] : null;
+            $priceMin = isset($currentSearch['price_min']) && $currentSearch['price_min'] !== '' ? (float)$currentSearch['price_min'] : null;
+            $priceMax = isset($currentSearch['price_max']) && $currentSearch['price_max'] !== '' ? (float)$currentSearch['price_max'] : null;
+            $selectedHousingTypes = !empty($currentSearch['housing_type']) ? $currentSearch['housing_type'] : null;
+            $habitationFurnished = isset($currentSearch['habitation_furnished']) && !empty($currentSearch['habitation_furnished']) ? $currentSearch['habitation_furnished'] : null;
+    
+
+            $query = "
+                SELECT 
+                    Ad.*,
+                    Habitation.*,
+                    Address.* 
+                FROM Ad
+                INNER JOIN Habitation ON Ad.id_habitation = Habitation.id_habitation
+                INNER JOIN Address ON Habitation.id_address = Address.id_address
+                WHERE 1=1";
+            
+            $params = [];
+    
+ 
+            if ($budget !== null) {
+                $query .= " AND Ad.rent_price <= :budget";
+                $params[':budget'] = $budget;
+            }
+    
+            if ($priceMin !== null) {
+                $query .= " AND Ad.rent_price >= :priceMin";
+                $params[':priceMin'] = $priceMin;
+            }
+    
+            if ($priceMax !== null) {
+                $query .= " AND Ad.rent_price <= :priceMax";
+                $params[':priceMax'] = $priceMax;
+            }
+    
+            if ($start_date !== null && $end_date !== null) {
+                $query .= " AND (
+                                (Ad.lease_start BETWEEN :start_date AND :end_date) OR 
+                                (Ad.lease_end BETWEEN :start_date AND :end_date) OR 
+                                (:start_date BETWEEN Ad.lease_start AND Ad.lease_end) OR
+                                (:end_date BETWEEN Ad.lease_start AND Ad.lease_end)
+                            )";
+                $params[':start_date'] = $start_date;
+                $params[':end_date'] = $end_date;
+            }
+    
+            if ($country !== null) {
+                $query .= " AND LOWER(Address.country) = LOWER(:country)";
+                $params[':country'] = $country;
+            }
+    
+            if ($city !== null) {
+                $query .= " AND LOWER(Address.city) = LOWER(:city)";
+                $params[':city'] = $city;
+            }
+    
+            if ($surfaceMin !== null) {
+                $query .= " AND Habitation.surface_area >= :surfaceMin";
+                $params[':surfaceMin'] = $surfaceMin;
+            }
+    
+            if ($surfaceMax !== null) {
+                $query .= " AND Habitation.surface_area <= :surfaceMax";
+                $params[':surfaceMax'] = $surfaceMax;
+            }
+    
+            if ($habitationFurnished !== null) {
+                if ($habitationFurnished == "oui") {
+                    $habitationFurnished = 1;
+                } else {
+                    $habitationFurnished = 0;
+                }
+                $query .= " AND Habitation.furnished = :habitationFurnished";
+                $params[':habitationFurnished'] = $habitationFurnished;
+            }
+    
+            if ($rooms !== null) {
+                $query .= " AND Habitation.numbers_rooms = :rooms";
+                $params[':rooms'] = $rooms;
+            }
+    
+            if ($selectedHousingTypes) {
+                $placeholders = [];
+                foreach ($selectedHousingTypes as $index => $type) {
+                    $placeholder = ":housing_type_" . $index;
+                    $placeholders[] = $placeholder;
+                    $params[$placeholder] = $type;
+                }
+                $query .= " AND Habitation.type_habitation IN (" . implode(", ", $placeholders) . ")";
+            }
+    
+         
+            $stmt = Connexion::getBdd()->prepare($query);
+            foreach ($params as $key => $value) {
+                $stmt->bindValue($key, $value);
+            }
+    
+
+            $stmt->execute();
+    
+     
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            return [
+                'results' => $results,
+                'search_criteria' => $currentSearch
+            ];
+        }
+    
+        return null;
     }
-}
+    
 }

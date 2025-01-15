@@ -81,15 +81,3 @@ function getPostalCodeNominatim(city, country, address) {
 }
 
 window.onload = initializeAutocomplete;
-
-document.querySelector('form').addEventListener('submit', function(event) {
-  var budget = document.querySelector('[name="budget"]').value;
-  var startDate = document.querySelector('[name="start_date"]').value;
-  var endDate = document.querySelector('[name="end_date"]').value;
-
-  // Vérifier si les champs sont vides
-  if (!budget || !startDate || !endDate) {
-      event.preventDefault(); // Empêcher la soumission si un champ est vide
-      alert('Veuillez remplir tous les champs');
-  }
-});
