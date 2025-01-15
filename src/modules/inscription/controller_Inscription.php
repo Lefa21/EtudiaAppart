@@ -21,6 +21,13 @@ class ContInscription{
     public function ajoutUtilisateur(){
         $this->modele->ajoutUtilisateur();
     }
+    public function signUpSuccess(){
+        $this->vue->signUpSuccess();
+    }
+
+    public function confirmEmail(){
+        $this->modele->confirmEmail();
+    }
 
     public function formulaireInscription(){  
         $this->vue->formulaireInscription();
