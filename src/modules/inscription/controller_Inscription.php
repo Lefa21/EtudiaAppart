@@ -28,9 +28,11 @@ class ContInscription{
     public function confirmEmail(){
         $this->modele->confirmEmail();
     }
+    
     public function registerSuccessful(){
         $this->vue->registerSuccessful();
     }
+
 
     public function formulaireInscription(){  
         $this->vue->formulaireInscription();

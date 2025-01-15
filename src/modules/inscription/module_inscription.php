@@ -26,6 +26,7 @@ class ModInscription{
             case 'registerSuccessful': 
                 $this->controleur->registerSuccessful();
                 break;
+
         }
 
     } 
