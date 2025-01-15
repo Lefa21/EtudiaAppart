@@ -9,14 +9,12 @@ class ContMessagerie
     private $modele;
     private $vue;
     private $action;
-    private $id_sender;
 
     public function __construct()
     {
         $this->vue = new VueMessagerie();
         $this->modele = new ModeleMessagerie();
         $this->action = isset($_GET['action']) ? $_GET['action'] : 'messagerie';
-        $this->id_sender = isset($_GET['id_sender']) ? $_GET['id_sender'] : null;
     }
 
     public function messagerie($user)
@@ -25,14 +23,14 @@ class ContMessagerie
         $this->vue->messagerie($data);
     }
 
-    public function conversation($user, $id_sender)
+    public function conversation($user)
     {
         $data = $this->modele->getConv($user);
-        $this->vue->conversation($data, $id_sender);
+        $this->vue->conversation($data);
     }
-    public function envoyerMessage()
+    public function envoyerMessage($user)
     {
-        $this->modele->envoyerMessage();
+        $this->modele->envoyerMessage($user);
     }
 
 
