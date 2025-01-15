@@ -1,3 +1,5 @@
+
+/*
 function initializeAutocomplete() {
     const locationInput = document.getElementById('location-ad_search');
   
@@ -85,3 +87,4 @@ function initializeAutocomplete() {
   window.addEventListener('load', () => {
     initializeAutocomplete();
 });
+*/

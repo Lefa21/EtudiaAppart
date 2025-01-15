@@ -18,7 +18,10 @@
     overflow: unset !important;
   }
   
-  
+  .wrapper-input{
+    display: flex;
+    gap: 40px;
+  }
   .student-housing {
     background: var(--White, #fff);
     display: flex;
@@ -317,6 +320,7 @@
   padding-left: 20px;
 }
 
+
 .filter-section.active .filter-content {
   display: flex; /* Affiche le contenu lorsqu'actif */
 }
@@ -343,6 +347,17 @@ input[type="checkbox"] {
 #price-value {
   display: block;
   margin-top: 5px;
+}
+
+.image-annonce_favoris{
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 12px;
+  position: absolute;
+  z-index: 10;
+  right: 29px;
+  padding: 2px;
 }
 
 .filter_label{

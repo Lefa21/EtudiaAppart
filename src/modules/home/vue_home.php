@@ -19,7 +19,7 @@ class VueHome extends VueGenerique
     public function welcome()
 
     {
-
+        $_SESSION['home_page'] = 1;
 ?>
 
 <link rel="stylesheet" href="./src/css/home.css">
