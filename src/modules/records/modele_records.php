@@ -84,6 +84,7 @@ class ModeleRecords extends Connexion
                     exit;
                 }
             }
+        exit;
     }
 
     public function deleteFile()

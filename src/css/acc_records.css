@@ -3,7 +3,7 @@
   font-family: var(--police-text);
   display: flex;
   flex-direction: row;
-  /*height: 100vh; */
+  margin-top: 2rem;
 }
 
 /*.blockPage a {

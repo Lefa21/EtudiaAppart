@@ -1,4 +1,13 @@
 <?php
+
+/**
+ * 
+ * missing
+ * difference follow-up_owner_requests / manage_application in actions 
+ * Same module for now
+ * 
+ */
+
 function getUserId($email)
 {
   $query = "
@@ -87,9 +96,9 @@ $uri = explode('module=', explode('&', explode('?', $uri)[1])[0])[1];
     const nav_items = document.getElementsByClassName('nav-menu')[0].children;
     for (let index = 0; index < nav_items.length; index++) {
       const element = nav_items[index];
-      console.log(element.getAttribute('ref'));
+      //console.log(element.getAttribute('ref'));
       if (element.getAttribute('ref') == "<?= $uri ?>") {
-        console.log(element);
+        //console.log(element);
         element.classList = 'nav-item active'
       }
     }
