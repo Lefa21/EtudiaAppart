@@ -27,6 +27,11 @@ class ControllerAnnonce
         return $this->vue->annoncePage($data);
     }
 
+    public function annonceApply($annonceId)
+    {
+        $this->modele->annonceApply($annonceId);
+    }
+
     public function displayContent()
     {
         return $this->vue->getAffichage();

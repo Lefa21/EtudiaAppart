@@ -10,3 +10,26 @@ function redirectTo(annonce) {
     alert(error);
   }
 }
+
+function adApply(annonceId) {
+  try {
+    // Perform the AJAX request
+    fetch(
+      `index.php?module=annonce&action=annonceApply&id_ad=${encodeURIComponent(annonceId)}`,
+      {
+        method: "POST",
+      },
+    )
+      .then((response) => response.text())
+      .then((data) => {
+        console.log(JSON.parse(data));
+        // Redirect or refresh the page after successful deletion
+        if (!JSON.parse(data).success && JSON.parse(data)?.redirect)
+          window.location.href = `${JSON.parse(data).redirect}`;
+        else console.error(JSON.parse(data).message);
+      });
+  } catch (error) {
+    console.error("Error:", error);
+    alert(error);
+  }
+}

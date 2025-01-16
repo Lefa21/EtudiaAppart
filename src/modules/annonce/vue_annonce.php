@@ -11,6 +11,7 @@ class VueAnnonce extends VueGenerique
     {
 ?>
         <link rel="stylesheet" href="./src/css/annonce.css">
+        <script type="text/javascript" src="./src/scripts/annonce.js"></script>
 
         <div class="blockPage">
             <section class="section">
@@ -31,11 +32,12 @@ class VueAnnonce extends VueGenerique
                     <p class="date-pub">Publiée le <?php $date = explode(' ', $data['date_publication']);
                                                     echo ($date[0] . ' à ' . $date[1]); ?></p>
                     <p class="date-dispo">Libre du <?= $data['lease_start'] ?> au <?= $data['lease_end'] ?></p>
-                    <p class="category">Catégorie : <?= $data['type_habitation'] ?></p>
-                    <p class="address">Localisation : <?= $data['address_line'] ?> <?= $data['zipCode'] ?> <?= $data['city'] ?>, <?= $data['country'] ?></p>
+                    <p class="category"><u>Catégorie</u> : <?= $data['type_habitation'] ?></p>
+                    <p class="address"><u>Localisation</u> : <a href="https://www.google.fr/maps/place/<?= urlencode($data['address_line'] . ',+' . $data['zipCode'] . '+' . $data['city']) ?>"><?= $data['address_line'] ?> <?= $data['zipCode'] ?> <?= $data['city'] ?>, <?= $data['country'] ?></a></p>
                 </div>
                 <div class="button-container">
-                    <button id="postuler" class="action-button postuler">Postuler</button>
+                    <button id="postuler" class="action-button postuler" type="button" onclick="adApply(<?= $data['id_ad'] ?>)">Postuler</button>
+                    <button id="signaler" class="action-button signaler" type="button" onclick="adReport(<?= $data['id_ad'] ?>)"><img src="./assets/attention.png" alt="signal" class="" height="14" /> Signaler</button>
                 </div>
             </section>
             <section class="section section-text">
@@ -48,9 +50,6 @@ class VueAnnonce extends VueGenerique
                 <p>
                     Sed lacinia, nulla eget interdum condimentum, eros tellus maximus erat, vitae euismod velit lectus sed felis. Integer non nunc eget sapien dapibus tristique tempor eget dolor. Mauris suscipit ultrices nunc, at commodo eros varius finibus. Vestibulum luctus lorem non leo lacinia, lobortis dapibus nulla vulputate. Donec quis leo ipsum. Etiam at dapibus neque. Mauris id dui non enim rutrum sodales in vel magna.
                 </p>
-                <div class="button-container">
-                    <button id="signaler" class="action-button signaler"><img src="./assets/attention.png" alt="signal" class="" height="14" /> Signaler</button>
-                </div>
             </section>
         </div>
 <?php
