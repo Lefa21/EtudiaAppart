@@ -36,7 +36,7 @@ switch ($module) {
         break;
 
     case 'records':
-        $moduleFile = './src/modules/records/module_records.php';
+        $moduleFile = './src/modules/account/records/module_records.php';
         $moduleClass = 'ModuleRecords';
         break;
 
@@ -44,7 +44,7 @@ switch ($module) {
         $moduleFile = './src/modules/owner_requests/module_owner_requests.php';
         $moduleClass = 'ModOwnerRequests';
         break;
-
+    
     case 'student_requests':
         $moduleFile = './src/modules/student_requests/module_student_requests.php';
         $moduleClass = 'ModStudentRequests';
@@ -59,7 +59,6 @@ switch ($module) {
         $moduleFile = './src/modules/monProfil/module_Profil.php';
         $moduleClass = 'ModuleProfil';
         break;
-
     case 'creation_annonce':
         $moduleFile = './src/modules/creation_annonce/module_creation_annonce.php';
         $moduleClass = 'ModCreationAnnonce';
@@ -78,6 +77,14 @@ switch ($module) {
     case 'resetPassword':
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
+        break;
+    case 'cgu':
+        $moduleFile = './src/modules/CGU_mentions_legales/module_cgu.php';
+        $moduleClass = 'ModCGU';
+        break;
+    case 'contact':
+        $moduleFile = './src/modules/contact/module_contact.php';
+        $moduleClass = 'ModContact';
         break;
 }
 
