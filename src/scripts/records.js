@@ -30,12 +30,29 @@ async function deleteFile(button) {
 
 async function updateUserInfos(btn) {
   try {
+    const formTags = ["TEXTAREA", "SELECT"];
+
     const formElements = btn.parentElement.elements;
     const filesValues = {};
     for (let i = 0; i < formElements.length; i++) {
-      if (formElements[i].nodeName != "BUTTON")
+      //console.log(formElements[i]);
+      if (formTags.includes(formElements[i].nodeName)) {
         filesValues[formElements[i].name] = formElements[i].value;
+      } else if (
+        formElements[i].nodeName == "INPUT" &&
+        (formElements[i]["type"] == "text" || formElements[i]["type"] == "date")
+      ) {
+        filesValues[formElements[i].name] = formElements[i].value;
+      } else if (
+        formElements[i].nodeName == "INPUT" &&
+        formElements[i]["type"] == "radio" &&
+        formElements[i].checked
+      ) {
+        filesValues[formElements[i].name] = formElements[i].value;
+      }
     }
+    //console.log(filesValues);
+
     // Perform the AJAX request
     fetch("index.php?module=records&action=updateUserInfos", {
       method: "POST",
@@ -48,16 +65,17 @@ async function updateUserInfos(btn) {
       .then((data) => {
         console.log(JSON.parse(data));
         // Redirect or refresh the page after successful deletion
-        if (JSON.parse(data).success)
-          window.location.href = "index.php?module=records&action=monDossier";
+        if (JSON.parse(data).success);
         else if (JSON.parse(data).message === "Invalid URL.")
           document.getElementById("wrong_url").hidden = false;
         else console.error(JSON.parse(data).message);
       });
+    alert("Documents bien enregistrés");
   } catch (error) {
     console.error("Error:", error);
     alert(error);
   }
+  //window.location.href = "index.php?module=records&action=monDossier";
 }
 
 var toggleVisibility = (html) => {

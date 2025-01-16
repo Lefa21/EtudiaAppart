@@ -153,7 +153,7 @@ class VueRecords extends VueGenerique
                             <section class="info_section">
                                 <span class="info_section_text">Présentation</span>
                                 <div class="info_section_zone">
-                                    <textarea id="presentation"></textarea>
+                                    <textarea id="presentation" name="presentation"></textarea>
                                 </div>
                             </section>
                             <button id="save_docs-more_information" class="save_button" type="button" onclick="updateUserInfos(this)">Sauvegarder</button>

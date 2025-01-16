@@ -96,7 +96,6 @@ class ModeleRecords extends Connexion
                         'message' => 'Document updated successfully.',
                         'redirect' => '?module=records&action=monDossier', // Include redirect URL
                     ]);
-                    exit;
                 } catch (PDOException $e) {
                     header('Content-Type: application/json');
                     echo json_encode([
