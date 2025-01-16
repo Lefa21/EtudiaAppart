@@ -381,8 +381,6 @@ class VueHome extends VueGenerique
                         </div>
             </section>
         </main>
->>>>>>> 67f4328 (modif amine)
-
 <?php
     }
 }

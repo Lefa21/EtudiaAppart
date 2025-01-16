@@ -16,9 +16,14 @@ class VueSearchAd extends VueGenerique
         $_SESSION['home_page'] = 0;
 ?>
         <link rel="stylesheet" href="./src/css/ad_search.css">
-        <script type="text/javascript" src="./src/scripts/ad_search_location.js"></script>
         <script type="text/javascript" src="./src/scripts/init_map.js"></script>
         <script type="text/javascript" src="./src/scripts/filter_search_ad.js"></script>
+        <script type="text/javascript" src="./src/scripts/key_research.js"></script>
+        <script id="adData" type="application/json">
+            <?= json_encode($adData['results']); ?>
+        </script>
+
+
         <div class="student-housing">
             <main class="main-content">
                 <div id="google-map" class="google-map"></div>
@@ -27,11 +32,13 @@ class VueSearchAd extends VueGenerique
                         <div class="search-container">
                             <div class="search-container">
                                 <label for="searchInput" class="visually-hidden">Rechercher une annonce</label>
-                                <input type="text" class="search-input" placeholder="Rechercher une annonce" />
+                                <input type="text" id="searchInput" name="search_ad" class="search-input" placeholder="Rechercher une annonce" />
+                                <ul id="suggestions" class="suggestions-list"></ul>
                                 <button type="submit" name="submit" class="search-button">
                                     <img src="assets/icon_search_home.svg" alt="Search">
                                 </button>
                             </div>
+
                             <div class="filter-container">
 
                                 <div class="filter-header">
@@ -73,14 +80,14 @@ class VueSearchAd extends VueGenerique
                                         <label class="filter_label" for="surface">Surface (m²) :</label>
                                         <div class="wrapper-input">
                                             <div>
-                                                <input type="number" id="surface_min" name="surface_min" min="0" placeholder="min">
+                                                <input type="number" id="surface_min" name="surface_min" min="0" placeholder="min" value="<?= htmlspecialchars($adData['search_criteria']['surface_min'] ?? '') ?>">
                                             </div>
                                             <div>
-                                                <input type="number" id="surface_max" name="surface_max" min="0" placeholder="max">
+                                                <input type="number" id="surface_max" name="surface_max" min="0" placeholder="max" value="<?= htmlspecialchars($adData['search_criteria']['surface_max'] ?? '') ?>">
                                             </div>
                                         </div>
                                         <label class="filter_label" for="rooms">Nombre de pièces :</label>
-                                        <input type="number" id="rooms" name="rooms" min="1" placeholder="Nombre de pièces">
+                                        <input type="number" id="rooms" name="rooms" min="1" placeholder="Nombre de pièces" value="<?= htmlspecialchars($adData['search_criteria']['rooms'] ?? '') ?>">
 
 
                                     </div>
@@ -138,10 +145,10 @@ class VueSearchAd extends VueGenerique
                                     <div class="filter-content">
                                         <div class="wrapper-input">
                                             <div>
-                                                <input type="number" id="price_min" name="price_min" min="0" placeholder="min">
+                                                <input type="number" id="price_min" name="price_min" min="0" placeholder="min" value="<?= htmlspecialchars($adData['search_criteria']['price_min'] ?? '') ?>">
                                             </div>
                                             <div>
-                                                <input type="number" id="price_max" name="price_max" min="0" placeholder="max">
+                                                <input type="number" id="price_max" name="price_max" min="0" placeholder="max" value="<?= htmlspecialchars($adData['search_criteria']['budget'] ?? '') ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -179,7 +186,7 @@ class VueSearchAd extends VueGenerique
                                                 <img src="assets\logement_etudiant_1.jpg" alt="Apartment interior view" class="listing-image" />
                                                 <div class="listing-details">
                                                     <div>
-                                                     <img src="assets\icon_favoris.svg" alt="Apartment interior view" class="image-annonce_favoris"/>
+                                                        <img src="assets\icon_favoris.svg" alt="Apartment interior view" class="image-annonce_favoris" />
                                                     </div>
                                                     <h2 class="listing-title"><?= htmlspecialchars($ad['ad_title']) ?></h2>
                                                     <p class="listing-location"><?= htmlspecialchars($ad['city']) . ' ' . htmlspecialchars($ad['zipCode']) ?></p>
