@@ -157,19 +157,33 @@ class VueRecords extends VueGenerique
                             <section class="info_section">
                                 <span class="info_section_text">Êtes-vous étudiant boursier ?</span>
                                 <div class="info_section_zone">
-                                    <input type="radio" id="scholarship-yes" name="scholarship" value="yes" />
-                                    <label for="scholarship-yes">Oui</label>
-                                    <input type="radio" id="scholarship-no" name="scholarship" value="no" />
-                                    <label for="scholarship-no">Non</label>
+                                    <?php if (isset($values['scholarship']) && $values['scholarship'] == 'yes') { ?>
+                                        <input type="radio" id="scholarship-yes" name="scholarship" value="yes" checked />
+                                        <label for="scholarship-yes">Oui</label>
+                                        <input type="radio" id="scholarship-no" name="scholarship" value="no" />
+                                        <label for="scholarship-no">Non</label>
+                                    <?php } else { ?>
+                                        <input type="radio" id="scholarship-yes" name="scholarship" value="yes" />
+                                        <label for="scholarship-yes">Oui</label>
+                                        <input type="radio" id="scholarship-no" name="scholarship" value="no" checked />
+                                        <label for="scholarship-no">Non</label>
+                                    <?php } ?>
                                 </div>
                             </section>
                             <section class="info_section">
                                 <span class="info_section_text">Quel est votre status ?</span>
                                 <div class="info_section_zone">
-                                    <input type="radio" id="status-owner" name="status" value="owner" />
-                                    <label for="status-owner">Propriétaire</label>
-                                    <input type="radio" id="status-tenant" name="status" value="tenant" />
-                                    <label for="status-tenant">Locataire</label>
+                                    <?php if (isset($values['status']) && $values['status'] == 'owner') {  ?>
+                                        <input type="radio" id="status-owner" name="status" value="owner" checked />
+                                        <label for="status-owner">Propriétaire</label>
+                                        <input type="radio" id="status-tenant" name="status" value="tenant" />
+                                        <label for="status-tenant">Locataire</label>
+                                    <?php } else { ?>
+                                        <input type="radio" id="status-owner" name="status" value="owner" />
+                                        <label for="status-owner">Propriétaire</label>
+                                        <input type="radio" id="status-tenant" name="status" value="tenant" checked />
+                                        <label for="status-tenant">Locataire</label>
+                                    <?php } ?>
                                 </div>
                             </section>
                             <section class="info_section">
