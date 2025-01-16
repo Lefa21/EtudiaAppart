@@ -1,5 +1,6 @@
 <?php
 
+setlocale(LC_TIME, 'fr_FR.utf8', 'fra'); // Active la locale française
 
 
 class VueHome extends VueGenerique
@@ -15,7 +16,9 @@ class VueHome extends VueGenerique
 
 
 
-    public function welcome()
+
+
+    public function welcome($result)
 
     {
         $_SESSION['home_page'] = 1;
@@ -88,53 +91,30 @@ class VueHome extends VueGenerique
 
 
             <section class="apparts">
-                <button class="btn">
-                    <img src="assets/open.svg" class="arrow" alt="">
-                </button>
 
                 <section class="property-grid">
+                    <?php if (!empty($result) && is_array($result)): ?>
+                        <?php foreach ($result as $ad): ?>
+                            <article class="property-card">
+                                <img src="assets/default_property.jpg" alt="Property" class="property-image" />
+                                <div class="property-info">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <p style="margin: 0;">
+                                            <i class="fas fa-heart" style="color: red;"></i> <?php echo htmlspecialchars("<3 : " . $ad['favorite_count']); ?>
+                                        </p>
+                                    </div>
+                                    <p><strong>Titre :</strong> <?php echo htmlspecialchars($ad['ad_title']); ?></p>
+                                    <p><strong>Prix :</strong> <?php echo htmlspecialchars($ad['rent_price']); ?> €</p>
+                                    <p><strong>Date début :</strong> <?php echo htmlspecialchars($ad['formatted_start_date']); ?></p>
+                                    <p><strong>Date fin :</strong> <?php echo htmlspecialchars($ad['formatted_end_date']); ?></p>
 
-                    <article class="property-card">
-                        <img src="assets/logement_etudiant_1.jpg" alt="Property" class="property-image" style="background-color: blue;" />
-                        <div class="property-info">
-                            <p>Titre : Studio proche de Odéon</p>
-                            <p>Emplacment : Métro Odéon</p>
-                            <p>Durée : 36 mois</p>
-                            <p>Type de logement : studio</p>
-                            <button style="
-                            display: flex;
-                            margin-left: 100%;
-                        ">
-                                M'EMMENER
-                            </button>
-                        </div>
-                    </article>
-
-                    <article class="property-card">
-                        <img src="assets/logement_etudiant_2.jpg" alt="Property" class="property-image" />
-                        <div class="property-info">
-                            <p>Titre : studio spacieux</p>
-                            <p>Emplacment : Issy-Les-Moulineaux</p>
-                            <p>Durée : 12 mois renouvelable</p>
-                            <p>Type de logement : studio</p>
-                        </div>
-                    </article>
-
-                    <article class="property-card">
-                        <img src="assets/logement_etudiant_3.jpg" alt="Property" class="property-image" />
-                        <div class="property-info">
-                            <p>Titre : Studio à côté de Saint-Michel</p>
-                            <p>Emplacment : métro Saint Michel</p>
-                            <p>Durée : 24 mois</p>
-                            <p>Type de logement : studio</p>
-                        </div>
-                    </article>
+                                </div>
+                            </article>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>Aucune annonce disponible pour le moment. Revenez plus tard ou modifiez vos critères de recherche.</p>
+                    <?php endif; ?>
                 </section>
-
-                <button class="btn">
-                    <img src="assets/close.svg" class="arrow" alt="">
-                </button>
-
 
             </section>
 
