@@ -107,7 +107,7 @@
   z-index: 1;
 }
 
-.document_section button {
+.document_section .save_button {
   border: none;
   background: var(--primary-color);
   color: var(--text-color-white);
@@ -235,7 +235,7 @@
 }
 
 .btn-delete {
-  margin-right: 1rem;
+  position: relative;
 }
 
 /*---------------------------------------------------------------------------------------------*/

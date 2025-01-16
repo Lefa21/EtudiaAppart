@@ -84,11 +84,12 @@ if (file_exists($moduleFile)) {
     echo "Erreur sur le module dans l'index";
 }
 
+unset($_SESSION['json_response']);
 $tampon = $moduleClass->displayContent();
 
-if (!isset($_SESSION['json_response']) || $_SESSION['json_response'] != true) {
+if (!isset($_SESSION['json_response'])) {
     include_once "./src/template.php";
 } else {
-    echo $tampon;
     unset($_SESSION['json_response']);
+    echo $tampon;
 }

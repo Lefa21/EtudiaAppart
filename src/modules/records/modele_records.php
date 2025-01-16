@@ -45,7 +45,6 @@ class ModeleRecords extends Connexion
 
     public function updateUserUrl()
     {
-        $_SESSION['json_response'] = true;
         // Ensure the request is POST and the user is logged in
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_SESSION['userId'])) {
             header('Content-Type: application/json');
@@ -110,18 +109,25 @@ class ModeleRecords extends Connexion
 
     public function deleteFile()
     {
-        $_SESSION['json_response'] = true;
         // Ensure the user is logged in
         if (!isset($_SESSION['userId'])) {
-            echo json_encode(['success' => false, 'message' => 'User not logged in.']);
-            return;
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => 'User not logged in.'
+            ]);
+            exit;
         }
 
         // Parse JSON input
         $input = json_decode(file_get_contents('php://input'), true);
         if (!isset($input['docName'])) {
-            echo json_encode(['success' => false, 'message' => 'No document name specified.']);
-            return;
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => 'No document name specified.'
+            ]);
+            exit;
         }
 
         $userId = $_SESSION['userId']; // Retrieve the user's ID from the session
@@ -139,12 +145,29 @@ class ModeleRecords extends Connexion
                 $deleteStmt = $pdo->prepare("DELETE FROM Document WHERE file_name = ? AND id_user = ?");
                 $deleteStmt->execute([$docName, $userId]);
 
-                echo json_encode(['success' => true, 'message' => 'The document has been successfully deleted.']);
+                header('Content-Type: application/json');
+                // Include redirect URL
+                echo json_encode([
+                    'success' => true,
+                    'message' => 'The document has been successfully deleted.',
+                    'redirect' => '?module=records&action=monDossier',
+                ]);
+                exit;
             } else {
-                echo json_encode(['success' => false, 'message' => 'The specified document does not exist or does not belong to the user.']);
+                header('Content-Type: application/json');
+                echo json_encode([
+                    'success' => false,
+                    'message' => 'The specified document does not exist or does not belong to the user.'
+                ]);
+                exit;
             }
         } catch (PDOException $e) {
-            echo json_encode(['success' => false, 'message' => 'An error occurred while deleting the document: ' . $e->getMessage()]);
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'message' => 'An error occurred while deleting the document: ' . $e->getMessage()
+            ]);
+            exit;
         }
     }
 }

@@ -47,11 +47,13 @@ class ControllerRecords
 
     public function updateUserUrl()
     {
+        $_SESSION['json_response'] = true;
         $this->modele->updateUserUrl();
     }
 
     public function deleteFile()
     {
+        $_SESSION['json_response'] = true;
         $this->modele->deleteFile();
     }
 

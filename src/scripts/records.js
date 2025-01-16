@@ -7,23 +7,21 @@ async function deleteFile(button) {
 
     if (!confirmation) return;
     // Perform the AJAX request
-    const response = await fetch("index.php?module=records&action=deleteFile", {
+    fetch("index.php?module=records&action=deleteFile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ docName: docName }),
-    });
-    response.text().then((res) => {
-      console.log(res);
-      res = JSON.parse(res);
-      console.log(res);
-      // Redirect or refresh the page after successful deletion
-      if (
-        res.success //window.location.href = "index.php?module=records&action=monDossier";
-      );
-      else console.error(res.message);
-    });
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log(JSON.parse(data));
+        // Redirect or refresh the page after successful deletion
+        if (JSON.parse(data).success)
+          window.location.href = "index.php?module=records&action=monDossier";
+        else console.error(JSON.parse(data).message);
+      });
   } catch (error) {
     console.error("Error:", error);
     alert(error);
@@ -47,7 +45,13 @@ async function updateUserUrl(btn) {
       body: JSON.stringify(filesValues),
     })
       .then((response) => response.text())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(JSON.parse(data));
+        // Redirect or refresh the page after successful deletion
+        if (JSON.parse(data).success)
+          window.location.href = "index.php?module=records&action=monDossier";
+        else console.error(JSON.parse(data).message);
+      });
   } catch (error) {
     console.error("Error:", error);
     alert(error);
