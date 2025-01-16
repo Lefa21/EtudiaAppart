@@ -6,27 +6,6 @@ class ModeleRecords extends Connexion
 {
     public function __construct() {}
 
-    function getUserData()
-    {
-        $userId = $_SESSION['userId'];
-        $query = "
-        SELECT 
-            u.id_user, u.first_name, u.last_name, u.profile_status, u.email, u.school_name
-        FROM 
-            User u
-        WHERE 
-            u.id_user = :userId
-    ";
-
-        $stmt = Connexion::getBdd()->prepare($query);
-
-        $stmt->bindParam(':userId', $userId, PDO::PARAM_STR);
-
-        $stmt->execute();
-
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
     public function fetchUserDocuments()
     {
         // Function to display user's uploaded documents
