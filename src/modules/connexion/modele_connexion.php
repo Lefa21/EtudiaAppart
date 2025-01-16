@@ -25,6 +25,7 @@ class ModeleConnexion extends Connexion
                     $row = $sql->fetch(PDO::FETCH_ASSOC); // permet de récupérer les données de la requete
                     if (password_verify($password, $row['password'])) {
                         $_SESSION['identifiant_utilisateur'] = $email;
+                        $_SESSION['first_name'] = $row['first_name'];
                         header('Location: index.php');
                     } else {
                         echo 'Login ou mot de passe incorrect' . '<br>';

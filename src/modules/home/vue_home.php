@@ -18,10 +18,11 @@
 
 
 
-        public function welcome($result)
+        public function welcome($result, $userName)
 
         {
             $_SESSION['home_page'] = 1;
+            $_SESSION['user_name'] = $userName;
     ?>
                 <style>
                 .styled-date-input {

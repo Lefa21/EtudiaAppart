@@ -47,7 +47,7 @@
           <span>Mes favoris</span>
         </a>
       </nav>
-      <button type="button" class="settings-button">Paramètres</button>
+      <a href="index.php?module=settings&action=showSettingsPage" class="settings-button">Paramètres</a>
     </aside>
 
     

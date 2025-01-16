@@ -5,6 +5,7 @@ require_once './src/vue_generique.php';
 
 
 session_start();
+require_once __DIR__ . '/src/modules/settings/modele_settings.php';
 
 Connexion::initConnexion();
 
@@ -71,6 +72,10 @@ switch ($module) {
     case 'resetPassword':
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
+        break;
+    case 'settings':
+        $moduleFile = './src/modules/settings/module_settings.php';
+        $moduleClass = 'ModSettings';
         break;
 
 }
