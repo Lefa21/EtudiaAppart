@@ -28,7 +28,7 @@ async function deleteFile(button) {
   }
 }
 
-async function updateUserUrl(btn) {
+async function updateUserInfos(btn) {
   try {
     const formElements = btn.parentElement.elements;
     const filesValues = {};
@@ -37,7 +37,7 @@ async function updateUserUrl(btn) {
         filesValues[formElements[i].name] = formElements[i].value;
     }
     // Perform the AJAX request
-    fetch("index.php?module=records&action=updateUserUrl", {
+    fetch("index.php?module=records&action=updateUserInfos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,6 +50,8 @@ async function updateUserUrl(btn) {
         // Redirect or refresh the page after successful deletion
         if (JSON.parse(data).success)
           window.location.href = "index.php?module=records&action=monDossier";
+        else if (JSON.parse(data).message === "Invalid URL.")
+          document.getElementById("wrong_url").hidden = false;
         else console.error(JSON.parse(data).message);
       });
   } catch (error) {

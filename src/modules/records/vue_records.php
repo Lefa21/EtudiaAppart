@@ -72,7 +72,6 @@ class VueRecords extends VueGenerique
                                     </span>
                                 </div>
                                 <div class="url_input">
-                                    <p id="wrong_url" hidden class="description">Le lien doit avoir la forme: https://www.VotreNom.dossierfacile.fr</p>
                                     <?php
                                     if (isset($_SESSION['userId']) && isset($documents)) {
                                         $urlFound = false;
@@ -106,8 +105,9 @@ class VueRecords extends VueGenerique
                                     ?>
                                 </div>
                             </section>
+                            <p id="wrong_url" hidden class="description">Le lien doit avoir la forme: https://www.VotreNom.dossierfacile.fr</p>
 
-                            <button id="save_urls" class="save_button" type="button" onclick="updateUserUrl(this)">Sauvegarder</button>
+                            <button id="save_urls" class="save_button" type="button" onclick="updateUserInfos(this)">Sauvegarder</button>
                         </form>
                     </div>
                 </div>
@@ -156,7 +156,7 @@ class VueRecords extends VueGenerique
                                     <textarea id="presentation"></textarea>
                                 </div>
                             </section>
-                            <button id="save_docs-more_information" class="save_button" type="button" onclick="updateUserUrl(this)">Sauvegarder</button>
+                            <button id="save_docs-more_information" class="save_button" type="button" onclick="updateUserInfos(this)">Sauvegarder</button>
                         </form>
                     </div>
                 </div>

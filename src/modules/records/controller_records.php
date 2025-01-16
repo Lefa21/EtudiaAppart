@@ -45,10 +45,10 @@ class ControllerRecords
         $this->vue->monDossier($userInfo, $documents);
     }
 
-    public function updateUserUrl()
+    public function updateUserInfos()
     {
         $_SESSION['json_response'] = true;
-        $this->modele->updateUserUrl();
+        $this->modele->updateUserInfos();
     }
 
     public function deleteFile()

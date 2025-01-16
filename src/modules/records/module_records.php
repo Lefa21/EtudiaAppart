@@ -14,8 +14,8 @@ class ModuleRecords
             case 'monDossier':
                 $this->controller->monDossier();
                 break;
-            case 'updateUserUrl':
-                $this->controller->updateUserUrl();
+            case 'updateUserInfos':
+                $this->controller->updateUserInfos();
                 break;
             case 'deleteFile':
                 $this->controller->deleteFile();

@@ -43,7 +43,7 @@ class ModeleRecords extends Connexion
         }
     }
 
-    public function updateUserUrl()
+    public function updateUserInfos()
     {
         // Ensure the request is POST and the user is logged in
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_SESSION['userId'])) {
@@ -66,7 +66,8 @@ class ModeleRecords extends Connexion
                         header('Content-Type: application/json');
                         echo json_encode([
                             'success' => false,
-                            'message' => 'Invalid URL. The URL must match the format: https://www.{user-last_name}.dossierfacile.fr',
+                            'message' => 'Invalid URL.',
+                            'description' => 'The URL must match the format: https://www.{user-last_name}.dossierfacile.fr',
                         ]);
                         exit;
                     }
