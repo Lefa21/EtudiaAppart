@@ -4,9 +4,7 @@ require_once __DIR__  . '/../../connexion.php';
 
 class ModeleInscription extends Connexion
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
 
     public function ajoutUtilisateur()
@@ -14,7 +12,7 @@ class ModeleInscription extends Connexion
 
         // Vérifier si le formulaire est soumis et que tous les champs sont présents
         if (isset($_POST['submit']) && isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['profile_status']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
-            
+
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $email = $_POST['email'];
@@ -27,27 +25,27 @@ class ModeleInscription extends Connexion
                 echo 'Les mots de passe ne correspondent pas.' . '</br>';
                 return; // Arrêter ici si les mots de passe ne correspondent pas
             }
-            
+
             // Vérification que le role est bien choisi
             if (empty($profile_status)) {
                 echo 'Veuillez sélectionner un rôle valide.' . '</br>';
                 return; // Arrêter ici si le role n'est pas choisi
             }
-            
-    
+
+
             // Vérifier si l'email existe déjà
             $sql = Connexion::getBdd()->prepare('SELECT * FROM User WHERE email = :email');
             $sql->bindParam(':email', $email, PDO::PARAM_STR);
             $sql->execute();
-    
+
             if ($sql->rowCount() >= 1) {
                 echo 'Ce login existe déjà' . '</br>';
                 return; // Arrêter ici si l'email est déjà pris
             }
-    
+
             // Hachage du mot de passe avant l'insertion
             $hashMotDePasse = password_hash($password, PASSWORD_DEFAULT);
-    
+
             // Préparation de la requête pour insérer l'utilisateur
             $sql = Connexion::getBdd()->prepare('INSERT INTO User (first_name, last_name, email, profile_status, password) VALUES (:first_name, :last_name, :email, :profile_status, :password)');
             $sql->bindParam(':first_name', $first_name);
@@ -55,7 +53,7 @@ class ModeleInscription extends Connexion
             $sql->bindParam(':email', $email);
             $sql->bindParam(':profile_status', $profile_status);
             $sql->bindParam(':password', $hashMotDePasse);
-    
+
             // Exécution de la requête
             if ($sql->execute()) {
                 header('Location: index.php');
@@ -67,9 +65,4 @@ class ModeleInscription extends Connexion
             echo 'Tous les champs doivent être remplis.' . '</br>';
         }
     }
-
-
 }
-
-
-?>

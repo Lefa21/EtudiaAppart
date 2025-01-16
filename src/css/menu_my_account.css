@@ -4,7 +4,6 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   font-family: var(--police-text), sans-serif;
 }
 

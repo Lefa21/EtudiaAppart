@@ -36,7 +36,7 @@ switch ($module) {
         break;
 
     case 'records':
-        $moduleFile = './src/modules/account/records/module_records.php';
+        $moduleFile = './src/modules/records/module_records.php';
         $moduleClass = 'ModuleRecords';
         break;
 
@@ -44,7 +44,7 @@ switch ($module) {
         $moduleFile = './src/modules/owner_requests/module_owner_requests.php';
         $moduleClass = 'ModOwnerRequests';
         break;
-    
+
     case 'student_requests':
         $moduleFile = './src/modules/student_requests/module_student_requests.php';
         $moduleClass = 'ModStudentRequests';
@@ -59,10 +59,17 @@ switch ($module) {
         $moduleFile = './src/modules/monProfil/module_Profil.php';
         $moduleClass = 'ModuleProfil';
         break;
+
     case 'creation_annonce':
         $moduleFile = './src/modules/creation_annonce/module_creation_annonce.php';
         $moduleClass = 'ModCreationAnnonce';
         break;
+
+    case 'a_propos':
+        $moduleFile = './src/modules/a_propos/module_a_propos.php';
+        $moduleClass = 'ModAPropos';
+        break;
+
     case 'messagerie':
         $moduleFile = './src/modules/messagerie/module_messagerie.php';
         $moduleClass = 'ModMessagerie';
@@ -72,7 +79,6 @@ switch ($module) {
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
         break;
-
 }
 
 if (file_exists($moduleFile)) {
@@ -84,6 +90,12 @@ if (file_exists($moduleFile)) {
     echo "Erreur sur le module dans l'index";
 }
 
+unset($_SESSION['json_response']);
 $tampon = $moduleClass->displayContent();
 
-include_once "./src/template.php";
+if (!isset($_SESSION['json_response'])) {
+    include_once "./src/template.php";
+} else {
+    unset($_SESSION['json_response']);
+    echo $tampon;
+}
