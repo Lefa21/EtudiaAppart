@@ -360,6 +360,34 @@ input[type="checkbox"] {
   padding: 2px;
 }
 
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 11px;
+  left: 30px;
+  position: absolute;
+  background-color: white;
+  max-height: 200px;
+  border: 1px solid #ccc;
+  overflow-y: auto;
+  list-style: none;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+.suggestions-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.suggestions-list li:hover {
+  background-color: var(--Secondary, #ccd8ff);
+}
+
+
 .filter_label{
   padding: 10px;
 }

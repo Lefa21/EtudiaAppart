@@ -9,6 +9,7 @@ class VueResetPassword extends VueGenerique
         parent::__construct();
     }
 
+    private $action = "index.php?module=resetPassw&action=connexion";
 
     public function formulaireResetPassword()
     {

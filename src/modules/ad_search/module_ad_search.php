@@ -11,6 +11,9 @@ class ModSearchAd{
             case 'recherche_annonce':
                 $this->controleur->getAd();
                 break; 
+            case 'search_titles':
+                $this->controleur->searchAdTitles();
+                break;
         }
 
     } 

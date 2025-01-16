@@ -36,58 +36,48 @@ class VueHome extends VueGenerique
                 </div>
             </section>
 
-            <div class="filter-section-home">
-
-                <div class="filter-group mid">
-
-                    <img src="assets/icon_euro.png" alt="" class="filter-icon" />
-                    <input type="number" placeholder="Budget" min="0" max="1000000" step="1">
-
-                </div>
-
-                <div class="filter-group">
-
-                    <div class="filter-divider"></div>
-                    <div class="filter-group calendar-group">
-                        <img src="assets/calendrier.svg" alt="" class="filter-icon" />
-                        <div class="inputs">
-                            <div class="start">
-                                <label for="start-date">Date de début :</label>
-                                <input type="date" id="start-date" name="start-date" placeholder="Date de début">
-                            </div>
-
-                            <div class="end">
-                                <label for="end-date">Date de fin :</label>
-                                <input type="date" id="end-date" name="end-date" placeholder="Date de fin">
-                            </div>
-
-                        </div>
-
+            <form action="index.php?module=ad_search&action=recherche_annonce" method="POST">
+                <div class="filter-section-home">
+                    <div class="filter-group mid">
+                        <img src="assets/icon_euro.png" alt="" class="filter-icon" />
+                        <input id="budget" type="number" name="budget" placeholder="Budget" min="0" max="1000000" step="1">
                     </div>
 
+                    <div class="filter-group">
+                        <div class="filter-divider"></div>
+                        <div class="filter-group calendar-group">
+                            <img src="assets/calendrier.svg" alt="" class="filter-icon" />
+                            <div class="inputs">
+                                <div class="start">
+                                    <label for="start-date">Date de début :</label>
+                                    <input type="date" id="start_date" name="start_date" placeholder="Date de début">
+                                </div>
+                                <div class="end">
+                                    <label for="end-date">Date de fin :</label>
+                                    <input type="date" id="end_date" name="end_date" placeholder="Date de fin">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="filter-group">
+                        <div class="filter-divider"></div>
+                        <img src="assets/pin.svg" alt="" class="filter-icon" />
+                        <input type="text" id="location-input" placeholder="Entrez une localisation">
+                        <input type="hidden" id="city" name="city">
+                        <input type="hidden" id="address_line" name="address_line">
+                        <input type="hidden" id="country" name="country">
+                        <input type="hidden" id="longitude" name="longitude">
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="postal_code" name="postal_code" />
+                    </div>
+
+                    <button type="submit" name="submit" class="search-button">
+                        <img src="assets/icon_search_home.svg" alt="Search" />
+                    </button>
                 </div>
+            </form>
 
-                <div class="filter-group">
-
-                    <div class="filter-divider"></div>
-                    <img src="assets/pin.svg" alt="" class="filter-icon" />
-                    <select name="location" id="location">
-                        <option value="">Emplacement</option>
-                        <option value="Paris">Paris</option>
-                        <option value="Issy-les-Moulineaux">Issy-les-Moulineaux</option>
-                        <option value="Sevran">Sevran</option>
-                        <option value="Boulogne">Boulogne</option>
-                    </select>
-
-
-                </div>
-
-                <button class="search-button">
-                    <img src="assets/icon_search_home.svg" alt="Search" />
-                </button>
-
-            </div>
 
 
             <div class="property-title">
@@ -219,6 +209,7 @@ class VueHome extends VueGenerique
                 text-decoration: none;
                 padding: 10px;
             }
+
             .bons-plans-list {
                 margin-top: 20px;
                 padding: 15px;
@@ -324,7 +315,6 @@ class VueHome extends VueGenerique
 
     public function events()
     {
-
     ?>
         <link rel="stylesheet" href="./src/css/home.css">
         <main>
@@ -391,74 +381,6 @@ class VueHome extends VueGenerique
                         </div>
             </section>
         </main>
-
-=======
-?>
-    <link rel="stylesheet" href="./src/css/home.css">
-    <main>
-        <style>
-            .main {
-                margin: 20px 10px;
-            }
-
-            .btn-home {
-                border: #000 solid 2px;
-                color: var(--text-color-white);
-                background-color: var(--primary-color);
-                border-radius: 3px;
-                text-decoration: none;
-                padding: 10px;
-            }
-            .events-section {
-                margin-top: 20px;
-                padding: 15px;
-                border: 1px solid var(--gray-border);
-                border-radius: 8px;
-                background-color: var(--secondary-color);
-                color: var(--text-color-black);
-                font-family: var(--police-text);
-                text-align: center;
-            }
-
-            .events-section h3 {
-                color: var(--text-color-blue);
-                font-size: 1.5em;
-                margin-bottom: 10px;
-            }
-
-            .events-section img {
-                max-width: 100%;
-                height: auto;
-                border-radius: 5px;
-                margin-bottom: 15px;
-            }
-
-            .events-section a {
-                display: inline-block;
-                margin-top: 10px;
-                padding: 10px 15px;
-                color: var(--text-color-white);
-                background-color: var(--primary-color);
-                border-radius: 3px;
-                text-decoration: none;
-                font-size: 1em;
-            }
-
-            .events-section a:hover {
-                background-color: #000e5c;
-            }
-        </style>
-        <section class="main">
-            <a class="btn-home" href="./"><- Accueil</a>
-            <div class="events-section">
-                <h3>Découvrez les événements à ne pas manquer !</h3>
-                <img src="https://via.placeholder.com/600x300" alt="Événement" />
-                <p>Participez aux meilleurs événements étudiants de l'année et élargissez votre réseau !</p>
-                <a href="https://www.eventbrite.com" target="_blank">Voir les événements</a>
-            </div>
-        </section>
-    </main>
->>>>>>> c6b4e4e67354746aaa6ac7f19534dc498610da24
 <?php
     }
 }

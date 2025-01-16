@@ -45,21 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const priceSlider = document.getElementById('price-range');
-  const priceValue = document.getElementById('price-value');
-
- 
-  function updatePriceValue() {
-      priceValue.textContent = `${priceSlider.value} €`;
-  }
-
-  
-  priceSlider.addEventListener('input', updatePriceValue);
-
-  
-  updatePriceValue();
-});
 
 const furnishedYes = document.getElementById('furnishedYes');
 const furnishedNo = document.getElementById('furnishedNo');

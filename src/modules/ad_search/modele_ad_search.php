@@ -15,13 +15,14 @@ class ModeleSearchAd extends Connexion
         } else {
             $previousSearch = isset($_SESSION['search']) ? $_SESSION['search'] : [];
         }
-    
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-       
+
             $_SESSION['search'] = array_merge($previousSearch, $_POST);
             $currentSearch = $_SESSION['search'];
     
-          
+    
+            $search_ad = isset($currentSearch['search_ad']) && !empty($currentSearch['search_ad']) ? trim(strtolower($currentSearch['search_ad'])) : null; 
             $start_date = isset($currentSearch['start_date']) && !empty($currentSearch['start_date']) ? $currentSearch['start_date'] : null;
             $end_date = isset($currentSearch['end_date']) && !empty($currentSearch['end_date']) ? $currentSearch['end_date'] : null;
             $city = isset($currentSearch['city']) && !empty($currentSearch['city']) ? trim(strtolower($currentSearch['city'])) : null;
@@ -34,7 +35,7 @@ class ModeleSearchAd extends Connexion
             $priceMax = isset($currentSearch['price_max']) && $currentSearch['price_max'] !== '' ? (float)$currentSearch['price_max'] : null;
             $selectedHousingTypes = !empty($currentSearch['housing_type']) ? $currentSearch['housing_type'] : null;
             $habitationFurnished = isset($currentSearch['habitation_furnished']) && !empty($currentSearch['habitation_furnished']) ? $currentSearch['habitation_furnished'] : null;
-    
+            $start_date = isset($currentSearch['start_date']) && !empty($currentSearch['start_date']) ? $currentSearch['start_date'] : null;
 
             $query = "
                 SELECT 
@@ -62,6 +63,11 @@ class ModeleSearchAd extends Connexion
             if ($priceMax !== null) {
                 $query .= " AND Ad.rent_price <= :priceMax";
                 $params[':priceMax'] = $priceMax;
+            }
+
+            if ($search_ad !== null) {
+                $query .= " AND Ad.ad_title LIKE :keyword LIMIT 10";
+                $params[':keyword'] = $search_ad;
             }
     
             if ($start_date !== null && $end_date !== null) {
@@ -140,5 +146,14 @@ class ModeleSearchAd extends Connexion
     
         return null;
     }
+
+    public function searchAdTitles($keyword)
+{
+    $query = "SELECT ad_title FROM Ad WHERE ad_title LIKE :keyword LIMIT 10";
+    $stmt = Connexion::getBdd()->prepare($query);
+    $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
     
 }
