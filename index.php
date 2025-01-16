@@ -36,7 +36,7 @@ switch ($module) {
         break;
 
     case 'records':
-        $moduleFile = './src/modules/records/module_records.php';
+        $moduleFile = './src/modules/account/records/module_records.php';
         $moduleClass = 'ModuleRecords';
         break;
 
