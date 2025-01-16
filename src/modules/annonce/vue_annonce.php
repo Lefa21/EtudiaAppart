@@ -1,16 +1,16 @@
 <?php
-require_once __DIR__  . '/../../vue_generique.php';
-class VueAnnonceStudent extends VueGenerique
+
+class VueAnnonce extends VueGenerique
 {
     public function __construct()
     {
         parent::__construct();
     }
 
-    public function welcome()
+    public function annoncePage()
     {
 ?>
-        <link rel="stylesheet" href="./src/css/annonce_student.css">
+        <link rel="stylesheet" href="./src/css/annonce.css">
 
         <div class="blockPage">
             <section class="section">

@@ -1,18 +1,18 @@
 <?php
 
-include_once 'controller_annonce_student.php';
+include_once 'controller_annonce.php';
 
-class ModuleAnnonceStudent
+class ModuleAnnonce
 {
     private $controller;
 
     public function __construct()
     {
-        $this->controller = new ControllerAnnonceStudent();
+        $this->controller = new ControllerAnnonce();
 
         switch ($this->controller->getAction()) {
-            case 'welcome':
-                $this->controller->welcome();
+            case 'annoncePage':
+                $this->controller->annoncePage();
         }
     }
 

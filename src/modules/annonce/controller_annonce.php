@@ -1,16 +1,17 @@
 <?php
 
-include_once 'vue_annonce_student.php';
+include_once 'modele_annonce.php';
+include_once 'vue_annonce.php';
 
-class ControllerAnnonceStudent
+class ControllerAnnonce
 {
     private $action;
     private $vue;
 
     public function __construct()
     {
-        $this->action = $_GET['action'] ?? "welcome";
-        $this->vue = new VueAnnonceStudent();
+        $this->action = $_GET['action'] ?? "annoncePage";
+        $this->vue = new VueAnnonce();
     }
 
     public function getAction()
@@ -18,9 +19,9 @@ class ControllerAnnonceStudent
         return $this->action;
     }
 
-    public function welcome()
+    public function annoncePage()
     {
-        $this->vue->welcome();
+        $this->vue->annoncePage();
     }
 
     public function displayContent()

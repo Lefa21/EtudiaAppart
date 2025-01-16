@@ -31,8 +31,8 @@ switch ($module) {
         break;
 
     case 'annonce':
-        $moduleFile = './src/modules/annonce_student/module_annonce_student.php';
-        $moduleClass = 'ModuleAnnonceStudent';
+        $moduleFile = './src/modules/annonce/module_annonce.php';
+        $moduleClass = 'ModuleAnnonce';
         break;
 
     case 'records':
