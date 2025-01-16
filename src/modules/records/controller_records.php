@@ -45,9 +45,9 @@ class ControllerRecords
         $this->vue->monDossier($userInfo, $documents);
     }
 
-    public function updateUserDocument()
+    public function updateUserUrl()
     {
-        $this->modele->updateUserDocument();
+        $this->modele->updateUserUrl();
     }
 
     public function deleteFile()

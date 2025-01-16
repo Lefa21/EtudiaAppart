@@ -60,7 +60,7 @@ class VueRecords extends VueGenerique
                         <span class="menu_button_text">Mes documents</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
                     </div>
                     <div class="dropdown-menu document_section">
-                        <form action="index.php?module=records&action=updateUserDocument" method="POST">
+                        <form class="url_form" action="" method="POST">
                             <section id="url_records" class="url_section">
                                 <div class="url_info">
                                     <span>Lien vers votre dossier numérique DossierFacile<br />
@@ -75,24 +75,31 @@ class VueRecords extends VueGenerique
                                     <p id="wrong_url" hidden class="description">Le lien doit avoir la forme: https://www.VotreNom.dossierfacile.fr</p>
                                     <?php
                                     if (isset($_SESSION['userId']) && isset($documents)) {
+                                        $urlFound = false;
+
+                                        foreach ($documents as $item) {
+                                            if ($item['file_name'] === 'url_dossierFacile') {
+                                                // Print the input and button
                                     ?>
-                                        <input type="text" name="url_dossierFacile"
-                                            value="<?php
-                                                    foreach ($documents as $item) {
-                                                        if ($item['file_name'] === 'url_dossierFacile') {
-                                                            echo htmlspecialchars($item['description']);
-                                                            break;
-                                                        }
-                                                    }
-                                                    ?>"
-                                            placeholder="Insérez l'URL" />
-                                        <button type="button" class="btn-delete" data-docname="url_dossierFacile"
-                                            onclick="deleteFile(this)">
-                                            &#10006;
-                                        </button>
-                                    <?php
+                                                <input type="text" name="url_dossierFacile"
+                                                    value="<?php echo htmlspecialchars($item['description']); ?>"
+                                                    placeholder="Insérez l'URL" />
+                                                <button type="button" class="btn-delete" onclick="deleteFile(this)" data-docname="url_dossierFacile">&#10006;</button>
+                                            <?php
+                                                $urlFound = true;
+                                                break;
+                                            }
+                                        }
+
+                                        // If no matching file_name is found, print only the input
+                                        if (!$urlFound) {
+                                            ?>
+                                            <input type="text" name="url_dossierFacile" placeholder="Insérez l'URL" />
+                                        <?php
+                                        }
                                     } else {
-                                    ?>
+                                        // Print the input if session or documents array is not set
+                                        ?>
                                         <input type="text" name="url_dossierFacile" placeholder="Insérez l'URL" />
                                     <?php
                                     }
@@ -100,11 +107,11 @@ class VueRecords extends VueGenerique
                                 </div>
                             </section>
 
-                            <button id="save_urls" class="save_button" type="submit">Sauvegarder</button>
+                            <button id="save_urls" class="save_button" type="button" onclick="updateUserUrl(this)">Sauvegarder</button>
                         </form>
                     </div>
                 </div>
-                <div class="menu_container">
+                <div class=" menu_container">
                     <div id="docs_infos" class="menu_button" onclick="toggleMenu(this, null)">
                         <span class="menu_button_text">Informations complémentaires</span><img class="menu_button_arrow" src="./assets/black_arrow-right.svg" alt="" />
                     </div>
@@ -149,8 +156,8 @@ class VueRecords extends VueGenerique
                                     <textarea id="presentation"></textarea>
                                 </div>
                             </section>
+                            <button id="save_docs-more_information" class="save_button" type="button" onclick="updateUserUrl(this)">Sauvegarder</button>
                         </form>
-                        <button id="save_docs-more_information" class="save_button" type="submit">Sauvegarder</button>
                     </div>
                 </div>
             </section>

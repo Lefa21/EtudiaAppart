@@ -107,17 +107,14 @@
   z-index: 1;
 }
 
-.document_section button[type="submit"] {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
+.document_section button {
   border: none;
   background: var(--primary-color);
   color: var(--text-color-white);
   font-size: smaller;
   min-height: 2rem;
-  width: 6rem;
-  margin: 2rem 0 2rem 0;
+  width: 40%;
+  margin: 2rem;
 }
 
 .save_button {
@@ -183,11 +180,16 @@
 /*---------------------------------------------------------------------------------------------*/
 /*---------------------------------------- PASTE URL SECTION ----------------------------------*/
 /*---------------------------------------------------------------------------------------------*/
+.document_section .url_form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 
 .url_section {
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
   display: flex;
   width: 80%;
   min-height: 5rem;
@@ -230,6 +232,10 @@
 
 #wrong_url {
   color: red;
+}
+
+.btn-delete {
+  margin-right: 1rem;
 }
 
 /*---------------------------------------------------------------------------------------------*/

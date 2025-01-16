@@ -27,12 +27,6 @@ class ModeleRecords extends Connexion
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function handleError($message)
-    {
-        // Function to handle errors (placeholder for now)
-        echo "<div class='error'>$message</div>";
-    }
-
     public function fetchUserDocuments()
     {
         // Function to display user's uploaded documents
@@ -49,53 +43,9 @@ class ModeleRecords extends Connexion
         }
     }
 
-    public function updateUserDocument()
+    public function updateUserUrl()
     {
-        // URL upload logic
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userId = $_SESSION['userId'];
-            $pdo = Connexion::getBdd();
-            $documents = ["url_dossierFacile"];
-
-            foreach ($documents as $docName) {
-                if (!empty($_POST[$docName])) {
-                    $docValue = $_POST[$docName];
-
-                    if ($docName == 'url_dossierFacile') {
-                        $urlPattern = "/^https:\/\/www\.[a-zA-Z_-]+\.dossierfacile\.fr$/";
-
-                        if (preg_match($urlPattern, $docValue)) {
-                            // Proceed with updating the URL
-                        } else {
-                            $this->handleError("Invalid URL. The URL must match the format: https://www.{user-last_name}.dossierfacile.fr");
-                            return;
-                        }
-                    }
-
-                    // Check if the document already exists
-                    $stmt = $pdo->prepare("SELECT id_document FROM Document WHERE id_user = ? AND file_name = ?");
-                    $stmt->execute([$userId, $docName]);
-                    $existingDoc = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                    if ($existingDoc) {
-                        // Update existing document
-                        $stmt = $pdo->prepare("UPDATE Document SET upload_date = NOW(), description = ? WHERE id_document = ?");
-                        $stmt->execute([$docValue, $existingDoc['id_document']]);
-                    } else {
-                        // Insert new document
-                        $stmt = $pdo->prepare("INSERT INTO Document (id_user, file_name, upload_date, description) VALUES (?, ?, NOW(), ?)");
-                        $stmt->execute([$userId, $docName, $docValue]);
-                    }
-                } else {
-                    $this->handleError("No URL provided for $docName.");
-                    return;
-                }
-            }
-        }
-    }
-
-    public function NEWupdateUserDocument()
-    {
+        $_SESSION['json_response'] = true;
         // Ensure the request is POST and the user is logged in
         if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_SESSION['userId'])) {
             header('Content-Type: application/json');
@@ -105,17 +55,15 @@ class ModeleRecords extends Connexion
 
         $userId = $_SESSION['userId'];
         $pdo = Connexion::getBdd();
-        $documents = ["url_dossierFacile"];
-        $input = json_decode(file_get_contents('php://input'), true); // Parse JSON input
+        $inputs = json_decode(file_get_contents('php://input'), true); // Parse JSON input
 
-        foreach ($documents as $docName) {
-            if (!empty($input[$docName])) {
-                $docValue = $input[$docName];
+        foreach ($inputs as $fileName => $fileValue)
 
-                if ($docName == 'url_dossierFacile') {
+            if (!empty($fileName && !empty($fileValue))) {
+                if ($fileName == 'url_dossierFacile') {
                     $urlPattern = "/^https:\/\/www\.[a-zA-Z_-]+\.dossierfacile\.fr$/";
 
-                    if (!preg_match($urlPattern, $docValue)) {
+                    if (!preg_match($urlPattern, $fileValue)) {
                         header('Content-Type: application/json');
                         echo json_encode([
                             'success' => false,
@@ -128,17 +76,17 @@ class ModeleRecords extends Connexion
                 try {
                     // Check if the document already exists
                     $stmt = $pdo->prepare("SELECT id_document FROM Document WHERE id_user = ? AND file_name = ?");
-                    $stmt->execute([$userId, $docName]);
+                    $stmt->execute([$userId, $fileName]);
                     $existingDoc = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     if ($existingDoc) {
                         // Update existing document
                         $stmt = $pdo->prepare("UPDATE Document SET upload_date = NOW(), description = ? WHERE id_document = ?");
-                        $stmt->execute([$docValue, $existingDoc['id_document']]);
+                        $stmt->execute([$fileValue, $existingDoc['id_document']]);
                     } else {
                         // Insert new document
                         $stmt = $pdo->prepare("INSERT INTO Document (id_user, file_name, upload_date, description) VALUES (?, ?, NOW(), ?)");
-                        $stmt->execute([$userId, $docName, $docValue]);
+                        $stmt->execute([$userId, $fileName, $fileValue]);
                     }
 
                     // Respond with success
@@ -157,17 +105,12 @@ class ModeleRecords extends Connexion
                     ]);
                     exit;
                 }
-            } else {
-                header('Content-Type: application/json');
-                echo json_encode(['success' => false, 'message' => "No URL provided for $docName."]);
-                exit;
             }
-        }
     }
-
 
     public function deleteFile()
     {
+        $_SESSION['json_response'] = true;
         // Ensure the user is logged in
         if (!isset($_SESSION['userId'])) {
             echo json_encode(['success' => false, 'message' => 'User not logged in.']);

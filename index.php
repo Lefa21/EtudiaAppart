@@ -73,7 +73,6 @@ switch ($module) {
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
         break;
-
 }
 
 if (file_exists($moduleFile)) {
@@ -87,4 +86,9 @@ if (file_exists($moduleFile)) {
 
 $tampon = $moduleClass->displayContent();
 
-include_once "./src/template.php";
+if (!isset($_SESSION['json_response']) || $_SESSION['json_response'] != true) {
+    include_once "./src/template.php";
+} else {
+    echo $tampon;
+    unset($_SESSION['json_response']);
+}
