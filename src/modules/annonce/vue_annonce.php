@@ -7,7 +7,7 @@ class VueAnnonce extends VueGenerique
         parent::__construct();
     }
 
-    public function annoncePage()
+    public function annoncePage($data)
     {
 ?>
         <link rel="stylesheet" href="./src/css/annonce.css">
@@ -23,13 +23,16 @@ class VueAnnonce extends VueGenerique
             </section>
             <section class="section section-content">
                 <div class="text-content">
-                    <p class="title">Logement étudiant</p>
-                    <p class="description">1 pièce - 19m2</p>
-                    <p class="price">550€</p>
-                    <p class="date-pub">Publiée le 27/06/24 20h35</p>
-                    <p class="date-dispo">Libre du 03/08/2024 au 04/09/2027</p>
-                    <p class="category">Catégorie : Appartement entier</p>
-                    <p class="address">Localisation : 6 boulevard du Monde 75021 PARIS</p>
+                    <p class="title"><?= $data['ad_title'] ?></p>
+                    <p class="description"><?= $data['description'] ?></p>
+                    <p class="description"><?= $data['numbers_rooms'] ?> <?php if ($data['numbers_rooms'] > 1) echo 'pièces';
+                                                                            else echo 'pièce' ?> - <?= $data['surface_area'] ?>m2</p>
+                    <p class="price"><?= $data['rent_price'] ?>€</p>
+                    <p class="date-pub">Publiée le <?php $date = explode(' ', $data['date_publication']);
+                                                    echo ($date[0] . ' à ' . $date[1]); ?></p>
+                    <p class="date-dispo">Libre du <?= $data['lease_start'] ?> au <?= $data['lease_end'] ?></p>
+                    <p class="category">Catégorie : <?= $data['type_habitation'] ?></p>
+                    <p class="address">Localisation : <?= $data['address_line'] ?> <?= $data['zipCode'] ?> <?= $data['city'] ?>, <?= $data['country'] ?></p>
                 </div>
                 <div class="button-container">
                     <button id="postuler" class="action-button postuler">Postuler</button>

@@ -5,13 +5,15 @@ include_once 'vue_annonce.php';
 
 class ControllerAnnonce
 {
-    private $action;
+    private $modele;
     private $vue;
+    private $action;
 
     public function __construct()
     {
-        $this->action = $_GET['action'] ?? "annoncePage";
         $this->vue = new VueAnnonce();
+        $this->modele = new ModeleAnnonce();
+        $this->action = $_GET['action'] ?? "annoncePage";
     }
 
     public function getAction()
@@ -19,9 +21,10 @@ class ControllerAnnonce
         return $this->action;
     }
 
-    public function annoncePage()
+    public function annoncePage($annonceId)
     {
-        $this->vue->annoncePage();
+        $data = $this->modele->getAnnonce($annonceId);
+        return $this->vue->annoncePage($data);
     }
 
     public function displayContent()
