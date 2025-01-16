@@ -189,7 +189,11 @@ class VueRecords extends VueGenerique
                             <section class="info_section">
                                 <span class="info_section_text">Date de naissance</span>
                                 <div class="info_section_zone">
-                                    <input type="date" id="birthdate" name="birthdate" value="birthdate" />
+                                    <?php if (!isset($values['birthdate']) || empty($values['birthdate'])) {
+                                        $values['birthdate'] = '';
+                                    }
+                                    ?>
+                                    <input type="date" id="birthdate" name="birthdate" value="<?= $values['birthdate'] ?>" />
                                 </div>
                             </section>
                             <section class="info_section">
