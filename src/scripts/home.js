@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     startDateInput.addEventListener('change', () => {
         if (endDateInput.value && new Date(endDateInput.value) < new Date(startDateInput.value)) {
-            endDateInput.value = ''; // Réinitialise si invalide
+            endDateInput.value = ''; 
         }
-        endDateInput.min = startDateInput.value; // Définit la limite minimale
+        endDateInput.min = startDateInput.value; 
     });
 
     endDateInput.addEventListener('change', () => {
         if (startDateInput.value && new Date(startDateInput.value) > new Date(endDateInput.value)) {
-            startDateInput.value = ''; // Réinitialise si invalide
+            startDateInput.value = ''; 
         }
     });
 });

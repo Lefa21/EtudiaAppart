@@ -14,12 +14,19 @@
         async
         defer>
     </script>
+       <script id="adData" type="application/json">
+            <?= json_encode($adData['results']); ?>
+        </script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/utilities.css">
 </head>
 
 <body>
+<script id="adData" type="application/json">
+            <?= json_encode($adData['results']); ?>
+        </script>
     <?php
+    
 
     include __DIR__ . '/header.php';
     ?>

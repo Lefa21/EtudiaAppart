@@ -1,13 +1,12 @@
 function initializeAutocomplete() {
   const locationInput = document.getElementById('location-input');
 
-  // Initialiser l'autocomplete
   const autocomplete = new google.maps.places.Autocomplete(locationInput, {
-    types: ['geocode'], // Limiter aux adresses géocodées
-    componentRestrictions: { country: 'fr' }, // Limiter aux adresses en France
+    types: ['geocode'],
+    componentRestrictions: { country: 'fr' }, 
   });
 
-  // Quand une adresse est sélectionnée
+ 
   autocomplete.addListener('place_changed', function () {
     const place = autocomplete.getPlace();
 
@@ -16,7 +15,6 @@ function initializeAutocomplete() {
       return;
     }
 
-    // Extraire les composants nécessaires
     let city = '';
     let addressLine = '';
     let country = '';
@@ -26,29 +24,25 @@ function initializeAutocomplete() {
 
     place.address_components.forEach((component) => {
       if (component.types.includes('locality')) {
-        city = component.long_name; // Ville
+        city = component.long_name; 
       }
       if (component.types.includes('route')) {
-        addressLine = component.long_name; // Rue
+        addressLine = component.long_name;
       }
       if (component.types.includes('country')) {
-        country = component.long_name; // Pays
+        country = component.long_name; 
       }
     });
 
-    // Récupérer la latitude et la longitude
     latitude = place.geometry.location.lat();
     longitude = place.geometry.location.lng();
 
-    // Pré-remplir les champs cachés pour le backend
     document.getElementById('city').value = city;
     document.getElementById('address_line').value = addressLine;
     document.getElementById('country').value = country;
     document.getElementById('latitude').value = latitude;
     document.getElementById('longitude').value = longitude;
     
-
-    // Optionnel : montrer l'adresse complète à l'utilisateur (y compris le code postal)
     const fullAddress = `${addressLine}, ${postalCode} ${city}, ${country}`;
     locationInput.value = fullAddress;
 
@@ -68,8 +62,7 @@ function getPostalCodeNominatim(city, country, address) {
               const result = data[0];
               const postalCode = result.address.postcode || 'Code postal non trouvé';
               console.log('Code postal:', postalCode);
-
-              // Remplir les champs correspondants ici
+              
               document.getElementById('postal_code').value = postalCode;
           } else {
               console.log('Aucun résultat trouvé.');
