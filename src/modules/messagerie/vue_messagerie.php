@@ -15,9 +15,6 @@ class VueMessagerie extends VueGenerique
               <?php include "./src/menu_my_account.php"; ?>
             <div class="main-content-profile">
               <h2 id="title">Discussions</h2>
-              <div class="search-bar">
-                <input type="text" placeholder="Search">
-              </div>
               <div id="discussions">
                 No discussions yet
               </div>
