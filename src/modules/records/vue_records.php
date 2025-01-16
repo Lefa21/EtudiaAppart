@@ -9,6 +9,43 @@ class VueRecords extends VueGenerique
 
     public function monDossier($userInfo, $documents)
     {
+        if (isset($_SESSION['userId']) && isset($documents)) {
+            $values = [];
+            foreach ($documents as $item) {
+                switch ($item['file_name']) {
+                    case 'url_dossierFacile':
+                        $values['url_dossierFacile'] = trim(htmlspecialchars($item['description']));
+                        $urlFound = true;
+                        break;
+
+                    case 'birthdate':
+                        $values['birthdate'] = $item['description'];
+                        break;
+
+                    case 'nationality':
+                        $values['nationality'] = $item['description'];
+                        break;
+
+                    case 'presentation':
+                        $values['presentation'] = trim(htmlspecialchars($item['description']));
+                        break;
+
+                    case 'scholarship':
+                        if ($item['description'] == 'yes') $values['scholarship'] = true;
+                        else $values['scholarship'] = false;
+                        break;
+
+                    case 'status':
+                        if ($item['description'] == 'owner') $values['status'] = true;
+                        else $values['status'] = false;
+                        break;
+
+                    default:
+                        # code...
+                        break;
+                }
+            }
+        }
 ?>
         <link rel="stylesheet" href="./src/css/acc_records.css">
         <link rel="stylesheet" href="./src/css/menu_my_account.css">
@@ -146,14 +183,16 @@ class VueRecords extends VueGenerique
                                 <div class="info_section_zone">
                                     <?php
                                     require_once __DIR__ . '/nationalities.php';
-                                    echo nationalities();
+                                    if (isset($values['nationality']))
+                                        echo nationalities($values['nationality']);
+                                    else echo nationalities('');
                                     ?>
                                 </div>
                             </section>
                             <section class="info_section">
                                 <span class="info_section_text">Présentation</span>
                                 <div class="info_section_zone">
-                                    <textarea id="presentation" name="presentation"></textarea>
+                                    <textarea id="presentation" name="presentation"><?php if (isset($values['presentation'])) echo $values['presentation']; ?></textarea>
                                 </div>
                             </section>
                             <button id="save_docs-more_information" class="save_button" type="button" onclick="updateUserInfos(this)">Sauvegarder</button>

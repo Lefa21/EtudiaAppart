@@ -1,5 +1,5 @@
 <?php
-function nationalities()
+function nationalities($selected)
 {
 ?>
   <select id="nationality" name="nationality">
@@ -197,6 +197,16 @@ function nationalities()
     <option value="zambian">Zambian</option>
     <option value="zimbabwean">Zimbabwean</option>
   </select>
+  <script>
+    const selectedOption = document.getElementById('nationality').children;
+    for (let index = 0; index < selectedOption.length; index++) {
+      const element = selectedOption[index];
+      if (element.value == "<?= $selected ?>") {
+        element.selected = true;
+        break;
+      }
+    }
+  </script>
 <?php
 }
 ?>

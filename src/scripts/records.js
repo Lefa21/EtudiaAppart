@@ -51,7 +51,7 @@ async function updateUserInfos(btn) {
         filesValues[formElements[i].name] = formElements[i].value;
       }
     }
-    //console.log(filesValues);
+    console.log(filesValues);
 
     // Perform the AJAX request
     fetch("index.php?module=records&action=updateUserInfos", {
