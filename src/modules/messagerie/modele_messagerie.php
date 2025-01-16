@@ -118,7 +118,7 @@ class ModeleMessagerie{
         $userid = $this->modele->getId($email);
         if(isset($_POST['submit']) && isset($_POST['message']) && !empty($_POST['message'])) {
             $message = $_POST['message'];
-            $receiver = $_SESSION['idsender'];
+            $receiver = $_SESSION['idreceiver'];
             $sender = $userid;
             $query = "
                 INSERT INTO 

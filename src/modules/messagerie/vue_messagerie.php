@@ -31,9 +31,6 @@ class VueMessagerie extends VueGenerique
         <div class="main-content-profile">
 
           <h2 id="title">Discussions</h2>
-          <div class="search-bar">
-            <input type="text" placeholder="Search">
-          </div>
           <form id="discussions" method="post" action="index.php?module=messagerie&action=conversation">
             <?php foreach ($data as $key => $conversation) { ?>
 
@@ -105,7 +102,7 @@ class VueMessagerie extends VueGenerique
           </div>
           <div class="conv">
                 <?php foreach ($data as $conversation) {
-                    if ($_SESSION['idsender'] == $conversation["receiver_id"]) { ?>
+                    if ($_SESSION['idreceiver'] == $conversation["receiver_id"]) { ?>
                       <div class="message-sent">
                         <div class="message-time">
                             <?php
@@ -125,7 +122,7 @@ class VueMessagerie extends VueGenerique
                             <?= $conversation["content"] ?>
                         </div>
                       </div>
-                    <?php } elseif ($_SESSION['idreceiver'] == $conversation["receiver_id"]) { ?>
+                    <?php } elseif ($_SESSION['idsender'] == $conversation["receiver_id"]) { ?>
                       <div class="message-received">
                         <div class="message-content received">
                             <?= $conversation["content"] ?>
