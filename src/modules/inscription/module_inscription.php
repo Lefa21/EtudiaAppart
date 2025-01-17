@@ -1,26 +1,28 @@
 <?php
 
-
 require_once 'controller_inscription.php';
 
-class ModInscription{
-    private $controleur;
-    public function __construct(){
-        $this->controleur = new ContInscription();
-        switch($this->controleur->getAction()){
+class ModInscription
+{
+    private $controller;
+
+    public function __construct()
+    {
+        $this->controller = new ContInscription();
+
+        switch ($this->controller->getAction()) {
             case 'formulaireInscription':
-                $this->controleur->formulaireInscription();
+                $this->controller->formulaireInscription();
                 break;
 
-            case 'inscription': 
-                $this->controleur->ajoutUtilisateur();
+            case 'inscription':
+                $this->controller->ajoutUtilisateur();
                 break;
         }
+    }
 
-    } 
-
-    public function displayContent(){
-       return  $this->controleur->displayContent();
+    public function displayContent()
+    {
+        return $this->controller->displayContent();
     }
 }
-?>

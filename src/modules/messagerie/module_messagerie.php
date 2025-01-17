@@ -5,7 +5,7 @@ require_once 'controller_messagerie.php';
 class ModMessagerie{
     private $controller;
     public function __construct(){
-        $user = $_SESSION['identifiant_utilisateur'];
+        $user = $_SESSION['email'];
         $this->controller = new ContMessagerie();
         switch ($this->controller->getAction()) {
             case 'messagerie':
@@ -13,6 +13,9 @@ class ModMessagerie{
                 break;
             case 'conversation':
                 $this->controller->conversation($user);
+                break;
+            case 'envoyerMessage':
+                $this->controller->envoyerMessage($user);
                 break;
         }
     }

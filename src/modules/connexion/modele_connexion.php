@@ -47,6 +47,11 @@ class ModeleConnexion extends Connexion
         if (isset($_SESSION['identifiant_utilisateur'])) {
             echo 'Déconnexion réussie, identifiant :' . $_SESSION['identifiant_utilisateur'] . '<br>';
             unset($_SESSION['identifiant_utilisateur']);
+            unset($_SESSION['email']);
+            unset($_SESSION['user_status']);
+            unset($_SESSION['user_first_name']);
+            unset($_SESSION['user_last_name']);
+            unset($_SESSION['profile_picture']);
             header('Location: index.php');
         } else {
             echo "Vous n'êtes pas connecté\n" . '<br>';

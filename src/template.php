@@ -22,18 +22,19 @@ global $tampon; ?>
         async
         defer>
     </script>
-       <script id="adData" type="application/json">
-            <?= json_encode($adData['results']); ?>
-        </script>
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/utilities.css">
 </head>
 
+<<<<<<< HEAD
 <body class="<?php echo $model->getTheme() === 'dark' ? 'dark-theme' : 'light-theme'; ?>">
 
 <script id="adData" type="application/json">
             <?= json_encode($adData['results']); ?>
         </script>
+=======
+<body>
+>>>>>>> c08a95a1cea60085467ef87da6895f11ce17f539
     <?php
     
 

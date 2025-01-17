@@ -32,7 +32,7 @@ class ModeleCreationAnnonce extends Connexion
             $imageSize1 = $_FILES['input_photo1']['size'];
             $imageType1 = $_FILES['input_photo1']['type'];
             $description =  $_POST['description'];
-            $emailUser = $_SESSION['identifiant_utilisateur'];
+            $emailUser = $_SESSION['email'];
 //            $latitude = isset($_POST['latitude']) ? round((float)$_POST['latitude'], 6) : null;
 //            $longitude = isset($_POST['longitude']) ? round((float)$_POST['longitude'], 6) : null;
 
@@ -44,7 +44,7 @@ class ModeleCreationAnnonce extends Connexion
 
             try{
                 $sqlCheck = Connexion::getBdd()->prepare('
-                SELECT a.country, a.city, a.address_line, a.zipCode
+                SELECT a.id_address
                 FROM Address a
                 WHERE a.country=:region_form AND a.city=:ville_form AND a.address_line=:loc_form AND a.zipCode=:zipcode
             ');;
@@ -55,13 +55,9 @@ class ModeleCreationAnnonce extends Connexion
                 $sqlCheck->execute();
 
                 $existingHabitation = $sqlCheck->fetch(PDO::FETCH_ASSOC);
+                $addressId = $existingHabitation;
 
-                if ($existingHabitation) {
-                    header('index.php?module=creation_annonce&action=formulaireCreationAnnonce');
-                    echo '<script>alert("Cette annonce existe déjà.")</script>';
-
-                }
-                else {//, latitude, longitude
+                if (!$existingHabitation) {
                     $sql3 = Connexion::getBdd()->prepare('
                     INSERT INTO Address (address_line, city, country, zipCode) 
                     VALUES (:loc_form, :ville_form, :region_form, :zipcode)
@@ -70,9 +66,6 @@ class ModeleCreationAnnonce extends Connexion
                     $sql3->bindParam(':ville_form', $ville_form);
                     $sql3->bindParam(':region_form', $region_form);
                     $sql3->bindParam(':zipcode', $zipcode);
-//                    $sql3->bindParam(':latitude', $latitude);
-//                    $sql3->bindParam(':longitude', $longitude);
-
                     if ($sql3->execute()) {
                         $addressId = Connexion::getBdd()->lastInsertId();
                     } else {
@@ -140,33 +133,6 @@ class ModeleCreationAnnonce extends Connexion
                     $sql5->bindParam(':data', $imageData, PDO::PARAM_LOB);
                     $sql5->bindParam(':id_ad', $id_ad['id_ad']);
 
-//                    for ($i = 2; $i <= 5; $i++) {
-//                        if (isset($_FILES['input_photo' . $i])) {
-//                            try {
-//                                $imageTmpName = $_FILES['input_photo' . $i]['tmp_name'];
-//                                $imageName = $_FILES['input_photo' . $i]['name'];
-//                                $imageSize = $_FILES['input_photo' . $i]['size'];
-//                                $imageType = $_FILES['input_photo' . $i]['type'];
-//
-//                                if ($imageSize > 5000000) { // Limite à 5 Mo
-//                                    echo '<script>alert("La taille de l\'image ' . $i . ' est trop grande.")</script>';
-//
-//                                }
-//                                if (!in_array($imageType, $allowedTypes)) {
-//                                    echo '<script>alert("Le type de fichier de l\'image ' . $i . ' n\'est pas autorisé. Veuillez mettre une image au format .jpeg, .png ou .gif")</script>';
-//                                }
-//                                $imageData = file_get_contents($imageTmpName);
-//
-//                                $sql6 = Connexion::getBdd()->prepare("INSERT INTO Images (ImageName, ImageData, id_ad) VALUES (:name, :data, :id_ad)");
-//                                $sql6->bindParam(':name', $imageName);
-//                                $sql6->bindParam(':data', $imageData, PDO::PARAM_LOB);
-//                                $sql6->bindParam(':id_ad', $id_ad['id_ad']);
-//                                $sql6->execute();
-//                            }   catch (Exception $e) {
-//                                break;
-//                            }
-//                        }
-//                    }
                     if ($sql5->execute()) {
                         echo '<script>alert("Annonce créée avec succès.")</script>';
                         header('index.php?module=creation_annonce&action=formulaireCreationAnnonce');

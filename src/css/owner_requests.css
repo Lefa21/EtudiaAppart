@@ -10,6 +10,41 @@ html {
     margin: 0;
     padding: 0;
 }
+.filter-menu {
+    display: none; 
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 8px 0; 
+    z-index: 1000;
+    width: 220px; 
+}
+
+.filter-menu li {
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.filter-menu li:hover {
+    background-color: var(--secondary-color); /* Couleur d'arrière-plan survolée */
+}
+.filters > div {
+    position: relative;
+}
+
+.filter-menu li:hover {
+    background-color: var(--secondary-color);
+}
+
+.filter-button-request[aria-expanded="true"] + .filter-menu {
+    display: block;
+}
 
 .section-title-owner {
     color: rgba(0, 43, 127, 1);
@@ -126,6 +161,8 @@ html {
 .table-responsive {
     overflow-x: auto;
     margin-bottom: 32px;
+    border: 1px solid #CCD8FF;
+    border-radius: 15px;
 }
 
 .requests-table {

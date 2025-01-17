@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../connexion.php';
-require_once 'C:/xampp/htdocs/EtudiaAppart/vendor/autoload.php'; // Inclure PHPMailer via Composer
+require_once __DIR__ . '/../../../vendor/autoload.php'; // Inclure PHPMailer via Composer
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -124,92 +124,90 @@ class ModeleResetPassword extends Connexion
     }
 
     public function resetPassword()
-{
-    $token = $_GET["token"] ?? null;
+    {
+        $token = $_GET["token"] ?? null;
 
-    if (!$token) {
-        return ['success' => false, 'message' => 'Token manquant'];
-    }
+        if (!$token) {
+            return ['success' => false, 'message' => 'Token manquant'];
+        }
 
-    $token_hashed = hash("sha256", $token);
+        $token_hashed = hash("sha256", $token);
 
-    $checkSql = Connexion::getBdd()->prepare('SELECT * FROM User WHERE reset_token_hash = :reset_token_hash');
-    $checkSql->bindParam(':reset_token_hash', $token_hashed, PDO::PARAM_STR);
-    $checkSql->execute();
-
-    $user = $checkSql->fetch(PDO::FETCH_ASSOC);
-
-    if (!$user) {
-        return ['success' => false, 'message' => 'Token not found'];
-    }
-
-    if (strtotime($user['reset_token_expires_at']) <= time()) {
-        return ['success' => false, 'message' => 'Token has expired'];
-    }
-
-    return ['success' => true, 'token' => $token];
-}
-
-public function verifierEtModifierMotDePasse()
-{
-    // Vérifier la présence des paramètres nécessaires
-    if (!isset($_GET["token"]) || !isset($_POST["password"]) || !isset($_POST["confirm_password"])) {
-        echo "Paramètres manquants.";
-        return;
-    }
-
-    $token = $_GET["token"];
-    $password = $_POST["password"];
-    $confirmPassword = $_POST["confirm_password"];
-
-    // Vérification si les mots de passe correspondent
-    if ($password !== $confirmPassword) {
-        echo "Les mots de passe ne correspondent pas.";
-        return;
-    }
-
-    // Hacher le nouveau mot de passe
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-    $token_hashed = hash("sha256", $token);
-
-    try {
-        // Vérifier si le token est valide
-        $checkSql = Connexion::getBdd()->prepare('
-            SELECT email 
-            FROM User 
-            WHERE reset_token_hash = :reset_token_hash 
-              AND reset_token_expires_at > NOW()
-        ');
+        $checkSql = Connexion::getBdd()->prepare('SELECT * FROM User WHERE reset_token_hash = :reset_token_hash');
         $checkSql->bindParam(':reset_token_hash', $token_hashed, PDO::PARAM_STR);
         $checkSql->execute();
 
         $user = $checkSql->fetch(PDO::FETCH_ASSOC);
 
         if (!$user) {
-            echo "Token invalide ou expiré.";
+            return ['success' => false, 'message' => 'Token not found'];
+        }
+
+        if (strtotime($user['reset_token_expires_at']) <= time()) {
+            return ['success' => false, 'message' => 'Token has expired'];
+        }
+
+        return ['success' => true, 'token' => $token];
+    }
+
+    public function verifierEtModifierMotDePasse()
+    {
+        // Vérifier la présence des paramètres nécessaires
+        if (!isset($_GET["token"]) || !isset($_POST["password"]) || !isset($_POST["confirm_password"])) {
+            echo "Paramètres manquants.";
             return;
         }
 
-        $email = $user['email'];
+        $token = $_GET["token"];
+        $password = $_POST["password"];
+        $confirmPassword = $_POST["confirm_password"];
 
-        // Mettre à jour le mot de passe
-        $updateSql = Connexion::getBdd()->prepare('
+        // Vérification si les mots de passe correspondent
+        if ($password !== $confirmPassword) {
+            echo "Les mots de passe ne correspondent pas.";
+            return;
+        }
+
+        // Hacher le nouveau mot de passe
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        $token_hashed = hash("sha256", $token);
+
+        try {
+            // Vérifier si le token est valide
+            $checkSql = Connexion::getBdd()->prepare('
+            SELECT email 
+            FROM User 
+            WHERE reset_token_hash = :reset_token_hash 
+              AND reset_token_expires_at > NOW()
+        ');
+            $checkSql->bindParam(':reset_token_hash', $token_hashed, PDO::PARAM_STR);
+            $checkSql->execute();
+
+            $user = $checkSql->fetch(PDO::FETCH_ASSOC);
+
+            if (!$user) {
+                echo "Token invalide ou expiré.";
+                return;
+            }
+
+            $email = $user['email'];
+
+            // Mettre à jour le mot de passe
+            $updateSql = Connexion::getBdd()->prepare('
             UPDATE User 
             SET password = :password, reset_token_hash = NULL, reset_token_expires_at = NULL 
             WHERE email = :email
         ');
-        $updateSql->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
-        $updateSql->bindParam(':email', $email, PDO::PARAM_STR);
+            $updateSql->bindParam(':password', $hashedPassword, PDO::PARAM_STR);
+            $updateSql->bindParam(':email', $email, PDO::PARAM_STR);
 
-        if ($updateSql->execute()) {
-            echo "Modification réussie.";
-        } else {
-            echo "Modification échouée.";
+            if ($updateSql->execute()) {
+                echo "Modification réussie.";
+            } else {
+                echo "Modification échouée.";
+            }
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
         }
-    } catch (PDOException $e) {
-        echo "Erreur : " . $e->getMessage();
     }
-}
-
-
 }

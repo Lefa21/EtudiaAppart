@@ -34,8 +34,8 @@ class VueCreationAnnonce extends VueGenerique
                             <input type="file" id="profile-image" class="image-upload-input" accept="image/*" aria-label="Upload new profile picture">
                         </div>
                         <div class="user-details">
-                            <span class="user-name">Nouredine Tamani</span>
-                            <span class="user-role">Profil propriétaire</span>
+                            <span class="user-name"><?= $_SESSION['user_first_name'] . " " .  $_SESSION['user_last_name']?></span>
+                            <span class="user-role">Profil <?= $_SESSION['user_status'] ?></span>
                         </div>
                     </div>
                     <nav class="nav-menu" aria-label="Main navigation">
