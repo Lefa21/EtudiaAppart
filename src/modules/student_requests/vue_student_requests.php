@@ -71,11 +71,9 @@ class VueStudentRequests extends VueGenerique
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
-                        </div>
-                        
-                        
-                            <!-- Status -->
-                            <div>
+                            
+                              <!-- Status -->
+                              <div>
                                 <button class="filter-button-request" aria-expanded="false" aria-haspopup="listbox">
                                     Status
                                     <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
@@ -87,8 +85,8 @@ class VueStudentRequests extends VueGenerique
                                 </ul>
                             </div>
 
-                            <!-- Date -->
-                            <div>
+                             <!-- Date -->
+                             <div>
                                 <button class="filter-button-request" aria-expanded="false" aria-haspopup="listbox">
                                     Date
                                     <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
@@ -101,7 +99,7 @@ class VueStudentRequests extends VueGenerique
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
-
+                        </div>
 
                         <div class="table-responsive">
                             <table class="requests-table" aria-label="Liste des demandes">
