@@ -77,6 +77,10 @@ switch ($module) {
         $moduleFile = './src/modules/settings/module_settings.php';
         $moduleClass = 'ModSettings';
         break;
+    case 'favorites':
+        $moduleFile = './src/modules/favorites/module_favorites.php';
+        $moduleClass = 'ModFavorites';
+        break;
 
 }
 
