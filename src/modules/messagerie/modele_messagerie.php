@@ -17,8 +17,8 @@ class ModeleMessagerie{
         $userid = Connexion::getBdd()->prepare($query);
         $userid->bindParam(':email', $email, PDO::PARAM_STR);
         $userid->execute();
-        $userid = $userid->fetch(PDO::FETCH_ASSOC);
-        return $userid['id_user'];
+        $idUser = $userid->fetch(PDO::FETCH_ASSOC);
+        return $idUser['id_user'];
     }
 
     public function getMessagerie($email)

@@ -39,7 +39,7 @@ class ControllerRecords
 
     public function monDossier()
     {
-        $_SESSION['userId'] = $this->getUserId($_SESSION['identifiant_utilisateur']);
+        $_SESSION['userId'] = $this->getUserId($_SESSION['email']);
         $userInfo = $this->modele->getUserData();
         $documents = $this->modele->fetchUserDocuments();
         $this->vue->monDossier($userInfo, $documents);

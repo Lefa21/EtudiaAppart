@@ -1,6 +1,6 @@
 <?php
 
-
+require_once __DIR__  . '/../../vue_generique.php';
 
 class VueHome extends VueGenerique
 
