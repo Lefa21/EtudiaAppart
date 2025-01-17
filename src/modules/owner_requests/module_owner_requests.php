@@ -7,9 +7,10 @@ class ModOwnerRequests{
     private $controleur;
     public function __construct(){
         $this->controleur = new ContOwnerRequests();
+        $idUser = $_SESSION["identifiant_utilisateur"];
         switch($this->controleur->getAction()){
             case 'follow-up_owner_requests':
-                $this->controleur->followUpRequests();
+                $this->controleur->followUpRequests($idUser);
                 break;
 
             case 'manage_application':

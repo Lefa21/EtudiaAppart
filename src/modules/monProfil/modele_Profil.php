@@ -1,124 +1,120 @@
 <?php
 
-require_once __DIR__  . '/../../connexion.php';
-
-class ModeleProfil extends Connexion
+class ModeleProfil
 {
-    public function __construct() {}
+    private $db;
 
-
-    public function getUserData($emailIdentification)
-{
-    $query = "
-        SELECT 
-            u.id_user, u.first_name, u.last_name, u.email, u.mobile_number, 
-            u.school_name, u.student_email, u.sexe,
-            a.id_address, a.country, a.city, a.address_line, a.zipcode
-        FROM 
-            User u
-        LEFT JOIN 
-            Address a ON u.id_address = a.id_address
-        WHERE 
-            u.email = :email
-    ";
-
-    $stmt = Connexion::getBdd()->prepare($query);
-
-    $stmt->bindParam(':email', $emailIdentification, PDO::PARAM_STR);
-
-    $stmt->execute();
-
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-}
-
-
-
-public function updateUserData($data)
-{
-    try {
-        Connexion::getBdd()->beginTransaction();
-
-     
-        $idAddress = $this->updateUserAddress($data);  
-
-        $queryUser = "
-            UPDATE User 
-            SET first_name = :first_name, last_name = :last_name, 
-                email = :email, mobile_number = :mobile_number, 
-                school_name = :school_name, student_email = :student_email, sexe = :sexe 
-                id_address = :id_address
-            WHERE email = :email
-        ";
-
-        $stmtUser = Connexion::getBdd()->prepare($queryUser);
-        $stmtUser->execute([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'mobile_number' => $data['mobile_number'],
-            'school_name' => $data['school_name'],
-            'student_email' => $data['student_email'],
-            'sexe' => $data['gender'], 
-            'id_address' => $idAddress, 
-        ]);
-
-
-        Connexion::getBdd()->commit();
-        return true;
-    } catch (Exception $e) {
-        Connexion::getBdd()->rollBack();
-        return false;
-    }
-}
-
-public function updateUserAddress($data)
-{
-
-    if (!empty($data['id_address'])) {
-        $queryAddress = "
-            UPDATE Address 
-            SET country = :country, city = :city, 
-                address_line = :address_line, zipcode = :zipcode 
-            WHERE id_address = :id_address
-        ";
-        $stmtAddress = Connexion::getBdd()->prepare($queryAddress);
-        $stmtAddress->execute([
-            'country' => $data['country'],
-            'city' => $data['city'],
-            'address_line' => $data['address_line'],
-            'zipcode' => $data['zipcode'],
-            'id_address' => $data['id_address'],
-        ]);
-    } else {
-
-        $queryAddress = "
-            INSERT INTO Address (country, city, address_line, zipcode) 
-            VALUES (:country, :city, :address_line, :zipcode)
-        ";
-        $stmtAddress = Connexion::getBdd()->prepare($queryAddress);
-        $stmtAddress->execute([
-            'country' => $data['country'],
-            'city' => $data['city'],
-            'address_line' => $data['address_line'],
-            'zipcode' => $data['zipcode'],
-        ]);
-
-        
-        return Connexion::getBdd()->lastInsertId();  
+    public function __construct()
+    {
+        $this->db = Connexion::getBdd(); // Connexion à la base de données
     }
 
-    return $data['id_address'];
-}
-
-
-
-public function updatePassword($emailIdentification, $newPassword)
-{
-    $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-    $query = "UPDATE users SET password = ? WHERE email = ?";
-    $stmt = Connexion::getBdd()->prepare($query);
-
-    return $stmt->execute([$hashedPassword, $emailIdentification]);
-}
+    public function getUserData($email) 
+    {
+        // Récupérer les informations de l'utilisateur
+        $query = "SELECT * FROM User WHERE email = :email";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
+        // Si l'utilisateur a une adresse, récupérer l'adresse associée
+        if ($user['id_address'] !== null) {
+            $query = "SELECT * FROM address WHERE id_address = :id_address";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':id_address', $user['id_address']);
+            $stmt->execute();
+            $address = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            // Ajouter l'adresse à l'utilisateur
+            $user['address_line'] = $address["address_line"];
+            $user['country'] = $address["country"];
+            $user['city'] = $address["city"];
+            $user['zipcode'] = $address["zipcode"]; 
+        }else{
+            $user['address_line'] = "";
+            $user['country'] = "";
+            $user['city'] = "";
+            $user['zipcode'] = ""; 
+        }
+    
+        return $user;
+    }
+    
+
+    public function updateUserData($data)
+    {
+        try {
+            // Vérifier si l'adresse existe déjà dans la table address
+            $query = "SELECT id_address FROM address WHERE address_line = :address_line 
+                      AND city = :city AND zipcode = :zipcode AND country = :country";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':address_line', $data['address_line']);
+            $stmt->bindParam(':city', $data['city']);
+            $stmt->bindParam(':zipcode', $data['zipcode']);
+            $stmt->bindParam(':country', $data['country']);
+            $stmt->execute();
+            $address = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if ($address) {
+                // Si l'adresse existe, récupérer l'id de l'adresse existante
+                $id_address = $address['id_address'];
+            } else {
+                // Sinon, créer une nouvelle adresse
+                $query = "INSERT INTO address (address_line, city, zipcode, country) 
+                          VALUES (:address_line, :city, :zipcode, :country)";
+                $stmt = $this->db->prepare($query);
+                $stmt->bindParam(':address_line', $data['address_line']);
+                $stmt->bindParam(':city', $data['city']);
+                $stmt->bindParam(':zipcode', $data['zipcode']);
+                $stmt->bindParam(':country', $data['country']);
+                $stmt->execute();
+                $id_address = $this->db->lastInsertId(); // Récupérer l'id de la nouvelle adresse
+            }
+    
+            // Mettre à jour les données de l'utilisateur
+            $query = "UPDATE User SET 
+                        last_name = :last_name, 
+                        first_name = :first_name, 
+                        email = :email, 
+                        mobile_number = :mobile_number, 
+                        gender = :gender, 
+                        id_address = :id_address,  // Mise à jour de l'id_address
+                        school_name = :school_name, 
+                        student_email = :student_email 
+                      WHERE id = :id";
+            
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':last_name', $data['last_name']);
+            $stmt->bindParam(':first_name', $data['first_name']);
+            $stmt->bindParam(':email', $data['email']);
+            $stmt->bindParam(':mobile_number', $data['mobile_number']);
+            $stmt->bindParam(':gender', $data['gender']);
+            $stmt->bindParam(':id_address', $id_address, PDO::PARAM_INT);
+            $stmt->bindParam(':school_name', $data['school_name']);
+            $stmt->bindParam(':student_email', $data['student_email']);
+            $stmt->bindParam(':id', $data['id'], PDO::PARAM_INT);
+    
+            return $stmt->execute();
+        } catch (Exception $e) {
+            error_log('Erreur SQL : ' . $e->getMessage());
+            return false;
+        }
+    }
+    
+
+    public function updatePassword($email, $newPassword)
+    {
+        try {
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $query = "UPDATE User SET password = :password WHERE email = :email";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindParam(':password', $hashedPassword);
+            $stmt->bindParam(':email', $email);
+            return $stmt->execute();
+        } catch (Exception $e) {
+            error_log('Erreur SQL : ' . $e->getMessage());
+            return false;
+        }
+    }
 }
