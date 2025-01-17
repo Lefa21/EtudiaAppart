@@ -3,7 +3,7 @@ require_once 'index.php';
 
 // Récupérer le thème via le modèle
 $model = new ModeleSettings();
-$themeClass = $model->getTheme() === 'dark' ? 'dark-theme' : 'light-theme'; 
+$themeClass = $model->getTheme() === 'dark' ? 'dark-theme' : 'light-theme';
 
 global $tampon; ?>
 
@@ -26,22 +26,18 @@ global $tampon; ?>
     <link rel="stylesheet" href="./src/css/utilities.css">
 </head>
 
-<<<<<<< HEAD
 <body class="<?php echo $model->getTheme() === 'dark' ? 'dark-theme' : 'light-theme'; ?>">
 
-<script id="adData" type="application/json">
-            <?= json_encode($adData['results']); ?>
-        </script>
-=======
-<body>
->>>>>>> c08a95a1cea60085467ef87da6895f11ce17f539
+    <script id="adData" type="application/json">
+        <?= json_encode($adData['results']); ?>
+    </script>
+
     <?php
-    
 
     include __DIR__ . '/header.php';
     ?>
 
-        <?php echo $tampon; ?>
+    <?php echo $tampon; ?>
 
     <?php
 

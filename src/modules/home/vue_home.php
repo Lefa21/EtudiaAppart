@@ -3,14 +3,16 @@
     setlocale(LC_TIME, 'fr_FR.utf8', 'fra'); // Active la locale française
 
 
-require_once __DIR__  . '/../../vue_generique.php';
+    require_once __DIR__  . '/../../vue_generique.php';
 
-class VueHome extends VueGenerique
+    class VueHome extends VueGenerique
 
-{
+    {
 
-    public function __construct()
-    {}
+        public function __construct()
+        {
+            parent::__construct();
+        }
 
 
 
@@ -22,7 +24,7 @@ class VueHome extends VueGenerique
             $_SESSION['home_page'] = 1;
             //$_SESSION['user_name'] = $userName;
     ?>
-                <style>
+            <style>
                 .styled-date-input {
                     appearance: none;
                     -webkit-appearance: none;
@@ -50,6 +52,8 @@ class VueHome extends VueGenerique
             <script type="text/javascript" src="./src/scripts/search_address_home.js"></script>
             <link rel="stylesheet" href="./src/css/home.css">
             <main>
+
+
                 <section class="vie-etudiante">
                     <div class="dropdown">
                         <button class="v-e-btn">
@@ -388,4 +392,4 @@ class VueHome extends VueGenerique
             </main>
     <?php
         }
-}
+    }
