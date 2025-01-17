@@ -17,9 +17,10 @@ class ModuleAnnonce
 
                     // Perform actions with the $idAd, like querying the database
                 } else {
-                    echo "No Ad ID provided!";
+                    //echo "No Ad ID provided!";
                 }
                 $this->controller->annoncePage($annonceId);
+                break;
 
             case 'annonceApply':
                 if (!isset($_SESSION['userId'])) {
@@ -34,13 +35,14 @@ class ModuleAnnonce
                         echo json_encode([
                             'success' => false,
                             'message' => 'Unspecified ad id',
-                            'redirect' => 'index.php?module=annonce&action=ad_search'
+                            'redirect' => 'index.php?module=ad_search'
                         ]);
                         exit;
                     }
                     $annonceId = htmlspecialchars($_GET['id_ad']);
                     $this->controller->annonceApply($annonceId);
                 }
+                break;
         }
     }
 

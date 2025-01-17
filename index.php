@@ -44,7 +44,7 @@ switch ($module) {
         $moduleFile = './src/modules/owner_requests/module_owner_requests.php';
         $moduleClass = 'ModOwnerRequests';
         break;
-    
+
     case 'student_requests':
         $moduleFile = './src/modules/student_requests/module_student_requests.php';
         $moduleClass = 'ModStudentRequests';

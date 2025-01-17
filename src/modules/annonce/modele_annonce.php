@@ -40,7 +40,7 @@ class ModeleAnnonce extends Connexion
       echo json_encode([
         'success' => false,
         'message' => "Asked ad does not exist.",
-        'redirect' => 'index.php?module=annonce&action=ad_search'
+        'redirect' => 'index.php?module=ad_search'
       ]);
       exit;
     }
@@ -48,20 +48,47 @@ class ModeleAnnonce extends Connexion
     // Perform the application logic (e.g., save to a database)
     try {
       $userId = $_SESSION['userId'];
-      $applyStmt = $pdo->prepare("INSERT INTO Application (id_user, id_ad, date) VALUES (?, ?, NOW())");
-      $applyStmt->execute([$userId, $annonceId]);
+
+      $query = "
+      SELECT 
+            u.id_user, d.file_name, d.description
+        FROM 
+            User u
+        LEFT JOIN 
+            Document d ON u.id_user = d.id_user
+        WHERE 
+            u.id_user = ? AND d.file_name = 'url_dossierFacile'
+      ";
+
+      $stmt = $pdo->prepare($query);
+      $stmt->execute([$userId]);
+      $isUrlSet = $stmt->fetch(PDO::FETCH_ASSOC);
+
+      if (!$isUrlSet) {
+        echo json_encode([
+          'success' => false,
+          'message' => "User Record (dossierFacile) inexistent.",
+          'redirect' => null
+        ]);
+        exit;
+      }
+
+      $applyStmt = $pdo->prepare("INSERT INTO Application (id_user, id_ad, date, url_dossierFacile) VALUES (?, ?, NOW(), ?)");
+      $applyStmt->execute([$userId, $annonceId, $isUrlSet['description']]);
 
       echo json_encode([
         'success' => true,
         'message' => 'Votre candidature a été enregistrée avec succès.',
         'redirect' => null
       ]);
+      exit;
     } catch (PDOException $e) {
       echo json_encode([
         'success' => false,
         'message' => $e,
-        'redirect' => null
+        'redirect' => 'index.php?module=home'
       ]);
+      exit;
     }
   }
 }
