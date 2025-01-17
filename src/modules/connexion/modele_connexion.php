@@ -24,7 +24,12 @@ class ModeleConnexion extends Connexion
                 if ($sql->rowCount() == 1) {
                     $row = $sql->fetch(PDO::FETCH_ASSOC); // permet de récupérer les données de la requete
                     if (password_verify($password, $row['password'])) {
-                        $_SESSION['identifiant_utilisateur'] = $email;
+                        $_SESSION['identifiant_utilisateur'] = $row["id_user"];
+                        $_SESSION['email'] = $email;
+                        $_SESSION['user_status'] =  $row["profile_status"];
+                        $_SESSION['user_first_name'] =  $row["first_name"];
+                        $_SESSION['user_last_name'] =  $row["last_name"];
+                        $_SESSION['profile_picture'] =  $row["profile_picture"];
                         header('Location: index.php');
                     } else {
                         echo 'Login ou mot de passe incorrect' . '<br>';
@@ -42,6 +47,11 @@ class ModeleConnexion extends Connexion
         if (isset($_SESSION['identifiant_utilisateur'])) {
             echo 'Déconnexion réussie, identifiant :' . $_SESSION['identifiant_utilisateur'] . '<br>';
             unset($_SESSION['identifiant_utilisateur']);
+            unset($_SESSION['email']);
+            unset($_SESSION['user_status']);
+            unset($_SESSION['user_first_name']);
+            unset($_SESSION['user_last_name']);
+            unset($_SESSION['profile_picture']);
             header('Location: index.php');
         } else {
             echo "Vous n'êtes pas connecté\n" . '<br>';

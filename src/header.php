@@ -1,5 +1,6 @@
 <?php
 $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
+
 ?>
 
 <header id="headerAnchor">
@@ -21,7 +22,7 @@ $isUserLoggedIn = isset($_SESSION['identifiant_utilisateur']);
                             <div class="dropdown-menu">
                                 <a href="index.php?module=monProfil&action=Profil">Profil</a>
                                 <a href="index.php?module=records&action=monDossier">Mon dossier</a>
-                                <a href="index.php?module=owner_requests&action=follow-up_owner_requests">Mes demandes</a>
+                                <a href="index.php?module=student_requests&action=follow-up_student_requests">Mes demandes</a>
                                 <a href="index.php?module=messagerie&action=messagerie">Messagerie</a>
                                 <a href="#">Paramètres</a>
                                 <a href="index.php?module=connexion&action=deconnexion">Déconnexion</a>
