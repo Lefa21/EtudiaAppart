@@ -9,98 +9,142 @@ class VueStudentRequests extends VueGenerique
         parent::__construct();
     }
 
-    public function followUpRequests()
+    public function followUpRequests($requestData)
     {
 ?>
         <link rel="stylesheet" href="./src/css/student_requests.css">
+        <script type="text/javascript" src="./src/scripts/filter_student_owner_request.js"></script>
         <div class="page-wrapper">
-        <main id="main-content" class="main-content" role="main">
-        <?php
-            include "./src/menu_my_account.php";
-        ?>
+            <main id="main-content" class="main-content-student_request" role="main">
+                <div class="container-student_request">
+                    <?php
+                    include "./src/menu_my_account.php";
+                    ?>
 
-            <section class="content-area" aria-label="Suivi des demandes">
-                <div class="filters" role="group" aria-label="Filtres de recherche">
-                    <button class="filter-button" aria-expanded="false" aria-haspopup="listbox">
-                        Date
-                        <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
-                    </button>
-                    <button class="filter-button" aria-expanded="false" aria-haspopup="listbox">
-                        Status
-                        <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
-                    </button>
-                    <button class="filter-button" aria-expanded="false" aria-haspopup="listbox">
-                        Type de logment
-                        <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
-                    </button>
-                </div>
+                    <section class="content-area" aria-label="Suivi des demandes">
+                        <div class="filters" role="group" aria-label="Filtres de recherche">
+                            <?php
+                            // Extraire les valeurs uniques pour chaque filtre
+                            $types = array_unique(array_column($requestData['requests'], 'type_habitation'));
+                            $cities = array_unique(array_column($requestData['requests'], 'city'));
+                            $statuses = array_unique(array_column($requestData['requests'], 'current_status'));
+                            $zipCodes = array_unique(array_column($requestData['requests'], 'zipCode'));
+                            $dates = array_unique(array_column($requestData['requests'], 'date'));
+                            ?>
 
-                <div class="table-responsive">
-                    <table class="requests-table" aria-label="Liste des demandes">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="table-header">Type de logement</th>
-                                <th scope="col" class="table-header">Date de la demande</th>
-                                <th scope="col" class="table-header">Statut actuel</th>
-                                <th scope="col" class="table-header">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-row">
-                                <td class="table-cell">Résidence crous</td>
-                                <td class="table-cell">2023-04-10</td>
-                                <td class="table-cell">
-                                    <button class="statut-actuel_info secondary">En cours</button>
-                                </td>
-                                <td class="table-cell">
-                                    <a class="action-link">Voir/modifier la <br> demande</a>
-                                </td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="table-cell">Studio à Paris 15 ème</td>
-                                <td class="table-cell">2023-04-05</td>
-                                <td class="table-cell">
-                                    <button class="statut-actuel_info secondary">Accepté</button>
-                                </td>
-                                <td class="table-cell">
-                                    <a class="action-link">Voir/modifier la <br> demande</a>
-                                </td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="table-cell">Studio à Issy-Les-Moulineaux</td>
-                                <td class="table-cell">2023-04-01</td>
-                                <td class="table-cell">
-                                    <button class="statut-actuel_info secondary">En cours</button>
-                                </td>
-                                <td class="table-cell">
-                                <a class="action-link">Voir/modifier la <br> demande</a>
-                                </td>
-                            </tr>
-                            <tr class="table-row">
-                                <td class="table-cell">T2 Paris 13 ème</td>
-                                <td class="table-cell">2023-03-28</td>
-                                <td class="table-cell">
-                                    <button class="statut-actuel_info secondary">Accepté</button>
-                                </td>
-                                <td class="table-cell">
-                                <a class="action-link">Voir/modifier la <br> demande</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                            <!-- Type de logement -->
+                            <div>
+                                <button class="filter-button-request" aria-expanded="false" aria-haspopup="listbox">
+                                    Type logement
+                                    <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
+                                </button>
+                                <ul class="filter-menu" data-filter="type_habitation">
+                                    <?php foreach ($types as $type): ?>
+                                        <li data-value="<?= htmlspecialchars($type) ?>"><?= htmlspecialchars($type) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                            
 
-                <div class="notifications" role="region" aria-label="Notifications">
-                    <h2 class="notification-title">Notifications/Mise à jour</h2>
-                    <p class="notification-text">Consultez cette page pour connaître l'état d'avancement de votre candidature.</p>
-                    <a href="#updates" class="notification-link">
-                        Voir toutes les mises à jour
-                        <img src="assets/icon_arrow_left.svg" alt="" width="25" height="25" aria-hidden="true" />
-                    </a>
+                            <!-- Ville -->
+                            <div>
+                                <button class="filter-button-request" aria-expanded="false" aria-haspopup="listbox">
+                                    Ville
+                                    <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
+                                </button>
+                                <ul class="filter-menu" data-filter="city">
+                                    <?php foreach ($cities as $city): ?>
+                                        <li data-value="<?= htmlspecialchars($city) ?>"><?= htmlspecialchars($city) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+
+                            <!-- Code postal -->
+                            <div>
+                                <button class="filter-button-request" aria-expanded="false" aria-haspopup="listbox">
+                                    Code postal
+                                    <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
+                                </button>
+                                <ul class="filter-menu" data-filter="zipCode">
+                                    <?php foreach ($zipCodes as $zipCode): ?>
+                                        <li data-value="<?= htmlspecialchars($zipCode) ?>"><?= htmlspecialchars($zipCode) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        
+                            <!-- Status -->
+                            <div>
+                                <button class="filter-button-request" aria-expanded="false" aria-haspopup="listbox">
+                                    Status
+                                    <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
+                                </button>
+                                <ul class="filter-menu" data-filter="current_status">
+                                    <?php foreach ($statuses as $status): ?>
+                                        <li data-value="<?= htmlspecialchars($status) ?>"><?= htmlspecialchars($status) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+
+                            <!-- Date -->
+                            <div>
+                                <button class="filter-button-request" aria-expanded="false" aria-haspopup="listbox">
+                                    Date
+                                    <img src="assets/icon_arrow_down.svg" alt="" width="25" height="25" aria-hidden="true" />
+                                </button>
+                                <ul class="filter-menu" data-filter="date">
+                                    <?php foreach ($dates as $date):
+                                             $date = new DateTime($date);
+                                             $formattedDate = $date->format('Y-m-d'); ?>
+                                        <li data-value="<?= htmlspecialchars($formattedDate) ?>"><?= htmlspecialchars($formattedDate) ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+
+
+                        <div class="table-responsive">
+                            <table class="requests-table" aria-label="Liste des demandes">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="table-header">Annonce</th>
+                                        <th scope="col" class="table-header">Type de logement</th>
+                                        <th scope="col" class="table-header">Adresse</th>
+                                        <th scope="col" class="table-header">Ville</th>
+                                        <th scope="col" class="table-header">Code postal</th>
+                                        <th scope="col" class="table-header">Date de la demande</th>
+                                        <th scope="col" class="table-header">Statut actuel</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if (!empty($requestData['requests'])) {
+                                        foreach ($requestData['requests'] as $request) { 
+                                            $date = new DateTime($request['date']);
+                                            $formattedDate = $date->format('Y-m-d');?>
+                                            <tr class="table-row" data-type_habitation="<?= htmlspecialchars($request['type_habitation']) ?>"
+                                                data-city="<?= htmlspecialchars($request['city']) ?>"
+                                                data-current_status="<?= htmlspecialchars($request['current_status']) ?>"
+                                                data-zipCode="<?= htmlspecialchars($request['zipCode']) ?>">
+                                                <td class="table-cell"><?= htmlspecialchars($request['ad_title']) ?></td>
+                                                <td class="table-cell"><?= htmlspecialchars($request['type_habitation']) ?></td>
+                                                <td class="table-cell"><?= htmlspecialchars($request['address_line']) ?></td>
+                                                <td class="table-cell"><?= htmlspecialchars($request['city']) ?></td>
+                                                <td class="table-cell"><?= htmlspecialchars($request['zipCode']) ?></td>
+                                                <td class="table-cell"><?= htmlspecialchars($formattedDate) ?></td>
+                                                <td class="table-cell">
+                                                    <button class="statut-actuel_info secondary"><?= htmlspecialchars($request['current_status']) ?></button>
+                                                </td>
+                                            </tr>
+                                    <?php }
+                                    } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
                 </div>
-            </section>
-        </main>
-    </div>
+            </main>
+        </div>
 <?php
     }
 }
