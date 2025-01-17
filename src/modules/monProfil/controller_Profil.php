@@ -1,7 +1,7 @@
 <?php
 
 require_once 'vue_Profil.php';
-require_once __DIR__  . '/../../connexion.php';
+require_once __DIR__ . '/../../connexion.php';
 require_once 'modele_Profil.php';
 
 class ControllerProfil
@@ -24,54 +24,59 @@ class ControllerProfil
 
     public function profil($emailIdentification)
     {
-
+        $requestData = json_decode(file_get_contents('php://input'), true);
+      if(isset($requestData['action']) && $requestData['action'] == "updateProfil"){
+        $this->handleAjaxRequest($emailIdentification);
+      }
+      else{
         $userData = $this->modele->getUserData($emailIdentification);
         $this->vue->profil($userData);
+      } 
     }
-    
 
-public function handleAjaxRequest($emailIdentification)
-{
-    $requestData = json_decode(file_get_contents('php://input'), true);
+    public function handleAjaxRequest($emailIdentification)
+    {
+        $requestData = json_decode(file_get_contents('php://input'), true);
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($requestData['action'])) {
-
-         switch ($requestData['action']) {
-                case 'updateProfile':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($requestData['action'])) {
                 $data = $requestData['data'];
-                $updateSuccess = $this->modele->updateUserData($data);
 
-                if (!empty($data['newPassword'])) {
-                    if ($data['newPassword'] === $data['confirmPassword']) {
-                        $passwordSuccess = $this->modele->updatePassword($emailIdentification, $data['newPassword']);
-                        $updateSuccess = $updateSuccess && $passwordSuccess;
-                    } else {
-                        echo json_encode(['success' => false, 'error' => 'Les mots de passe ne correspondent pas.']);
+                // Validez les champs obligatoires
+                $requiredFields = ['last_name', 'first_name', 'email', 'mobile_number', 'gender', 'address_line', 'zipcode', 'city', 'country', 'school_name', 'student_email'];
+                foreach ($requiredFields as $field) {
+                    if (!isset($data[$field])) {
+                        echo json_encode(['success' => false, 'error' => "Le champ {$field} est requis."]);
                         return;
                     }
                 }
-                echo json_encode(['success' => $updateSuccess]);
-                break;
-/*
-                default:
-                    http_response_code(400);
-                    echo json_encode(['error' => 'Action inconnue']);
-                    */
-            }
 
-            $updatedUserData = $this->modele->getUserData($emailIdentification);
-            echo json_encode([
-                'success' => $updateSuccess,
-                'userData' => $updatedUserData
-            ]);
+                // Vérifiez les mots de passe
+                if (!empty($data['newPassword']) && $data['newPassword'] !== $data['confirmPassword']) {
+                    echo json_encode(['success' => false, 'error' => 'Les mots de passe ne correspondent pas.']);
+                    return;
+                }
 
-    } else {
-        /*
-        http_response_code(400);
-        echo json_encode(['error' => 'Requête invalide']);
-        */
+                // Mettre à jour les données utilisateur
+                $updateSuccess = $this->modele->updateUserData($data);
+                if (!empty($data['newPassword'])) {
+                    $passwordSuccess = $this->modele->updatePassword($emailIdentification, $data['newPassword']);
+                    $updateSuccess = $updateSuccess && $passwordSuccess;
+                }
+
+                if ($updateSuccess) {
+                    $updatedUserData = $this->modele->getUserData($emailIdentification);
+                    echo json_encode(['success' => true, 'userData' => $updatedUserData]);
+                } else {
+                    echo json_encode(['success' => false, 'error' => 'Échec de la mise à jour.']);
+                }
+                return;
+        
+        }else{
+            http_response_code(400);
+            echo json_encode(['error' => 'Requête invalide ou action inconnue.']);
+        }
+
     }
-}
 
     public function displayContent()
     {

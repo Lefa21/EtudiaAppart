@@ -10,7 +10,7 @@ class ModuleProfil
     public function __construct()
     {
         $this->controller = new ControllerProfil();
-        $emailIdentification = $_SESSION['identifiant_utilisateur'] ?? null;
+        $emailIdentification = $_SESSION['email'] ?? null;
         switch ($this->controller->getAction()) {
             
             case 'Profil':
@@ -20,18 +20,6 @@ class ModuleProfil
                 }else{
                     $this->controller->profil($emailIdentification);
                 }
-
-            case 'updateProfil': 
-                if ($emailIdentification) {
-                    $this->controller->handleAjaxRequest($emailIdentification);
-                } else {
-                    echo json_encode(['success' => false, 'error' => 'Utilisateur non authentifié']);
-                }
-                break;
-
-            default:
-                http_response_code(400);
-                echo json_encode(['error' => 'Action inconnue']);
                 break;
         }
     }

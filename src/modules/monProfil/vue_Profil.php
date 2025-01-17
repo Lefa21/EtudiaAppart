@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__  . '/../../vue_generique.php';
 class VueProfil extends VueGenerique
 {
   public function __construct()
