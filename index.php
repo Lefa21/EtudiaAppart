@@ -97,6 +97,10 @@ switch ($module) {
         $moduleFile = './src/modules/contact/module_contact.php';
         $moduleClass = 'ModContact';
         break;
+    case 'reports':
+        $moduleFile = './src/modules/reports/module_reports.php';
+        $moduleClass = 'ModReports';
+        break;
 }
 
 if (file_exists($moduleFile)) {

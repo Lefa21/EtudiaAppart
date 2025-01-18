@@ -10,3 +10,5 @@
     const marker = L.marker([48.8566, 2.3522]).addTo(map);
     marker.bindPopup("Bienvenue à Paris !").openPopup();
 });
+
+

@@ -19,6 +19,7 @@ class VueSearchAd extends VueGenerique
         <script type="text/javascript" src="./src/scripts/init_map.js"></script>
         <script type="text/javascript" src="./src/scripts/filter_search_ad.js"></script>
         <script type="text/javascript" src="./src/scripts/key_research.js"></script>
+        <script type="text/javascript" src="./src/scripts/favorite.js"></script>
         <script id="adData" type="application/json">
             <?= json_encode($adData['results']); ?>
         </script>
@@ -177,36 +178,40 @@ class VueSearchAd extends VueGenerique
                                     </div>
                                 </div>
                             </div>
-                            <div class="listings-container">
-                                <div class="listings-wrapper">
-                                    <?php
-                                    if (!empty($adData['results'])) {
-                                        foreach ($adData['results'] as $ad) { ?>
-                                            <article class="listing-card">
-                                                <img src="assets\logement_etudiant_1.jpg" alt="Apartment interior view" class="listing-image" />
-                                                <div class="listing-details">
-                                                    <div>
-                                                        <img src="assets\icon_favoris.svg" alt="Apartment interior view" class="image-annonce_favoris" />
-                                                    </div>
-                                                    <h2 class="listing-title"><?= htmlspecialchars($ad['ad_title']) ?></h2>
-                                                    <p class="listing-location"><?= htmlspecialchars($ad['city']) . ' ' . htmlspecialchars($ad['zipCode']) ?></p>
-                                                    <div class="listing-meta">
-                                                        <time class="listing-date">
-                                                            Publiée le <?= date("d/m/y H:i", strtotime($ad['date_publication'])) ?>
-                                                        </time>
-                                                        <p class="listing-price"><?= htmlspecialchars(number_format($ad['rent_price'], 2)) ?>€</p>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                    <?php }
-                                    } ?>
-                                </div>
-                            </div>
-                        </div>
 
-                    </section>
                 </form>
-            </main>
+                <div class="listings-container">
+                    <div class="listings-wrapper">
+                        <?php
+                        if (!empty($adData['results'])) {
+                            foreach ($adData['results'] as $ad) { ?>
+                                <article class="listing-card">
+                                    <img src="assets\logement_etudiant_1.jpg" alt="Apartment interior view" class="listing-image" />
+                                    <div class="listing-details">
+
+                                        <a href="index.php?module=ad_search&action=addFavorite&id_ad=<?= $ad['id_ad'] ?>" class="image-annonce_favoris">
+                                            <img src="assets/icon_favoris.svg" alt="Ajouter aux favoris" />
+                                        </a>
+
+                                        <h2 class="listing-title"><?= htmlspecialchars($ad['ad_title']) ?></h2>
+                                        <p class="listing-location"><?= htmlspecialchars($ad['city']) . ' ' . htmlspecialchars($ad['zipCode']) ?></p>
+                                        <div class="listing-meta">
+                                            <time class="listing-date">
+                                                Publiée le <?= date("d/m/y H:i", strtotime($ad['date_publication'])) ?>
+                                            </time>
+                                            <p class="listing-price"><?= htmlspecialchars(number_format($ad['rent_price'], 2)) ?>€</p>
+                                        </div>
+                                    </div>
+                                </article>
+                        <?php }
+                        } ?>
+                    </div>
+                </div>
+        </div>
+
+        </section>
+
+        </main>
         </div>
 <?php
     }

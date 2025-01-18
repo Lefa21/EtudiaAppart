@@ -4,9 +4,7 @@ require_once __DIR__  . '/../../connexion.php';
 
 class ModeleSearchAd extends Connexion
 {
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     public function getAd()
     {
@@ -15,14 +13,14 @@ class ModeleSearchAd extends Connexion
         } else {
             $previousSearch = isset($_SESSION['search']) ? $_SESSION['search'] : [];
         }
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
             $_SESSION['search'] = array_merge($previousSearch, $_POST);
             $currentSearch = $_SESSION['search'];
-    
-    
-            $search_ad = isset($currentSearch['search_ad']) && !empty($currentSearch['search_ad']) ? trim(strtolower($currentSearch['search_ad'])) : null; 
+
+
+            $search_ad = isset($currentSearch['search_ad']) && !empty($currentSearch['search_ad']) ? trim(strtolower($currentSearch['search_ad'])) : null;
             $start_date = isset($currentSearch['start_date']) && !empty($currentSearch['start_date']) ? $currentSearch['start_date'] : null;
             $end_date = isset($currentSearch['end_date']) && !empty($currentSearch['end_date']) ? $currentSearch['end_date'] : null;
             $city = isset($currentSearch['city']) && !empty($currentSearch['city']) ? trim(strtolower($currentSearch['city'])) : null;
@@ -46,20 +44,20 @@ class ModeleSearchAd extends Connexion
                 INNER JOIN Habitation ON Ad.id_habitation = Habitation.id_habitation
                 INNER JOIN Address ON Habitation.id_address = Address.id_address
                 WHERE 1=1";
-            
+
             $params = [];
-    
- 
+
+
             if ($budget !== null) {
                 $query .= " AND Ad.rent_price <= :budget";
                 $params[':budget'] = $budget;
             }
-    
+
             if ($priceMin !== null) {
                 $query .= " AND Ad.rent_price >= :priceMin";
                 $params[':priceMin'] = $priceMin;
             }
-    
+
             if ($priceMax !== null) {
                 $query .= " AND Ad.rent_price <= :priceMax";
                 $params[':priceMax'] = $priceMax;
@@ -69,7 +67,7 @@ class ModeleSearchAd extends Connexion
                 $query .= " AND Ad.ad_title LIKE :keyword LIMIT 10";
                 $params[':keyword'] = $search_ad;
             }
-    
+
             if ($start_date !== null && $end_date !== null) {
                 $query .= " AND (
                                 (Ad.lease_start BETWEEN :start_date AND :end_date) OR 
@@ -80,27 +78,27 @@ class ModeleSearchAd extends Connexion
                 $params[':start_date'] = $start_date;
                 $params[':end_date'] = $end_date;
             }
-    
+
             if ($country !== null) {
                 $query .= " AND LOWER(Address.country) = LOWER(:country)";
                 $params[':country'] = $country;
             }
-    
+
             if ($city !== null) {
                 $query .= " AND LOWER(Address.city) = LOWER(:city)";
                 $params[':city'] = $city;
             }
-    
+
             if ($surfaceMin !== null) {
                 $query .= " AND Habitation.surface_area >= :surfaceMin";
                 $params[':surfaceMin'] = $surfaceMin;
             }
-    
+
             if ($surfaceMax !== null) {
                 $query .= " AND Habitation.surface_area <= :surfaceMax";
                 $params[':surfaceMax'] = $surfaceMax;
             }
-    
+
             if ($habitationFurnished !== null) {
                 if ($habitationFurnished == "oui") {
                     $habitationFurnished = 1;
@@ -110,12 +108,12 @@ class ModeleSearchAd extends Connexion
                 $query .= " AND Habitation.furnished = :habitationFurnished";
                 $params[':habitationFurnished'] = $habitationFurnished;
             }
-    
+
             if ($rooms !== null) {
                 $query .= " AND Habitation.numbers_rooms = :rooms";
                 $params[':rooms'] = $rooms;
             }
-    
+
             if ($selectedHousingTypes) {
                 $placeholders = [];
                 foreach ($selectedHousingTypes as $index => $type) {
@@ -125,35 +123,54 @@ class ModeleSearchAd extends Connexion
                 }
                 $query .= " AND Habitation.type_habitation IN (" . implode(", ", $placeholders) . ")";
             }
-    
-         
+
+
             $stmt = Connexion::getBdd()->prepare($query);
             foreach ($params as $key => $value) {
                 $stmt->bindValue($key, $value);
             }
-    
+
 
             $stmt->execute();
-    
-     
+
+
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
             return [
                 'results' => $results,
                 'search_criteria' => $currentSearch
             ];
         }
-    
+
         return null;
     }
 
     public function searchAdTitles($keyword)
-{
-    $query = "SELECT ad_title FROM Ad WHERE ad_title LIKE :keyword LIMIT 10";
-    $stmt = Connexion::getBdd()->prepare($query);
-    $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-    
+    {
+        $query = "SELECT ad_title FROM Ad WHERE ad_title LIKE :keyword LIMIT 10";
+        $stmt = Connexion::getBdd()->prepare($query);
+        $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function insertFavorite($userId, $adId)
+    {
+
+        $query = "INSERT INTO Favorites_ad (id_user, id_ad) VALUES (:id_user, :id_ad)";
+        $stmt = Connexion::getBdd()->prepare($query);
+
+        // Point de contrôle 4 : Logguez les valeurs bindées
+        var_dump("Binding - User ID : $userId, Ad ID : $adId");
+
+        $stmt->bindParam(':id_user', $userId, PDO::PARAM_INT);
+        $stmt->bindParam(':id_ad', $adId, PDO::PARAM_INT);
+
+        $result = $stmt->execute();
+
+        // Point de contrôle 5 : Logguez le succès ou l'échec de l'exécution
+        var_dump("Insertion SQL : " . ($result ? 'Succès' : 'Échec') . " - Erreur SQL : " . print_r($stmt->errorInfo(), true));
+
+        return $result;
+    }
 }

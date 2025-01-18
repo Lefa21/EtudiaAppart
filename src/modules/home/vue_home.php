@@ -390,6 +390,23 @@
                             </div>
                 </section>
             </main>
+        <?php
+        }
+
+        public function notPermitted()
+        {
+        ?>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Accès refusé</title>
+            </head>
+            <main>
+                <h1>Accès refusé</h1>
+                <p>Vous n'avez pas l'autorisation d'accéder à cette page.</p>
+                <a href="index.php">Retour à l'accueil</a>
+            </main>
+
     <?php
         }
     }

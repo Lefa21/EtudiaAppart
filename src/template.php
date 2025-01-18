@@ -28,10 +28,6 @@ global $tampon; ?>
 
 <body class="<?php echo $model->getTheme() === 'dark' ? 'dark-theme' : 'light-theme'; ?>">
 
-    <script id="adData" type="application/json">
-        <?= json_encode($adData['results']); ?>
-    </script>
-
     <?php
 
     include __DIR__ . '/header.php';
