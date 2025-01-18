@@ -22,6 +22,7 @@ class VueSearchAd extends VueGenerique
         <script id="adData" type="application/json">
             <?= json_encode($adData['results']); ?>
         </script>
+        <script type="text/javascript" src="./src/scripts/annonce.js"></script>
 
 
         <div class="student-housing">
@@ -182,7 +183,8 @@ class VueSearchAd extends VueGenerique
                                     <?php
                                     if (!empty($adData['results'])) {
                                         foreach ($adData['results'] as $ad) { ?>
-                                            <article class="listing-card">
+                                            <article class="listing-card" onclick="redirectTo(this)">
+                                                <span class="annonceId" hidden><?= $ad['id_ad'] ?></span>
                                                 <img src="assets\logement_etudiant_1.jpg" alt="Apartment interior view" class="listing-image" />
                                                 <div class="listing-details">
                                                     <div>

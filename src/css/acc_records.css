@@ -3,7 +3,7 @@
   font-family: var(--police-text);
   display: flex;
   flex-direction: row;
-  /*height: 100vh; */
+  margin-top: 2rem;
 }
 
 /*.blockPage a {
@@ -132,6 +132,10 @@
   justify-content: center;
   border: none;
   cursor: pointer;
+}
+
+.save_button:hover {
+  background-color: #031473;
 }
 
 /* Tooltip container */
@@ -286,6 +290,10 @@
   resize: vertical;
 
   outline: none;
+
+  border: none;
+  margin: 0.5rem;
+
   border-radius: 0.4rem;
   line-height: 1.6;
 }

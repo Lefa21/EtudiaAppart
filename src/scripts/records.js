@@ -53,6 +53,7 @@ async function updateUserInfos(btn) {
     }
     console.log(filesValues);
 
+    let alerted = false;
     // Perform the AJAX request
     fetch("index.php?module=records&action=updateUserInfos", {
       method: "POST",
@@ -65,12 +66,21 @@ async function updateUserInfos(btn) {
       .then((data) => {
         console.log(JSON.parse(data));
         // Redirect or refresh the page after successful deletion
-        if (JSON.parse(data).success);
-        else if (JSON.parse(data).message === "Invalid URL.")
+        if (JSON.parse(data).success) {
+          alerted = true;
+          document.getElementById("wrong_url").hidden = true;
+          alert("Url bien enregistrée");
+        } else if (JSON.parse(data).message === "Invalid URL.") {
+          alerted = true;
           document.getElementById("wrong_url").hidden = false;
-        else console.error(JSON.parse(data).message);
+        } else {
+          alerted = true;
+          console.error(JSON.parse(data).message);
+        }
+      })
+      .finally(() => {
+        if (!alerted) alert("Informations bien enregistrées");
       });
-    alert("Documents bien enregistrés");
   } catch (error) {
     console.error("Error:", error);
     alert(error);
