@@ -32,8 +32,8 @@ switch ($module) {
         break;
 
     case 'annonce':
-        $moduleFile = './src/modules/annonce_student/module_annonce_student.php';
-        $moduleClass = 'ModuleAnnonceStudent';
+        $moduleFile = './src/modules/annonce/module_annonce.php';
+        $moduleClass = 'ModuleAnnonce';
         break;
 
     case 'records':
@@ -45,7 +45,7 @@ switch ($module) {
         $moduleFile = './src/modules/owner_requests/module_owner_requests.php';
         $moduleClass = 'ModOwnerRequests';
         break;
-    
+
     case 'student_requests':
         $moduleFile = './src/modules/student_requests/module_student_requests.php';
         $moduleClass = 'ModStudentRequests';
@@ -103,20 +103,19 @@ switch ($module) {
         break;
 }
 
+unset($_SESSION['json_response']);
 if (file_exists($moduleFile)) {
     require $moduleFile;
     $moduleClass = new $moduleClass();
+
+    $tampon = $moduleClass->displayContent();
 } else {
-    var_dump($moduleFile);
-    var_dump($moduleClass);
-    echo "Erreur sur le module dans l'index";
+    //var_dump($moduleFile);
+    //var_dump($moduleClass);
 }
 
-unset($_SESSION['json_response']);
-$tampon = $moduleClass->displayContent();
-
 if (!isset($_SESSION['json_response'])) {
-    include_once "./src/template.php";
+    require_once "./src/template.php";
 } else {
     unset($_SESSION['json_response']);
     echo $tampon;

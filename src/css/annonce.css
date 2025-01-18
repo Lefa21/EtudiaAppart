@@ -22,12 +22,13 @@
 /* Section 2 - Texte à gauche, bouton à droite */
 .section-content {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-around;
 }
 
 .text-content {
-  flex: 3; /* Texte prend 3 parts de la section */
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .text-content .title {
@@ -59,9 +60,11 @@
 }
 
 .button-container {
-  flex: 1; /* Le bouton occupe 1 part */
+  position: relative;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .action-button {
@@ -76,19 +79,21 @@
 }
 
 .postuler {
-  margin: 2rem;
   font-size: 1.2rem;
   font-weight: bold;
-  width: 80%;
+}
+
+.postuler:hover {
+  background-color: var(--button-hover);
 }
 
 .signaler {
-  margin-right: 2rem;
-  height: auto;
+  background-color: #ff3939;
+  font-size: 0.9rem;
 }
 
-.action-button:hover {
-  background-color: var(--primary-color);
+.signaler:hover {
+  background-color: red;
 }
 
 /* Section 3 - Texte large */

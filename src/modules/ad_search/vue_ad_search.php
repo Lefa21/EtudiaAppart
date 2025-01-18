@@ -23,6 +23,7 @@ class VueSearchAd extends VueGenerique
         <script id="adData" type="application/json">
             <?= json_encode($adData['results']); ?>
         </script>
+        <script type="text/javascript" src="./src/scripts/annonce.js"></script>
 
 
         <div class="student-housing">
@@ -178,6 +179,33 @@ class VueSearchAd extends VueGenerique
                                     </div>
                                 </div>
                             </div>
+                            <div class="listings-container">
+                                <div class="listings-wrapper">
+                                    <?php
+                                    if (!empty($adData['results'])) {
+                                        foreach ($adData['results'] as $ad) { ?>
+                                            <article class="listing-card" onclick="redirectTo(this)">
+                                                <span class="annonceId" hidden><?= $ad['id_ad'] ?></span>
+                                                <img src="assets\logement_etudiant_1.jpg" alt="Apartment interior view" class="listing-image" />
+                                                <div class="listing-details">
+                                                    <div>
+                                                        <img src="assets\icon_favoris.svg" alt="Apartment interior view" class="image-annonce_favoris" />
+                                                    </div>
+                                                    <h2 class="listing-title"><?= htmlspecialchars($ad['ad_title']) ?></h2>
+                                                    <p class="listing-location"><?= htmlspecialchars($ad['city']) . ' ' . htmlspecialchars($ad['zipCode']) ?></p>
+                                                    <div class="listing-meta">
+                                                        <time class="listing-date">
+                                                            Publiée le <?= date("d/m/y H:i", strtotime($ad['date_publication'])) ?>
+                                                        </time>
+                                                        <p class="listing-price"><?= htmlspecialchars(number_format($ad['rent_price'], 2)) ?>€</p>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                    <?php }
+                                    } ?>
+                                </div>
+                            </div>
+                        </div>
 
                 </form>
                 <div class="listings-container">

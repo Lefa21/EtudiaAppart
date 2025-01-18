@@ -173,4 +173,5 @@ class ModeleSearchAd extends Connexion
 
         return $result;
     }
+
 }
