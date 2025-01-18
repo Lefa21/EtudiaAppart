@@ -20,12 +20,18 @@
 
 <body>
     <?php
-    
+
 
     include __DIR__ . '/header.php';
     ?>
 
-        <?php echo $tampon; ?>
+    <?php
+    if (isset($tampon)) {
+        echo $tampon;
+    } else {
+        include __DIR__ . '/not-found.php';
+    }
+    ?>
 
     <?php
 

@@ -88,20 +88,19 @@ switch ($module) {
         break;
 }
 
+unset($_SESSION['json_response']);
 if (file_exists($moduleFile)) {
     require $moduleFile;
     $moduleClass = new $moduleClass();
+
+    $tampon = $moduleClass->displayContent();
 } else {
-    var_dump($moduleFile);
-    var_dump($moduleClass);
-    echo "Erreur sur le module dans l'index";
+    //var_dump($moduleFile);
+    //var_dump($moduleClass);
 }
 
-unset($_SESSION['json_response']);
-$tampon = $moduleClass->displayContent();
-
 if (!isset($_SESSION['json_response'])) {
-    include_once "./src/template.php";
+    require_once "./src/template.php";
 } else {
     unset($_SESSION['json_response']);
     echo $tampon;

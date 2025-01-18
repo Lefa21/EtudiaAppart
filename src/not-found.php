@@ -35,9 +35,9 @@
   }
 </style>
 <div class="not-found-container">
-  <h1>Aucune annonce n'a été trouvée</h1>
-  <p>Il semble que l'annonce que vous cherchez n'existe pas ou a été supprimée.</p>
-  <button class="redirect-button" onclick="window.location.href='index.php?module=ad_search'">
-    Retourner à la recherche
+  <h1>Vous êtes perdu ?</h1>
+  <p>Il semble que la page que vous cherchez n'existe pas ou est indisponible.</p>
+  <button class="redirect-button" onclick="window.location.href='index.php?module=home'">
+    Retourner à l'accueil
   </button>
 </div>

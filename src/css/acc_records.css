@@ -134,6 +134,10 @@
   cursor: pointer;
 }
 
+.save_button:hover {
+  background-color: #031473;
+}
+
 /* Tooltip container */
 .tooltip {
   position: absolute;

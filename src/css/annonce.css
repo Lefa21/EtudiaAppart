@@ -83,13 +83,13 @@
   font-weight: bold;
 }
 
+.postuler:hover {
+  background-color: var(--button-hover);
+}
+
 .signaler {
   background-color: #ff3939;
   font-size: 0.9rem;
-}
-
-.action-button:hover {
-  background-color: var(--primary-color);
 }
 
 .signaler:hover {
