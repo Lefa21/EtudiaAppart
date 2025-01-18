@@ -148,7 +148,8 @@ class VueOwnerRequests extends VueGenerique
                                                         <input hidden value="<?= htmlspecialchars($request['id_student']) ?>" name="id_student">
                                                         <input hidden value="<?= htmlspecialchars($request['id_owner']) ?>" name="id_owner">
                                                         <button type="submit" name="submit" class="action-button secondary">Gérer la demande</button>
-                                                </td>
+                                                    </form>
+                                                    </td>
                                             </tr>
                                     <?php }
                                     } ?>
@@ -210,8 +211,8 @@ class VueOwnerRequests extends VueGenerique
 
                 <div class="actions-container">
                     <button class="action-button primary-button" data-file-url="<?= htmlspecialchars($apply['file_name']) ?>">Voir le dossier étudiant</button>
-                    <button class="action-button secondary-button">Accepter la demande</button>
-                    <button class="action-button outline-button">Rejeter la demande</button>
+                    <button type="submit" name="submit" class="action-button secondary-button">Accepter la demande</button>
+                    <button type="submit" name="submit" class="action-button outline-button">Rejeter la demande</button>
                 </div>
                 <?php
                         } ?>
