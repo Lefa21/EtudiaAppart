@@ -40,6 +40,7 @@ class ModeleConnexion extends Connexion
                     $row = $sql->fetch(PDO::FETCH_ASSOC); // permet de récupérer les données de la requete
                     if (password_verify($password, $row['password'])) {
                         $_SESSION['identifiant_utilisateur'] = $row["id_user"];
+                        $_SESSION['userId'] = $row["id_user"];
                         $_SESSION['email'] = $email;
                         $_SESSION['user_status'] =  $row["profile_status"];
                         $_SESSION['user_first_name'] =  $row["first_name"];
@@ -60,16 +61,14 @@ class ModeleConnexion extends Connexion
     public function deconnexionUtilisateur()
     {
         if (isset($_SESSION['identifiant_utilisateur']) || isset($_SESSION['userId'])) {
-            echo 'Déconnexion réussie, identifiant :' . $_SESSION['identifiant_utilisateur'] . '<br>';
             unset($_SESSION['identifiant_utilisateur']);
             unset($_SESSION['email']);
             unset($_SESSION['user_status']);
             unset($_SESSION['user_first_name']);
             unset($_SESSION['user_last_name']);
             unset($_SESSION['profile_picture']);
+            unset($_SESSION['userId']); 
             header('Location: index.php');
-        } else {
-            echo "Vous n'êtes pas connecté\n" . '<br>';
         }
     }
 }
