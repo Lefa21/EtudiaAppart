@@ -19,12 +19,16 @@ class ContInscription
 
     public function ajoutUtilisateur()
     {
-        $this->modele->ajoutUtilisateur();
+        $errors = $this->modele->ajoutUtilisateur();
+
+        if (!empty($errors)) {
+            $this->formulaireInscription($errors);
+        }
     }
 
-    public function formulaireInscription()
+    public function formulaireInscription($errors = [])
     {
-        $this->vue->formulaireInscription();
+        $this->vue->formulaireInscription($errors);
     }
 
     public function getVue()

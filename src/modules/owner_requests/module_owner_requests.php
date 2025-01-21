@@ -17,6 +17,9 @@ class ModOwnerRequests{
                 $this->controleur->show_application();
                 break;
 
+            case 'validate_request':
+                $this->controleur->validate_request();
+                break;
         }
 
     } 

@@ -29,13 +29,16 @@ header .banner {
   color: #fff;
   text-align: left;
   padding: 1% 0 1% 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 #logoIcon a {
   position: inherit;
-  display: inherit;
+  display: flex;
   text-decoration: inherit; /* Retire le soulignement */
-  align-items: inherit;
+  align-items: center;
   color: inherit; /* Garde la couleur du texte d'origine */
 }
 
@@ -60,6 +63,7 @@ header .banner {
   font-family: "Krona One", sans-serif;
   width: 100%;
   height: 4rem;
+  justify-content: flex-end;
 }
 
 .navigation-bar ul {
@@ -82,12 +86,8 @@ header .banner {
   z-index: 1;
   display: block; /* Ne pas utiliser display: none, car cela empêche les transitions */
   opacity: 0;
-  transform: translateY(
-    -10px
-  ); /* Déplacer légèrement vers le haut pour l'animation */
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease; /* Animation sur 0.3s */
+  transform: translateY(-10px); /* Déplacer légèrement vers le haut pour l'animation */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Animation sur 0.3s */
   visibility: hidden; /* Cache l'élément initialement */
   position: absolute;
   background-color: #fff;
@@ -125,4 +125,116 @@ header .banner {
   animation: rotation 0.3s ease-in-out;
 }
 
+/* --------------------------- MEDIA QUERIES POUR RENDRE RESPONSIVE ---------------------------- */
 
+@media (max-width: 991px) {
+  header .banner {
+    justify-content: space-between;
+  }
+
+  #logoText {
+    font-size: 1.2em;
+  }
+
+  .navigation-bar {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .navigation-bar ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .navigation-bar ul li {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  #logoImg {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  #recherche_annonce,
+  #deposer_annonce,
+  #loginButton,
+  #registerButton,
+  #myAccount {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  #myAccount {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  #dropdown_menu_arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  #logoImg {
+    height: 60px;
+  }
+
+  #logoText {
+    font-size: 1.1em;
+  }
+
+  .navigation-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navigation-bar ul li {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .navigation-bar ul li a,
+  .navigation-bar ul li #myAccount {
+    margin-right: 0;
+    font-size: 1rem;
+  }
+
+  #recherche_annonce,
+  #deposer_annonce,
+  #loginButton,
+  #registerButton {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  #myAccount {
+    display: block;
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  #dropdown_menu_arrow {
+    display: none;
+  }
+}

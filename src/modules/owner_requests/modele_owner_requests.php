@@ -41,6 +41,27 @@ class ModeleOwnerRequests extends Connexion
         ];
     }
 
+    public function changeStatusRequest(){            
+        $id_application = $_POST["id_application"];
+        $statusResponse = $_POST["response"];
+        
+        if (isset($id_application) && isset($statusResponse)) {
+            $query = "
+            UPDATE Application
+            SET current_status = :statusResponse
+            WHERE id_application = :idApplication";
+        
+            $stmt = Connexion::getBdd()->prepare($query);
+        
+            $stmt->bindParam(':idApplication', $id_application, PDO::PARAM_INT); 
+            $stmt->bindParam(':statusResponse', $statusResponse, PDO::PARAM_STR);
+            
+            $stmt->execute();
+        } else {
+            echo "Les paramètres sont manquants ou invalides.";
+        }
+        
+    }
 
     public function getApplication()
     {

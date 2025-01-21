@@ -28,6 +28,11 @@ class ContOwnerRequests{
         $this->vue->show_application($applicationData);
     }
 
+    public function validate_request(){  
+        $this->modele->changeStatusRequest();
+        $this->vue->showValidationMessage();
+    }
+
     public function getVue(){
         return $this->vue;
     }
