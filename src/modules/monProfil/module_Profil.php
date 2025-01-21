@@ -12,12 +12,12 @@ class ModuleProfil
         $this->controller = new ControllerProfil();
         $emailIdentification = $_SESSION['email'] ?? null;
         switch ($this->controller->getAction()) {
-            
+
             case 'Profil':
                 if ($emailIdentification === null) {
-                    header('Location: login.php');
+                    header('Location: index.php?module=connexion&action=formulaireConnexion');
                     exit();
-                }else{
+                } else {
                     $this->controller->profil($emailIdentification);
                 }
                 break;
