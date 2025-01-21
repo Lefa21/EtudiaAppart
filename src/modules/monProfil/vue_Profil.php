@@ -23,7 +23,7 @@ class VueProfil extends VueGenerique
             <p class="section-subtitle-profile">Modifier vos informations personnelles et académiques</p>
           </div>
 
-          <form id="profilForm" method="POST">
+          <form id="profilForm" action="index.php?module=monProfil&action=Profil" method="POST">
             <div class="form-section-profile">
               <h2 class="form-title-profile">Informations personnelles</h2>
 
@@ -153,7 +153,7 @@ class VueProfil extends VueGenerique
               </div>
             </div>
 
-            <button type="submit" name="submit" id="saveProfileBtn" class="save-button-profile">Sauvegarder</button>
+            <button type="submit" name="update_profil" id="saveProfileBtn" class="save-button-profile">Sauvegarder</button>
           </form>
         </section>
       </div>

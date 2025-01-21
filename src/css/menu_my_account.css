@@ -2,7 +2,6 @@
   width: 29%;
   background: var(--background-color-white, #fff);
   padding: 20px;
-  display: flex;
   flex-direction: column;
   font-family: var(--police-text), sans-serif;
 }
