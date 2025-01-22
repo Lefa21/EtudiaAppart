@@ -1,4 +1,12 @@
-<?php global $tampon; ?>
+<?php // Inclure le fichier d'initialisation
+require_once 'index.php';
+
+// Récupérer le thème via le modèle
+$model = new ModeleSettings();
+$themeClass = $model->getTheme() === 'dark' ? 'dark-theme' : 'light-theme'; 
+
+global $tampon; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

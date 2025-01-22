@@ -5,6 +5,7 @@ require_once './src/vue_generique.php';
 
 
 session_start();
+require_once __DIR__ . '/src/modules/settings/modele_settings.php';
 
 Connexion::initConnexion();
 
@@ -82,6 +83,7 @@ switch ($module) {
     case 'contact':
         $moduleFile = './src/modules/contact/module_contact.php';
         $moduleClass = 'ModContact';
+
         break;
 
 }
