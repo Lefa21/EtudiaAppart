@@ -63,7 +63,6 @@ switch ($module) {
         $moduleFile = './src/modules/creation_annonce/module_creation_annonce.php';
         $moduleClass = 'ModCreationAnnonce';
         break;
-
     case 'a_propos':
         $moduleFile = './src/modules/a_propos/module_a_propos.php';
         $moduleClass = 'ModAPropos';
