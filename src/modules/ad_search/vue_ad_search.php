@@ -20,6 +20,7 @@ class VueSearchAd extends VueGenerique
         <script type="text/javascript" src="./src/scripts/filter_search_ad.js"></script>
         <script type="text/javascript" src="./src/scripts/key_research.js"></script>
         <script type="text/javascript" src="./src/scripts/favorite.js"></script>
+        <script type="text/javascript" src="./src/scripts/furnished_event.js"></script>
         <script id="adData" type="application/json">
             <?= json_encode($adData['results']); ?>
         </script>
@@ -59,13 +60,31 @@ class VueSearchAd extends VueGenerique
                                     </div>
 
                                     <div class="filter-content">
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Collocation"> Collocation</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Appartement"> Appartement entier</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="chambre"> Chambre</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Maison"> Maison</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Logement contre aide à la personne"> Logement contre aide</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Résidence étudiante publique"> Résidence étudiante publique</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Résidence étudiante privée">Résidence étudiante privée</label>
+                                        <?php
+                                        $selectedHousingTypes = $adData['search_criteria']['housing_type'] ?? [];
+                                        ?>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Collocation" <?= in_array('Collocation', $selectedHousingTypes) ? 'checked' : '' ?>> Collocation
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Appartement" <?= in_array('Appartement', $selectedHousingTypes) ? 'checked' : '' ?>> Appartement entier
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="chambre" <?= in_array('chambre', $selectedHousingTypes) ? 'checked' : '' ?>> Chambre
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Maison" <?= in_array('Maison', $selectedHousingTypes) ? 'checked' : '' ?>> Maison
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Logement contre aide à la personne" <?= in_array('Logement contre aide à la personne', $selectedHousingTypes) ? 'checked' : '' ?>> Logement contre aide
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Résidence étudiante publique" <?= in_array('Résidence étudiante publique', $selectedHousingTypes) ? 'checked' : '' ?>> Résidence étudiante publique
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Résidence étudiante privée" <?= in_array('Résidence étudiante privée', $selectedHousingTypes) ? 'checked' : '' ?>> Résidence étudiante privée
+                                        </label>
+
                                     </div>
                                 </div>
 
@@ -105,16 +124,18 @@ class VueSearchAd extends VueGenerique
 
                                     <div class="filter-content">
                                         <div>
+                                            <?php
+                                            $habitationFurnished = $adData['search_criteria']['habitation_furnished'] ?? '';
+                                            ?>
                                             <label class="filter_label">
-                                                <input type="checkbox" id="furnishedYes" name="habitation_furnished" value="oui"> oui
+                                                <input type="checkbox" id="furnishedYes" name="habitation_furnished" value="oui" <?= $habitationFurnished === 'oui' ? 'checked' : '' ?>> oui
                                             </label>
                                             <label class="filter_label">
-                                                <input type="checkbox" id="furnishedNo" name="habitation_furnished" value="non"> non
+                                                <input type="checkbox" id="furnishedNo" name="habitation_furnished" value="non" <?= $habitationFurnished === 'non' ? 'checked' : '' ?>> non
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-
 
 
                                 <!-- Durée de location -->
