@@ -4,19 +4,19 @@ require_once 'controller_inscription.php';
 
 class ModInscription
 {
-    private $controller;
+    private $controleur;
 
     public function __construct()
     {
-        $this->controller = new ContInscription();
+        $this->controleur = new ContInscription();
 
-        switch ($this->controller->getAction()) {
+        switch ($this->controleur->getAction()) {
             case 'formulaireInscription':
-                $this->controller->formulaireInscription();
+                $this->controleur->formulaireInscription();
                 break;
 
             case 'inscription':
-                $this->controller->ajoutUtilisateur();
+                $this->controleur->ajoutUtilisateur();
                 break;
             case 'registerSuccessful': 
                 $this->controleur->registerSuccessful();
@@ -32,11 +32,19 @@ class ModInscription
             case 'registerSuccessful': 
                 $this->controleur->registerSuccessful();
                 break;
+
+            case 'signUpSuccess': 
+                    $this->controleur->signUpSuccess();
+                    break;    
+
+            case 'confirmEmail': 
+                $this->controleur->confirmEmail();
+                break;
         }
     }
 
     public function displayContent()
     {
-        return $this->controller->displayContent();
+        return $this->controleur->displayContent();
     }
 }
