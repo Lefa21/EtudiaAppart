@@ -102,8 +102,6 @@ class VueInscription extends VueGenerique
         </div>
       </main>
     </div>
-<<<<<<< HEAD
-=======
   <?php
   }
 
@@ -184,7 +182,6 @@ class VueInscription extends VueGenerique
   </div>
 </main>
 
->>>>>>> e1c1ba5 (mail de confirmation OK)
 <?php
   }
 }
