@@ -94,9 +94,9 @@ class ModeleInscription extends Connexion
     public function ajoutUtilisateur()
     {
 
-        // Vérifier si le formulaire est soumis et que tous les champs sont présents
         if (isset($_POST['submit']) && isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['profile_status']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
-            
+            $errors = [];
+
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $email = $_POST['email'];
