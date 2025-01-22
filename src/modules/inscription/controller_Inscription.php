@@ -33,9 +33,8 @@ class ContInscription
     public function registerSuccessful(){
         $this->vue->registerSuccessful();
     }
-
-    public function getVue()
-    {
+    
+    public function getVue(){
         return $this->vue;
     }
 
