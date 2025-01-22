@@ -40,9 +40,6 @@ class ContInscription
     {
         $this->vue->formulaireInscription($errors);
     }
-    public function registerSuccessful(){
-        $this->vue->registerSuccessful();
-    }
     
     public function getVue(){
         return $this->vue;
