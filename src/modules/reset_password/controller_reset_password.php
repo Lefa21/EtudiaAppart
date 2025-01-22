@@ -53,4 +53,7 @@ class ContResetPassword
     {
         return $this->vue->getAffichage();
     }
+
 }
+
+?>
