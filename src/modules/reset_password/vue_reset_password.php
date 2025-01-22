@@ -65,51 +65,52 @@ class VueResetPassword extends VueGenerique
     }
 
     public function formulaireNouveauPassword($token, $message = null)
-    {
-    ?>
-        <link rel="stylesheet" href="./src/css/inscription.css">
-        <div class="login-container">
-            <main class="main-content-login">
-                <div class="login-wrapper">
-                    <?php if ($message): ?>
-                        <div class="alert" style="color: red; margin-bottom: 20px; text-align: center;">
-                            <?php echo htmlspecialchars($message); ?>
-                        </div>
-                    <?php endif; ?>
+{
+?>
+    <link rel="stylesheet" href="./src/css/inscription.css">
+    <div class="login-container">
+        <main class="main-content-login">
+            <div class="login-wrapper">
+                <?php if ($message): ?>
+                    <div class="alert" style="color: red; margin-bottom: 20px; text-align: center;">
+                        <?php echo htmlspecialchars($message); ?>
+                    </div>
+                <?php endif; ?>
 
-                    <?php if ($token): ?>
-                        <form class="login-form-main" action="index.php?module=resetPassword&action=verifierEtModifierMotDePasse&token=<?php echo htmlspecialchars($token); ?>" method="POST">
-                            <h1 class="form-title-login">Modifier le mot de passe</h1>
+                <?php if ($token): ?>
+                    <form class="login-form-main" action="index.php?module=resetPassword&action=verifierEtModifierMotDePasse&token=<?php echo htmlspecialchars($token); ?>" method="POST">
+                        <h1 class="form-title-login">Modifier le mot de passe</h1>
 
-                            <label for="password" class="visually-hidden">Nouveau mot de passe</label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                class="form-input-inscription"
-                                placeholder="Mot de passe"
-                                required
-                                aria-required="true" />
+                        <label for="password" class="visually-hidden">Nouveau mot de passe</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-input-inscription"
+                            placeholder="Mot de passe"
+                            required
+                            aria-required="true" />
 
-                            <label for="confirm-password" class="visually-hidden">Confirmer votre mot de passe</label>
-                            <input
-                                type="password"
-                                id="confirm-password"
-                                name="confirm_password"
-                                class="form-input-inscription"
-                                placeholder="Confirmer votre mot de passe"
-                                required
-                                aria-required="true" />
+                        <label for="confirm-password" class="visually-hidden">Confirmer votre mot de passe</label>
+                        <input
+                            type="password"
+                            id="confirm-password"
+                            name="confirm_password"
+                            class="form-input-inscription"
+                            placeholder="Confirmer votre mot de passe"
+                            required
+                            aria-required="true" />
 
-                            <button type="submit" name="submit" class="submit-btn-login">
-                                Valider
-                            </button>
-                        </form>
-                    <?php endif; ?>
-                </div>
-            </main>
-        </div>
+                        <button type="submit" name="submit" class="submit-btn-login">
+                            Valider
+                        </button>
+                    </form>
+                <?php endif; ?>
+            </div>
+        </main>
+    </div>
 <?php
-    }
+}
+
 }
 ?>
