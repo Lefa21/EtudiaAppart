@@ -158,4 +158,24 @@ class ModeleSearchAd extends Connexion
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function insertFavorite($userId, $adId)
+    {
+
+        $query = "INSERT INTO Favorites_ad (id_user, id_ad) VALUES (:id_user, :id_ad)";
+        $stmt = Connexion::getBdd()->prepare($query);
+
+        // Point de contrôle 4 : Logguez les valeurs bindées
+        var_dump("Binding - User ID : $userId, Ad ID : $adId");
+
+        $stmt->bindParam(':id_user', $userId, PDO::PARAM_INT);
+        $stmt->bindParam(':id_ad', $adId, PDO::PARAM_INT);
+
+        $result = $stmt->execute();
+
+        // Point de contrôle 5 : Logguez le succès ou l'échec de l'exécution
+        var_dump("Insertion SQL : " . ($result ? 'Succès' : 'Échec') . " - Erreur SQL : " . print_r($stmt->errorInfo(), true));
+
+        return $result;
+    }
 }

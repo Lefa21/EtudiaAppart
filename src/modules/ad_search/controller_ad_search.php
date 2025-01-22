@@ -24,13 +24,14 @@ class ContSearchAd
         $adData = $this->modele->getAd();
         $this->vue->showSearchAd($adData);
     }
+
     public function searchAdTitles()
     {
-        
+
         if (isset($_GET['keyword'])) {
             $keyword = trim($_GET['keyword']);
 
-        
+
             if (!empty($keyword)) {
                 $results = $this->modele->searchAdTitles($keyword);
                 header('Content-Type: application/json');
@@ -38,12 +39,25 @@ class ContSearchAd
                 exit;
             }
         }
-        
+
         header('Content-Type: application/json');
         echo json_encode([]);
         exit;
     }
 
+    public function addFavorite()
+    {
+        var_dump("on y est");
+        if ($this->action === 'addFavorite' && isset($_GET['id_ad']) && isset($_SESSION['identifiant_utilisateur'])) {
+            
+            $adId = $_GET['id_ad'];
+            $userId = $_SESSION['identifiant_utilisateur'];
+            $this->modele->insertFavorite($userId, $adId);
+        }
+
+        $this->getAd();
+        
+    }
 
     public function getAction()
     {

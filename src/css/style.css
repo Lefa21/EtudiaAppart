@@ -125,18 +125,7 @@ header .banner {
   animation: rotation 0.3s ease-in-out;
 }
 
-<<<<<<< HEAD
 /* --------------------------- MEDIA QUERIES POUR RENDRE RESPONSIVE ---------------------------- */
-=======
-.dark-theme {
-  background-color: #333;
-  color: #fff;
-}
-.light-theme {
-  background-color: #fff;
-  color: #000;
-}
->>>>>>> 3cffe01 (settings in progress, favoris debut)
 
 @media (max-width: 991px) {
   header .banner {

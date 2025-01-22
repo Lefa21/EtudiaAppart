@@ -44,6 +44,11 @@ class ControllerHome
     {
         $this->vue->events();
     }
+
+    public function notPermitted() {
+        // Charge une vue pour indiquer un accès refusé
+        $this->vue->notPermitted();
+    }
     
     public function restauration()
     {

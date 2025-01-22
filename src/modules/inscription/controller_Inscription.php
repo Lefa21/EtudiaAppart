@@ -1,20 +1,21 @@
 <?php
 
+
 require_once 'modele_inscription.php';
 require_once 'vue_inscription.php';
 require_once __DIR__  . '/../../connexion.php';
 
-class ContInscription
-{
+
+class ContInscription{
+
     private $modele;
     private $vue;
     private $action;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->modele = new ModeleInscription();
         $this->vue = new VueInscription();
-        $this->action = isset($_GET['action']) ? $_GET['action'] : 'formulaireInscription';
+        $this->action = isset($_GET['action'])? $_GET['action'] : 'formulaireInscription';
     }
 
     public function ajoutUtilisateur()
@@ -44,9 +45,9 @@ class ContInscription
     public function getVue(){
         return $this->vue;
     }
+    
 
-    public function getAction()
-    {
+    public function getAction(){
         return $this->action;
     }
 
@@ -54,4 +55,7 @@ class ContInscription
     {
         return $this->vue->getAffichage();
     }
+
 }
+
+?>

@@ -83,6 +83,15 @@ switch ($module) {
     case 'contact':
         $moduleFile = './src/modules/contact/module_contact.php';
         $moduleClass = 'ModContact';
+<<<<<<< HEAD
+=======
+        break;
+    case 'reports':
+        $moduleFile = './src/modules/reports/module_reports.php';
+        $moduleClass = 'ModReports';
+        break;
+}
+>>>>>>> 5efe4c5 (signalements ok et confirmation mail remis dans le code)
 
         break;
     case 'favorites':

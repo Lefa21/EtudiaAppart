@@ -8,7 +8,47 @@ use PHPMailer\PHPMailer\Exception;
 
 class ModeleInscription extends Connexion
 {
-    public function __construct() {}
+    public function __construct()
+    {
+    }
+
+    /**
+     * Envoie un email via le SMTP de Mailtrap.
+     *
+     * @param string $to       L'adresse email du destinataire.
+     * @param string $subject  L'objet de l'email.
+     * @param string $body     Le contenu HTML de l'email.
+     * @return bool            Retourne true si l'email a été envoyé, false sinon.
+     */
+    private function sendMail($to, $subject, $body)
+    {
+        $mail = new PHPMailer(true);
+        try {
+            // Configuration du serveur SMTP Mailtrap
+            $mail->isSMTP();
+            $mail->Host = 'sandbox.smtp.mailtrap.io';
+            $mail->SMTPAuth = true;
+            $mail->Port = 2525;
+            $mail->Username = '787465f2de2697'; // Votre identifiant Mailtrap
+            $mail->Password = '3533f50af7726d'; // Votre mot de passe Mailtrap
+
+            // Expéditeur et destinataire
+            $mail->setFrom('a01e94ac68-997602+1@inbox.mailtrap.io', 'EtudiAppart'); // Adresse et nom de l'expéditeur
+            $mail->addAddress($to); // Adresse du destinataire
+
+            // Contenu de l'email
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+
+            // Envoyer
+            $mail->send();
+            return true;
+        } catch (Exception $e) {
+            error_log("Erreur d'envoi d'email : " . $mail->ErrorInfo);
+            return false;
+        }
+    }
 
 
 
@@ -81,7 +121,7 @@ class ModeleInscription extends Connexion
             $sql = Connexion::getBdd()->prepare('SELECT * FROM User WHERE email = :email');
             $sql->bindParam(':email', $email, PDO::PARAM_STR);
             $sql->execute();
-
+    
             if ($sql->rowCount() >= 1) {
                 $errors['email'] = ' L\'adresse email existe déjà';
                 return $errors;
@@ -119,9 +159,14 @@ class ModeleInscription extends Connexion
                     <p>Cordialement,<br>Staff EtudiAppart</p>
                 ";
 
-            if ($sql->execute()) {
-                header('Location: index.php');
-                exit();
+                // Envoyer l'email
+                if ($this->sendMail($email, $subject, $body)) {
+                    echo "Un email de réinitialisation a été envoyé à votre adresse.";
+                    exit();;
+                } else {
+                    echo "Une erreur s'est produite lors de l'envoi de l'email.";
+                    exit();
+                }
             } else {
                 $errors['inscription'] = "Une erreur est survenue lors de l'inscription, veuillez réessayez plus tard";
                 return $errors;
@@ -129,9 +174,9 @@ class ModeleInscription extends Connexion
             return $errors;
         }
     }
-    }
 
     public function confirmEmail(){
+
     echo "Méthode confirmEmail appelée.<br>";
 
     if (!isset($_GET['token']) || empty($_GET['token'])) {
@@ -181,5 +226,7 @@ class ModeleInscription extends Connexion
     }
 }
 
-
 }
+
+
+?>
