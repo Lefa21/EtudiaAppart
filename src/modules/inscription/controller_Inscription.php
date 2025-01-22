@@ -36,10 +36,6 @@ class ContInscription
         $this->vue->registerSuccessful();
     }
 
-    public function registerSuccessful(){
-        $this->vue->registerSuccessful();
-    }
-
     public function formulaireInscription($errors = [])
     {
         $this->vue->formulaireInscription($errors);
