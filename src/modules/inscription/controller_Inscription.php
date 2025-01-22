@@ -25,6 +25,13 @@ class ContInscription
             $this->formulaireInscription($errors);
         }
     }
+    public function signUpSuccess(){
+        $this->vue->signUpSuccess();
+    }
+
+    public function confirmEmail(){
+        $this->modele->confirmEmail();
+    }
 
     public function formulaireInscription($errors = [])
     {
