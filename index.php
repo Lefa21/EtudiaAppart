@@ -85,6 +85,10 @@ switch ($module) {
         $moduleClass = 'ModContact';
 
         break;
+    case 'favorites':
+        $moduleFile = './src/modules/favorites/module_favorites.php';
+        $moduleClass = 'ModFavorites';
+        break;
 
 }
 

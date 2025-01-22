@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controller_messagerie.php';
+require_once 'controller_settings.php';
 
 class ModSettings{
     private $controller;
