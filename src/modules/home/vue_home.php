@@ -24,7 +24,7 @@
             $_SESSION['home_page'] = 1;
             //$_SESSION['user_name'] = $userName;
     ?>
-                <style>
+            <style>
                 .styled-date-input {
                     appearance: none;
                     -webkit-appearance: none;
@@ -52,6 +52,8 @@
             <script type="text/javascript" src="./src/scripts/search_address_home.js"></script>
             <link rel="stylesheet" href="./src/css/home.css">
             <main>
+
+
                 <section class="vie-etudiante">
                     <div class="dropdown">
                         <button class="v-e-btn">
