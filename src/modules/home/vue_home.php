@@ -23,7 +23,10 @@ class VueHome extends VueGenerique
         <script type="text/javascript" src="./src/scripts/search_address_home.js"></script>
         <link rel="stylesheet" href="./src/css/home.css">
         <main>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b114139 (change inc)
             <section class="vie-etudiante">
                 <div class="dropdown">
                     <button class="v-e-btn">

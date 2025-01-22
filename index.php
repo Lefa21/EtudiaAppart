@@ -67,12 +67,10 @@ switch ($module) {
         $moduleFile = './src/modules/a_propos/module_a_propos.php';
         $moduleClass = 'ModAPropos';
         break;
-
     case 'messagerie':
         $moduleFile = './src/modules/messagerie/module_messagerie.php';
         $moduleClass = 'ModMessagerie';
         break;
-
     case 'resetPassword':
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
