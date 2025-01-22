@@ -82,12 +82,20 @@ header .banner {
   z-index: 3;
 }
 
+#extend_banner {
+  display: none;
+}
+
 .dropdown-menu {
   z-index: 1;
   display: block; /* Ne pas utiliser display: none, car cela empêche les transitions */
   opacity: 0;
-  transform: translateY(-10px); /* Déplacer légèrement vers le haut pour l'animation */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Animation sur 0.3s */
+  transform: translateY(
+    -10px
+  ); /* Déplacer légèrement vers le haut pour l'animation */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease; /* Animation sur 0.3s */
   visibility: hidden; /* Cache l'élément initialement */
   position: absolute;
   background-color: #fff;
@@ -141,13 +149,24 @@ header .banner {
     flex-direction: column;
     align-items: flex-start;
     height: auto;
-    padding: 1rem;
+  }
+
+  #extend_banner {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 2%;
+  }
+
+  .banner-extended {
+    display: none;
   }
 
   .navigation-bar ul {
     flex-direction: column;
     width: 100%;
     margin-top: 1rem;
+    padding: 1rem;
   }
 
   .navigation-bar ul li {
@@ -195,15 +214,9 @@ header .banner {
     font-size: 1.1em;
   }
 
-  .navigation-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
-  }
-
   .navigation-bar ul li {
     font-size: 1rem;
-    margin-bottom: 1rem;
+    padding: 1rem;
   }
 
   .navigation-bar ul li a,
