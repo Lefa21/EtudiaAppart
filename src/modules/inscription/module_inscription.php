@@ -18,6 +18,9 @@ class ModInscription
             case 'inscription':
                 $this->controller->ajoutUtilisateur();
                 break;
+            case 'registerSuccessful': 
+                $this->controleur->registerSuccessful();
+                break;
         }
     }
 
