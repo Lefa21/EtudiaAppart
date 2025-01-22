@@ -1,12 +1,11 @@
 <?php
 
-
 require_once 'modele_reset_password.php';
 require_once 'vue_reset_password.php';
-require_once __DIR__  . '/../../connexion.php';
+require_once __DIR__ . '/../../connexion.php';
 
-class ContResetPassword{
-
+class ContResetPassword
+{
     private $modele;
     private $vue;
     private $action;
