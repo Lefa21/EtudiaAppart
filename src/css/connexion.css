@@ -64,7 +64,7 @@
 
 .login-form-main {
   border-radius: 10px;
-  background: var(--Secondary, #ccd8ff);
+  border: 2px solid var(--Secondary, #ccd8ff);
   width: 780px;
   max-width: 100%;
   padding: 28px 35px 14px;
@@ -86,7 +86,7 @@
   align-items: center;
   gap: 20px;
   border-radius: 5px;
-  border: 1px solid var(--Primary, #041a8f);
+  border: 1px solid var(--Secondary, #ccd8ff);
   background: #fff;
   padding: 15px 20px;
   margin-top: 38px;
