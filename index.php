@@ -64,17 +64,14 @@ switch ($module) {
         $moduleFile = './src/modules/creation_annonce/module_creation_annonce.php';
         $moduleClass = 'ModCreationAnnonce';
         break;
-
     case 'a_propos':
         $moduleFile = './src/modules/a_propos/module_a_propos.php';
         $moduleClass = 'ModAPropos';
         break;
-
     case 'messagerie':
         $moduleFile = './src/modules/messagerie/module_messagerie.php';
         $moduleClass = 'ModMessagerie';
         break;
-
     case 'resetPassword':
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
@@ -102,6 +99,7 @@ switch ($module) {
         $moduleClass = 'ModReports';
         break;
 }
+
 
 unset($_SESSION['json_response']);
 if (file_exists($moduleFile)) {

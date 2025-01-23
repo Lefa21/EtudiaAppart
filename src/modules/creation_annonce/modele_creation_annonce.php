@@ -135,7 +135,7 @@ class ModeleCreationAnnonce extends Connexion
 
                     if ($sql5->execute()) {
                         echo '<script>alert("Annonce créée avec succès.")</script>';
-                        header('index.php?module=creation_annonce&action=formulaireCreationAnnonce');
+                        header('Location: index.php?module=creation_annonce&action=formulaireCreationAnnonce');
                     } else {
                         echo '<script>alert("Erreur lors de la création de l\'annonce.")</script>';
                     }

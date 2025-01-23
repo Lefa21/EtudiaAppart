@@ -54,9 +54,9 @@ class ModeleInscription extends Connexion
     public function ajoutUtilisateur()
     {
 
-        // Vérifier si le formulaire est soumis et que tous les champs sont présents
         if (isset($_POST['submit']) && isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['profile_status']) && isset($_POST['password']) && isset($_POST['confirm_password'])) {
-            
+            $errors = [];
+
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $email = $_POST['email'];
@@ -83,8 +83,8 @@ class ModeleInscription extends Connexion
             $sql->execute();
     
             if ($sql->rowCount() >= 1) {
-                echo 'Ce login existe déjà' . '</br>';
-                return; // Arrêter ici si l'email est déjà pris
+                $errors['email'] = ' L\'adresse email existe déjà';
+                return $errors;
             }
     
             // Hachage du mot de passe avant l'insertion
@@ -98,7 +98,6 @@ class ModeleInscription extends Connexion
     
             // Préparation de la requête pour insérer l'utilisateur
             $sql = Connexion::getBdd()->prepare('INSERT INTO User (first_name, last_name, email, profile_status, password, account_activation_hash, activation_token_expires_at) VALUES (:first_name, :last_name, :email, :profile_status, :password, :account_activation_hash, :activation_token_expires_at)');
-
             $sql->bindParam(':first_name', $first_name);
             $sql->bindParam(':last_name', $last_name);
             $sql->bindParam(':email', $email);
@@ -132,10 +131,10 @@ class ModeleInscription extends Connexion
                     exit();
                 }
             } else {
-                echo 'Erreur lors de l\'inscription, veuillez réessayer plus tard.' . '</br>';
+                $errors['inscription'] = "Une erreur est survenue lors de l'inscription, veuillez réessayez plus tard";
+                return $errors;
             }
-        } else {
-            echo 'Tous les champs doivent être remplis.' . '</br>';
+            return $errors;
         }
     }
 

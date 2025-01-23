@@ -148,7 +148,8 @@ class VueOwnerRequests extends VueGenerique
                                                         <input hidden value="<?= htmlspecialchars($request['id_student']) ?>" name="id_student">
                                                         <input hidden value="<?= htmlspecialchars($request['id_owner']) ?>" name="id_owner">
                                                         <button type="submit" name="submit" class="action-button secondary">Gérer la demande</button>
-                                                </td>
+                                                    </form>
+                                                    </td>
                                             </tr>
                                     <?php }
                                     } ?>
@@ -210,11 +211,49 @@ class VueOwnerRequests extends VueGenerique
 
                 <div class="actions-container">
                     <button class="action-button primary-button" data-file-url="<?= htmlspecialchars($apply['file_name']) ?>">Voir le dossier étudiant</button>
-                    <button class="action-button secondary-button">Accepter la demande</button>
-                    <button class="action-button outline-button">Rejeter la demande</button>
+                    <form action="index.php?module=owner_requests&action=validate_request" method="POST">
+                        <input name="id_application" hidden value="<?= htmlspecialchars($apply['id_application']) ?>">
+                        <input name="response" hidden value="validé">
+                        <button type="submit" name="accepter" class="action-button secondary-button">Accepter la demande</button>
+                    </form>
+                    <form action="index.php?module=owner_requests&action=validate_request" method="POST">
+                        <input name="id_application" hidden value="<?= htmlspecialchars($apply['id_application']) ?>">
+                        <input name="response" hidden value="rejeté">
+                        <button type="submit" name="submit" class="action-button outline-button">Rejeter la demande</button>
+                    </form>
                 </div>
                 <?php
                         } ?>
+            </div>
+        </div>
+<?php
+    }
+
+
+    public function showValidationMessage()
+    {
+    ?>
+
+        <link rel="stylesheet" href="./src/css/owner_manage_application.css">
+        <script type="text/javascript" src="./src/scripts/redirect_student_file.js"></script>
+        <?php
+        include "./src/menu_my_account.php";
+        ?>
+        <div class="applications-container">
+            <div class="applications-frame">
+                <div class="applications-header">
+                    <div class="header-top">
+                        <a href="index.php?module=owner_requests&action=follow-up_owner_requests">
+                            <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 8C18 8.41421 17.6642 8.75 17.25 8.75H2.56031L8.03063 14.2194C8.32368 14.5124 8.32368 14.9876 8.03063 15.2806C7.73757 15.5737 7.26243 15.5737 6.96937 15.2806L0.219375 8.53063C0.0785422 8.38995 -0.000590086 8.19906 -0.000590086 8C-0.000590086 7.80094 0.0785422 7.61005 0.219375 7.46937L6.96937 0.719375C7.26243 0.426319 7.73757 0.426319 8.03063 0.719375C8.32368 1.01243 8.32368 1.48757 8.03063 1.78062L2.56031 7.25H17.25C17.6642 7.25 18 7.58579 18 8Z" fill="black" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="section-header-owner_application">
+                        <h1 class="section-title-owner_application">Gestion des demandes</h1>
+                    </div>
+                    <h3>Votre réponse a bien été prise en compte, et a été envoyer à l'étudiant</h3>
+                </div>
             </div>
         </div>
 <?php

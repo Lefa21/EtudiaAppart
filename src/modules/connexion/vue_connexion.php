@@ -9,11 +9,13 @@ class VueConnexion extends VueGenerique
         parent::__construct();
     }
 
-
-    public function formulaireConnexion()
+    public function formulaireConnexion($errors = [])
     {
 ?>
         <link rel="stylesheet" href="./src/css/connexion.css">
+        <link rel="stylesheet" href="./src/css/connexion.css">
+        <script type="text/javascript" src="./src/scripts/passwordVisibility.js">
+        </script>
         <div class="login-container">
             <main class="main-content-login">
                 <div class="login-wrapper">
@@ -21,38 +23,39 @@ class VueConnexion extends VueGenerique
                         <h1 class="form-title-login">Connexion</h1>
 
                         <div class="input-group-login">
-                            <img
-                                src="assets/icon_mail_connexion.png"
-                                class="field-icon"
-                                alt=""
-                                aria-hidden="true" />
-                            <label for="email" class="visually-hidden">Adresse e-mail</label>
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
                                 class="form-input-login"
                                 placeholder="Adresse e-mail"
-                                required
-                                aria-required="true" />
+                                aria-invalid="<?= isset($errors['email']) ? 'true' : 'false' ?>"
+                                value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" />
                         </div>
+                        <span class="required">*</span>
+                        <?php if (isset($errors['email'])): ?>
+                            <span class="error-message"><?= htmlspecialchars($errors['email']) ?></span>
+                        <?php endif; ?>
 
                         <div class="input-group-login">
-                            <img
-                                src="assets/icon_password_connexion.png"
-                                class="field-icon"
-                                alt=""
-                                aria-hidden="true" />
-                            <label for="password" class="visually-hidden">Mot de passe</label>
                             <input
                                 type="password"
                                 id="password"
                                 name="password"
                                 class="form-input-login"
                                 placeholder="Mot de passe"
-                                required
-                                aria-required="true" />
+                                aria-invalid="<?= isset($errors['password']) ? 'true' : 'false' ?>"
+                                value="<?= htmlspecialchars($_POST['password'] ?? '') ?>" />
+                            
+                            <span class="toggle-password" onclick="togglePasswordVisibility()">
+                                <img src="assets/hide.png" alt="Afficher le mot de passe" id="toggleIcon" />
+                            </span>
                         </div>
+                        <span class="required">*</span>
+                        <?php if (isset($errors['password'])): ?>
+                            <span class="error-message"><?= htmlspecialchars($errors['password']) ?></span>
+                        <?php endif; ?>
+
 
                         <a href="index.php?module=resetPassword&action=formulaireResetPassword" class="reset-pwd">Mot de passe oublié</a>
 

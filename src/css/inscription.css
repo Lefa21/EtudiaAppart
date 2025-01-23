@@ -1,156 +1,224 @@
 .registration-container {
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main-content-inscription {
+  background: #fff;
+  width: 100%;
+  color: #000;
+  padding: 1px 65px;
+  font: 400 20px Inter, sans-serif;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.85rem; 
+  margin-top: 0.25rem; 
+  display: block;
+  font-family: Inter, sans-serif;
+}
+
+.registration-wrapper-inscription {
+  background: #fff;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 101px 80px 23px;
+}
+
+.registration-form-inscription {
+  border-radius: 10px;
+  background: var(--Secondary, #ccd8ff);
+  width: 780px;
+  max-width: 70%;
+  padding: 28px 35px 14px;
+}
+
+.form-title-inscription {
+  border-radius: 10px;
+  background: #fff;
+  font-size: 48px;
+  color: var(--Black---Title-text, #000);
+  font-weight: 600;
+  text-align: center;
+  margin: 0 10px;
+  padding: 28px 70px;
+}
+
+.required {
+  bottom: 5px; 
+  right: 10px; 
+  color: #d12323;
+  font-weight: bold; 
+}
+
+
+.form-input-inscription, .role {
+  border-radius: 5px;
+  border: 1px solid var(--Primary, #041a8f);
+  background: #fff;
+  padding: 20px 10px;
+  margin-top: 38px;
+  width: 100%;
+  font-size: 20px;
+  color: var(--Black, #000);
+}
+
+.form-input-inscription:focus, .role:focus {
+  outline: none;
+  border-color: #0323b9;
+  box-shadow: 0 0 0 2px rgba(4, 26, 143, 0.2);
+}
+
+.submit-btn-inscription {
+  margin-left: 11rem !important;
+  border-radius: 10px;
+  background: var(--Primary, #041a8f);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 384px;
+  max-width: 100%;
+  font-size: 32px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 19px 70px;
+  margin: 49px auto 0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn-inscription:hover,
+.submit-btn-inscription:focus {
+  background-color: #0323b9;
+  outline: none;
+}
+
+.submit-btn-inscription:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.login-link-inscription {
+  color: var(--Black---Title-text, #000);
+  text-align: center;
+  font-size: 16px;
+  text-decoration: underline;
+  margin-top: 34px;
+  transition: color 0.3s ease;
+}
+
+.login-link-inscription:hover,
+.login-link-inscription:focus {
+  color: #0323b9;
+}
+
+.login-link-inscription:focus-visible {
+  outline: 3px solid var(--Primary, #041a8f);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 991px) {
   .main-content-inscription {
-    background: #fff;
-    width: 100%;
-    color: #000;
-    padding: 1px 65px;
-    font: 400 20px Inter, sans-serif;
-  }
-  
-  .registration-wrapper-inscription {
-    background: #fff;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 101px 80px 23px;
-  }
-  
-  .registration-form-inscription {
-    border-radius: 10px;
-    background: var(--Secondary, #ccd8ff);
-    width: 780px;
-    max-width: 70%;
-    padding: 28px 35px 14px;
-  }
-  
-  .form-title-inscription {
-    border-radius: 10px;
-    background: #fff;
-    font-size: 48px;
-    color: var(--Black---Title-text, #000);
-    font-weight: 600;
-    text-align: center;
-    margin: 0 10px;
-    padding: 28px 70px;
-  }
-  
-  .form-input-inscription, .role {
-    border-radius: 5px;
-    border: 1px solid var(--Primary, #041a8f);
-    background: #fff;
-    padding: 20px 10px;
-    margin-top: 38px;
-    width: 100%;
-    font-size: 20px;
-    color: var(--Black, #000);
-  }
-  
-  .form-input-inscription:focus, .role:focus {
-    outline: none;
-    border-color: #0323b9;
-    box-shadow: 0 0 0 2px rgba(4, 26, 143, 0.2);
-  }
-  
-  .submit-btn-inscription {
-    margin-left:  11rem !important;
-    border-radius: 10px;
-    background: var(--Primary, #041a8f);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    width: 384px;
     max-width: 100%;
+    padding-left: 20px;
+  }
+
+  .registration-wrapper-inscription {
+    padding: 100px 20px 0;
+  }
+
+  .registration-form-inscription {
+    padding: 0 20px;
+  }
+
+  .form-title-inscription {
+    font-size: 40px;
+    white-space: normal;
+    padding: 0 20px;
+  }
+
+  .form-input-inscription {
+    padding: 0 20px;
+  }
+
+  .submit-btn-inscription {
+    margin-top: 40px;
+    white-space: normal;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .registration-wrapper-inscription {
+    padding: 60px 15px 0;
+  }
+
+  .registration-form-inscription {
+    padding: 0 15px;
+  }
+
+  .form-title-inscription {
     font-size: 32px;
-    color: #fff;
-    font-weight: 700;
-    text-align: center;
-    padding: 19px 70px;
-    margin: 49px auto 0;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 0 15px;
   }
-  
-  .submit-btn-inscription:hover,
-  .submit-btn-inscription:focus {
-    background-color: #0323b9;
-    outline: none;
+
+  .submit-btn-inscription {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px 0;
   }
-  
-  .submit-btn-inscription:focus-visible {
-    outline: 3px solid #fff;
-    outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .registration-wrapper-inscription {
+    padding: 40px 15px 0;
   }
-  
+
+  .registration-form-inscription {
+    padding: 0 15px;
+    width: 100%;
+  }
+
+  .form-title-inscription {
+    font-size: 28px;
+    padding: 0 15px;
+  }
+
+  .form-input-inscription {
+    padding: 10px;
+  }
+
+  .submit-btn-inscription {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 28px;
+  }
+
   .login-link-inscription {
-    color: var(--Black---Title-text, #000);
-    text-align: center;
-    font-size: 16px;
-    text-decoration: underline;
-    margin-top: 34px;
-    transition: color 0.3s ease;
+    font-size: 14px;
   }
-  
-  .login-link-inscription:hover,
-  .login-link-inscription:focus {
-    color: #0323b9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submit-btn-inscription,
+  .login-link-inscription {
+    transition: none;
   }
-  
-  .login-link-inscription:focus-visible {
-    outline: 3px solid var(--Primary, #041a8f);
-    outline-offset: 2px;
-  }
-  
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
-  
-  @media (max-width: 991px) {
-    .main-content-inscription {
-      max-width: 100%;
-      padding-left: 20px;
-    }
-  
-    .registration-wrapper-inscription {
-      padding: 100px 20px 0;
-    }
-  
-    .registration-form-inscription {
-      padding: 0 20px;
-    }
-  
-    .form-title-inscription {
-      font-size: 40px;
-      white-space: normal;
-      padding: 0 20px;
-    }
-  
-    .form-input-inscription {
-      padding: 0 20px;
-    }
-  
-    .submit-btn-inscription {
-      margin-top: 40px;
-      white-space: normal;
-      padding: 0 20px;
-    }
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .submit-btn-inscription,
-    .login-link-inscription {
-      transition: none;
-    }
-  }
+}

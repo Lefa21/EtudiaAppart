@@ -37,13 +37,18 @@ class ModeleSearchAd extends Connexion
 
             $query = "
                 SELECT 
-                    Ad.*,
-                    Habitation.*,
-                    Address.* 
+                    Ad.*, 
+                    Habitation.*, 
+                    Address.*, 
+                    Images.ImageID, 
+                    Images.ImageName, 
+                    Images.ImageData 
                 FROM Ad
                 INNER JOIN Habitation ON Ad.id_habitation = Habitation.id_habitation
                 INNER JOIN Address ON Habitation.id_address = Address.id_address
+                LEFT JOIN Images ON Ad.id_ad = Images.id_ad
                 WHERE 1=1";
+        
 
             $params = [];
 
@@ -173,5 +178,4 @@ class ModeleSearchAd extends Connexion
 
         return $result;
     }
-
 }

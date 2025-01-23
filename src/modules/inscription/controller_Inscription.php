@@ -18,8 +18,13 @@ class ContInscription{
         $this->action = isset($_GET['action'])? $_GET['action'] : 'formulaireInscription';
     }
 
-    public function ajoutUtilisateur(){
-        $this->modele->ajoutUtilisateur();
+    public function ajoutUtilisateur()
+    {
+        $errors = $this->modele->ajoutUtilisateur();
+
+        if (!empty($errors)) {
+            $this->formulaireInscription($errors);
+        }
     }
     public function signUpSuccess(){
         $this->vue->signUpSuccess();
@@ -32,8 +37,9 @@ class ContInscription{
         $this->vue->registerSuccessful();
     }
 
-    public function formulaireInscription(){  
-        $this->vue->formulaireInscription();
+    public function formulaireInscription($errors = [])
+    {
+        $this->vue->formulaireInscription($errors);
     }
     
     public function getVue(){
