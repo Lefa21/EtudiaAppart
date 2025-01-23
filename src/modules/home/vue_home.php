@@ -98,15 +98,9 @@ class VueHome extends VueGenerique
                         <img src="assets/logement_etudiant_1.jpg" alt="Property" class="property-image" style="background-color: blue;" />
                         <div class="property-info">
                             <p>Titre : Studio proche de Odéon</p>
-                            <p>Emplacment : Métro Odéon</p>
+                            <p>Emplacement : Métro Odéon</p>
                             <p>Durée : 36 mois</p>
                             <p>Type de logement : studio</p>
-                            <button style="
-                            display: flex;
-                            margin-left: 100%;
-                        ">
-                                M'EMMENER
-                            </button>
                         </div>
                     </article>
 
@@ -114,7 +108,7 @@ class VueHome extends VueGenerique
                         <img src="assets/logement_etudiant_2.jpg" alt="Property" class="property-image" />
                         <div class="property-info">
                             <p>Titre : studio spacieux</p>
-                            <p>Emplacment : Issy-Les-Moulineaux</p>
+                            <p>Emplacement : Issy-Les-Moulineaux</p>
                             <p>Durée : 12 mois renouvelable</p>
                             <p>Type de logement : studio</p>
                         </div>
@@ -124,7 +118,7 @@ class VueHome extends VueGenerique
                         <img src="assets/logement_etudiant_3.jpg" alt="Property" class="property-image" />
                         <div class="property-info">
                             <p>Titre : Studio à côté de Saint-Michel</p>
-                            <p>Emplacment : métro Saint Michel</p>
+                            <p>Emplacement : métro Saint Michel</p>
                             <p>Durée : 24 mois</p>
                             <p>Type de logement : studio</p>
                         </div>

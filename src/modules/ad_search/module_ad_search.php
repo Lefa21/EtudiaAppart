@@ -3,23 +3,27 @@
 
 require_once 'controller_ad_search.php';
 
-class ModSearchAd{
+class ModSearchAd
+{
     private $controleur;
-    public function __construct(){
+    public function __construct()
+    {
         $this->controleur = new ContSearchAd();
-        switch($this->controleur->getAction()){
+        switch ($this->controleur->getAction()) {
             case 'recherche_annonce':
                 $this->controleur->getAd();
-                break; 
+                break;
             case 'search_titles':
                 $this->controleur->searchAdTitles();
                 break;
+            case 'addFavorite':
+                $this->controleur->addFavorite();
+                break;
         }
+    }
 
-    } 
-
-    public function displayContent(){
-       return  $this->controleur->displayContent();
+    public function displayContent()
+    {
+        return  $this->controleur->displayContent();
     }
 }
-?>

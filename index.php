@@ -5,6 +5,7 @@ require_once './src/vue_generique.php';
 
 
 session_start();
+require_once __DIR__ . '/src/modules/settings/modele_settings.php';
 
 Connexion::initConnexion();
 
@@ -63,17 +64,14 @@ switch ($module) {
         $moduleFile = './src/modules/creation_annonce/module_creation_annonce.php';
         $moduleClass = 'ModCreationAnnonce';
         break;
-
     case 'a_propos':
         $moduleFile = './src/modules/a_propos/module_a_propos.php';
         $moduleClass = 'ModAPropos';
         break;
-
     case 'messagerie':
         $moduleFile = './src/modules/messagerie/module_messagerie.php';
         $moduleClass = 'ModMessagerie';
         break;
-
     case 'resetPassword':
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
@@ -86,7 +84,16 @@ switch ($module) {
         $moduleFile = './src/modules/contact/module_contact.php';
         $moduleClass = 'ModContact';
         break;
+    case 'reports':
+        $moduleFile = './src/modules/reports/module_reports.php';
+        $moduleClass = 'ModReports';
+        break;
+    case 'favorites':
+        $moduleFile = './src/modules/favorites/module_favorites.php';
+        $moduleClass = 'ModFavorites';
+        break;
 }
+
 
 unset($_SESSION['json_response']);
 if (file_exists($moduleFile)) {
