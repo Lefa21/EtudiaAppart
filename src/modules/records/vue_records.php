@@ -47,7 +47,7 @@ class VueRecords extends VueGenerique
             }
         }
 ?>
-        <link rel="stylesheet" href="./src/css/acc_records.css">
+        <link rel="stylesheet" href="./src/css/records.css">
         <link rel="stylesheet" href="./src/css/menu_my_account.css">
         <script type="text/javascript" src="./src/scripts/records.js"></script>
 

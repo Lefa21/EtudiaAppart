@@ -113,9 +113,6 @@ if (file_exists($moduleFile)) {
     $moduleClass = new $moduleClass();
 
     $tampon = $moduleClass->displayContent();
-} else {
-    //var_dump($moduleFile);
-    //var_dump($moduleClass);
 }
 
 if (!isset($_SESSION['json_response'])) {

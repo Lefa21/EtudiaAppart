@@ -9,15 +9,17 @@ class VueProfil extends VueGenerique
 
   public function profil($userData)
   {
+    $isStudent = isset($_SESSION["user_status"]) && $_SESSION["user_status"] === "etudiant";
 ?>
+
     <link rel="stylesheet" href="./src/css/my_profil.css">
     <script type="text/javascript" src="./src/scripts/mon_profil.js"></script>
     <main class="student-profile" role="main">
-      <div class="main-content-profile">
-        <?php
-        include "./src/menu_my_account.php";
-        ?>
-        <section class="profile-content-profile">
+      <?php
+      include "./src/menu_my_account.php";
+      ?>
+      <section class="main-content-profile">
+        <div class="profile-content-profile">
           <div class="section-header-profile">
             <h1 class="section-title-profile">Profil</h1>
             <p class="section-subtitle-profile">Modifier vos informations personnelles et académiques</p>
@@ -89,6 +91,7 @@ class VueProfil extends VueGenerique
               </div>
             </div>
 
+            <?php if ($isStudent): ?>
             <div class="form-section-profile">
               <h2 class="form-title-profile">Informations scolaires</h2>
 
@@ -104,11 +107,9 @@ class VueProfil extends VueGenerique
                   <label for="student_email" class="form-label-profile">Email étudiant</label>
                   <input type="email" id="student_email" name="student_email" class="form-input-profile" value="<?= htmlspecialchars($userData['student_email']) ?>" placeholder="Votre email étudiant" />
                 </div>
-                <div class="form-group-profile">
-                  <a href="#add-school" class="form-link-profile">Votre école n'est pas reconnue ?<br />Ajoutez la ici</a>
-                </div>
               </div>
             </div>
+            <?php endif; ?>
 
             <div class="form-section-profile">
               <h2 class="form-title-profile">Sécurité</h2>
@@ -155,8 +156,8 @@ class VueProfil extends VueGenerique
 
             <button type="submit" name="update_profil" id="saveProfileBtn" class="save-button-profile">Sauvegarder</button>
           </form>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
 <?php
   }

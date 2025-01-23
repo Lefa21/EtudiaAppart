@@ -24,7 +24,6 @@ class ModHome
             GROUP BY Ad.id_ad
             ORDER BY favorite_count DESC
             LIMIT 3;
-
         ";
 
         $stmt = Connexion::getBdd()->prepare($query);

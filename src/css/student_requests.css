@@ -1,277 +1,279 @@
+.main-content-student_request {
+  margin-top: 2rem;
+  display: flex;
+}
+
 .action-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-color-blue);
-    min-height: 40px;
-    padding: 8px 20px;
-    border: none;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-blue);
+  min-height: 40px;
+  padding: 8px 20px;
+  border: none;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .requests-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
 }
+
 .table-cell {
-    padding: 16px;
+  padding: 16px;
 }
+
 .notification-title {
-    font-family: var(--police-text);
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 8px;
+  font-family: var(--police-text);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .table-row {
-    border-bottom: 1px solid var(--gray-border);
+  border-bottom: 1px solid var(--gray-border);
 }
+
 .filters {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
 .main-content-owner_request {
-    display: flex;
-    width: 80%;
-    max-width: 1432px;
+  display: flex;
+  width: 80%;
+  max-width: 1432px;
 }
 
 .notification-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--police-text);
-    font-weight: 700;
-    color: var(--text-color-black);
-    text-decoration: none;
-    transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--police-text);
+  font-weight: 700;
+  color: var(--text-color-black);
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
 .notification-link:hover,
 .notification-link:focus-visible {
-    color: var(--primary-color);
-    outline: none;
+  color: var(--primary-color);
+  outline: none;
 }
 
 .notifications {
-    padding: 24px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 16px;
 }
 
 .notification-text {
-    font-family: var(--police-text);
-    color: var(--primary-color);
-    margin-bottom: 16px;
+  font-family: var(--police-text);
+  color: var(--primary-color);
+  margin-bottom: 16px;
 }
 
 .filter-button-request {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: var(--secondary-color);
-    border: none;
-    border-radius: 20px;
-    font-size: 17px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 20px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .filters {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
 }
 
 .filter-button-request {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: var(--secondary-color);
-    border: none;
-    border-radius: 20px;
-    font-size: 17px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 20px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
 }
 
 .filter-button-request:hover {
-    background-color: #e0e0e0;
+  background-color: #e0e0e0;
 }
 
 .filter-menu {
-    display: none; 
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    padding: 8px 0; 
-    z-index: 1000;
-    width: 220px; 
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 8px 0;
+  z-index: 1000;
+  width: 220px;
 }
 
 .filter-menu li {
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .filter-menu li:hover {
-    background-color: var(--secondary-color); /* Couleur d'arrière-plan survolée */
+  background-color: var(
+    --secondary-color
+  ); /* Couleur d'arrière-plan survolée */
 }
 .filters > div {
-    position: relative;
+  position: relative;
 }
 
 .filter-menu li:hover {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .filter-button-request[aria-expanded="true"] + .filter-menu {
-    display: block;
+  display: block;
 }
 
 /* Content Area */
 .content-area {
-    flex: 1;
-    padding: 24px;
-    border-radius: 8px;
-    margin-left: 6rem;
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  margin-left: 2rem;
 }
 
 .filter-button-request:hover,
 .filter-button-request:focus-visible {
-    background-color: #b8c9ff;
-    outline: none;
+  background-color: #b8c9ff;
+  outline: none;
 }
 
 .filter-title {
-    font: 700 18px/1 Inter, sans-serif;
-    color: rgba(0, 43, 127, 1);
-    margin-bottom: 8px;
+  font:
+    700 18px/1 Inter,
+    sans-serif;
+  color: rgba(0, 43, 127, 1);
+  margin-bottom: 8px;
 }
 
 .filter-options {
-    display: flex;
-    gap: 12px;
-    padding: 12px 0;
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
 }
 
 .filter-button-manage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    background: var(--secondary-color);
-    padding: 8px 16px;
-    font: 500 14px Inter, sans-serif;
-    color: var(--text-color-black);
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--secondary-color);
+  padding: 8px 16px;
+  font:
+    500 14px Inter,
+    sans-serif;
+  color: var(--text-color-black);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .filter-button-manage:hover {
-    background-color: #bbc7ee;
+  background-color: #bbc7ee;
 }
 
 .filter-button-manage:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
-.container-student_request{
-    margin-top: 2rem;
-    display: flex;
-    background: var(--background-color-white);
-    padding-bottom: 49px;
-}
 .table-responsive {
-    overflow-x: auto;
-    margin-bottom: 32px;
-    border: 1px solid #CCD8FF;
-    border-radius: 15px;
+  overflow-x: auto;
+  margin-bottom: 32px;
+  border: 1px solid #ccd8ff;
+  border-radius: 15px;
 }
 
 .table-header {
-    padding: 16px;
-    text-align: left;
-    font-weight: 500;
-    border-bottom: 2px solid var(--gray-border);
+  padding: 16px;
+  text-align: left;
+  font-weight: 500;
+  border-bottom: 2px solid var(--gray-border);
 }
 
-.statut-actuel_info{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 40px;
-    padding: 2px 55px;
-    border: none;
-    border-radius: 41px;
-    font-size: 17px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s;
+.statut-actuel_info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 2px 55px;
+  border: none;
+  border-radius: 41px;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .statut-actuel_info.secondary {
-    background: var(--secondary-color);
-    color: var(--primary-color);
+  background: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 .statut-actuel_info.secondary:hover,
 .statut-actuel_info.secondary:focus-visible {
-    background-color: #b8c9ff;
-    outline: none;
-}
-
-@media (max-width: 1024px) {
-    .main-content-student_request {
-        flex-direction: column;
-    }
+  background-color: #b8c9ff;
+  outline: none;
 }
 
 @media (max-width: 768px) {
-    .page-wrapper {
-        padding: 16px;
-    }
+  .main-content-student_request {
+    padding: 16px;
+  }
 
-    .content-area {
-        padding: 16px;
-    }
+  .content-area {
+    padding: 16px;
+  }
 
-    .filters {
-        gap: 8px;
-    }
+  .filters {
+    gap: 8px;
+  }
 
-    .table-header,
-    .table-cell {
-        padding: 12px;
-    }
+  .table-header,
+  .table-cell {
+    padding: 12px;
+  }
 
-    .filter-menu {
-        width: 100%; 
-    }
+  .filter-menu {
+    width: 100%;
+  }
 
-    .notifications {
-        padding: 16px;
-    }
+  .notifications {
+    padding: 16px;
+  }
 }

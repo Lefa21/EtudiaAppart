@@ -24,14 +24,7 @@ class ControllerHome
     public function welcome()
     {
         $result = $this->modele->recupereTop3();
-
-        // Formater les dates pour chaque annonce
-        foreach ($result as &$ad) {
-            $ad['formatted_start_date'] = $this->modele->formatDate($ad['lease_start']);
-            $ad['formatted_end_date'] = $this->modele->formatDate($ad['lease_end']);
-        }
-
-        // Passer les données à la vue
+        
         $this->vue->welcome($result);
     }
 
@@ -46,7 +39,6 @@ class ControllerHome
     }
 
     public function notPermitted() {
-        // Charge une vue pour indiquer un accès refusé
         $this->vue->notPermitted();
     }
     

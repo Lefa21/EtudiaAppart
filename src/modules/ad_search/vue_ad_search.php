@@ -20,6 +20,7 @@ class VueSearchAd extends VueGenerique
         <script type="text/javascript" src="./src/scripts/filter_search_ad.js"></script>
         <script type="text/javascript" src="./src/scripts/key_research.js"></script>
         <script type="text/javascript" src="./src/scripts/favorite.js"></script>
+        <script type="text/javascript" src="./src/scripts/furnished_event.js"></script>
         <script id="adData" type="application/json">
             <?= json_encode($adData['results']); ?>
         </script>
@@ -59,13 +60,31 @@ class VueSearchAd extends VueGenerique
                                     </div>
 
                                     <div class="filter-content">
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Collocation"> Collocation</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Appartement"> Appartement entier</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="chambre"> Chambre</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Maison"> Maison</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Logement contre aide à la personne"> Logement contre aide</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Résidence étudiante publique"> Résidence étudiante publique</label>
-                                        <label class="filter_label"><input type="checkbox" name="housing_type[]" value="Résidence étudiante privée">Résidence étudiante privée</label>
+                                        <?php
+                                        $selectedHousingTypes = $adData['search_criteria']['housing_type'] ?? [];
+                                        ?>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Collocation" <?= in_array('Collocation', $selectedHousingTypes) ? 'checked' : '' ?>> Collocation
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Appartement" <?= in_array('Appartement', $selectedHousingTypes) ? 'checked' : '' ?>> Appartement entier
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="chambre" <?= in_array('chambre', $selectedHousingTypes) ? 'checked' : '' ?>> Chambre
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Maison" <?= in_array('Maison', $selectedHousingTypes) ? 'checked' : '' ?>> Maison
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Logement contre aide à la personne" <?= in_array('Logement contre aide à la personne', $selectedHousingTypes) ? 'checked' : '' ?>> Logement contre aide
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Résidence étudiante publique" <?= in_array('Résidence étudiante publique', $selectedHousingTypes) ? 'checked' : '' ?>> Résidence étudiante publique
+                                        </label>
+                                        <label class="filter_label">
+                                            <input type="checkbox" name="housing_type[]" value="Résidence étudiante privée" <?= in_array('Résidence étudiante privée', $selectedHousingTypes) ? 'checked' : '' ?>> Résidence étudiante privée
+                                        </label>
+
                                     </div>
                                 </div>
 
@@ -105,16 +124,18 @@ class VueSearchAd extends VueGenerique
 
                                     <div class="filter-content">
                                         <div>
+                                            <?php
+                                            $habitationFurnished = $adData['search_criteria']['habitation_furnished'] ?? '';
+                                            ?>
                                             <label class="filter_label">
-                                                <input type="checkbox" id="furnishedYes" name="habitation_furnished" value="oui"> oui
+                                                <input type="checkbox" id="furnishedYes" name="habitation_furnished" value="oui" <?= $habitationFurnished === 'oui' ? 'checked' : '' ?>> oui
                                             </label>
                                             <label class="filter_label">
-                                                <input type="checkbox" id="furnishedNo" name="habitation_furnished" value="non"> non
+                                                <input type="checkbox" id="furnishedNo" name="habitation_furnished" value="non" <?= $habitationFurnished === 'non' ? 'checked' : '' ?>> non
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-
 
 
                                 <!-- Durée de location -->
@@ -179,35 +200,39 @@ class VueSearchAd extends VueGenerique
                                     </div>
                                 </div>
                             </div>
+                            <div class="listings-container">
+                                <<div class="listings-wrapper">
+                                    <?php
+                                    if (!empty($adData['results'])) {
+                                        foreach ($adData['results'] as $ad) {
+                                            $imageSrc = !empty($ad['ImageData'])
+                                                ? 'data:image/jpeg;base64,' . base64_encode($ad['ImageData'])
+                                                : 'assets/logement_etudiant_1.jpg';
+                                            $imageName = !empty($ad['ImageName']) ? htmlspecialchars($ad['ImageName']) : 'Image par défaut';
+                                    ?>
+                                            <article class="listing-card">
+                                                <img src="assets/icon_favoris.svg" alt="Apartment interior view" class="image-annonce_favoris" />
+                                                <div onclick="redirectTo(this)">
+                                                    <span class="annonceId" hidden><?= htmlspecialchars($ad['id_ad']) ?></span>
+                                                    <!-- Affichage de l'image -->
+                                                    <img src="<?= $imageSrc ?>" alt="<?= $imageName ?>" class="listing-image" />
+                                                    <div class="listing-details">
+                                                        <h2 class="listing-title"><?= htmlspecialchars($ad['ad_title']) ?></h2>
+                                                        <p class="listing-location"><?= htmlspecialchars($ad['city']) . ' ' . htmlspecialchars($ad['zipCode']) ?></p>
+                                                        <div class="listing-meta">
+                                                            <time class="listing-date">
+                                                                Publiée le <?= date("d/m/y H:i", strtotime($ad['date_publication'])) ?>
+                                                            </time>
+                                                            <p class="listing-price"><?= htmlspecialchars(number_format($ad['rent_price'], 2)) ?>€</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                    <?php }
+                                    } ?>
+                            </div>
 
-                </form>
-                <div class="listings-container">
-                    <div class="listings-wrapper">
-                        <?php
-                        if (!empty($adData['results'])) {
-                            foreach ($adData['results'] as $ad) { ?>
-                                <article class="listing-card">
-                                    <img src="assets\logement_etudiant_1.jpg" alt="Apartment interior view" class="listing-image" />
-                                    <div class="listing-details">
-
-                                        <a href="index.php?module=ad_search&action=addFavorite&id_ad=<?= $ad['id_ad'] ?>" class="image-annonce_favoris">
-                                            <img src="assets/icon_favoris.svg" alt="Ajouter aux favoris" />
-                                        </a>
-
-                                        <h2 class="listing-title"><?= htmlspecialchars($ad['ad_title']) ?></h2>
-                                        <p class="listing-location"><?= htmlspecialchars($ad['city']) . ' ' . htmlspecialchars($ad['zipCode']) ?></p>
-                                        <div class="listing-meta">
-                                            <time class="listing-date">
-                                                Publiée le <?= date("d/m/y H:i", strtotime($ad['date_publication'])) ?>
-                                            </time>
-                                            <p class="listing-price"><?= htmlspecialchars(number_format($ad['rent_price'], 2)) ?>€</p>
-                                        </div>
-                                    </div>
-                                </article>
-                        <?php }
-                        } ?>
-                    </div>
-                </div>
+                        </div>
         </div>
 
         </section>

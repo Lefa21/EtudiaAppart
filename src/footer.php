@@ -145,12 +145,6 @@
     <div class="footer-column">
         <h3>Nos réseaux sociaux</h3>
         <div class="social-icons">
-            <a href="#facebook">
-                <img src="assets/icon_facebook.png" alt="Facebook" class="social-icon" />
-            </a>
-            <a href="#twitter">
-                <img src="assets/icon_twitter.png" alt="Twitter" class="social-icon" />
-            </a>
             <a href="#instagram">
                 <img src="assets/icon_instagram.png" alt="Instagram" class="social-icon" />
             </a>
