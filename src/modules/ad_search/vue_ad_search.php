@@ -200,7 +200,7 @@ class VueSearchAd extends VueGenerique
                                 </div>
                             </div>
                             <div class="listings-container">
-                                <<div class="listings-wrapper">
+                                <div class="listings-wrapper">
                                     <?php
                                     if (!empty($adData['results'])) {
                                         foreach ($adData['results'] as $ad) {
