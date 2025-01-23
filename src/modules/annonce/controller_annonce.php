@@ -32,11 +32,6 @@ class ControllerAnnonce
         $this->modele->annonceApply($annonceId);
     }
 
-    public function reportAd($annonceId)
-    {
-        $this->modele->reportAd($annonceId);
-    }
-
     public function displayContent()
     {
         return $this->vue->getAffichage();

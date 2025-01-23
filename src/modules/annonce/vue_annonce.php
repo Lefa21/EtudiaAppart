@@ -13,7 +13,7 @@ class VueAnnonce extends VueGenerique
         else {
 ?>
             <link rel="stylesheet" href="./src/css/annonce.css">
-            <script type="text/javascript" src="./src/scripts/annonce.js" defer></script>
+            <script type="text/javascript" src="./src/scripts/annonce.js"></script>
 
             <div class="blockPage">
                 <section class="section">
@@ -42,11 +42,11 @@ class VueAnnonce extends VueGenerique
                         <button id="signaler" class="action-button signaler" type="button" onclick="adReportPopup()"><img src="./assets/attention.png" alt="signal" class="" height="14" /> Signaler</button>
                     </div>
                     <div id="reportPopup" class="popup">
-                        <span class="close-btn">&times;</span>
                         <div class="popup-content">
-                            <h2 id="reportTitle">Signaler cette annonce</h2>
+                            <span class="close-btn">&times;</span>
+                            <h2 id="reportTitle">Login</h2>
                             <form id="reportForm" method="POST" action="index.php?module=annonce&action=reportAd">
-                                <span id="annonceId" hidden><?= htmlspecialchars($data['id_ad']) ?></span>
+                                <input id="annonceId" value="<?= $data['id_ad'] ?>" hidden />
 
                                 <label for="reportType">Nature du signalement:</label>
                                 <?php
@@ -54,8 +54,9 @@ class VueAnnonce extends VueGenerique
                                 echo displayTypes();
                                 ?>
                                 <label for="reportInfo">Informations complémentaires:</label>
-                                <textarea id="reportInfo" name="reportInfo" placeholder="Ajoutez ici des détails à votre signalement" rows="5"></textarea><br />
-                                <button type="button" class="btn" onclick="adReportSend(this)">Envoyer le signalement</button>
+                                <textarea id="reportInfo" name="reportInfo" placeholder="Ajoutez ici des détails à votre signalement">
+                                </textarea><br />
+                                <input type="button" class="btn" onclick="adReportSend(this)" />
                             </form>
                         </div>
                     </div>
