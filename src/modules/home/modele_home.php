@@ -32,19 +32,4 @@ class ModHome
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
-    public function formatDate($date){
-        if (empty($date)) {
-            return 'Non spécifié';
-        }
-
-        $dateObj = new DateTime($date);
-        $formatter = new IntlDateFormatter(
-            'fr_FR',
-            IntlDateFormatter::LONG,
-            IntlDateFormatter::NONE
-        );
-
-        return $formatter->format($dateObj);
-    }
 }

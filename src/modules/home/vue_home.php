@@ -127,7 +127,7 @@
                                     <div class="property-info">
                                         <div style="display: flex; justify-content: space-between;">
                                             <p style="margin: 0;">
-                                                <i class="fas fa-heart" style="color: red;"></i> <?php echo htmlspecialchars("<3 : " . $ad['favorite_count']); ?>
+                                                <i class="fas fa-heart" style="color: red;"></i> <?php echo htmlspecialchars("Likes : " . $ad['favorite_count']); ?>
                                             </p>
                                         </div>
                                         <p><strong>Titre :</strong> <?php echo htmlspecialchars($ad['ad_title']); ?></p>
