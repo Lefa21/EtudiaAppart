@@ -9,7 +9,9 @@ class VueProfil extends VueGenerique
 
   public function profil($userData)
   {
+    $isStudent = isset($_SESSION["user_status"]) && $_SESSION["user_status"] === "etudiant";
 ?>
+
     <link rel="stylesheet" href="./src/css/my_profil.css">
     <script type="text/javascript" src="./src/scripts/mon_profil.js"></script>
     <main class="student-profile" role="main">
@@ -89,6 +91,7 @@ class VueProfil extends VueGenerique
               </div>
             </div>
 
+            <?php if ($isStudent): ?>
             <div class="form-section-profile">
               <h2 class="form-title-profile">Informations scolaires</h2>
 
@@ -104,11 +107,9 @@ class VueProfil extends VueGenerique
                   <label for="student_email" class="form-label-profile">Email étudiant</label>
                   <input type="email" id="student_email" name="student_email" class="form-input-profile" value="<?= htmlspecialchars($userData['student_email']) ?>" placeholder="Votre email étudiant" />
                 </div>
-                <div class="form-group-profile">
-                  <a href="#add-school" class="form-link-profile">Votre école n'est pas reconnue ?<br />Ajoutez la ici</a>
-                </div>
               </div>
             </div>
+            <?php endif; ?>
 
             <div class="form-section-profile">
               <h2 class="form-title-profile">Sécurité</h2>

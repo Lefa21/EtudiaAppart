@@ -32,7 +32,7 @@
 
 .registration-form-inscription {
   border-radius: 10px;
-  background: var(--Secondary, #ccd8ff);
+  border: 2px solid var(--Secondary, #ccd8ff);
   width: 780px;
   max-width: 70%;
   padding: 28px 35px 14px;
@@ -59,7 +59,7 @@
 
 .form-input-inscription, .role {
   border-radius: 5px;
-  border: 1px solid var(--Primary, #041a8f);
+  border: 1px solid var(--Secondary, #ccd8ff);
   background: #fff;
   padding: 20px 10px;
   margin-top: 38px;
@@ -70,7 +70,7 @@
 
 .form-input-inscription:focus, .role:focus {
   outline: none;
-  border-color: #0323b9;
+  border-color: #ccd8ff;
   box-shadow: 0 0 0 2px rgba(4, 26, 143, 0.2);
 }
 

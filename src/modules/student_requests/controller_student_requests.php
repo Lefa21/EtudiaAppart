@@ -15,7 +15,7 @@ class ContStudentRequests{
     public function __construct(){
         $this->modele = new ModeleStudentRequests();
         $this->vue = new VueStudentRequests();
-        $this->action = isset($_GET['action'])? $_GET['action'] : 'follow-up_student_requests';
+        $this->action = isset($_GET['action']) ? $_GET['action'] : 'follow-up_student_requests';
     }
 
     public function followUpRequests($idUser){  
