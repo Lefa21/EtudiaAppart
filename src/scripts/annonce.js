@@ -33,3 +33,12 @@ function adApply(annonceId) {
     alert(error);
   }
 }
+
+function adReportPopup() {
+  return;
+}
+
+function adReportSend(html) {
+  console.log(html.parentElement.action);
+  return;
+}

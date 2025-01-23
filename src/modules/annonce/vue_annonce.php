@@ -39,7 +39,26 @@ class VueAnnonce extends VueGenerique
                     </div>
                     <div class="button-container">
                         <button id="postuler" class="action-button postuler" type="button" onclick="adApply(<?= $data['id_ad'] ?>)">Postuler</button>
-                        <button id="signaler" class="action-button signaler" type="button" onclick="adReport(<?= $data['id_ad'] ?>)"><img src="./assets/attention.png" alt="signal" class="" height="14" /> Signaler</button>
+                        <button id="signaler" class="action-button signaler" type="button" onclick="adReportPopup()"><img src="./assets/attention.png" alt="signal" class="" height="14" /> Signaler</button>
+                    </div>
+                    <div id="reportPopup" class="popup">
+                        <div class="popup-content">
+                            <span class="close-btn">&times;</span>
+                            <h2 id="reportTitle">Login</h2>
+                            <form id="reportForm" method="POST" action="index.php?module=annonce&action=reportAd">
+                                <input id="annonceId" value="<?= $data['id_ad'] ?>" hidden />
+
+                                <label for="reportType">Nature du signalement:</label>
+                                <?php
+                                require_once __DIR__ . '/reportTypes.php';
+                                echo displayTypes();
+                                ?>
+                                <label for="reportInfo">Informations complémentaires:</label>
+                                <textarea id="reportInfo" name="reportInfo" placeholder="Ajoutez ici des détails à votre signalement">
+                                </textarea><br />
+                                <input type="button" class="btn" onclick="adReportSend(this)" />
+                            </form>
+                        </div>
                     </div>
                 </section>
                 <section class="section section-text">

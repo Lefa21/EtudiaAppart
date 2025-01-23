@@ -26,7 +26,7 @@ class VueHome extends VueGenerique
             <section class="vie-etudiante">
                 <div class="dropdown">
                     <button class="v-e-btn">
-                        <img src="assets/banner_etudiant_home.svg" alt="" class="banner-icon" /> Vie Etudiante
+                        <img src="assets/banner_etudiant_home.svg" alt="" id="banner-icon" /> Vie Etudiante
                     </button>
                     <div class="dropdown-content">
                         <a href="index.php?module=home&action=bonsPlans"> <img src="assets/tcheck.svg" alt="">Bons Plans</a>
@@ -132,28 +132,32 @@ class VueHome extends VueGenerique
 
             </section>
 
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const startDateInput = document.getElementById('start-date');
-                    const endDateInput = document.getElementById('end-date');
+            <script defer>
+                const startDateInput = document.getElementById('start_date');
+                const endDateInput = document.getElementById('end_date');
+                const menuBannerIcon = document.getElementById('banner-icon');
 
-                    startDateInput.addEventListener('change', () => {
-                        if (endDateInput.value && new Date(endDateInput.value) < new Date(startDateInput.value)) {
-                            endDateInput.value = ''; // Réinitialise si invalide
-                        }
-                        endDateInput.min = startDateInput.value; // Définit la limite minimale
-                    });
+                startDateInput.addEventListener('change', () => {
+                    if (endDateInput.value && new Date(endDateInput.value) < new Date(startDateInput.value)) {
+                        endDateInput.value = ''; // Réinitialise si invalide
+                    }
+                    endDateInput.min = startDateInput.value; // Définit la limite minimale
+                });
+                startDateInput.addEventListener('change', () => {
+                    if (endDateInput.value && new Date(endDateInput.value) < new Date(startDateInput.value)) {
+                        endDateInput.value = ''; // Réinitialise si invalide
+                    }
+                    endDateInput.min = startDateInput.value; // Définit la limite minimale
+                });
 
-                    endDateInput.addEventListener('change', () => {
-                        if (startDateInput.value && new Date(startDateInput.value) > new Date(endDateInput.value)) {
-                            startDateInput.value = ''; // Réinitialise si invalide
-                        }
-                    });
+                endDateInput.addEventListener('change', () => {
+                    if (startDateInput.value && new Date(startDateInput.value) > new Date(endDateInput.value)) {
+                        startDateInput.value = ''; // Réinitialise si invalide
+                    }
                 });
 
 
-
-                document.querySelector('.v-e-btn').addEventListener('click', () => {
+                function openMenu() {
                     const dropdownContent = document.querySelector('.dropdown-content');
                     const button = document.querySelector('.v-e-btn');
 
@@ -162,7 +166,15 @@ class VueHome extends VueGenerique
 
                     // Ajouter ou supprimer la classe pour changer les bordures
                     button.classList.toggle('no-border');
+                }
+
+                menuBannerIcon.addEventListener('click', () => {
+                    openMenu();
+                })
+                document.querySelector('.v-e-btn').addEventListener('click', () => {
+                    openMenu();
                 });
+
 
                 // Fermer le menu si on clique en dehors
                 window.addEventListener('click', (event) => {
@@ -375,6 +387,24 @@ class VueHome extends VueGenerique
                         </div>
             </section>
         </main>
+    <?php
+    }
+
+    public function notPermitted()
+    {
+    ?>
+
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Accès refusé</title>
+        </head>
+        <main>
+            <h1>Accès refusé</h1>
+            <p>Vous n'avez pas l'autorisation d'accéder à cette page.</p>
+            <a href="index.php">Retour à l'accueil</a>
+        </main>
+
 <?php
     }
 }
