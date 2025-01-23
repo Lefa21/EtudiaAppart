@@ -25,12 +25,12 @@ class ModeleSearchAd extends Connexion
             $end_date = isset($currentSearch['end_date']) && !empty($currentSearch['end_date']) ? $currentSearch['end_date'] : null;
             $city = isset($currentSearch['city']) && !empty($currentSearch['city']) ? trim(strtolower($currentSearch['city'])) : null;
             $country = isset($currentSearch['country']) && !empty($currentSearch['country']) ? trim(strtolower($currentSearch['country'])) : null;
-            $surfaceMin = isset($currentSearch['surface_min']) && $currentSearch['surface_min'] !== '' ? (float)$currentSearch['surface_min'] : null;
-            $surfaceMax = isset($currentSearch['surface_max']) && $currentSearch['surface_max'] !== '' ? (float)$currentSearch['surface_max'] : null;
+            $surfaceMin = isset($currentSearch['surface_min']) && $currentSearch['surface_min'] !== '' ? (int)$currentSearch['surface_min'] : null;
+            $surfaceMax = isset($currentSearch['surface_max']) && $currentSearch['surface_max'] !== '' ? (int)$currentSearch['surface_max'] : null;
             $rooms = isset($currentSearch['rooms']) && $currentSearch['rooms'] !== '' ? (int)$currentSearch['rooms'] : null;
-            $budget = isset($currentSearch['budget']) && $currentSearch['budget'] !== '' ? (float)$currentSearch['budget'] : null;
-            $priceMin = isset($currentSearch['price_min']) && $currentSearch['price_min'] !== '' ? (float)$currentSearch['price_min'] : null;
-            $priceMax = isset($currentSearch['price_max']) && $currentSearch['price_max'] !== '' ? (float)$currentSearch['price_max'] : null;
+            $budget = isset($currentSearch['budget']) && $currentSearch['budget'] !== '' ? (int)$currentSearch['budget'] : null;
+            $priceMin = isset($currentSearch['price_min']) && $currentSearch['price_min'] !== '' ? (int)$currentSearch['price_min'] : null;
+            $priceMax = isset($currentSearch['price_max']) && $currentSearch['price_max'] !== '' ? (int)$currentSearch['price_max'] : null;
             $selectedHousingTypes = !empty($currentSearch['housing_type']) ? $currentSearch['housing_type'] : null;
             $habitationFurnished = isset($currentSearch['habitation_furnished']) && !empty($currentSearch['habitation_furnished']) ? $currentSearch['habitation_furnished'] : null;
             $start_date = isset($currentSearch['start_date']) && !empty($currentSearch['start_date']) ? $currentSearch['start_date'] : null;
