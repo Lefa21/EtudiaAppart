@@ -35,8 +35,8 @@
         }
 
         .school-logo {
-            width: 120px;
-            height: auto;
+            width: 150px;
+            height: 100px;
             border-radius: 8px;
             transition: transform 0.3s ease;
         }
@@ -129,18 +129,17 @@
         <a href="#site-map">Plans du site</a>
         <a href="index.php?module=contact&action=contact">Nous contacter</a>
         <a href="index.php?module=a_propos&action=a_propos">A propos</a>
-        <a href="#faq">FAQ</a>
-        <a href="#help">Aide</a>
+        <a href="index.php?module=faq&action=faq">FAQ</a>
     </div>
 
     <div class="partner-schools">
         <h2>Nos écoles partenaires</h2>
         <div class="school-logos">
             <img src="assets/logo_ecole.png" alt="Partner School" class="school-logo" />
-            <img src="assets/epita.jpg" alt="Partner School" class="school-logo" />
-            <img src="assets/cpe_lyon.png" alt="Partner School" class="school-logo" />
+            <img src="assets/logo-sorbonne.png" alt="Partner School" class="school-logo" />
+            <img src="assets/logo-esilv.png" alt="Partner School" class="school-logo" />
         </div>
-        <a class="footer-link-school" href="#more-schools">Voir plus d'écoles</a>
+        <a class="footer-link-school" href="index.php?module=schools&action=schools">Voir plus d'écoles</a>
     </div>
 
     <div class="footer-column">
@@ -163,7 +162,7 @@
 
     <div class="footer-bottom">
         <p class="footer-legal">
-            <a href="#cgu">CGU</a> | <a href="#mentions">Mentions légales</a> | <a href="#contacts">Contacts</a>
+            <a href="index.php?module=cgu&action=cgu">CGU et Mentions Légales</a> | <a href="index.php?module=contact&action=contact">Contacts</a>
         </p>
     </div>
 </footer>

@@ -1,7 +1,5 @@
     <?php
 
-    setlocale(LC_TIME, 'fr_FR.utf8', 'fra'); // Active la locale française
-
 
     class VueHome extends VueGenerique
 

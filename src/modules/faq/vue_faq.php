@@ -1,5 +1,5 @@
 <?php
-class Vuefaq extends VueGenerique
+class VueFaq extends VueGenerique
 {
     public function __construct()
     {
@@ -7,53 +7,146 @@ class Vuefaq extends VueGenerique
     }
     public function faq()
     {
-        ?>
+?>
         <main>
-            <link rel="stylesheet" href="./src/css/cgu.css">
-            <div class="body_container">
-                <h1>Mentions Légales</h1>
+            <link rel="stylesheet" href="./src/css/faq.css">
+            <!DOCTYPE html>
+            <html lang="fr">
 
-                <h2>Éditeur du site</h2>
+            <head>
+                <meta charset="UTF-8">
+                <title>FAQ Location d'Appartements</title>
+                <style>
+                    .faq-container {
+                        background-color: #f9f9f9;
+                        border-radius: 8px;
+                        padding: 20px;
+                    }
 
-                <p>Le site EtudiAppart est édité par :<br>
-                    Nom de l’éditeur : Alliance 6<br>
-                    Siège social : 10 rue de Vanves, Issy-les-moulineaux, 92130<br>
-                    Numéro SIRET : 789201000378</p>
+                    .faq-item {
+                        margin-bottom: 20px;
+                        border-bottom: 1px solid #e0e0e0;
+                        padding-bottom: 15px;
+                    }
 
-                <h2>Hébergeur du site</h2>
+                    .faq-question {
+                        color: #333;
+                        font-weight: bold;
+                        cursor: pointer;
+                        margin-bottom: 10px;
+                    }
 
-                <p>Le site EtudiAppart est hébergé par :<br>
-                    Nom de l’hébergeur : Herogu<br>
-                    Site web : <a href="https://herogu.garageisep.com/">https://herogu.garageisep.com/</a></p>
+                    .faq-answer {
+                        color: #666;
+                        display: block;
+                    }
 
-                <h2>Propriété intellectuelle</h2>
+                    .faq-answer ul {
+                        padding-left: 20px;
+                    }
+                </style>
+                <div class="faq-container">
+                    <h1>Questions Fréquentes sur la Location d'Appartements</h1>
 
-                <p>L’ensemble des contenus présents sur le site EtudiAppart, incluant, de manière non limitative, les graphismes, images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme sont la propriété exclusive d'Alliance 6, à l’exception des marques, logos ou contenus appartenant à d’autres sociétés partenaires ou auteurs.<br>
-                    Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l’accord écrit d'Alliance 6. Cette représentation ou reproduction, par quelque procédé que ce soit, constitue une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+                    <div class="faq-item">
+                        <h2 class="faq-question">
+                            Quels documents sont nécessaires pour louer un appartement ?
+                        </h2>
+                        <div class="faq-answer">
+                            <ul>
+                                <li>Une pièce d'identité</li>
+                                <li>Un justificatif de revenus (3 dernières fiches de paie)</li>
+                                <li>Une attestation d'emploi</li>
+                                <li>Un garant si vos revenus sont insuffisants</li>
+                                <li>Une attestation d'assurance logement</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <h2>Limitation de responsabilité</h2>
+                    <div class="faq-item">
+                        <h2 class="faq-question">
+                            Quel est le montant de la caution lors de la location ?
+                        </h2>
+                        <div class="faq-answer">
+                            Le montant de la caution est généralement équivalent à un mois de loyer.
+                            Pour un logement nu, elle sera remboursée dans un délai de deux mois après l'état des lieux de sortie,
+                            déduction faite des éventuels frais de réparation.
+                        </div>
+                    </div>
 
-                <p>Les informations contenues sur le site EtudiAppart sont aussi précises que possible et le site est périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des lacunes. Si vous constatez une lacune, erreur ou ce qui paraît être un dysfonctionnement, merci de bien vouloir le signaler par e-mail à <a href="mailto:etudiapart@alliance6.fr"></a></p>
+                    <div class="faq-item">
+                        <h2 class="faq-question">
+                            Comment calculer mon budget location ?
+                        </h2>
+                        <div class="faq-answer">
+                            Il est recommandé de ne pas consacrer plus de 30% de ses revenus au loyer.
+                            Pour calculer votre budget, multipliez vos revenus mensuels par 0,3 et vérifiez
+                            que ce montant couvre le loyer, les charges comprises.
+                        </div>
+                    </div>
 
-                <p>Tout contenu téléchargé se fait aux risques et périls de l’utilisateur et sous sa seule responsabilité. En conséquence, l’éditeur du site ne saurait être tenu responsable d’un quelconque dommage subi par l’ordinateur de l’utilisateur ou d’une quelconque perte de données consécutives au téléchargement.</p>
+                    <div class="faq-item">
+                        <h2 class="faq-question">
+                            Quels sont mes droits et obligations en tant que locataire ?
+                        </h2>
+                        <div class="faq-answer">
+                            <p>Vos droits incluent :</p>
+                            <ul>
+                                <li>Un logement décent et en bon état</li>
+                                <li>La réalisation des réparations nécessaires</li>
+                                <li>La protection contre les expulsions abusives</li>
+                            </ul>
 
-                <p>Les photos sont non contractuelles.</p>
+                            <p>Vos obligations :</p>
+                            <ul>
+                                <li>Payer le loyer et les charges à temps</li>
+                                <li>Entretenir le logement</li>
+                                <li>Souscrire une assurance habitation</li>
+                                <li>Respecter le règlement intérieur</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <p>Les liens hypertextes mis en place dans le cadre du site internet en direction d’autres ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de l’éditeur du site.</p>
+                    <div class="faq-item">
+                        <h2 class="faq-question">
+                            Comment se déroule l'état des lieux d'entrée et de sortie ?
+                        </h2>
+                        <div class="faq-answer">
+                            L'état des lieux est un document détaillant l'état du logement à l'entrée et à la sortie.
+                            Il est réalisé en présence du locataire et du propriétaire ou de son représentant.
+                            Un rapport est établi et signé par les deux parties. C'est un document crucial pour
+                            la restitution de la caution.
+                        </div>
+                    </div>
 
-                <h2>Protection des données personnelles</h2>
+                    <div class="faq-item">
+                        <h2 class="faq-question">
+                            Quels sont les délais de préavis pour quitter un appartement ?
+                        </h2>
+                        <div class="faq-answer">
+                            <p>Les délais de préavis varient selon votre type de bail :</p>
+                            <ul>
+                                <li>Bail vide : 3 mois (réduit à 1 mois en zones tendues)</li>
+                                <li>Bail meublé : 1 mois</li>
+                                <li>Mutation professionnelle, premier emploi, retraite : préavis réduit</li>
+                            </ul>
 
-                <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.</p>
+                            <p>Le préavis commence à courir à compter du jour de la réception du courrier de congé.</p>
+                        </div>
+                    </div>
+                </div>
 
-                <p>Les informations collectées sur le site EtudiAppart sont destinées exclusivement à un usage interne et ne sont en aucun cas cédées à des tiers.</p>
-
-                <p>Pour exercer vos droits, vous pouvez nous contacter à l’adresse suivante :</p>
-
-                <p>Adresse e-mail : <a href="mailto:etudiappart@alliance6.fr"></a></p>
-
-            </div>
+                <script>
+                    // Optional: Add interactivity to show/hide answers
+                    document.querySelectorAll('.faq-question').forEach(question => {
+                        question.addEventListener('click', () => {
+                            const answer = question.nextElementSibling;
+                            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+                        });
+                    });
+                </script>
         </main>
 
-        <?php
+<?php
     }
 }

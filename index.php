@@ -84,8 +84,10 @@ switch ($module) {
         $moduleFile = './src/modules/favorites/module_favorites.php';
         $moduleClass = 'ModFavorites';
         break;
-
-
+    case 'schools':
+        $moduleFile = './src/modules/schools/module_schools.php';
+        $moduleClass = 'ModuleSchools';
+        break;
     case 'cgu':
         $moduleFile = './src/modules/CGU_mentions_legales/module_cgu.php';
         $moduleClass = 'ModCGU';
@@ -97,6 +99,10 @@ switch ($module) {
     case 'reports':
         $moduleFile = './src/modules/reports/module_reports.php';
         $moduleClass = 'ModReports';
+        break;
+    case 'faq':
+        $moduleFile = './src/modules/faq/module_faq.php';
+        $moduleClass = 'ModFaq';
         break;
 }
 
