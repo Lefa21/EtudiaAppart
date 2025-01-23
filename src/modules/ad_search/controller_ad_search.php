@@ -47,7 +47,6 @@ class ContSearchAd
 
     public function addFavorite()
     {
-        var_dump("on y est");
         if ($this->action === 'addFavorite' && isset($_GET['id_ad']) && isset($_SESSION['identifiant_utilisateur'])) {
             
             $adId = $_GET['id_ad'];

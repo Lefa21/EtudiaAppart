@@ -58,7 +58,7 @@ $isStudent = isset($_SESSION["user_status"]) && $_SESSION["user_status"] === "et
       <img src="assets/icon_messages_profile.svg" alt="" class="nav-item-icon">
       <span>Messagerie</span>
     </a>
-    <a href="#favorites" class="nav-item">
+    <a href="index.php?module=favorites&action=displayFavorites" class="nav-item">
       <img src="assets/icon_wishlist.svg" alt="" class="nav-item-icon">
       <span>Mes favoris</span>
     </a>

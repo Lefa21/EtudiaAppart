@@ -34,7 +34,7 @@ class ModeleInscription extends Connexion
 
             // Expéditeur et destinataire
             $mail->setFrom('a01e94ac68-997602+1@inbox.mailtrap.io', 'EtudiAppart'); // Adresse et nom de l'expéditeur
-            $mail->addAddress($to); // Adresse du destinataire
+            $mail->addAddress($to); // Adressgit e du destinataire
 
             // Contenu de l'email
             $mail->isHTML(true);

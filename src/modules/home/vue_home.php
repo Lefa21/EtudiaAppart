@@ -89,30 +89,45 @@ class VueHome extends VueGenerique
 
             <section class="apparts">
 
-                    <section class="property-grid">
-                        <?php if (!empty($result) && is_array($result)): ?>
-                            <?php foreach ($result as $ad): ?>
-                                <article class="property-card">
-                                    <img src="assets/default_property.jpg" alt="Property" class="property-image" />
-                                    <div class="property-info">
-                                        <div style="display: flex; justify-content: space-between;">
-                                            <p style="margin: 0;">
-                                                <i class="fas fa-heart" style="color: red;"></i> <?php echo htmlspecialchars("Likes : " . $ad['favorite_count']); ?>
-                                            </p>
-                                        </div>
-                                        <p><strong>Titre :</strong> <?php echo htmlspecialchars($ad['ad_title']); ?></p>
-                                        <p><strong>Prix :</strong> <?php echo htmlspecialchars($ad['rent_price']); ?> €</p>
-                                        <p><strong>Date début :</strong> <?php echo htmlspecialchars($ad['lease_start']); ?></p>
-                                        <p><strong>Date fin :</strong> <?php echo htmlspecialchars($ad['lease_end']); ?></p>
+                <section class="property-grid">
+                    <?php if (!empty($result) && is_array($result)): ?>
+                        <?php foreach ($result as $ad): ?>
+                            <article class="property-card">
+                                <?php
+                                // Tableau des chemins d'images potentiels
+                                $imagePaths = [
+                                    "assets/logement1.jpg",
+                                    "assets/logement2.jpg",
+                                    "assets/logement3.jpg"
+                                ];
 
+                                // Sélectionner une seule image aléatoire
+                                $randomImage = $imagePaths[array_rand($imagePaths)];
+                                ?>
+
+                                <div class="property-images">
+                                    <img src="<?php echo $randomImage; ?>" alt="Logement" class="property-image" />
+                                </div>
+
+                                <div class="property-info">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <p style="margin: 0;">
+                                            <i class="fas fa-heart" style="color: red;"></i>
+                                            <?php echo htmlspecialchars("Likes : " . $ad['favorite_count']); ?>
+                                        </p>
                                     </div>
-                                </article>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                            <p>Aucune annonce disponible pour le moment. Revenez plus tard ou modifiez vos critères de recherche.</p>
-                        <?php endif; ?>
-                    </section>
+                                    <p><strong>Titre :</strong> <?php echo htmlspecialchars($ad['ad_title']); ?></p>
+                                    <p><strong>Prix :</strong> <?php echo htmlspecialchars($ad['rent_price']); ?> €</p>
+                                    <p><strong>Date début :</strong> <?php echo htmlspecialchars($ad['lease_start']); ?></p>
+                                    <p><strong>Date fin :</strong> <?php echo htmlspecialchars($ad['lease_end']); ?></p>
+                                </div>
+                            </article>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>Aucune annonce disponible pour le moment. Revenez plus tard ou modifiez vos critères de recherche.</p>
+                    <?php endif; ?>
                 </section>
+            </section>
 
 
             <script defer>

@@ -211,7 +211,9 @@ class VueSearchAd extends VueGenerique
                                             $imageName = !empty($ad['ImageName']) ? htmlspecialchars($ad['ImageName']) : 'Image par défaut';
                                     ?>
                                             <article class="listing-card">
-                                                <img src="assets/icon_favoris.svg" alt="Apartment interior view" class="image-annonce_favoris" />
+                                            <a href="index.php?module=ad_search&action=addFavorite&id_ad=<?= $ad['id_ad'] ?>" class="image-annonce_favoris">
+                                                    <img style="width: 25px;" src="assets/iconFavorites.png" alt="Ajouter aux favoris" />
+                                                </a>
                                                 <div onclick="redirectTo(this)">
                                                     <span class="annonceId" hidden><?= htmlspecialchars($ad['id_ad']) ?></span>
                                                     <!-- Affichage de l'image -->
