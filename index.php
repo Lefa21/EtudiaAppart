@@ -76,6 +76,18 @@ switch ($module) {
         $moduleFile = './src/modules/reset_password/module_reset_password.php';
         $moduleClass = 'ModResetPassword';
         break;
+    case 'settings':
+        $moduleFile = './src/modules/settings/module_settings.php';
+        $moduleClass = 'ModSettings';
+        break;
+    case 'favorites':
+        $moduleFile = './src/modules/favorites/module_favorites.php';
+        $moduleClass = 'ModFavorites';
+        break;
+    case 'schools':
+        $moduleFile = './src/modules/schools/module_schools.php';
+        $moduleClass = 'ModuleSchools';
+        break;
     case 'cgu':
         $moduleFile = './src/modules/CGU_mentions_legales/module_cgu.php';
         $moduleClass = 'ModCGU';
@@ -88,9 +100,9 @@ switch ($module) {
         $moduleFile = './src/modules/reports/module_reports.php';
         $moduleClass = 'ModReports';
         break;
-    case 'favorites':
-        $moduleFile = './src/modules/favorites/module_favorites.php';
-        $moduleClass = 'ModFavorites';
+    case 'faq':
+        $moduleFile = './src/modules/faq/module_faq.php';
+        $moduleClass = 'ModFaq';
         break;
 }
 

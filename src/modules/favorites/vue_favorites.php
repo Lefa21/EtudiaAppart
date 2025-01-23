@@ -12,52 +12,38 @@ class VueFavorites extends VueGenerique
   public function displayFavorites($favorites)
   {
 ?>
-    <main>
-      <?php
-      include "./src/menu_my_account.php";
-      ?>
+    <main class="student-profile">
+      <?php include "./src/menu_my_account.php"; ?>
       <style>
-        main {
-          display: flex;
-          flex-direction: row;
-          margin-top: 20px;
-          /* Réduit de 40px à 20px */
-          background: var(--background-color-white);
-          padding-bottom: 49px;
-          height: 100vh;
-        }
-
-        aside {
+        .main-content-favorites {
           display: flex;
           flex-direction: column;
-          text-align: left;
-          width: 100%;
-          overflow-y: auto;
+          width: 80%;
+          margin: 16px 0 0 16px;
+        }
+
+        h1 {
+          color: var(--text-color-blue);
+          font: 800 36px/1 var(--police-text);
+          letter-spacing: -1px;
         }
 
         .property-grid {
           margin-top: 20px;
-          /* Réduit la marge du haut */
-          width: 70%;
-          max-width: 1826px;
+          width: 100%;
           display: flex;
           gap: 20px;
           flex-wrap: wrap;
-          padding: 20px;
         }
 
-        /* Le reste du CSS reste identique */
-
         .property-card {
-          border-radius: 5px;
-          border: 3px solid #000;
-          padding: 16px 18px 27px;
+          border-radius: 8px;
+          border: var(--secondary-color) 1px solid;
+          padding: 20px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          /* Ajoute cette ligne pour répartir l'espace */
-          transition: transform 0.3s;
-          background: #fff;
+          background: var(--background-color-white);
           width: 300px;
           height: 500px;
           flex: 0 0 auto;
@@ -67,22 +53,47 @@ class VueFavorites extends VueGenerique
         .property-image {
           width: 100%;
           height: 250px;
-          /* Hauteur fixe pour l'image */
-          border-radius: 5px;
+          border-radius: 8px;
           object-fit: cover;
         }
 
-        /* Pour les petits écrans */
-        @media (max-width: 991px) {
-          .property-grid {
+        .property-info {
+          color: var(--text-color-blue);
+          font: 400 16px/1.5 var(--police-text);
+        }
+
+        .property-info p {
+          margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+          .main-content-favorites {
             width: 100%;
-            margin-top: 40px;
+            margin: 16px 0;
+          }
+
+          .property-grid {
             justify-content: center;
-            /* Centre les cards */
+          }
+
+          .property-card {
+            width: 100%;
+            max-width: 300px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 28px;
+          }
+
+          .property-card {
+            padding: 10px;
           }
         }
       </style>
-      <aside>
+
+      <div class="main-content-favorites">
         <h1>Mes annonces en favoris</h1>
         <section class="property-grid">
           <?php if (!empty($favorites)): ?>
@@ -101,8 +112,7 @@ class VueFavorites extends VueGenerique
             <p>Vous n'avez aucune annonce en favoris.</p>
           <?php endif; ?>
         </section>
-      </aside>
-
+      </div>
     </main>
 <?php
   }

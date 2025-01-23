@@ -23,13 +23,12 @@ global $tampon; ?>
     <link rel="stylesheet" href="./src/css/utilities.css">
 </head>
 
-<body>
-    <?php
+<body class="<?php echo $model->getTheme() === 'dark' ? 'dark-theme' : 'light-theme'; ?>">
 
+    <?php
 
     include __DIR__ . '/header.php';
     ?>
-
     <?php
     if (isset($tampon)) {
         echo $tampon;

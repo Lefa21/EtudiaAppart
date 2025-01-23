@@ -3,13 +3,13 @@
 require_once 'vue_faq.php';
 require_once __DIR__  . '/../../connexion.php';
 
-class Contfaq
+class ContFaq
 {
     private $vue;
     private $action;
     public function __construct()
     {
-        $this->vue = new Vuefaq();
+        $this->vue = new VueFaq();
         $this->action = isset($_GET['action']) ? $_GET['action'] : 'faq';
     }
 

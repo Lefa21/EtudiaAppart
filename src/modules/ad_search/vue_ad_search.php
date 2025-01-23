@@ -236,7 +236,6 @@ class VueSearchAd extends VueGenerique
         </div>
 
         </section>
-        </form>
         </main>
         </div>
 <?php

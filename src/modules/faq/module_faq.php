@@ -2,10 +2,10 @@
 
 require_once 'controller_faq.php';
 
-class Modfaq{
+class ModFaq{
     private $controller;
     public function __construct(){
-        $this->controller = new Contfaq();
+        $this->controller = new ContFaq();
         if ($this->controller->getAction() == 'faq') {
             $this->controller->faq();
         }

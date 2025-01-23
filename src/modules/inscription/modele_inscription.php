@@ -51,46 +51,6 @@ class ModeleInscription extends Connexion
     }
 
 
-
-    /**
-     * Envoie un email via le SMTP de Mailtrap.
-     *
-     * @param string $to       L'adresse email du destinataire.
-     * @param string $subject  L'objet de l'email.
-     * @param string $body     Le contenu HTML de l'email.
-     * @return bool            Retourne true si l'email a été envoyé, false sinon.
-     */
-    private function sendMail($to, $subject, $body)
-    {
-        $mail = new PHPMailer(true);
-        try {
-            // Configuration du serveur SMTP Mailtrap
-            $mail->isSMTP();
-            $mail->Host = 'sandbox.smtp.mailtrap.io';
-            $mail->SMTPAuth = true;
-            $mail->Port = 2525;
-            $mail->Username = '787465f2de2697'; // Votre identifiant Mailtrap
-            $mail->Password = '3533f50af7726d'; // Votre mot de passe Mailtrap
-
-            // Expéditeur et destinataire
-            $mail->setFrom('a01e94ac68-997602+1@inbox.mailtrap.io', 'EtudiAppart'); // Adresse et nom de l'expéditeur
-            $mail->addAddress($to); // Adresse du destinataire
-
-            // Contenu de l'email
-            $mail->isHTML(true);
-            $mail->Subject = $subject;
-            $mail->Body = $body;
-
-            // Envoyer
-            $mail->send();
-            return true;
-        } catch (Exception $e) {
-            error_log("Erreur d'envoi d'email : " . $mail->ErrorInfo);
-            return false;
-        }
-    }
-
-
     public function ajoutUtilisateur()
     {
 
@@ -126,9 +86,10 @@ class ModeleInscription extends Connexion
                 $errors['email'] = ' L\'adresse email existe déjà';
                 return $errors;
             }
-
-         
+    
+            // Hachage du mot de passe avant l'insertion
             $hashMotDePasse = password_hash($password, PASSWORD_DEFAULT);
+
 
             // token email d'activation
             $activation_token = bin2hex(openssl_random_pseudo_bytes(16, $strong));
@@ -144,6 +105,8 @@ class ModeleInscription extends Connexion
             $sql->bindParam(':password', $hashMotDePasse);
             $sql->bindParam(':account_activation_hash', $activation_token_hashed);
             $sql->bindParam(':activation_token_expires_at', $activation_token_expires_at);
+
+
     
             // Exécution de la requête
             if ($sql->execute()) {

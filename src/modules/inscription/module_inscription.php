@@ -29,7 +29,6 @@ class ModInscription{
 
         }
 
-
     } 
 
     public function displayContent(){
