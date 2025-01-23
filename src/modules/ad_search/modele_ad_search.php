@@ -131,7 +131,7 @@ class ModeleSearchAd extends Connexion
             ];
         }
 
-        return null;
+        return [];
     }
 
     public function searchAdTitles($keyword)

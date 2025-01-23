@@ -11,20 +11,35 @@ function initMap() {
   });
 
   const adDataElement = document.getElementById("adData");
-  if (!adDataElement) {
-    console.error("L'élément adData n'a pas été trouvé dans le DOM.");
+  if (!adDataElement || !adDataElement.textContent.trim()) {
+    console.error("L'élément adData est vide ou introuvable.");
     return;
   }
 
-  const adData = JSON.parse(adDataElement.textContent);
-  console.log(adData);
+  let adData;
+  try {
+    adData = JSON.parse(adDataElement.textContent);
+  } catch (error) {
+    console.error("Erreur lors du parsing de adData : ", error.message);
+    return;
+  }
 
   if (!adData || adData.length === 0) {
-    console.error("Aucune donnée à afficher sur la carte.");
+    console.warn("Aucune donnée d'annonce disponible.");
     return;
   }
 
-  const geocoder = new google.maps.Geocoder();
+  console.log(adData);
+
+  const geocoder = new google.maps.Geocoder(); 
+  const bluePin = {
+    path: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z",
+    fillColor: "#041a8f",
+    fillOpacity: 1,
+    strokeWeight: 0,
+    scale: 2,
+    anchor: new google.maps.Point(12, 24), 
+  };
 
   adData.forEach((ad) => {
     const city = ad.city;
@@ -33,19 +48,39 @@ function initMap() {
 
     if (city && zipCode && country) {
       const address = `${city}, ${zipCode}, ${country}`;
-      console.log(address);
+      console.log(`Géocodage pour : ${address}`);
 
       geocoder.geocode({ address: address }, (results, status) => {
         if (status === google.maps.GeocoderStatus.OK) {
           const location = results[0].geometry.location;
-          new google.maps.Marker({
+
+          // Création du marqueur avec l'icône personnalisée
+          const marker = new google.maps.Marker({
             position: location,
             map: map,
             title: ad.ad_title,
+            icon: bluePin,
+          });
+
+          // Création de la fenêtre d'information
+          const infoWindow = new google.maps.InfoWindow({
+            content: `
+              <div onclick="redirectTo(this)">
+              <span class="annonceId" hidden><${ad.id_ad}></span>
+                <h3>${ad.ad_title}</h3>
+                <p>${ad.city}, ${ad.zipCode}</p>
+                <p>${ad.rent_price}€</p>
+              </div>
+            `,
+          });
+
+          // Affichage de la fenêtre d'information au clic sur le marqueur
+          marker.addListener("click", () => {
+            infoWindow.open(map, marker);
           });
         } else {
           console.error(
-            `Erreur de géocodage pour l'adresse : ${address}, statut : ${status}`,
+            `Erreur de géocodage pour l'adresse : ${address}, statut : ${status}`
           );
         }
       });
