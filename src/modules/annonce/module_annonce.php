@@ -43,6 +43,27 @@ class ModuleAnnonce
                     $this->controller->annonceApply($annonceId);
                 }
                 break;
+
+            case 'reportAd':
+                if (!isset($_SESSION['userId'])) {
+                    echo json_encode([
+                        'success' => false,
+                        'message' => 'Vous devez être connecté pour signaler une annonce.',
+                        'redirect' => 'index.php?module=connexion&action=formulaireConnexion'
+                    ]);
+                    exit;
+                } else {
+                    if (!isset($_GET['id_ad'])) {
+                        echo json_encode([
+                            'success' => false,
+                            'message' => 'Unspecified ad id',
+                        ]);
+                        exit;
+                    }
+                    $annonceId = htmlspecialchars($_GET['id_ad']);
+                    $this->controller->reportAd($annonceId);
+                }
+                break;
         }
     }
 

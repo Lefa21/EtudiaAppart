@@ -15,11 +15,11 @@ class VueProfil extends VueGenerique
     <link rel="stylesheet" href="./src/css/my_profil.css">
     <script type="text/javascript" src="./src/scripts/mon_profil.js"></script>
     <main class="student-profile" role="main">
-      <div class="main-content-profile">
-        <?php
-        include "./src/menu_my_account.php";
-        ?>
-        <section class="profile-content-profile">
+      <?php
+      include "./src/menu_my_account.php";
+      ?>
+      <section class="main-content-profile">
+        <div class="profile-content-profile">
           <div class="section-header-profile">
             <h1 class="section-title-profile">Profil</h1>
             <p class="section-subtitle-profile">Modifier vos informations personnelles et académiques</p>
@@ -156,8 +156,8 @@ class VueProfil extends VueGenerique
 
             <button type="submit" name="update_profil" id="saveProfileBtn" class="save-button-profile">Sauvegarder</button>
           </form>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
 <?php
   }
