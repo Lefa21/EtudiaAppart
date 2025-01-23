@@ -200,6 +200,40 @@ class VueSearchAd extends VueGenerique
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
+=======
+                            <div class="listings-container">
+                                <div class="listings-wrapper">
+                                    <?php
+                                    if (!empty($adData['results'])) {
+                                        foreach ($adData['results'] as $ad) {
+                                            $imageSrc = !empty($ad['ImageData'])
+                                                ? 'data:image/jpeg;base64,' . base64_encode($ad['ImageData'])
+                                                : 'assets/logement_etudiant_1.jpg';
+                                            $imageName = !empty($ad['ImageName']) ? htmlspecialchars($ad['ImageName']) : 'Image par défaut';
+                                    ?>
+                                            <article class="listing-card" onclick="redirectTo(this)">
+                                                <span class="annonceId" hidden><?= htmlspecialchars($ad['id_ad']) ?></span>
+                                                <!-- Affichage de l'image -->
+                                                <img src="<?= $imageSrc ?>" alt="<?= $imageName ?>" class="listing-image" />
+                                                <div class="listing-details">
+                                                    <div>
+                                                        <img src="assets/icon_favoris.svg" alt="Apartment interior view" class="image-annonce_favoris" />
+                                                    </div>
+                                                    <h2 class="listing-title"><?= htmlspecialchars($ad['ad_title']) ?></h2>
+                                                    <p class="listing-location"><?= htmlspecialchars($ad['city']) . ' ' . htmlspecialchars($ad['zipCode']) ?></p>
+                                                    <div class="listing-meta">
+                                                        <time class="listing-date">
+                                                            Publiée le <?= date("d/m/y H:i", strtotime($ad['date_publication'])) ?>
+                                                        </time>
+                                                        <p class="listing-price"><?= htmlspecialchars(number_format($ad['rent_price'], 2)) ?>€</p>
+                                                    </div>
+                                                </div>
+                                            </article>
+                                    <?php }
+                                    } ?>
+                            </div>
+>>>>>>> 1eb1976 (chevron en trop dans une div)
 
                 </form>
                 <div class="listings-container">
