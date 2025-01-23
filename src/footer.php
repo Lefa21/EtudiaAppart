@@ -133,8 +133,6 @@
         <a href="#help">Aide</a>
     </div>
 
-    <a href="index.php?module=cgu&action=cgu" class="footer-legal">CGU et Mentions Légales - contacts</a>
-  </footer>
     <div class="partner-schools">
         <h2>Nos écoles partenaires</h2>
         <div class="school-logos">
@@ -169,3 +167,4 @@
         </p>
     </div>
 </footer>
+
