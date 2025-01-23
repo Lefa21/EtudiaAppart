@@ -21,7 +21,6 @@ function getUserId($email)
   $stmt = Connexion::getBdd()->prepare($query);
   $stmt->bindParam(':email', $email, PDO::PARAM_STR);
   $stmt->execute();
-  return $stmt->fetch(PDO::FETCH_ASSOC)['id_user'];
 }
 
 function getUserData()
