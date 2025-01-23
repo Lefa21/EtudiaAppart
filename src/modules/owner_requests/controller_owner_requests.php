@@ -15,15 +15,22 @@ class ContOwnerRequests{
     public function __construct(){
         $this->modele = new ModeleOwnerRequests();
         $this->vue = new VueOwnerRequests();
-        $this->action = isset($_GET['action'])? $_GET['action'] : 'follow-up_requests';
+        $this->action = isset($_GET['action'])? $_GET['action'] : 'follow-up_owner_requests';
     }
 
-    public function followUpRequests(){  
-        $this->vue->followUpRequests();
+    public function followUpRequests($idUser){  
+        $applyData = $this->modele->getApply($idUser);
+        $this->vue->followUpRequests($applyData);
     }
 
     public function show_application(){  
-        $this->vue->show_application();
+        $applicationData = $this->modele->getApplication();
+        $this->vue->show_application($applicationData);
+    }
+
+    public function validate_request(){  
+        $this->modele->changeStatusRequest();
+        $this->vue->showValidationMessage();
     }
 
     public function getVue(){

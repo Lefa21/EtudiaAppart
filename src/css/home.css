@@ -1,431 +1,314 @@
-.student-life {
-
-    background: #fff;
-
+.vie-etudiante {
+    margin-top: 30px;
+    margin-right: 20px;
     display: flex;
-
-    flex-direction: column;
-
-    overflow: hidden;
-
-    min-height: 100vh;
-
+    justify-content: flex-end;
 }
 
 
-
-.student-life-banner {
-
-    align-self: end;
-
+.v-e-btn{
+    height: 60px;
+    font-size: 25px;
     display: flex;
-
-    width: 100%;
-
-    max-width: 1584px;
-
-    flex-direction: column;
-
-    align-items: start;
-
-    font-family: Inter, sans-serif;
-
-    color: #000;
-
-    font-weight: 400;
-
-    margin: 59px 74px 0 0;
-
-}
-
-
-
-.banner-header {
-
-    border-radius: 21px;
-
-    background: #041a8f;
-
-    align-self: end;
-
-    display: flex;
-
-    width: 740px;
-
-    max-width: 100%;
-
-    gap: 40px 82px;
-
-    font-size: 44px;
-
+    align-items: center;
+    background-color: #041a8f;
     color: #fff;
+    border-radius: 15px;
+    width: 400px;
+    justify-content: space-around;
+    font-family: Inter, sans-serif;
+    margin-right: 0;
+    padding-right: 35px;
+}
 
-    text-align: center;
+.v-e-btn img{
+    width: 60px;
+    margin-left: -20px;
+}
 
-    flex-wrap: wrap;
+.v-e-btn:hover{
+    background-color: #000e5c;
+}
 
-    padding: 1px 26px;
-
+.v-e-btn.no-border {
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0; 
 }
 
 
-
-.banner-icon {
-
-    width: 92px;
-
-    height: 92px;
-
+.dropdown {
+    position: relative; 
+    display: inline-block; 
 }
 
-
-
-.banner-title {
-
-    flex-grow: 1;
-
-    width: 494px;
-
-    margin: auto 0;
-
+.dropdown-content {
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    right: 0; 
+    background-color: #ccd8ff;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
+    border-radius: 0 0 8px 8px; 
+    overflow: hidden; 
+    z-index: 1; 
+    width: 400px; 
+    font-size: 20px;
+    border:1px solid #041a8f;
 }
 
+.dropdown-content a {
+    display: block; 
+    padding: 10px 15px; 
+    color:rgb(0, 0, 0); 
+    text-decoration: none; 
+    font-family: Inter, sans-serif; 
+}
 
+.dropdown-content img {
+    width: 50px;
+    margin-right: 25px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; 
+}
+
+.dropdown-content.show {
+    display: block; 
+}
 
 .filter-section-home {
-
-    border-radius: 21px;
-
-    border: 1px solid #000;
-
-    background: #ccd8ff;
-
-    display: flex;
-
-    margin-top: 59px;
-
-    width: 1396px;
-
-    max-width: 100%;
-
-    align-items: center;
-
-    gap: 20px;
-
-    font-size: 35px;
-
-    text-align: center;
-
-    flex-wrap: wrap;
-
-    justify-content: space-between;
-
-    padding: 22px 66px 22px 32px;
-
+height: 100px; 
+margin-top: 100px;
+align-self: center;
+border-radius: 21px;
+border: 1px solid #000;
+background: #ccd8ff;
+display: flex;
+margin-left: 18%;
+flex-direction: row;
+max-width: 83%;
+width: 67%;
+align-items: center;
+gap: 10px; 
+text-align: center;
+padding: 0 10px; 
+box-sizing: border-box; 
+overflow: hidden; 
+align-items: center;
 }
-
-
 
 .filter-group {
-
-    display: flex;
-
-    gap: 33px;
-
-    align-items: center;
-
+height: 100%;
+display: flex;
+flex-direction: row; 
+align-items: center; 
+justify-content: space-between; 
+gap: 20px; 
+box-sizing: border-box; 
+margin-bottom: 10px;
 }
 
-
-
-.filter-button-home {
-
-    background: none;
-
-    border: none;
-
-    font-size: 35px;
-
-    cursor: pointer;
-
-    padding: 8px 16px;
-
-    border-radius: 4px;
-
-    transition: background-color 0.3s;
-
+.filter-group input, .filter-group select {
+border: none;
+background-color: transparent;
+font-size: 25px; 
+text-align: center;
+width: calc(100% - 30px); 
+line-height: 1; 
+max-width: 70%; 
+box-sizing: border-box; 
 }
 
-
-
-.filter-button-home:hover,
-
-.filter-button-home:focus {
-
-    background-color: rgba(255, 255, 255, 0.2);
-
+.filter-section-home img {
+width: 45px; 
+height: 45px;
+margin-left: 10px;
 }
 
-
-
-.filter-button-home:focus-visible {
-
-    outline: 2px solid #041a8f;
-
-    outline-offset: 2px;
-
+.filter-group input::placeholder {
+color: #000;
+font-size: 18px; 
 }
 
-
-
-.filter-icon {
-
-    width: 77px;
-
-    height: 77px;
-
+.filter-group select {
+font-size: 20px; 
 }
 
-
-
-.filter-divider {
-
-    width: 1px;
-
-    height: 106px;
-
-    background: #000;
-
-    border: 1px solid #000;
-
+.filter-divider{
+height: 60px;
 }
-
 
 
 .search-button {
-
-    width: 113px;
-
-    height: 113px;
-
-    background: none;
-
-    border: none;
-
-    cursor: pointer;
-
-    padding: 0;
-
-    transition: transform 0.3s;
-
+width: 113px;
+height: 113px;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+transition: transform 0.3s;
 }
-
-
 
 .search-button:hover,
-
 .search-button:focus {
-
-    transform: scale(1.1);
-
+transform: scale(1.1);
 }
-
-
 
 .search-button:focus-visible {
+outline: 2px solid #041a8f;
+outline-offset: 2px;
+}
 
-    outline: 2px solid #041a8f;
+.filter-group input::placeholder{
+color: #000;
+}
 
-    outline-offset: 2px;
-
+input:focus {
+    outline: none; 
+    border-bottom: 2px solid #041a8f;
 }
 
 
+.property-title{
+    text-align: center;
+    margin: 100px 0 50px 0;
+    font-family: Inter, sans-serif; 
+}
 
-.section-subtitle {
+.calendar-group{
+    margin-top: 10px;
+}
 
-    font-size: 75px;
+.calendar-group input[type="date"] {
+border: 1px solid #ccc;
+border-radius: 5px;
+width:  56% !important;;
+padding: 5px;
+font-size: 16px;
+width: calc(50% - 10px);
+}
 
-    margin: 124px 0 0 140px;
+.filter-group label{
+font-size: 14px;
+}
 
+.inputs{
+margin-left:5px;
+margin-top: 10px;
+}
+.start, .end{
+display: flex;
+align-items: center;
+justify-content: space-between;
 }
 
 
 
 .property-grid {
-
-    align-self: center;
-
-    margin-top: 73px;
-
-    width: 100%;
-
-    max-width: 1826px;
-
-    display: flex;
-
-    gap: 20px;
-
-    padding: 0 20px;
-
+align-self: center;
+margin-top: auto;
+width: 70%;
+max-width: 1826px;
+display: flex;
+gap: 20px;
 }
-
-
 
 .property-card {
-
-    border-radius: 5px;
-
-    border: 3px solid #000;
-
-    padding: 16px 18px 27px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    transition: transform 0.3s;
-
-    background: #fff;
-
-    flex: 1;
-
+border-radius: 5px;
+border: 3px solid #000;
+padding: 16px 18px 27px;
+display: flex;
+flex-direction: column;
+transition: transform 0.3s;
+background: #fff;
+flex: 1;
 }
-
-
 
 .property-card:hover,
-
 .property-card:focus-within {
-
-    transform: translateY(-5px);
-
+transform: translateY(-5px);
 }
-
-
 
 .property-image {
-
-    width: 100%;
-
-    border-radius: 5px;
-
-    aspect-ratio: 1.05;
-
-    object-fit: cover;
-
+width: 100%;
+border-radius: 5px;
+aspect-ratio: 1.05;
+object-fit: cover;
 }
-
-
 
 .property-info {
-
-    margin-top: 20px;
-
-    font-size: 35px;
-
+margin-top: 20px;
+font-size: 20px;
 }
-
-
 
 .property-info h3 {
-
-    margin: 0 0 10px 0;
-
-    font-size: 1em;
-
+margin: 0 0 10px 0;
+font-size: 1em;
 }
-
-
 
 .property-info p {
-
-    margin: 5px 0;
-
+margin: 5px 0;
 }
-
-
 
 @media (max-width: 991px) {
+.student-life-banner {
+    max-width: 100%;
+    margin: 40px 10px 0 0;
+}
 
-    .student-life-banner {
+.banner-header {
+    padding: 0 20px;
+}
 
-        max-width: 100%;
+.banner-title {
+    max-width: 100%;
+}
 
-        margin: 40px 10px 0 0;
+.filter-section-home {
+    margin-top: 40px;
+    padding: 20px;
+}
 
-    }
+.section-subtitle {
+    max-width: 100%;
+    margin: 40px 20px 0;
+    font-size: 40px;
+}
 
+.property-grid {
+    max-width: 100%;
+    margin-top: 40px;
+    flex-direction: column;
+}
 
+.property-card {
+    width: 100%;
+}
+}
 
-    .banner-header {
-
-        padding: 0 20px;
-
-    }
-
-
-
-    .banner-title {
-
-        max-width: 100%;
-
-    }
-
-
-
-    .filter-section-home {
-
-        margin-top: 40px;
-
-        padding: 20px;
-
-    }
-
-
-
-    .section-subtitle {
-
-        max-width: 100%;
-
-        margin: 40px 20px 0;
-
-        font-size: 40px;
-
-    }
-
-
-
-    .property-grid {
-
-        max-width: 100%;
-
-        margin-top: 40px;
-
-        flex-direction: column;
-
-    }
-
-
-
-    .property-card {
-
-        width: 100%;
-
-    }
-
+@media (prefers-reduced-motion: reduce) {
+.property-card,
+.search-button {
+    transition: none;
+}
 }
 
 
+.arrow{
+width: 100px;
+}
 
-@media (prefers-reduced-motion: reduce) {
+.apparts{
 
-    .property-card,
+display: flex;
+align-items: center;
+justify-content: center;
 
-    .search-button {
+}
 
-        transition: none;
-
-    }
-
+.btn{
+background-color: transparent;
+border: none;
+cursor: hand;
 }

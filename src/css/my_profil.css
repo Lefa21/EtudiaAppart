@@ -1,16 +1,18 @@
 .student-profile {
+  margin-top: 2rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: var(--background-color-white);
-  padding-bottom: 49px;
 }
 
 .main-content-profile {
-  display: flex;
+  max-width: 100%;
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  margin-left: 2rem;
+}
+
+.profile-content-profile {
   width: 80%;
-  max-width: 1432px;
-  margin: 16px 0 0 16px;
 }
 
 .user-info-profile {
@@ -77,7 +79,7 @@
 
 .user-name-profile {
   font-size: 20px;
-  color: var( --text-color-black);
+  color: var(--text-color-black);
   font-weight: 500;
 }
 
@@ -102,12 +104,6 @@
   font: 500 17px/1.5 var(--police-text);
   text-decoration: none;
   color: inherit;
-}
-
-
-.profile-content-profile {
-  width: 80%;
-  padding: 20px;
 }
 
 .section-header-profile {
@@ -217,18 +213,17 @@
   .main-content-profile {
     flex-direction: column;
   }
-  
+
   .form-row-profile {
     flex-direction: column;
   }
-  
+
   .save-button-profile {
     width: 100%;
   }
 }
 
 @media (forced-colors: active) {
-
   .save-button-profile {
     border: 2px solid CanvasText;
   }

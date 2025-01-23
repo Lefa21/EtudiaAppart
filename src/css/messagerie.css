@@ -1,0 +1,257 @@
+:root {
+  --primary-color: #041a8f;
+  --secondary-color: #ccd8ff;
+  --text-color-blue: #041a8f;
+  --text-color-black: #000;
+  --text-color-white: #f8f7f2;
+  --text-color-grey: #c0c0c0;
+  --notification-color: #ff3939;
+}
+
+.student-profile {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+  background: var(--background-color-white);
+}
+
+.main-content-profile {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+#title {
+  color: var(--text-color-blue);
+  font: 800 36px/1 var(--police-text);
+  letter-spacing: -1px;
+}
+
+.search-bar {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#discussions {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.discussion {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  border: var(--secondary-color) 1px solid;
+  text-decoration: none;
+  color: inherit;
+}
+
+.infos_conv {
+  width: 30%;
+}
+
+.pp {
+  width: 6rem;
+  height: 6rem;
+  margin-right: 4rem;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.name {
+  font: 500 25px/1.5 var(--police-text);
+  color: var(--text-color-blue);
+}
+
+.last_mess_time {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.voir_conv {
+  display: flex;
+  margin-left: auto;
+  font: 400 16px/1.5 var(--police-text);
+  color: var(--text-color-blue);
+  background: none;
+  border: none;
+}
+
+.entete {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.retour {
+  height: 3rem;
+}
+
+#retour {
+  rotate: 180deg;
+}
+
+.conv {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 70%;
+  border-radius: 8px;
+  border: var(--secondary-color) 1px solid;
+}
+
+.message-sent {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: auto;
+  font: 400 16px/1.5 var(--police-text);
+  margin: 10px;
+}
+
+.message-received {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: auto;
+  font: 400 16px/1.5 var(--police-text);
+  margin: 10px;
+}
+
+.message-content {
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.received {
+  background: var(--background-color-white);
+  border: var(--secondary-color) 1px solid;
+  color: var(--text-color-blue);
+}
+
+.sent {
+  background: var(--primary-color);
+  color: var(--text-color-white);
+}
+
+.message-time {
+  font: 400 13px/1.5 var(--police-text);
+  color: var(--text-color-grey);
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.send-message {
+  margin-top: 10px;
+  width: 79%;
+}
+
+.message {
+  width: 80%;
+  padding: 5px;
+  margin-right: 2%;
+  border: var(--secondary-color) 1px solid;
+  border-radius: 8px;
+  background: var(--background-color-white);
+}
+
+.send_mess {
+  width: auto;
+  padding: 5px;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: var(--text-color-white);
+}
+
+/* ------------------ MEDIA QUERIES ------------------ */
+
+/* Tablettes (768px et moins) */
+@media (max-width: 768px) {
+  .student-profile {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  .main-content-profile {
+    width: 100%;
+    margin: 16px 0;
+  }
+
+  #discussions {
+    width: 100%;
+  }
+
+  .discussion {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .pp {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
+  }
+
+  .infos_conv {
+    width: 100%;
+  }
+
+  .text-content {
+    flex-direction: column;
+  }
+
+  .conv {
+    width: 100%;
+    height: auto;
+  }
+
+  .send-message {
+    width: 100%;
+  }
+
+  .message {
+    width: 90%;
+  }
+}
+
+/* Smartphones (480px et moins) */
+@media (max-width: 480px) {
+  .student-profile {
+    padding: 10px;
+  }
+
+  #title {
+    font-size: 28px;
+  }
+
+  .pp {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .discussion {
+    padding: 8px;
+  }
+
+  .send_mess {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .message-time {
+    font-size: 12px;
+  }
+}

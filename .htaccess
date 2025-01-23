@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteRule ^depotAnnonce$ index.php?module=creation_annonce&action=formulaireCreationAnnonce [L,QSA]
+RewriteRule ^rechercheAnnonce$ index.php?module=ad_search&action=recherche_annonce [L,QSA]
+RewriteRule ^inscription$ index.php?module=inscription&action=formulaireInscription [L,QSA]
+RewriteRule ^connexion$ index.php?module=connexion&action=formulaireConnexion [L,QSA]
+RewriteRule ^depotAnnonce/photos$ index.php?module=creation_annonce&action=photosCreationAnnonce [L,QSA]
+RewriteRule ^depotAnnonce/description$ index.php?module=creation_annonce&action=descriptionCreationAnnonce [L,QSA]
+RewriteRule ^monProfil$ index.php?module=monProfil&action=Profil [L,QSA]

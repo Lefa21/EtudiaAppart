@@ -7,17 +7,18 @@ class ModCreationAnnonce{
     private $controleur;
     public function __construct(){
         $this->controleur = new ContCreationAnnonce();
-        $this->controleur->etapesCreation();
+
         switch($this->controleur->getAction()){
             case 'formulaireCreationAnnonce':
-                $this->controleur->formulaireCreationAnnonce();
+                if(!isset($_SESSION['identifiant_utilisateur'])){
+                    header('Location: index.php?module=connexion&action=formulaireConnexion');
+                    exit();
+                }else{
+                    $this->controleur->formulaireCreationAnnonce();
+                }
                 break;
-
-            case 'photosCreationAnnonce':
-                $this->controleur->photosCreationAnnonce();
-                break;
-            case 'descriptionCreationAnnonce':
-                $this->controleur->descriptionCreationAnnonce();
+            case 'ajoutInfos':
+                $this->controleur->ajoutInfos();
                 break;
         }
 

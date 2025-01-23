@@ -1,0 +1,296 @@
+.blockPage {
+  color: black;
+  font-family: var(--police-text);
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+
+/*.blockPage a {
+  text-decoration: none;
+}*/
+
+/*---------------------------------------------------------------------------------------------*/
+/*----------------------------------------- MENU DEROULANT ------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+.records_section {
+  flex: 1; /* Occupe tout l'espace restant */
+  padding: 2rem; /* Espacement autour du contenu */
+  overflow-y: auto; /* Ajoute un scroll vertical si le contenu dépasse la hauteur */
+}
+
+.menu_container {
+  margin-bottom: 1rem; /* Par défaut */
+  transition: margin-bottom 0.3s ease;
+}
+
+.menu_button {
+  position: relative;
+  display: flex;
+  background-color: white;
+  margin-top: 2rem;
+  left: 50%;
+  transform: translate(-50%);
+  width: 80%;
+  height: 4rem;
+  border: solid 1px var(--text-color-grey);
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
+  z-index: 2;
+}
+
+.menu_button_text {
+  font-size: larger;
+  margin-left: 1rem;
+}
+
+.menu_button_arrow {
+  position: absolute;
+  height: 1rem;
+  top: 1.4rem;
+  right: 2rem;
+}
+
+.menu_container .dropdown-menu {
+  display: block; /* Ne pas utiliser display: none, car cela empêche les transitions */
+  opacity: 0;
+  visibility: hidden; /* Cache l'élément initialement */
+  height: 0;
+  overflow: hidden;
+  /* Déplacer légèrement vers le haut pour l'animation */
+  transform: translateY(-30px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    height 0.3s ease; /* Anime la hauteur */
+}
+
+.menu_container.forceActive .dropdown-menu {
+  opacity: 1;
+  transform: translateY(-20px);
+  visibility: visible;
+  height: auto; /* La hauteur sera calculée dynamiquement en JS */
+}
+
+.menu_container.forceActive .menu_button .menu_button_arrow {
+  transform: rotateZ(90deg);
+  animation: rotation 0.3s ease-in-out;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+/*---------------------------------------- DOCUMENTS SECTION ----------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+.document_section {
+  position: relative;
+  box-shadow: none;
+  background-color: white;
+  width: 80%;
+  border: solid 1px var(--text-color-grey);
+  border-radius: 0 0 4px 4px;
+  right: auto;
+  top: 100%;
+  left: 10%;
+  z-index: 1;
+}
+
+.document_section .save_button {
+  border: none;
+  background: var(--primary-color);
+  color: var(--text-color-white);
+  font-size: smaller;
+  min-height: 2rem;
+  width: 40%;
+  margin: 2rem;
+}
+
+.save_button {
+  width: 480px;
+  min-height: 48px;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: var(--White, #fff);
+  text-align: center;
+  font: 700 16px var(--police-text);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.save_button:hover {
+  background-color: #031473;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: absolute;
+  right: 54%;
+  cursor: default;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-size: 0.6rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  padding: 0.2rem;
+  border-radius: 6px;
+  min-height: 1rem;
+  min-width: 120px;
+  width: fit-content;
+
+  top: -10px;
+  left: 110%;
+
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent rgba(0, 0, 0, 0.6) transparent transparent;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+/*---------------------------------------- PASTE URL SECTION ----------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+.document_section form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.url_section {
+  display: flex;
+  width: 80%;
+  min-height: 5rem;
+  height: 5rem;
+  margin: 4rem 0 3rem 0;
+  border-radius: 8px;
+  background: var(--gray-border);
+  box-shadow:
+    0px 4px 8px 3px rgba(0, 0, 0, 0.15),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+.url_info {
+  font-size: smaller;
+  width: 100%;
+  padding: 1rem 0 0 1rem;
+  border-radius: 8px 0 0 8px;
+  background: var(--secondary-color);
+}
+
+.description {
+  font-size: 0.8rem;
+}
+
+.url_input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 100%;
+}
+
+.url_input input {
+  flex-grow: 1;
+  margin: 1rem;
+}
+
+#wrong_url {
+  color: red;
+}
+
+.btn-delete {
+  position: relative;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+/*-------------------------------------- INFORMATION SECTION ----------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+.info_section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  border: solid 1px var(--text-color-grey);
+  border-radius: 8px;
+  width: 80%;
+  min-height: 4rem;
+  height: fit-content;
+  margin-top: 1rem;
+  font-size: small;
+}
+
+.info_section:first-child {
+  margin-top: 3.6rem;
+}
+
+.info_section:last-child {
+  margin-bottom: 2rem;
+}
+
+.info_section_text {
+  color: var(--text-color-blue);
+  margin-left: 1rem;
+}
+
+.info_section_zone {
+  display: flex;
+}
+
+.info_section_zone > input,
+.info_section_zone > select {
+  margin-left: 1rem;
+}
+
+.info_section_zone #presentation {
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+
+  resize: vertical;
+
+  outline: none;
+
+  border: none;
+  margin: 0.5rem;
+
+  border-radius: 0.4rem;
+  line-height: 1.6;
+}
+
+.info_section_zone #presentation:hover {
+  background-color: #e7f1fd;
+}
+
+.info_section_zone #presentation:focus {
+  background-color: #e7f1fd;
+}

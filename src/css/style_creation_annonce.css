@@ -16,6 +16,27 @@
     flex-wrap: wrap;
 }
 
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.owner-depot_annonce {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--background-color-white);
+    padding-bottom: 49px;
+}
+
+.main-content-depot_annonce {
+    display: flex;
+    width: 80%;
+    max-width: 1432px;
+}
+
 body {
     font-family: Inter, 'Arial Narrow Bold', sans-serif;
     font-size: 1rem;
@@ -64,6 +85,13 @@ body {
     color: inherit;
 }
 
+.required {
+    bottom: 5px; 
+    right: 10px; 
+    color:#d12323;
+    font-weight: bold; 
+}
+
 .icon {
     width: 30px;
     height: 30px;
@@ -81,7 +109,6 @@ body {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-
 #menu_creation_annonce {
     margin: 40px;
     width: 20%;
@@ -91,11 +118,6 @@ body {
     display: flex;
     margin-left: auto;
     margin-right: auto;
-}
-
-#text_titre_form {
-    display: flex;
-    flex-direction: column;
 }
 
 #titre_form {
@@ -108,13 +130,29 @@ body {
     margin-bottom: 10px;
 }
 
+.main-content-creation_annonce {
+    display: flex;
+    width: 80%;
+    max-width: 1432px;
+}
+
 .champs_titre {
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
 }
 
+.container-title_creation-annonce {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    color: rgba(0, 43, 127, 1);
+    font: 800 21px / 1 var(--police-text);
+    letter-spacing: -1px;
+}
+
 .champs {
+    width: auto;
     padding: 10px;
     margin-top: 5px;
     border-radius: 8px;
@@ -122,25 +160,25 @@ body {
 }
 
 #titre_annonce {
-    width: 50rem;
+    width: auto;
 }
 
-#input_type{
+#input_type {
     width: 20rem;
 }
 
-#type{
+#type {
     display: flex;
     flex-direction: row;
 }
 
-#meuble{
+#meuble {
     display: flex;
     align-items: center;
     justify-items: center;
 }
 
-#check_meuble{
+#check_meuble {
     margin: 18px;
 }
 
@@ -167,29 +205,60 @@ body {
     width: 45%;
 }
 
-.suivant {
-    justify-items: center;
-    align-items: center;
-    width: fit-content;
+.nav_save {
+    align-self: center;
+    width: 34rem;
+    margin-top: 5rem;
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    margin-top: 15px;
-    border-radius: 8px;
-    background-color: var(--primary-color);
-    color: var(--text-color-white);
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: space-between;
 }
 
-#form_description {
+.form-step {
+    opacity: 0;
+    height: 0px;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.form-step.active {
+    opacity: 1;
+    display: block;
+    width: 80%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--background-color-white);
+    padding-bottom: 49px;
+    margin-left: 6rem;
+}
+
+.button {
+    text-align: center;
+    text-decoration: none;
+    width: 8rem;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+}
+
+#nav_save1 {
+    justify-content: end;
+}
+
+.sub {
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.wrapper_description {
     display: flex;
     flex-direction: column;
     padding: 10px 0px;
 }
 
 #champs_description {
-    width: 50rem;
+    width: 38rem;
     height: 30rem;
     padding: 10px;
     font-size: 1rem;
@@ -200,86 +269,319 @@ body {
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-#champs_description:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    outline: none;
-}
-
-#galerie{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+#galerie {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.logo_img{
+.logo_img {
     display: flex;
     width: 20rem;
     height: 20rem;
-    border: var(--secondary-color) 1px solid  ;
+    border: var(--secondary-color) 1px solid;
     border-radius: 8px;
     align-items: center;
     justify-content: center;
 }
 
-.logo{
+.logo {
     width: 10rem;
     height: 10rem;
 }
 
-.photo{
-    display: none;
+.sidebar {
+    width: 29%;
+    background: var(--background-color-white, #fff);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--police-text), sans-serif;
 }
 
+.user-info {
+    display: flex;
+    align-items: start;
+    gap: 15px;
+}
 
-@media (max-width: 600px) {
-    #bodycontainer {
+.profile-image-container {
+    position: relative;
+    width: 49px;
+    height: 49px;
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.image-upload-label {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    background: var(--primary-color, #041a8f);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+}
+
+.image-upload-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 20px;
+    color: var(--text-color-black);
+    font-weight: 500;
+}
+
+.user-role {
+    font-size: 17px;
+    color: var(--primary-color, #041a8f);
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 15px;
+    border-radius: 24px;
+    font: 500 17px/1.5 sans-serif;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+    background: var(--secondary-color, #e6ecff);
+}
+
+.nav-item.active {
+    background: var(--secondary-color, #ccd8ff);
+}
+
+.nav-item:focus {
+    outline: 2px solid var(--primary-color, #041a8f);
+    outline-offset: 2px;
+}
+
+.nav-item-icon {
+    width: 30px;
+    aspect-ratio: 1;
+}
+
+@media (max-width: 991px) {
+    .owner-depot_annonce {
+        padding-bottom: 20px;
+    }
+
+    .main-content-depot_annonce {
         flex-direction: column;
-        align-items: center;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    #titre_form {
+        font-size: 2rem;
+    }
+
+    .container-title_creation-annonce {
+        font-size: 1.6rem;
+        margin-top: 1rem;
+    }
+
+    .champs_titre {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .champs {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid var(--secondary-color);
+    }
+
+    #input_type, #prix, #superficie, #input_nb {
+        width: 100%;
+    }
+
+    #debut_fin {
+        width: 100%;
+        flex-direction: column;
     }
 
     .debut_fin {
         width: 100%;
     }
 
-    #titre_form {
-        font-size: 1.8rem;
-        text-align: center;
+    .nav_save {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+        justify-content: center;
+        align-items: center;
     }
 
-    #menu_creation_annonce {
-        display: none;
+    .nav_save .button {
+        width: 100%;
+        margin-top: 10px;
     }
+
+    .wrapper_description {
+        width: 100%;
+    }
+
+    #champs_description {
+        width: 100%;
+        height: 20rem;
+    }
+
+    #galerie {
+        width: 100%;
+    }
+
+    .logo_img {
+        width: 100%;
+        height: auto;
+        border: var(--secondary-color) 1px solid;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 50%;
+    }
+
+    body {
+        font-size: 0.9rem;
+    }
+
+    #nom_compte {
+        font-size: 1rem;
+    }
+
+    .user-name {
+        font-size: 1rem;
+    }
+
+    .user-role {
+        font-size: 0.9rem;
+    }
+
+    .nav-item {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 8px;
+        width: 100%;
+    }
+
+    .sidebar .nav-item-icon {
+        width: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        padding: 10px;
+    }
+
+    .sidebar .user-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-image-container {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-item {
+        font-size: 13px;
+    }
+
     #form_annonce {
-        margin: 20px;
+        padding: 0 10px;
     }
 
-    .icon {
-        width: 20px;
-        height: 20px;
+    .required {
+        bottom: 5px; 
+        color:#d12323;
+        margin-left: 20rem;
+        color: red;
+        font-weight: bold; 
+    }
+
+    .champs_titre {
+        padding: 5px 0;
+    }
+
+    #input_type, #prix, #superficie, #input_nb, #debut, #fin, #input_adresse, #input_zipcode, #input_ville, #input_region {
+        width: 100%;
+    }
+
+    .wrapper_description {
+        width: 100%;
+    }
+
+    #champs_description {
+        width: 100%;
+        height: 15rem;
+    }
+
+    .button {
+        width: 100%;
     }
 }
-
-@media (min-width: 601px) and (max-width: 900px) {
-    .debut_fin {
-        width: 48%;
-    }
-
-    #titre_form {
-        font-size: 2.2rem;
-    }
-}
-
-@media (min-width: 901px) {
-    #bodycontainer {
-        margin: 50px auto;
-    }
-
-    .debut_fin {
-        width: 40%;
-    }
-}
-
